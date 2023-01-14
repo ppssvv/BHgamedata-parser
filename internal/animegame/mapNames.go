@@ -14,6 +14,11 @@ var AssetName = map[string]Asset{
 	"816421643": dialogueDataAsset("de"),
 	"816421683": dialogueDataAsset("en"),
 	"816421718": dialogueDataAsset("fr"),
+
+	"1435715286": {"DormitoryEventSequence", "dormEvent"},
+	"606639384":  {"DormitoryFurnitureData", "dormFurn"},
+
+	"612883459": {"StigmataPositionData", "stigmataPos"},
 }
 
 type Asset struct {
