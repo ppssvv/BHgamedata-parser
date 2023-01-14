@@ -1,3 +1,4 @@
 result
 
 *.exe
+internal/animegame/random_test.go

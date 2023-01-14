@@ -14,7 +14,7 @@ func ProcessDialogueDataAll() (xerr error) {
 	return ProcessAllInFolder("DialogueData", animegame.ProcessDialogueData)
 }
 
-func ProcessBatch(entries []string, f func(string) error) (xerr error) {
+func ProcessBatch(entries []string, f func(string) error) {
 	total := len(entries)
 	pterm.Info.Printf("found %d entries\n", total)
 
@@ -34,6 +34,4 @@ func ProcessBatch(entries []string, f func(string) error) (xerr error) {
 	}
 
 	pterm.Info.Printf("Done: %d ok, %d failed\n", total-fail, fail)
-
-	return xerr
 }
