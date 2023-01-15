@@ -16,7 +16,7 @@ var AssetName = map[string]Asset{
 	"816421718": dialogueDataAsset("fr"),
 
 	"1435715286": {"DormitoryEventSequence", ProcessDormEvent},
-	// "606639384":  {"DormitoryFurnitureData", "dormFurn"},
+	"606639383":  {"DormitoryFurnitureData", ProcessDormFurniture},
 
 	// "612883459": {"StigmataPositionData", "stigmataPos"},
 }
