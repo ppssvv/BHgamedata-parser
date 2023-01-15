@@ -1,24 +1,31 @@
 package animegame
 
 import (
+	"dataparse/internal/binreader"
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/kaitai-io/kaitai_struct_go_runtime/kaitai"
 )
 
-func getStream(filename string) (*kaitai.Stream, error) {
-	if !filepath.IsAbs(filename) {
-		filename = filepath.Join("testdata", filename)
-	}
-
-	f, err := os.Open(filename)
+func mustOpenFile(f string) *os.File {
+	fd, err := os.Open(f)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
-	return kaitai.NewStream(f), nil
+	return fd
+}
+
+func readHash(reader *binreader.Unpacker) int32 {
+	hasHash := reader.Byte()
+	if hasHash > 0 {
+		if hasHash > 1 {
+			panic("hi3")
+		}
+		return reader.Int32()
+	}
+
+	return 0
 }
 
 func GetAsset(f string) Asset {

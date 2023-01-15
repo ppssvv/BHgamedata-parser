@@ -1,7 +1,8 @@
 package animegame
 
 import (
-	"dataparse/internal/ksygen"
+	"dataparse/internal/binreader"
+	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -9,10 +10,7 @@ import (
 )
 
 func ProcessDialogueData(f string) error {
-	obj, err := NewDialogueData(f)
-	if err != nil {
-		return err
-	}
+	obj := NewDialogueData(f)
 	result, err := obj.JSON()
 	if err != nil {
 		return fmt.Errorf("can't marshal DialogueData: %w", err)
@@ -30,9 +28,9 @@ func ProcessDialogueData(f string) error {
 	)
 }
 
-type DialogueData []DialogueEntry
+type DialogueData []DialogueDataEntry
 
-type DialogueEntry struct {
+type DialogueDataEntry struct {
 	ID                   int32
 	PreDialogueIDList    []uint32
 	JumpID               int32
@@ -81,102 +79,151 @@ type DialogueContent struct {
 	Duration float32
 }
 
-func (t *DialogueData) fillFrom(source *ksygen.DialogueData) error {
-	entries, err := source.Entries()
-	if err != nil {
-		return fmt.Errorf("can't parse DialogueData: %w", err)
-	}
-
-	for _, entry := range entries {
-		temp := DialogueEntry{}
-
-		temp.ID = entry.Header.EntryId
-		temp.PreDialogueIDList = entry.Data.PostDialogue.Entries
-		temp.JumpID = entry.Header.Unk1
-		temp.LeafIDList = entry.Data.PreDialogue.Entries
-		temp.DialogueType = entry.Header.DialogueType
-		temp.InputID = entry.Header.Unk2
-		temp.CgRawPos = entry.Header.Unk3
-		temp.AvatarName = entry.Data.Avatar.Value
-		temp.AvatarID = entry.Header.AvatarId
-		temp.DressID = entry.Header.DressId
-		temp.AvatarViceKey = entry.Header.AvatarViceKey
-		temp.ScreenSide = entry.Header.ScreenSide
-		temp.FaceID = entry.Header.FaceId
-		temp.Face = entry.Data.Face.Value
-		temp.FaceType = entry.Data.FaceAnimation.Value
-		temp.FaceEffect = entry.Data.FaceEffect.Value
-		temp.AnimationID = entry.Header.AnimationId
-		temp.Distortion = entry.Header.Distortion
-		temp.Transparency = entry.Header.Transparency
-		temp.BGMCover = entry.Data.Unknown6.Value
-		temp.BGMVolumeControlList = convertStrArray(entry.Data.Unknown7)
-		temp.CgID = entry.Data.Unknown8.Value
-		temp.ImageID = entry.Header.Unk5
-		temp.Content = convertContent(entry.Data.Content)
-		temp.Background = entry.Data.Unknown9.Value
-		temp.BackgroundCG = entry.Data.Unknown10.Value
-		temp.BackgroundEffect = entry.Header.BackgroundEffect
-		temp.EnterEffect = entry.Header.EnterEffect
-		temp.AudioID = entry.Data.AudioId.Value
-		temp.AudioDelay = entry.Header.AudioDelay
-		temp.LipMotion = entry.Data.LipMotion.Value
-		temp.FaceVersion = entry.Header.Unk7
-		temp.ScreenEffect = entry.Data.Unknown11.Value
-		temp.Unknown1 = entry.Data.Unknown12.Value
-		temp.Unknown2 = convertStrArray(entry.Data.Unknown13)
-		temp.Unknown3 = convertStrArray(entry.Data.Unknown14)
-		temp.Unknown4 = entry.Header.Unk8
-		temp.Unknown5 = entry.Header.Unk9
-		temp.PostDialogueIDList = entry.Data.Unknown15.Entries
-		temp.TalkerName = entry.Data.Unknown16.Value
-		temp.QuestionContent = entry.Data.Unknown17.Value
-
-		*t = append(*t, temp)
-	}
-
-	return nil
-}
-
-func convertStrArray(source *ksygen.DialogueData_StrArr) []string {
-	result := []string{}
-
-	for _, e := range source.Entries {
-		result = append(result, e.Value)
-	}
-
-	return result
-}
-
-func convertContent(source *ksygen.DialogueData_DialogueContent) []DialogueContent {
-	result := []DialogueContent{}
-
-	for _, e := range source.Dialogues {
-		result = append(result, DialogueContent{Text: e.Value, Duration: e.Duration})
-	}
-
-	return result
-}
-
 func (t *DialogueData) JSON() ([]byte, error) {
 	return json.MarshalIndent(t, "", "  ")
 }
 
-func NewDialogueData(name string) (*DialogueData, error) {
-	stream, err := getStream(name)
-	if err != nil {
-		return nil, fmt.Errorf("can't open file: %w", err)
+func NewDialogueData(name string) DialogueData {
+	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(name))
+
+	reader.Skip(4) // filesize
+	entryCount := reader.Int32()
+	reader.Skip(int64(entryCount) * 4) // list of hashes
+	reader.Skip(int64(entryCount) * 4) // list of addresses
+
+	result := []DialogueDataEntry{}
+
+	for i := 0; i < int(entryCount); i++ {
+		result = append(result, newDialogueDataEntry(reader))
 	}
 
-	var result = new(DialogueData)
-	bin := ksygen.NewDialogueData()
-	if err := bin.Read(stream, nil, bin); err != nil {
-		return nil, fmt.Errorf("can't parse dialogueData: %w", err)
+	return result
+}
+
+func newDialogueDataEntry(reader *binreader.Unpacker) DialogueDataEntry {
+	result := DialogueDataEntry{}
+
+	// - Header
+
+	result.ID = reader.Int32()
+
+	reader.Skip(4) // addrto
+
+	result.JumpID = reader.Int32()
+
+	reader.Skip(4) // addrto
+
+	result.DialogueType = reader.Int8()
+	result.InputID = reader.Int32()
+	result.CgRawPos = reader.Int32()
+
+	reader.Skip(4) // addrto
+
+	result.AvatarID = reader.Int32()
+	result.DressID = reader.Int32()
+	result.AvatarViceKey = reader.Int32()
+
+	result.ScreenSide = reader.Int8()
+	result.FaceID = reader.Int8()
+
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+
+	result.AnimationID = reader.Int8()
+	result.Distortion = reader.Int8()
+	result.Transparency = reader.Float32()
+
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+
+	result.ImageID = reader.Int32()
+
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+
+	result.BackgroundEffect = reader.Int8()
+	result.EnterEffect = reader.Int8()
+
+	reader.Skip(4) // addrto
+
+	result.AudioDelay = reader.Float32()
+
+	reader.Skip(4) // addrto
+
+	result.FaceVersion = reader.Int8()
+
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+
+	result.Unknown4 = reader.Int32()
+	result.Unknown5 = reader.Int32()
+
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+
+	// - Body
+
+	result.PreDialogueIDList = reader.ArrayUint32(uint64(reader.Uint32()))
+	result.LeafIDList = reader.ArrayUint32(uint64(reader.Uint32()))
+	result.AvatarName = reader.StringWithUint16Prefix()
+	result.Face = reader.StringWithUint16Prefix()
+	result.FaceType = reader.StringWithUint16Prefix()
+	result.FaceEffect = reader.StringWithUint16Prefix()
+	result.BGMCover = reader.StringWithUint16Prefix()
+
+	result.BGMVolumeControlList = arrayStr(reader)
+
+	result.CgID = reader.StringWithUint16Prefix()
+
+	// content
+	content := []DialogueContent{}
+	contentCount := reader.Uint32()
+	for i := 0; i < int(contentCount); i++ {
+		content = append(content, newDialogueContent(reader))
+	}
+	result.Content = content
+
+	result.Background = reader.StringWithUint16Prefix()
+	result.BackgroundCG = reader.StringWithUint16Prefix()
+
+	result.AudioID = reader.StringWithUint16Prefix()
+	result.LipMotion = reader.StringWithUint16Prefix()
+
+	result.ScreenEffect = reader.StringWithUint16Prefix()
+	result.Unknown1 = reader.StringWithUint16Prefix()
+
+	result.Unknown2 = arrayStr(reader)
+	result.Unknown3 = arrayStr(reader)
+
+	result.PostDialogueIDList = reader.ArrayUint32(uint64(reader.Uint32()))
+	result.TalkerName = reader.StringWithUint16Prefix()
+	result.QuestionContent = reader.StringWithUint16Prefix()
+
+	return result
+}
+
+func newDialogueContent(reader *binreader.Unpacker) DialogueContent {
+	result := DialogueContent{}
+
+	result.Text = reader.StringWithUint16Prefix()
+	result.Duration = reader.Float32()
+
+	return result
+}
+
+func arrayStr(reader *binreader.Unpacker) []string {
+	result := []string{}
+
+	count := reader.Uint32()
+	for i := uint32(0); i < count; i++ {
+		result = append(result, reader.StringWithUint16Prefix())
 	}
 
-	if err := result.fillFrom(bin); err != nil {
-		return nil, fmt.Errorf("can't parse dialogueData entries: %w", err)
-	}
-
-	return result, nil
+	return result
 }

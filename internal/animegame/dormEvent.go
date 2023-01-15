@@ -1,7 +1,8 @@
 package animegame
 
 import (
-	"dataparse/internal/ksygen"
+	"dataparse/internal/binreader"
+	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -26,10 +27,7 @@ type DormEventEntry struct {
 }
 
 func ProcessDormEvent(f string) error {
-	obj, err := NewDormEvent(f)
-	if err != nil {
-		return err
-	}
+	obj := NewDormEvent(f)
 	result, err := obj.JSON()
 	if err != nil {
 		return fmt.Errorf("can't marshal DormEvent: %w", err)
@@ -47,53 +45,58 @@ func ProcessDormEvent(f string) error {
 	)
 }
 
-func (t *DormEvent) fillFrom(source *ksygen.DormEvent) error {
-	entries, err := source.Entries()
-	if err != nil {
-		return err
-	}
-
-	for _, entry := range entries {
-		temp := DormEventEntry{
-			Hash:             entry.Header.Hash,
-			Type:             entry.Data.EventType.Value,
-			Avatar:           entry.Header.Unk1,
-			Wait:             entry.Header.Unk2,
-			WaitRandomAdd:    entry.Header.Unk3,
-			Emotion:          entry.Data.Emotion.Value,
-			TalkTxt:          entry.Data.Unk1.Value,
-			TalkToAvatar:     entry.Header.Unk4,
-			Unknown:          entry.Header.Unk5,
-			FaceAnimType:     entry.Data.Unk2.Value,
-			TriggerAction:    entry.Data.Unk3.Value,
-			TriggerSubAction: entry.Data.Unk4.Value,
-		}
-
-		*t = append(*t, temp)
-	}
-
-	return nil
-}
-
 func (t *DormEvent) JSON() ([]byte, error) {
 	return json.MarshalIndent(t, "", "  ")
 }
 
-func NewDormEvent(name string) (*DormEvent, error) {
-	stream, err := getStream(name)
-	if err != nil {
-		return nil, fmt.Errorf("can't open file: %w", err)
+func NewDormEvent(name string) DormEvent {
+	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(name))
+
+	reader.Skip(4) // filesize
+	entryCount := reader.Int32()
+	reader.Skip(int64(entryCount) * 4) // list of hashes
+	reader.Skip(int64(entryCount) * 4) // list of addresses
+
+	result := []DormEventEntry{}
+
+	for i := 0; i < int(entryCount); i++ {
+		result = append(result, newDormEventEntry(reader))
 	}
 
-	var result = new(DormEvent)
-	bin := ksygen.NewDormEvent()
-	if err := bin.Read(stream, nil, bin); err != nil {
-		return nil, fmt.Errorf("can't parse textMap: %w", err)
-	}
+	return result
+}
 
-	if err := result.fillFrom(bin); err != nil {
-		return nil, fmt.Errorf("can't parse textMap entries: %w", err)
-	}
+func newDormEventEntry(reader *binreader.Unpacker) DormEventEntry {
+	result := DormEventEntry{}
 
-	return result, nil
+	// - Header
+
+	result.Hash = reader.Int32()
+
+	reader.Skip(4) // addrto
+
+	result.Avatar = reader.Int8()
+	result.Wait = reader.Float32()
+	result.WaitRandomAdd = reader.Float32()
+
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+
+	result.TalkToAvatar = reader.Int8()
+	result.Unknown = reader.Int8()
+
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+
+	// - Body
+
+	result.Type = reader.StringWithUint16Prefix()
+	result.Emotion = reader.StringWithUint16Prefix()
+	result.TalkTxt = reader.StringWithUint16Prefix()
+	result.FaceAnimType = reader.StringWithUint16Prefix()
+	result.TriggerAction = reader.StringWithUint16Prefix()
+	result.TriggerSubAction = reader.StringWithUint16Prefix()
+
+	return result
 }

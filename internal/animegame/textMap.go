@@ -1,7 +1,8 @@
 package animegame
 
 import (
-	"dataparse/internal/ksygen"
+	"dataparse/internal/binreader"
+	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -11,15 +12,12 @@ import (
 type TextMap []TextMapEntry
 
 type TextMapEntry struct {
-	Hash uint32
+	Hash int32
 	Text string
 }
 
 func ProcessTextMap(f string) error {
-	obj, err := NewTextMap(f)
-	if err != nil {
-		return err
-	}
+	obj := NewTextMap(f)
 	result, err := obj.JSON()
 	if err != nil {
 		return fmt.Errorf("can't marshal TextMap: %w", err)
@@ -37,43 +35,35 @@ func ProcessTextMap(f string) error {
 	)
 }
 
-func (t *TextMap) fillFrom(source *ksygen.TextMap) error {
-	texts, err := source.Textlist()
-	if err != nil {
-		return err
-	}
-
-	for _, entry := range texts {
-		// temp["key"] = strconv.FormatBool(entry.Key == 1)
-		temp := TextMapEntry{}
-		temp.Hash = entry.Hash
-		temp.Text = entry.Text
-
-		*t = append(*t, temp)
-	}
-
-	return nil
-}
-
 func (t *TextMap) JSON() ([]byte, error) {
 	return json.MarshalIndent(t, "", "  ")
 }
 
-func NewTextMap(name string) (*TextMap, error) {
-	stream, err := getStream(name)
-	if err != nil {
-		return nil, fmt.Errorf("can't open file: %w", err)
+func NewTextMap(name string) TextMap {
+	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(name))
+
+	reader.Skip(4) // filesize
+	entryCount := reader.Int32()
+	reader.Skip(int64(entryCount) * 5) // list of hashes
+	reader.Skip(int64(entryCount) * 4) // list of addresses
+
+	result := []TextMapEntry{}
+
+	for i := 0; i < int(entryCount); i++ {
+		result = append(result, newTextMapEntry(reader))
 	}
 
-	var result = new(TextMap)
-	bin := ksygen.NewTextMap()
-	if err := bin.Read(stream, nil, bin); err != nil {
-		return nil, fmt.Errorf("can't parse textMap: %w", err)
-	}
+	return result
+}
 
-	if err := result.fillFrom(bin); err != nil {
-		return nil, fmt.Errorf("can't parse textMap entries: %w", err)
-	}
+func newTextMapEntry(reader *binreader.Unpacker) TextMapEntry {
+	result := TextMapEntry{}
 
-	return result, nil
+	reader.Skip(4) // addrto
+	reader.Skip(4) // addrto
+
+	result.Hash = readHash(reader)
+	result.Text = reader.StringWithUint16Prefix()
+
+	return result
 }
