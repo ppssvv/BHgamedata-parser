@@ -11,7 +11,7 @@ When parsing one file - you can use absolute path or relative to `/templates` fo
 If you want to parse several files together - put them in respective folder inside `/template`. For example, `/templates/DialogueData/...`
 
 ## Building manually
-> You need to have installed GO [go.dev](https://go.dev) version 1.19 or higher
+> You need to have installed GO (get from [go.dev](https://go.dev)) version 1.19 or higher
 
 Clone repo:
 ```sh
@@ -26,10 +26,3 @@ While inside folder, run
 go build ./cmd/app
 ```
 Lauch created `app.exe`
-
-## Updating kaitai structures
-> If you change any .ksy file - you'll have to run 
-```sh
-go run ./cmd/genKaitai/
-``` 
-to re-generate code and then re-build application, following steps from [Building manually](#Building_Manually)

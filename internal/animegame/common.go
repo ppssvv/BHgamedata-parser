@@ -44,9 +44,3 @@ func GetAsset(f string) Asset {
 		},
 	}
 }
-
-func resultDir(name string) (string, error) {
-	s := filepath.Join("result", name)
-
-	return s, os.MkdirAll(s, os.ModePerm)
-}
