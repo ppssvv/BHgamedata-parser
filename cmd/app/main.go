@@ -3,77 +3,85 @@ package main
 import (
 	"dataparse/internal/animegame"
 	"dataparse/internal/decode"
-	"fmt"
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/pterm/pterm"
 )
 
 func main() {
-	showUI()
+	for {
+		showUI()
+	}
 }
 
-var mainMenuOptions = map[string]func(){
-	"Parse TextMap":      uiTextMap,
-	"Parse DialogueData": uiDialogueData,
-	"Parse DormData":     uiDorm,
-	"enter file manually and try to guess type": uiManualMode,
-	"Decode file": uiDecode,
+var mainMenuOptions = []string{
+	"Parse TextMap",
+	"Parse DialogueData",
+	"Parse DormData",
+	"Enter file manually and try to parse it",
+	"Decode file",
+	"Exit",
 }
 
 func showUI() {
-	keys := make([]string, 0, len(mainMenuOptions))
-	for k := range mainMenuOptions {
-		keys = append(keys, k)
+	options := map[string]func(){
+		mainMenuOptions[0]: uiTextMap,
+		mainMenuOptions[1]: uiDialogueData,
+		mainMenuOptions[2]: uiDorm,
+		mainMenuOptions[3]: uiManualMode,
+		mainMenuOptions[4]: uiDecode,
+		mainMenuOptions[5]: func() { os.Exit(0) },
 	}
 
-	choice, err := pterm.DefaultInteractiveSelect.WithOptions(keys).Show("Make a choice")
+	choice, err := pterm.DefaultInteractiveSelect.WithOptions(mainMenuOptions).Show("Make a choice")
 	uiChechError(err)
 
-	mainMenuOptions[choice]()
+	options[choice]()
 
-	pterm.DefaultInteractiveConfirm.Show("press any key to close the window..")
+	pterm.Println()
 }
 
 func uiTextMap() {
-	options := map[string]string{
-		"2578607515 - cn": "2578607515",
-		"2578607537 - de": "2578607537",
-		"2578607577 - en": "2578607577",
-		"2578607612 - fr": "2578607612",
+	options := []string{
+		"2578607515 - cn",
+		"2578607537 - de",
+		"2578607577 - en",
+		"2578607612 - fr",
 	}
 
-	uiProcessMulti(options, animegame.ProcessTextMap)
+	uiProcessMulti(options)
 }
 
 func uiDialogueData() {
-	options := map[string]string{
-		"816421621 - cn": "816421621",
-		"816421643 - de": "816421643",
-		"816421683 - en": "816421683",
-		"816421718 - fr": "816421718",
+	options := []string{
+		"816421621 - cn",
+		"816421643 - de",
+		"816421683 - en",
+		"816421718 - fr",
 	}
 
-	uiProcessMulti(options, animegame.ProcessDialogueData)
+	uiProcessMulti(options)
 }
 
 func uiDorm() {
-	options := map[string]string{
-		"1435715286 - DormEventSequence": "1435715286",
+	options := []string{
+		"1435715286 - DormitoryEventSequence",
+		"606639383 - DormitoryFurnitureData",
 	}
 
-	uiProcessMulti(options, animegame.ProcessDormEvent)
+	uiProcessMulti(options)
 }
 
-func uiProcessMulti(options map[string]string, f func(string) error) {
-	files, err := pterm.DefaultInteractiveMultiselect.WithOptions(mapKeys(options)).
+func uiProcessMulti(options []string) {
+	files, err := pterm.DefaultInteractiveMultiselect.WithOptions(options).
 		Show("choose what files to parse")
 	uiChechError(err)
 
-	for i, f := range files {
-		files[i] = options[f]
+	for i := 0; i < len(files); i++ {
+		files[i], _, _ = strings.Cut(files[i], " - ")
 	}
 
 	files, err = getFullName("testdata", files)
@@ -81,7 +89,7 @@ func uiProcessMulti(options map[string]string, f func(string) error) {
 		pterm.Error.Printfln("can't find files in testdata folder: %s", err)
 	}
 
-	ProcessBatch(files, f)
+	ProcessBatch(files)
 
 	pterm.Success.Println("Everything done!")
 }
@@ -90,16 +98,7 @@ func uiManualMode() {
 	file, err := pterm.DefaultInteractiveTextInput.Show(`enter path to the file`)
 	uiChechError(err)
 
-	switch animegame.GetAsset(file).Parser {
-	case "dialogueData":
-		err = animegame.ProcessDialogueData(file)
-	case "textMap":
-		err = animegame.ProcessTextMap(file)
-	case "dormEvent":
-		err = animegame.ProcessDormEvent(file)
-	default:
-		err = fmt.Errorf("this type is not implemented yet")
-	}
+	err = ProcessFile(file, animegame.GetAsset(file).Parser)
 
 	if err != nil {
 		pterm.Error.Printfln("error parsing %s: %s", file, err)

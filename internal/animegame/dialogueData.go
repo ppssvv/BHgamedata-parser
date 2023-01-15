@@ -4,31 +4,14 @@ import (
 	"dataparse/internal/binreader"
 	"encoding/binary"
 	"encoding/json"
-	"fmt"
-	"os"
-	"path/filepath"
 )
 
-func ProcessDialogueData(f string) error {
-	obj := NewDialogueData(f)
-	result, err := obj.JSON()
-	if err != nil {
-		return fmt.Errorf("can't marshal DialogueData: %w", err)
-	}
-
-	s, err := resultDir("dialogueData")
-	if err != nil {
-		return fmt.Errorf("can't create output dir [%s]: %w", s, err)
-	}
-
-	return os.WriteFile(
-		filepath.Join(s, fmt.Sprintf("%s.json", GetAsset(f).Name)),
-		result,
-		os.ModePerm,
-	)
-}
-
 type DialogueData []DialogueDataEntry
+
+// ProcessDialogueData provides a unified interface for batch processing
+func ProcessDialogueData(f string) ([]byte, error) {
+	return json.MarshalIndent(NewDialogueData(f), "", "  ")
+}
 
 type DialogueDataEntry struct {
 	ID                   int32
@@ -79,12 +62,8 @@ type DialogueContent struct {
 	Duration float32
 }
 
-func (t *DialogueData) JSON() ([]byte, error) {
-	return json.MarshalIndent(t, "", "  ")
-}
-
-func NewDialogueData(name string) DialogueData {
-	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(name))
+func NewDialogueData(f string) DialogueData {
+	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(f))
 
 	reader.Skip(4) // filesize
 	entryCount := reader.Int32()

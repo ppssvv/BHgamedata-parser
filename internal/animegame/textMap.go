@@ -4,43 +4,22 @@ import (
 	"dataparse/internal/binreader"
 	"encoding/binary"
 	"encoding/json"
-	"fmt"
-	"os"
-	"path/filepath"
 )
 
 type TextMap []TextMapEntry
+
+// ProcessTextMap provides a unified interface for batch processing
+func ProcessTextMap(f string) ([]byte, error) {
+	return json.MarshalIndent(NewTextMap(f), "", "  ")
+}
 
 type TextMapEntry struct {
 	Hash int32
 	Text string
 }
 
-func ProcessTextMap(f string) error {
-	obj := NewTextMap(f)
-	result, err := obj.JSON()
-	if err != nil {
-		return fmt.Errorf("can't marshal TextMap: %w", err)
-	}
-
-	s, err := resultDir("textMap")
-	if err != nil {
-		return fmt.Errorf("can't create output dir [%s]: %w", s, err)
-	}
-
-	return os.WriteFile(
-		filepath.Join(s, fmt.Sprintf("%s.json", GetAsset(f).Name)),
-		result,
-		os.ModePerm,
-	)
-}
-
-func (t *TextMap) JSON() ([]byte, error) {
-	return json.MarshalIndent(t, "", "  ")
-}
-
-func NewTextMap(name string) TextMap {
-	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(name))
+func NewTextMap(f string) TextMap {
+	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(f))
 
 	reader.Skip(4) // filesize
 	entryCount := reader.Int32()

@@ -2,19 +2,14 @@ package main
 
 import (
 	"dataparse/internal/animegame"
+	"fmt"
+	"os"
+	"path/filepath"
 
 	"github.com/pterm/pterm"
 )
 
-func ProcessTextMapAll() (xerr error) {
-	return ProcessAllInFolder("TextMap", animegame.ProcessTextMap)
-}
-
-func ProcessDialogueDataAll() (xerr error) {
-	return ProcessAllInFolder("DialogueData", animegame.ProcessDialogueData)
-}
-
-func ProcessBatch(entries []string, f func(string) error) {
+func ProcessBatch(entries []string) {
 	total := len(entries)
 	pterm.Info.Printf("found %d entries\n", total)
 
@@ -24,7 +19,8 @@ func ProcessBatch(entries []string, f func(string) error) {
 
 	for _, e := range entries {
 		pbar.UpdateTitle(e)
-		if err := f(e); err != nil {
+
+		if err = ProcessFile(e, animegame.GetAsset(e).Parser); err != nil {
 			pterm.Error.Printfln("\t%s - %s", e, err)
 			fail++
 		}
@@ -34,4 +30,19 @@ func ProcessBatch(entries []string, f func(string) error) {
 	}
 
 	pterm.Info.Printf("Done: %d ok, %d failed\n", total-fail, fail)
+}
+
+func ProcessFile(in string, f func(string) ([]byte, error)) error {
+	if !filepath.IsAbs(in) {
+		in = filepath.Join("testdata", in)
+	}
+
+	result, err := f(in)
+	if err != nil {
+		return err
+	}
+
+	out := filepath.Join("result", fmt.Sprintf("%s.json", animegame.GetAsset(in).Name))
+
+	return os.WriteFile(out, result, os.ModePerm)
 }

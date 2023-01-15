@@ -4,12 +4,14 @@ import (
 	"dataparse/internal/binreader"
 	"encoding/binary"
 	"encoding/json"
-	"fmt"
-	"os"
-	"path/filepath"
 )
 
 type DormEvent []DormEventEntry
+
+// ProcessDormEvent provides a unified interface for batch processing
+func ProcessDormEvent(f string) ([]byte, error) {
+	return json.MarshalIndent(NewDormEvent(f), "", "  ")
+}
 
 type DormEventEntry struct {
 	Hash             int32
@@ -26,31 +28,8 @@ type DormEventEntry struct {
 	TriggerSubAction string
 }
 
-func ProcessDormEvent(f string) error {
-	obj := NewDormEvent(f)
-	result, err := obj.JSON()
-	if err != nil {
-		return fmt.Errorf("can't marshal DormEvent: %w", err)
-	}
-
-	s, err := resultDir("dormEvent")
-	if err != nil {
-		return fmt.Errorf("can't create output dir [%s]: %w", s, err)
-	}
-
-	return os.WriteFile(
-		filepath.Join(s, fmt.Sprintf("%s.json", GetAsset(f).Name)),
-		result,
-		os.ModePerm,
-	)
-}
-
-func (t *DormEvent) JSON() ([]byte, error) {
-	return json.MarshalIndent(t, "", "  ")
-}
-
-func NewDormEvent(name string) DormEvent {
-	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(name))
+func NewDormEvent(f string) DormEvent {
+	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(f))
 
 	reader.Skip(4) // filesize
 	entryCount := reader.Int32()

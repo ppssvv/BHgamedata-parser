@@ -2,6 +2,7 @@ package animegame
 
 import (
 	"dataparse/internal/binreader"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -37,8 +38,10 @@ func GetAsset(f string) Asset {
 	}
 
 	return Asset{
-		Name:   f,
-		Parser: "",
+		Name: f,
+		Parser: func(f string) ([]byte, error) {
+			return nil, fmt.Errorf("not implemeted")
+		},
 	}
 }
 

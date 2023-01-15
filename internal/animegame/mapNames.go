@@ -15,27 +15,27 @@ var AssetName = map[string]Asset{
 	"816421683": dialogueDataAsset("en"),
 	"816421718": dialogueDataAsset("fr"),
 
-	"1435715286": {"DormitoryEventSequence", "dormEvent"},
-	"606639384":  {"DormitoryFurnitureData", "dormFurn"},
+	"1435715286": {"DormitoryEventSequence", ProcessDormEvent},
+	// "606639384":  {"DormitoryFurnitureData", "dormFurn"},
 
-	"612883459": {"StigmataPositionData", "stigmataPos"},
+	// "612883459": {"StigmataPositionData", "stigmataPos"},
 }
 
 type Asset struct {
 	Name   string
-	Parser string
+	Parser func(f string) ([]byte, error)
 }
 
 func dialogueDataAsset(lang string) Asset {
 	return Asset{
 		Name:   fmt.Sprintf("dialogueData_%s", lang),
-		Parser: "dialogueData",
+		Parser: ProcessDialogueData,
 	}
 }
 
 func textMapAsset(lang string) Asset {
 	return Asset{
 		Name:   fmt.Sprintf("textMap_%s", lang),
-		Parser: "textMap",
+		Parser: ProcessTextMap,
 	}
 }

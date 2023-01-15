@@ -3,34 +3,10 @@ package main
 import (
 	"fmt"
 	"os"
-	"path/filepath"
 	"strings"
+
+	"golang.org/x/exp/slices"
 )
-
-// pathPrefix optional subfolder
-func convertDirEntries(pathPrefix string, source []os.DirEntry) []string {
-	result := []string{}
-
-	for _, e := range source {
-		if e.IsDir() {
-			continue
-		}
-
-		result = append(result, filepath.Join(pathPrefix, e.Name()))
-	}
-
-	return result
-}
-
-func ProcessAllInFolder(name string, f func(string) error) error {
-	entries, err := os.ReadDir(filepath.Join("testdata", name))
-	if err != nil {
-		return fmt.Errorf("can't read dir testdata/%s: %w", name, err)
-	}
-
-	ProcessBatch(convertDirEntries(name, entries), f)
-	return nil
-}
 
 func getFullName(folder string, filenames []string) ([]string, error) {
 	results := []string{}
@@ -40,8 +16,6 @@ func getFullName(folder string, filenames []string) ([]string, error) {
 		return nil, fmt.Errorf("can't read dir testdata: %w", err)
 	}
 
-	filenamesMap := convertToMap(filenames)
-
 	for _, e := range entries {
 		if e.IsDir() {
 			continue
@@ -49,29 +23,11 @@ func getFullName(folder string, filenames []string) ([]string, error) {
 
 		shortname, _, _ := strings.Cut(e.Name(), "_")
 
-		_, ok := filenamesMap[shortname]
+		ok := slices.Contains(filenames, shortname)
 		if ok {
 			results = append(results, e.Name())
 		}
 	}
 
 	return results, nil
-}
-
-func convertToMap(obj []string) map[string]struct{} {
-	result := map[string]struct{}{}
-
-	for _, o := range obj {
-		result[o] = struct{}{}
-	}
-
-	return result
-}
-
-func mapKeys(s map[string]string) []string {
-	keys := make([]string, 0, len(s))
-	for k := range s {
-		keys = append(keys, k)
-	}
-	return keys
 }
