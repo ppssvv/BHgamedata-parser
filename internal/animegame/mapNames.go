@@ -18,7 +18,9 @@ var AssetName = map[string]Asset{
 	"1435715286": {"DormitoryEventSequence", ProcessDormEvent},
 	"606639383":  {"DormitoryFurnitureData", ProcessDormFurniture},
 
-	// "612883459": {"StigmataPositionData", "stigmataPos"},
+	"612883459": {"StigmataPositionData", ProcessStigPosData},
+
+	"11165326": {"OWActivityBossData", ProcessOWActivityBossData},
 }
 
 type Asset struct {
