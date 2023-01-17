@@ -33,10 +33,10 @@ type DormFurnitureEntry struct {
 	UnlockItemNum           int32
 	Unk7                    int8
 	FurnitureModPath        string
-	FurnitureNameText       int32
+	FurnitureNameText       Hash
 	FurnitureIconPath       string
-	FurnitureDescText       int32
-	FurnitureSourceDescText int32
+	FurnitureDescText       Hash
+	FurnitureSourceDescText Hash
 	Unk8                    int8
 	DeleteMaterialList      []material
 	VerandaPath             string

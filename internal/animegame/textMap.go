@@ -14,7 +14,7 @@ func ProcessTextMap(f string) ([]byte, error) {
 }
 
 type TextMapEntry struct {
-	Hash int32
+	Hash Hash
 	Text string
 }
 

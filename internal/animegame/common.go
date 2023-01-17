@@ -17,16 +17,16 @@ func mustOpenFile(f string) *os.File {
 	return fd
 }
 
-func readHash(reader *binreader.Unpacker) int32 {
+func readHash(reader *binreader.Unpacker) Hash {
 	hasHash := reader.Byte()
 	if hasHash > 0 {
 		if hasHash > 1 {
 			panic("hi3")
 		}
-		return reader.Int32()
+		return Hash{reader.Int32()}
 	}
 
-	return 0
+	return Hash{0}
 }
 
 func GetAsset(f string) Asset {
@@ -53,4 +53,8 @@ func arrayStr(reader *binreader.Unpacker, count uint32) []string {
 	}
 
 	return result
+}
+
+type Hash struct {
+	Hash int32
 }
