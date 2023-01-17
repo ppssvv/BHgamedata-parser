@@ -44,3 +44,13 @@ func GetAsset(f string) Asset {
 		},
 	}
 }
+
+func arrayStr(reader *binreader.Unpacker, count uint32) []string {
+	result := []string{}
+
+	for i := uint32(0); i < count; i++ {
+		result = append(result, reader.StringWithUint16Prefix())
+	}
+
+	return result
+}

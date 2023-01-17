@@ -156,7 +156,7 @@ func newDialogueDataEntry(reader *binreader.Unpacker) DialogueDataEntry {
 	result.FaceEffect = reader.StringWithUint16Prefix()
 	result.BGMCover = reader.StringWithUint16Prefix()
 
-	result.BGMVolumeControlList = arrayStr(reader)
+	result.BGMVolumeControlList = arrayStr(reader, reader.Uint32())
 
 	result.CgID = reader.StringWithUint16Prefix()
 
@@ -177,8 +177,8 @@ func newDialogueDataEntry(reader *binreader.Unpacker) DialogueDataEntry {
 	result.ScreenEffect = reader.StringWithUint16Prefix()
 	result.Unknown1 = reader.StringWithUint16Prefix()
 
-	result.Unknown2 = arrayStr(reader)
-	result.Unknown3 = arrayStr(reader)
+	result.Unknown2 = arrayStr(reader, reader.Uint32())
+	result.Unknown3 = arrayStr(reader, reader.Uint32())
 
 	result.PostDialogueIDList = reader.ArrayUint32(uint64(reader.Uint32()))
 	result.TalkerName = reader.StringWithUint16Prefix()
@@ -192,17 +192,6 @@ func newDialogueContent(reader *binreader.Unpacker) DialogueContent {
 
 	result.Text = reader.StringWithUint16Prefix()
 	result.Duration = reader.Float32()
-
-	return result
-}
-
-func arrayStr(reader *binreader.Unpacker) []string {
-	result := []string{}
-
-	count := reader.Uint32()
-	for i := uint32(0); i < count; i++ {
-		result = append(result, reader.StringWithUint16Prefix())
-	}
 
 	return result
 }
