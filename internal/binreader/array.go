@@ -1,6 +1,8 @@
 package binreader
 
-import "encoding/binary"
+import (
+	"encoding/binary"
+)
 
 // BytesWithUint16Prefix read 2 bytes as bytes length, then read N bytes
 func (u *Unpacker) BytesWithUint16Prefix() []byte {
@@ -92,6 +94,16 @@ func (u *Unpacker) ArrayInt64(len uint64) []int64 {
 
 	if err := binary.Read(u.reader, u.endian, &result); err != nil {
 		panic(err)
+	}
+
+	return result
+}
+
+func (u *Unpacker) ArrayStr(count uint32) []string {
+	result := []string{}
+
+	for i := uint32(0); i < count; i++ {
+		result = append(result, u.StringWithUint16Prefix())
 	}
 
 	return result

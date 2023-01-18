@@ -1,17 +1,11 @@
-package animegame
+package animetype
 
 import (
 	"dataparse/internal/binreader"
 	"encoding/binary"
-	"encoding/json"
 )
 
 type TextMap []TextMapEntry
-
-// ProcessTextMap provides a unified interface for batch processing
-func ProcessTextMap(f string) ([]byte, error) {
-	return json.MarshalIndent(NewTextMap(f), "", "  ")
-}
 
 type TextMapEntry struct {
 	Hash Hash

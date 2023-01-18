@@ -1,17 +1,11 @@
-package animegame
+package animetype
 
 import (
 	"dataparse/internal/binreader"
 	"encoding/binary"
-	"encoding/json"
 )
 
 type DialogueData []DialogueDataEntry
-
-// ProcessDialogueData provides a unified interface for batch processing
-func ProcessDialogueData(f string) ([]byte, error) {
-	return json.MarshalIndent(NewDialogueData(f), "", "  ")
-}
 
 type DialogueDataEntry struct {
 	ID                   int32
@@ -156,7 +150,7 @@ func newDialogueDataEntry(reader *binreader.Unpacker) DialogueDataEntry {
 	result.FaceEffect = reader.StringWithUint16Prefix()
 	result.BGMCover = reader.StringWithUint16Prefix()
 
-	result.BGMVolumeControlList = arrayStr(reader, reader.Uint32())
+	result.BGMVolumeControlList = reader.ArrayStr(reader.Uint32())
 
 	result.CgID = reader.StringWithUint16Prefix()
 
@@ -177,8 +171,8 @@ func newDialogueDataEntry(reader *binreader.Unpacker) DialogueDataEntry {
 	result.ScreenEffect = reader.StringWithUint16Prefix()
 	result.Unknown1 = reader.StringWithUint16Prefix()
 
-	result.Unknown2 = arrayStr(reader, reader.Uint32())
-	result.Unknown3 = arrayStr(reader, reader.Uint32())
+	result.Unknown2 = reader.ArrayStr(reader.Uint32())
+	result.Unknown3 = reader.ArrayStr(reader.Uint32())
 
 	result.PostDialogueIDList = reader.ArrayUint32(uint64(reader.Uint32()))
 	result.TalkerName = reader.StringWithUint16Prefix()

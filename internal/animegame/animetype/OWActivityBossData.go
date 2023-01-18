@@ -1,17 +1,11 @@
-package animegame
+package animetype
 
 import (
 	"dataparse/internal/binreader"
 	"encoding/binary"
-	"encoding/json"
 )
 
 type OWActivityBossData []OWActivityBossDataEntry
-
-// ProcessDialogueData provides a unified interface for batch processing
-func ProcessOWActivityBossData(f string) ([]byte, error) {
-	return json.MarshalIndent(NewOWActivityBossData(f), "", "  ")
-}
 
 type OWActivityBossDataEntry struct {
 	BossId int32

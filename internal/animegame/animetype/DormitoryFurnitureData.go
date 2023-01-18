@@ -1,17 +1,11 @@
-package animegame
+package animetype
 
 import (
 	"dataparse/internal/binreader"
 	"encoding/binary"
-	"encoding/json"
 )
 
 type DormFurniture []DormFurnitureEntry
-
-// ProcessDormFurniture provides a unified interface for batch processing
-func ProcessDormFurniture(f string) ([]byte, error) {
-	return json.MarshalIndent(NewDormFurniture(f), "", "  ")
-}
 
 type DormFurnitureEntry struct {
 	Hash                    int32

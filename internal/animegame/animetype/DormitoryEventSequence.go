@@ -1,17 +1,11 @@
-package animegame
+package animetype
 
 import (
 	"dataparse/internal/binreader"
 	"encoding/binary"
-	"encoding/json"
 )
 
 type DormEvent []DormEventEntry
-
-// ProcessDormEvent provides a unified interface for batch processing
-func ProcessDormEvent(f string) ([]byte, error) {
-	return json.MarshalIndent(NewDormEvent(f), "", "  ")
-}
 
 type DormEventEntry struct {
 	Hash             int32
