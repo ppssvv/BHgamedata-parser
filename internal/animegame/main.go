@@ -34,3 +34,8 @@ func ProcessDormEvent(f string) ([]byte, error) {
 func ProcessDialogueData(f string) ([]byte, error) {
 	return json.MarshalIndent(animetype.NewDialogueData(f), "", "  ")
 }
+
+// ProcessDormEvent provides a unified interface for batch processing
+func ProcessWorldMap(f string) ([]byte, error) {
+	return json.MarshalIndent(animetype.NewWorldMap(f), "", "  ")
+}
