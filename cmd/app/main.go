@@ -3,7 +3,6 @@ package main
 import (
 	"dataparse"
 	"dataparse/internal/decode"
-	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -18,28 +17,45 @@ func main() {
 }
 
 var mainMenuOptions = []string{
-	"Parse TextMap",
-	"Parse DialogueData",
-	"Parse DormData",
-	"Enter file manually and try to parse it",
+	"Parse already decoded file",
 	"Decode file",
 	"Exit",
 }
 
 func showUI() {
 	options := map[string]func(){
-		mainMenuOptions[0]: uiTextMap,
-		mainMenuOptions[1]: uiDialogueData,
-		mainMenuOptions[2]: uiDorm,
-		mainMenuOptions[3]: uiManualMode,
-		mainMenuOptions[4]: uiDecode,
-		mainMenuOptions[5]: func() { os.Exit(0) },
+		mainMenuOptions[0]: uiParse,
+		mainMenuOptions[1]: uiDecode,
+		mainMenuOptions[2]: func() { os.Exit(0) },
 	}
 
 	choice, err := pterm.DefaultInteractiveSelect.WithOptions(mainMenuOptions).Show("Make a choice")
 	uiChechError(err)
 
 	options[choice]()
+
+	pterm.Println()
+}
+
+func uiParse() {
+	options := []string{
+		"Everything in 'testdata' folder",
+		"Enter file manually",
+		"TextMaps",
+		"DialogueData",
+	}
+
+	choice, err := pterm.DefaultInteractiveSelect.WithOptions(options).Show("Choose what to parse")
+	uiChechError(err)
+
+	routes := map[string]func(){
+		options[0]: func() { ProcessAllInFolder("testdata") },
+		options[1]: uiManualMode,
+		options[2]: uiTextMap,
+		options[3]: uiDialogueData,
+	}
+
+	routes[choice]()
 
 	pterm.Println()
 }
@@ -66,15 +82,6 @@ func uiDialogueData() {
 	uiProcessMulti(options)
 }
 
-func uiDorm() {
-	options := []string{
-		"1435715286 - DormitoryEventSequence",
-		"606639383 - DormitoryFurnitureData",
-	}
-
-	uiProcessMulti(options)
-}
-
 func uiProcessMulti(options []string) {
 	files, err := pterm.DefaultInteractiveMultiselect.WithOptions(options).
 		Show("choose what files to parse")
@@ -87,6 +94,7 @@ func uiProcessMulti(options []string) {
 	files, err = getFullName("testdata", files)
 	if err != nil {
 		pterm.Error.Printfln("can't find files in testdata folder: %s", err)
+		return
 	}
 
 	ProcessBatch(files)
@@ -107,12 +115,6 @@ func uiManualMode() {
 	}
 }
 
-func uiChechError(err error) {
-	if err != nil {
-		log.Fatal("could not initialize UI: %w", err)
-	}
-}
-
 func uiDecode() {
 	file, err := pterm.DefaultInteractiveTextInput.Show("enter path to the file - " +
 		"relative to 'testdata' folder or absolute path")
@@ -120,6 +122,7 @@ func uiDecode() {
 
 	if file == "" {
 		pterm.Error.Printfln("can't find file: %s", file)
+		return
 	}
 
 	if !filepath.IsAbs(file) {

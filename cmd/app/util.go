@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"strings"
 
@@ -30,4 +31,22 @@ func getFullName(folder string, filenames []string) ([]string, error) {
 	}
 
 	return results, nil
+}
+
+func converDirEntries(src []os.DirEntry) []string {
+	result := []string{}
+
+	for _, e := range src {
+		if e.IsDir() {
+			continue
+		}
+		result = append(result, e.Name())
+	}
+	return result
+}
+
+func uiChechError(err error) {
+	if err != nil {
+		log.Fatal("could not initialize UI: %w", err)
+	}
 }

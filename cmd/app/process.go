@@ -9,6 +9,16 @@ import (
 	"github.com/pterm/pterm"
 )
 
+func ProcessAllInFolder(folder string) {
+	entries, err := os.ReadDir(folder)
+	if err != nil {
+		pterm.Error.Printfln("can't read %s folder - %s", folder, err)
+		return
+	}
+
+	ProcessBatch(converDirEntries(entries))
+}
+
 func ProcessBatch(entries []string) {
 	total := len(entries)
 	pterm.Info.Printf("found %d entries\n", total)
@@ -23,9 +33,10 @@ func ProcessBatch(entries []string) {
 		if err = ProcessFile(e, dataparse.GetAsset(e).Parser); err != nil {
 			pterm.Error.Printfln("\t%s - %s", e, err)
 			fail++
+		} else {
+			pterm.Success.Println(e)
 		}
 
-		pterm.Success.Println(e)
 		pbar.Increment()
 	}
 
