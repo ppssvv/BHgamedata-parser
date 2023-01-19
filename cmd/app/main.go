@@ -1,7 +1,7 @@
 package main
 
 import (
-	"dataparse/internal/animegame"
+	"dataparse"
 	"dataparse/internal/decode"
 	"log"
 	"os"
@@ -98,7 +98,7 @@ func uiManualMode() {
 	file, err := pterm.DefaultInteractiveTextInput.Show(`enter path to the file`)
 	uiChechError(err)
 
-	err = ProcessFile(file, animegame.GetAsset(file).Parser)
+	err = ProcessFile(file, dataparse.GetAsset(file).Parser)
 
 	if err != nil {
 		pterm.Error.Printfln("error parsing %s: %s", file, err)

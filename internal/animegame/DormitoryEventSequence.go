@@ -1,4 +1,4 @@
-package animetype
+package animegame
 
 import (
 	"dataparse/internal/binreader"

@@ -1,7 +1,9 @@
-package animegame
+package dataparse
 
 import (
 	"fmt"
+	"path/filepath"
+	"strings"
 )
 
 var AssetName = map[string]Asset{
@@ -23,11 +25,29 @@ var AssetName = map[string]Asset{
 	"11165326": {"OWActivityBossData", ProcessOWActivityBossData},
 
 	"36243594": {"WorldMap", ProcessWorldMap},
+
+	"53370678": {"BossRushBuffList", ProcessBossRushBuffList},
 }
 
 type Asset struct {
 	Name   string
 	Parser func(f string) ([]byte, error)
+}
+
+func GetAsset(f string) Asset {
+	f = filepath.Base(f)
+	id, _, _ := strings.Cut(f, "_")
+	a, ok := AssetName[id]
+	if ok {
+		return a
+	}
+
+	return Asset{
+		Name: f,
+		Parser: func(f string) ([]byte, error) {
+			return nil, fmt.Errorf("not implemeted")
+		},
+	}
 }
 
 func dialogueDataAsset(lang string) Asset {

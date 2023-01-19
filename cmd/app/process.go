@@ -1,7 +1,7 @@
 package main
 
 import (
-	"dataparse/internal/animegame"
+	"dataparse"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -20,7 +20,7 @@ func ProcessBatch(entries []string) {
 	for _, e := range entries {
 		pbar.UpdateTitle(e)
 
-		if err = ProcessFile(e, animegame.GetAsset(e).Parser); err != nil {
+		if err = ProcessFile(e, dataparse.GetAsset(e).Parser); err != nil {
 			pterm.Error.Printfln("\t%s - %s", e, err)
 			fail++
 		}
@@ -42,7 +42,7 @@ func ProcessFile(in string, f func(string) ([]byte, error)) error {
 		return err
 	}
 
-	out := filepath.Join("result", fmt.Sprintf("%s.json", animegame.GetAsset(in).Name))
+	out := filepath.Join("result", fmt.Sprintf("%s.json", dataparse.GetAsset(in).Name))
 
 	return os.WriteFile(out, result, os.ModePerm)
 }
