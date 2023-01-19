@@ -27,6 +27,10 @@ var AssetName = map[string]Asset{
 	"36243594": {"WorldMap", ProcessWorldMap},
 
 	"53370678": {"BossRushBuffList", ProcessBossRushBuffList},
+
+	"50428269":  {"50428269", Process_50428269},
+	"112154430": {"112154430", Process_112154430},
+	"137850209": {"137850209", Process_137850209},
 }
 
 type Asset struct {

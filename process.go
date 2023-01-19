@@ -43,3 +43,15 @@ func ProcessWorldMap(f string) ([]byte, error) {
 func ProcessBossRushBuffList(f string) ([]byte, error) {
 	return json.MarshalIndent(animegame.NewBossRushBuffList(f), "", "  ")
 }
+
+func Process_50428269(f string) ([]byte, error) {
+	return json.MarshalIndent(animegame.NewData_50428269(f), "", " ")
+}
+
+func Process_112154430(f string) ([]byte, error) {
+	return json.MarshalIndent(animegame.NewData_112154430(f), "", "  ")
+}
+
+func Process_137850209(f string) ([]byte, error) {
+	return json.MarshalIndent(animegame.NewData_137850209(f), "", "  ")
+}
