@@ -33,6 +33,7 @@ var AssetName = map[string]Asset{
 	"50428269":  {"50428269", &animegame.Data_50428269{}},
 	"112154430": {"112154430", &animegame.Data_112154430{}},
 	"137850209": {"137850209", &animegame.Data_137850209{}},
+	"150008597": {"150008597", &animegame.Data_150008597{}},
 }
 
 type Asset struct {
