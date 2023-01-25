@@ -1,191 +1,122 @@
 package animegame
 
 import (
-	"dataparse/internal/binreader"
 	"encoding/binary"
+	"encoding/json"
+
+	bin "github.com/streamingfast/binary"
 )
 
-type DialogueData []DialogueDataEntry
-
-type DialogueDataEntry struct {
-	ID                   int32
-	PreDialogueIDList    []uint32
-	JumpID               int32
-	LeafIDList           []uint32
-	DialogueType         int8
-	InputID              int32
-	CgRawPos             int32
-	AvatarName           string
-	AvatarID             int32
-	DressID              int32
-	AvatarViceKey        int32
-	ScreenSide           int8
-	FaceID               int8
-	Face                 string
-	FaceType             string
-	FaceEffect           string
-	AnimationID          int8
-	Distortion           int8
-	Transparency         float32
-	BGMCover             string
-	BGMVolumeControlList []string
-	CgID                 string
-	ImageID              int32
-	Content              []DialogueContent
-	Background           string
-	BackgroundCG         string
-	BackgroundEffect     int8
-	EnterEffect          int8
-	AudioID              string
-	AudioDelay           float32
-	LipMotion            string
-	FaceVersion          int8
-	ScreenEffect         string
-	Unknown1             string
-	Unknown2             []string
-	Unknown3             []string
-	Unknown4             int32
-	Unknown5             int32
-	PostDialogueIDList   []uint32
-	TalkerName           string
-	QuestionContent      string
+type DialogueData struct {
+	Filesize   uint32   `json:"-"`
+	EntryCount uint32   `json:"-" bin:"sizeof=Junk1,Junk2,Data"`
+	Junk1      []uint32 `json:"-"`
+	Junk2      []uint32 `json:"-"`
+	Data       []DialogueDataEntry
 }
 
-type DialogueContent struct {
+func (s *DialogueData) JSON() ([]byte, error) {
+	return json.MarshalIndent(s.Data, "", "  ")
+}
+
+type DialogueDataEntry struct {
+	ID               int32
+	Addr1            uint32 `json:"-"`
+	JumpID           int32
+	Addr2            uint32 `json:"-"`
+	DialogueType     int8
+	InputID          int32
+	CgRawPos         int32
+	Addr3            uint32 `json:"-"`
+	AvatarID         int32
+	DressID          int32
+	AvatarViceKey    int32
+	ScreenSide       int8
+	FaceID           int8
+	Addr4            uint32 `json:"-"`
+	Addr5            uint32 `json:"-"`
+	Addr6            uint32 `json:"-"`
+	AnimationID      int8
+	Distortion       int8
+	Transparency     float32
+	Addr7            uint32 `json:"-"`
+	Addr8            uint32 `json:"-"`
+	Addr9            uint32 `json:"-"`
+	ImageID          int32
+	Addr10           uint32 `json:"-"`
+	Addr11           uint32 `json:"-"`
+	Addr12           uint32 `json:"-"`
+	BackgroundEffect int8
+	EnterEffect      int8
+	Addr13           uint32 `json:"-"`
+	AudioDelay       float32
+	Addr14           uint32 `json:"-"`
+	FaceVersion      int8
+	Addr15           uint32 `json:"-"`
+	Addr16           uint32 `json:"-"`
+	Addr17           uint32 `json:"-"`
+	Addr18           uint32 `json:"-"`
+	Unknown4         int32
+	Unknown5         int32
+	Addr19           uint32 `json:"-"`
+	Addr20           uint32 `json:"-"`
+	Addr21           uint32 `json:"-"`
+
+	PreDialogueIDList    ArrUint32
+	LeafIDList           ArrUint32
+	AvatarName           StrWithPrefix16
+	Face                 StrWithPrefix16
+	FaceType             StrWithPrefix16
+	FaceEffect           StrWithPrefix16
+	BGMCover             StrWithPrefix16
+	BGMVolumeControlList ArrStrWithPrefix16
+	CgID                 StrWithPrefix16
+	Content              DialogueContent
+	Background           StrWithPrefix16
+	BackgroundCG         StrWithPrefix16
+	AudioID              StrWithPrefix16
+	LipMotion            StrWithPrefix16
+	ScreenEffect         StrWithPrefix16
+	Unknown1             StrWithPrefix16
+	Unknown2             ArrStrWithPrefix16
+	Unknown3             ArrStrWithPrefix16
+	PostDialogueIDList   ArrUint32
+	TalkerName           StrWithPrefix16
+	QuestionContent      StrWithPrefix16
+}
+
+type DialogueContent []struct {
 	Text     string
 	Duration float32
 }
 
-func NewDialogueData(f string) DialogueData {
-	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(f))
-
-	reader.Skip(4) // filesize
-	entryCount := reader.Int32()
-	reader.Skip(int64(entryCount) * 4) // list of hashes
-	reader.Skip(int64(entryCount) * 4) // list of addresses
-
-	result := []DialogueDataEntry{}
-
-	for i := 0; i < int(entryCount); i++ {
-		result = append(result, newDialogueDataEntry(reader))
+func (c *DialogueContent) UnmarshalBinary(decoder *bin.Decoder) error {
+	count, err := decoder.ReadInt32(binary.LittleEndian)
+	if err != nil {
+		return err
 	}
 
-	return result
-}
+	*c = make([]struct {
+		Text     string
+		Duration float32
+	}, count)
 
-func newDialogueDataEntry(reader *binreader.Unpacker) DialogueDataEntry {
-	result := DialogueDataEntry{}
+	for i := int32(0); i < count; i++ {
+		var tmpStr StrWithPrefix16
+		err := tmpStr.UnmarshalBinary(decoder)
+		if err != nil {
+			return err
+		}
+		b, err := decoder.ReadFloat32(binary.LittleEndian)
+		if err != nil {
+			return err
+		}
 
-	// - Header
-
-	result.ID = reader.Int32()
-
-	reader.Skip(4) // addrto
-
-	result.JumpID = reader.Int32()
-
-	reader.Skip(4) // addrto
-
-	result.DialogueType = reader.Int8()
-	result.InputID = reader.Int32()
-	result.CgRawPos = reader.Int32()
-
-	reader.Skip(4) // addrto
-
-	result.AvatarID = reader.Int32()
-	result.DressID = reader.Int32()
-	result.AvatarViceKey = reader.Int32()
-
-	result.ScreenSide = reader.Int8()
-	result.FaceID = reader.Int8()
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	result.AnimationID = reader.Int8()
-	result.Distortion = reader.Int8()
-	result.Transparency = reader.Float32()
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	result.ImageID = reader.Int32()
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	result.BackgroundEffect = reader.Int8()
-	result.EnterEffect = reader.Int8()
-
-	reader.Skip(4) // addrto
-
-	result.AudioDelay = reader.Float32()
-
-	reader.Skip(4) // addrto
-
-	result.FaceVersion = reader.Int8()
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	result.Unknown4 = reader.Int32()
-	result.Unknown5 = reader.Int32()
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	// - Body
-
-	result.PreDialogueIDList = reader.ArrayUint32(uint64(reader.Uint32()))
-	result.LeafIDList = reader.ArrayUint32(uint64(reader.Uint32()))
-	result.AvatarName = reader.StringWithUint16Prefix()
-	result.Face = reader.StringWithUint16Prefix()
-	result.FaceType = reader.StringWithUint16Prefix()
-	result.FaceEffect = reader.StringWithUint16Prefix()
-	result.BGMCover = reader.StringWithUint16Prefix()
-
-	result.BGMVolumeControlList = reader.ArrayStr(reader.Uint32())
-
-	result.CgID = reader.StringWithUint16Prefix()
-
-	// content
-	content := []DialogueContent{}
-	contentCount := reader.Uint32()
-	for i := 0; i < int(contentCount); i++ {
-		content = append(content, newDialogueContent(reader))
+		(*c)[i] = struct {
+			Text     string
+			Duration float32
+		}{string(tmpStr), b}
 	}
-	result.Content = content
 
-	result.Background = reader.StringWithUint16Prefix()
-	result.BackgroundCG = reader.StringWithUint16Prefix()
-
-	result.AudioID = reader.StringWithUint16Prefix()
-	result.LipMotion = reader.StringWithUint16Prefix()
-
-	result.ScreenEffect = reader.StringWithUint16Prefix()
-	result.Unknown1 = reader.StringWithUint16Prefix()
-
-	result.Unknown2 = reader.ArrayStr(reader.Uint32())
-	result.Unknown3 = reader.ArrayStr(reader.Uint32())
-
-	result.PostDialogueIDList = reader.ArrayUint32(uint64(reader.Uint32()))
-	result.TalkerName = reader.StringWithUint16Prefix()
-	result.QuestionContent = reader.StringWithUint16Prefix()
-
-	return result
-}
-
-func newDialogueContent(reader *binreader.Unpacker) DialogueContent {
-	result := DialogueContent{}
-
-	result.Text = reader.StringWithUint16Prefix()
-	result.Duration = reader.Float32()
-
-	return result
+	return nil
 }

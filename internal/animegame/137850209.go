@@ -1,13 +1,20 @@
 package animegame
 
-import (
-	"dataparse/internal/binreader"
-	"encoding/binary"
-)
+import "encoding/json"
 
 // looks like something about apho
 
-type Data_137850209 []Data_137850209_Entry
+type Data_137850209 struct {
+	Filesize   uint32   `json:"-"`
+	EntryCount uint32   `json:"-" bin:"sizeof=Junk1,Junk2,Data"`
+	Junk1      []uint32 `json:"-"`
+	Junk2      []uint32 `json:"-"`
+	Data       []Data_137850209_Entry
+}
+
+func (s *Data_137850209) JSON() ([]byte, error) {
+	return json.MarshalIndent(s.Data, "", "  ")
+}
 
 type Data_137850209_Entry struct {
 	ID int32
@@ -19,66 +26,21 @@ type Data_137850209_Entry struct {
 	Unk4     int32
 	Unk5     int32
 
-	UnkStr1  string
-	UnkArr1  []string
-	UnkHash1 Hash
-	UnkStr2  string
-	UnkArr2  []int32
+	Addr1 uint32 `json:"-"`
+	Addr2 uint32 `json:"-"`
+	Addr3 uint32 `json:"-"`
+	Addr4 uint32 `json:"-"`
+	Addr5 uint32 `json:"-"`
 
 	UnkByte2 int8
 
-	UnkArr3 []int32
-}
+	Addr6 uint32 `json:"-"`
 
-func NewData_137850209(f string) Data_137850209 {
-	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(f))
+	UnkStr1  StrWithPrefix16
+	UnkArr1  ArrStrWithPrefix16
+	UnkHash1 Hash
+	UnkStr2  StrWithPrefix16
+	UnkArr2  ArrInt32
 
-	reader.Skip(4) // filesize
-	entryCount := reader.Int32()
-	reader.Skip(int64(entryCount) * 4) // list of hashes
-	reader.Skip(int64(entryCount) * 4) // list of addresses
-
-	result := []Data_137850209_Entry{}
-
-	for i := 0; i < int(entryCount); i++ {
-		result = append(result, newData_137850209_Entry(reader))
-	}
-
-	return result
-}
-
-func newData_137850209_Entry(reader *binreader.Unpacker) Data_137850209_Entry {
-	result := Data_137850209_Entry{}
-
-	result.ID = reader.Int32()
-
-	result.Unk1 = reader.Int32()
-	result.UnkByte1 = reader.Int8()
-
-	result.Unk2 = reader.Int32()
-	result.Unk3 = reader.Int32()
-	result.Unk4 = reader.Int32()
-	result.Unk5 = reader.Int32()
-
-	reader.Skip(4 * 5)
-
-	result.UnkByte2 = reader.Int8()
-
-	reader.Skip(4)
-
-	result.UnkStr1 = reader.StringWithUint16Prefix()
-
-	count := reader.Int32()
-	strarr := []string{}
-	for i := int32(0); i < count; i++ {
-		strarr = append(strarr, reader.StringWithUint16Prefix())
-	}
-	result.UnkArr1 = strarr
-
-	result.UnkHash1 = readHash(reader)
-	result.UnkStr2 = reader.StringWithUint16Prefix()
-	result.UnkArr2 = reader.ArrayInt32(uint64(reader.Int32()))
-	result.UnkArr3 = reader.ArrayInt32(uint64(reader.Int32()))
-
-	return result
+	UnkArr3 ArrInt32
 }

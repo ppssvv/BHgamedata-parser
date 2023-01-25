@@ -2,6 +2,7 @@ package main
 
 import (
 	"dataparse"
+	"dataparse/internal/animegame"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -43,12 +44,8 @@ func ProcessBatch(entries []string) {
 	pterm.Info.Printf("Done: %d ok, %d failed\n", total-fail, fail)
 }
 
-func ProcessFile(in string, f func(string) ([]byte, error)) error {
-	if !filepath.IsAbs(in) {
-		in = filepath.Join("testdata", in)
-	}
-
-	result, err := f(in)
+func ProcessFile(in string, obj animegame.GameStruct) error {
+	result, err := dataparse.ProcessStruct(in, obj)
 	if err != nil {
 		return err
 	}

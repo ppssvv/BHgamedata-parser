@@ -1,75 +1,38 @@
 package animegame
 
 import (
-	"dataparse/internal/binreader"
-	"encoding/binary"
+	"encoding/json"
 )
 
-type DormEvent []DormEventEntry
+type DormEvent struct {
+	Filesize   uint32   `json:"-"`
+	EntryCount uint32   `json:"-" bin:"sizeof=Junk1,Junk2,Data"`
+	Junk1      []uint32 `json:"-"`
+	Junk2      []uint32 `json:"-"`
+	Data       []DormEventEntry
+}
+
+func (s *DormEvent) JSON() ([]byte, error) {
+	return json.MarshalIndent(s.Data, "", "  ")
+}
 
 type DormEventEntry struct {
-	Hash             int32
-	Type             string
-	Avatar           int8
-	Wait             float32
-	WaitRandomAdd    float32
-	Emotion          string
-	TalkTxt          string
-	TalkToAvatar     int8
-	Unknown          int8
-	FaceAnimType     string
-	TriggerAction    string
-	TriggerSubAction string
-}
+	Hash          int32
+	Addr1         uint32 `json:"-"`
+	Avatar        int8
+	Wait          float32
+	WaitRandomAdd float32
+	Addr2         uint32 `json:"-"`
+	TalkToAvatar  int8
+	Unknown       int8
+	Addr3         uint32 `json:"-"`
+	Addr4         uint32 `json:"-"`
+	Addr5         uint32 `json:"-"`
 
-func NewDormEvent(f string) DormEvent {
-	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(f))
-
-	reader.Skip(4) // filesize
-	entryCount := reader.Int32()
-	reader.Skip(int64(entryCount) * 4) // list of hashes
-	reader.Skip(int64(entryCount) * 4) // list of addresses
-
-	result := []DormEventEntry{}
-
-	for i := 0; i < int(entryCount); i++ {
-		result = append(result, newDormEventEntry(reader))
-	}
-
-	return result
-}
-
-func newDormEventEntry(reader *binreader.Unpacker) DormEventEntry {
-	result := DormEventEntry{}
-
-	// - Header
-
-	result.Hash = reader.Int32()
-
-	reader.Skip(4) // addrto
-
-	result.Avatar = reader.Int8()
-	result.Wait = reader.Float32()
-	result.WaitRandomAdd = reader.Float32()
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	result.TalkToAvatar = reader.Int8()
-	result.Unknown = reader.Int8()
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	// - Body
-
-	result.Type = reader.StringWithUint16Prefix()
-	result.Emotion = reader.StringWithUint16Prefix()
-	result.TalkTxt = reader.StringWithUint16Prefix()
-	result.FaceAnimType = reader.StringWithUint16Prefix()
-	result.TriggerAction = reader.StringWithUint16Prefix()
-	result.TriggerSubAction = reader.StringWithUint16Prefix()
-
-	return result
+	Type             StrWithPrefix16
+	Emotion          StrWithPrefix16
+	TalkTxt          StrWithPrefix16
+	FaceAnimType     StrWithPrefix16
+	TriggerAction    StrWithPrefix16
+	TriggerSubAction StrWithPrefix16
 }

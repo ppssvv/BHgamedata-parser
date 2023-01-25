@@ -1,149 +1,128 @@
 package animegame
 
 import (
-	"dataparse/internal/binreader"
 	"encoding/binary"
+	"encoding/json"
+
+	bin "github.com/streamingfast/binary"
 )
 
-type DormFurniture []DormFurnitureEntry
+type DormFurniture struct {
+	Filesize   uint32   `json:"-"`
+	EntryCount uint32   `json:"-" bin:"sizeof=Junk1,Junk2,Data"`
+	Junk1      []uint32 `json:"-"`
+	Junk2      []uint32 `json:"-"`
+	Data       []DormFurnitureEntry
+}
+
+func (s *DormFurniture) JSON() ([]byte, error) {
+	return json.MarshalIndent(s.Data, "", "  ")
+}
 
 type DormFurnitureEntry struct {
-	Hash                    int32
-	Rarity                  int8
-	Tags                    []int8
-	Type                    int8
-	EditType                int8
-	Unk4                    int8
-	InitialUnlock           int8
-	SuitID                  int8
-	Size                    []int8
-	ManualScale             float32
-	ComfortType             int8
-	ComfortValue            int8
-	HcoinCost               int32
-	CostItemId              int32
-	CostItemNum             int32
-	UnlockItemId            int32
-	UnlockItemNum           int32
-	Unk7                    int8
-	FurnitureModPath        string
+	Hash          int32
+	Rarity        int8
+	Addr1         uint32 `json:"-"`
+	Type          int8
+	EditType      int8
+	Unk4          int8
+	InitialUnlock int8
+	SuitID        int8
+	Addr2         uint32 `json:"-"`
+	ManualScale   float32
+	ComfortType   int8
+	ComfortValue  int8
+	HcoinCost     int32
+	Addr3         uint32 `json:"-"`
+	Addr4         uint32 `json:"-"`
+	Unk7          int8
+	Addr5         uint32 `json:"-"`
+	Addr6         uint32 `json:"-"`
+	Addr7         uint32 `json:"-"`
+	Addr8         uint32 `json:"-"`
+	Addr9         uint32 `json:"-"`
+	Unk8          int8
+	Addr10        uint32 `json:"-"`
+	Addr11        uint32 `json:"-"`
+	Unk9          int8
+
+	Tags                    ArrInt8
+	Size                    ArrInt8
+	Cost                    DormFurnitureCost
+	Unlock                  DormFurnitureCost
+	FurnitureModPath        StrWithPrefix16
 	FurnitureNameText       Hash
-	FurnitureIconPath       string
+	FurnitureIconPath       StrWithPrefix16
 	FurnitureDescText       Hash
 	FurnitureSourceDescText Hash
-	Unk8                    int8
-	DeleteMaterialList      []material
-	VerandaPath             string
-	Unk9                    int8
+	DeleteMaterialList      DormFurnitureMaterials
+	VerandaPath             StrWithPrefix16
 }
 
-func NewDormFurniture(f string) DormFurniture {
-	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(f))
-	reader.Skip(4) // filesize
-	entryCount := reader.Int32()
-	reader.Skip(int64(entryCount) * 4) // list of hashes
-	reader.Skip(int64(entryCount) * 4) // list of addresses
-
-	result := []DormFurnitureEntry{}
-
-	for i := 0; i < int(entryCount); i++ {
-		result = append(result, newDormFurnitureEntry(reader))
-	}
-
-	return result
+type DormFurnitureCost struct {
+	Key     uint32 `json:",omitempty"`
+	ItemId  int32
+	ItemNum int32
 }
 
-func newDormFurnitureEntry(reader *binreader.Unpacker) DormFurnitureEntry {
-	result := DormFurnitureEntry{}
-
-	// - Header
-
-	result.Hash = reader.Int32()
-	result.Rarity = reader.Int8()
-
-	reader.Skip(4) // addrto tags
-
-	result.Type = reader.Int8()
-	result.EditType = reader.Int8()
-	result.Unk4 = reader.Int8()
-	result.InitialUnlock = reader.Int8()
-	result.SuitID = reader.Int8()
-
-	reader.Skip(4) // addrto size
-
-	result.ManualScale = reader.Float32()
-
-	result.ComfortType = reader.Int8()
-	result.ComfortValue = reader.Int8()
-
-	result.HcoinCost = reader.Int32()
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	result.Unk7 = reader.Int8()
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	result.Unk8 = reader.Int8()
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	result.Unk9 = reader.Int8()
-
-	// - Body
-
-	result.Tags = reader.ArrayInt8(uint64(reader.Uint32()))
-	result.Size = reader.ArrayInt8(uint64(reader.Uint32()))
-
-	hasCost := reader.Uint32()
-	if hasCost > 0 {
-		if hasCost > 1 {
-			panic("hi")
-		}
-
-		result.CostItemId = reader.Int32()  // CostItemId
-		result.CostItemNum = reader.Int32() // CostItemNum
+func (c *DormFurnitureCost) UnmarshalBinary(decoder *bin.Decoder) error {
+	key, err := decoder.ReadUint32(binary.LittleEndian)
+	if err != nil {
+		return err
 	}
 
-	hasUnlock := reader.Uint32()
-	if hasUnlock > 0 {
-		if hasUnlock > 1 {
-			panic("hi2")
-		}
-
-		result.UnlockItemId = reader.Int32()  // UnlockItemId
-		result.UnlockItemNum = reader.Int32() // UnlockItemNum
+	if key <= 0 {
+		return nil
 	}
 
-	result.FurnitureModPath = reader.StringWithUint16Prefix()
-	result.FurnitureNameText = readHash(reader)
-	result.FurnitureIconPath = reader.StringWithUint16Prefix()
-	result.FurnitureDescText = readHash(reader)
-	result.FurnitureSourceDescText = readHash(reader)
-
-	materialCount := reader.Int32()
-	deleteMaterialList := []material{}
-	for i := 0; i < int(materialCount); i++ {
-		tmp := material{}
-		tmp.MaterialID = reader.Int32()
-		tmp.MaterialNumber = reader.Int32()
-
-		deleteMaterialList = append(deleteMaterialList, tmp)
+	if key > 1 {
+		c.Key = key
 	}
-	result.DeleteMaterialList = deleteMaterialList
 
-	result.VerandaPath = reader.StringWithUint16Prefix()
+	c.ItemId, err = decoder.ReadInt32(binary.LittleEndian)
+	if err != nil {
+		return err
+	}
 
-	return result
+	c.ItemNum, err = decoder.ReadInt32(binary.LittleEndian)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
-type material struct {
+type DormFurnitureMaterials []struct {
 	MaterialID     int32
 	MaterialNumber int32
+}
+
+func (m *DormFurnitureMaterials) UnmarshalBinary(decoder *bin.Decoder) error {
+	count, err := decoder.ReadUint32(binary.LittleEndian)
+	if err != nil {
+		return err
+	}
+
+	*m = make([]struct {
+		MaterialID     int32
+		MaterialNumber int32
+	}, count)
+
+	for i := uint32(0); i < count; i++ {
+		id, err := decoder.ReadInt32(binary.LittleEndian)
+		if err != nil {
+			return err
+		}
+		num, err := decoder.ReadInt32(binary.LittleEndian)
+		if err != nil {
+			return err
+		}
+
+		(*m)[i] = struct {
+			MaterialID     int32
+			MaterialNumber int32
+		}{id, num}
+	}
+
+	return nil
 }

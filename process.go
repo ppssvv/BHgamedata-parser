@@ -2,56 +2,33 @@ package dataparse
 
 import (
 	"dataparse/internal/animegame"
-	"encoding/json"
+	"os"
+	"path/filepath"
+
+	bin "github.com/streamingfast/binary"
 )
 
-// ProcessTextMap provides a unified interface for batch processing
-func ProcessTextMap(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewTextMap(f), "", "  ")
+func readFile(f string) *bin.Decoder {
+	data, err := os.ReadFile(f)
+	if err != nil {
+		panic(err)
+	}
+
+	return bin.NewDecoder(data)
 }
 
-// ProcessDormEvent provides a unified interface for batch processing
-func ProcessStigPosData(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewStigPosData(f), "", "  ")
+func GetTestData(f string) *bin.Decoder {
+	if filepath.IsAbs(f) {
+		return readFile(f)
+	} else {
+		return readFile(filepath.Join("testdata", f))
+	}
 }
 
-// ProcessDialogueData provides a unified interface for batch processing
-func ProcessOWActivityBossData(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewOWActivityBossData(f), "", "  ")
-}
+func ProcessStruct(f string, obj animegame.GameStruct) ([]byte, error) {
+	if err := GetTestData(f).Decode(obj); err != nil {
+		return nil, err
+	}
 
-// ProcessDormFurniture provides a unified interface for batch processing
-func ProcessDormFurniture(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewDormFurniture(f), "", "  ")
-}
-
-// ProcessDormEvent provides a unified interface for batch processing
-func ProcessDormEvent(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewDormEvent(f), "", "  ")
-}
-
-// ProcessDialogueData provides a unified interface for batch processing
-func ProcessDialogueData(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewDialogueData(f), "", "  ")
-}
-
-// ProcessDormEvent provides a unified interface for batch processing
-func ProcessWorldMap(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewWorldMap(f), "", "  ")
-}
-
-func ProcessBossRushBuffList(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewBossRushBuffList(f), "", "  ")
-}
-
-func Process_50428269(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewData_50428269(f), "", " ")
-}
-
-func Process_112154430(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewData_112154430(f), "", "  ")
-}
-
-func Process_137850209(f string) ([]byte, error) {
-	return json.MarshalIndent(animegame.NewData_137850209(f), "", "  ")
+	return obj.JSON()
 }

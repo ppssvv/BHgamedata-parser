@@ -1,42 +1,23 @@
 package animegame
 
-import (
-	"dataparse/internal/binreader"
-	"encoding/binary"
-)
+import "encoding/json"
 
-type TextMap []TextMapEntry
+type TextMap struct {
+	Filesize   uint32   `json:"-"`
+	EntryCount uint32   `json:"-" bin:"sizeof=Junk1,Junk2,Data"`
+	Junk1      []Hash   `json:"-"`
+	Junk2      []uint32 `json:"-"`
+	Data       []TextMapEntry
+}
+
+func (s *TextMap) JSON() ([]byte, error) {
+	return json.MarshalIndent(s.Data, "", "  ")
+}
 
 type TextMapEntry struct {
+	Addr1 uint32 `json:"-"`
+	Addr2 uint32 `json:"-"`
+
 	Hash Hash
-	Text string
-}
-
-func NewTextMap(f string) TextMap {
-	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(f))
-
-	reader.Skip(4) // filesize
-	entryCount := reader.Int32()
-	reader.Skip(int64(entryCount) * 5) // list of hashes
-	reader.Skip(int64(entryCount) * 4) // list of addresses
-
-	result := []TextMapEntry{}
-
-	for i := 0; i < int(entryCount); i++ {
-		result = append(result, newTextMapEntry(reader))
-	}
-
-	return result
-}
-
-func newTextMapEntry(reader *binreader.Unpacker) TextMapEntry {
-	result := TextMapEntry{}
-
-	reader.Skip(4) // addrto
-	reader.Skip(4) // addrto
-
-	result.Hash = readHash(reader)
-	result.Text = reader.StringWithUint16Prefix()
-
-	return result
+	Text StrWithPrefix16
 }

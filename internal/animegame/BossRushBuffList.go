@@ -1,51 +1,31 @@
 package animegame
 
 import (
-	"dataparse/internal/binreader"
-	"encoding/binary"
+	"encoding/json"
 )
 
-type BossRushBuffList []BossRushBuffListEntry
+type BossRushBuffList struct {
+	Filesize   uint32   `json:"-"`
+	EntryCount uint32   `json:"-" bin:"sizeof=Junk1,Junk2,Data"`
+	Junk1      []uint32 `json:"-"`
+	Junk2      []uint32 `json:"-"`
+	Data       []BossRushBuffListEntry
+}
+
+func (s *BossRushBuffList) JSON() ([]byte, error) {
+	return json.MarshalIndent(s.Data, "", "  ")
+}
 
 type BossRushBuffListEntry struct {
-	ID          int32
+	ID    int32
+	Addr1 uint32 `json:"-"`
+	Addr2 uint32 `json:"-"`
+	Addr3 uint32 `json:"-"`
+	Addr4 uint32 `json:"-"`
+	Unk1  int32
+
 	Description Hash
 	Name        Hash
-	AbilityName string
-	IconPath    string
-	Unk1        int32
-}
-
-func NewBossRushBuffList(f string) BossRushBuffList {
-	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(f))
-
-	reader.Skip(4) // filesize
-	entryCount := reader.Int32()
-	reader.Skip(int64(entryCount) * 4) // list of hashes
-	reader.Skip(int64(entryCount) * 4) // list of addresses
-
-	result := []BossRushBuffListEntry{}
-
-	for i := 0; i < int(entryCount); i++ {
-		result = append(result, newBossRushBuffListEntry(reader))
-	}
-
-	return result
-}
-
-func newBossRushBuffListEntry(reader *binreader.Unpacker) BossRushBuffListEntry {
-	result := BossRushBuffListEntry{}
-
-	result.ID = reader.Int32()
-
-	reader.Skip(4 * 4)
-
-	result.Unk1 = reader.Int32()
-
-	result.Name = readHash(reader)
-	result.Description = readHash(reader)
-	result.AbilityName = reader.StringWithUint16Prefix()
-	result.IconPath = reader.StringWithUint16Prefix()
-
-	return result
+	AbilityName StrWithPrefix16
+	IconPath    StrWithPrefix16
 }

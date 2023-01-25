@@ -1,6 +1,8 @@
 package dataparse
 
 import (
+	"dataparse/internal/animegame"
+	"errors"
 	"fmt"
 	"path/filepath"
 	"strings"
@@ -17,25 +19,25 @@ var AssetName = map[string]Asset{
 	"816421683": dialogueDataAsset("en"),
 	"816421718": dialogueDataAsset("fr"),
 
-	"1435715286": {"DormitoryEventSequence", ProcessDormEvent},
-	"606639383":  {"DormitoryFurnitureData", ProcessDormFurniture},
+	"1435715286": {"DormitoryEventSequence", &animegame.DormEvent{}},
+	"606639383":  {"DormitoryFurnitureData", &animegame.DormFurniture{}},
 
-	"612883459": {"StigmataPositionData", ProcessStigPosData},
+	"612883459": {"StigmataPositionData", &animegame.StigPosData{}},
 
-	"11165326": {"OWActivityBossData", ProcessOWActivityBossData},
+	"11165326": {"OWActivityBossData", &animegame.OWActivityBossData{}},
 
-	"36243594": {"WorldMap", ProcessWorldMap},
+	"36243594": {"WorldMap", &animegame.WorldMap{}},
 
-	"53370678": {"BossRushBuffList", ProcessBossRushBuffList},
+	"53370678": {"BossRushBuffList", &animegame.BossRushBuffList{}},
 
-	"50428269":  {"50428269", Process_50428269},
-	"112154430": {"112154430", Process_112154430},
-	"137850209": {"137850209", Process_137850209},
+	"50428269":  {"50428269", &animegame.Data_50428269{}},
+	"112154430": {"112154430", &animegame.Data_112154430{}},
+	"137850209": {"137850209", &animegame.Data_137850209{}},
 }
 
 type Asset struct {
 	Name   string
-	Parser func(f string) ([]byte, error)
+	Parser animegame.GameStruct
 }
 
 func GetAsset(f string) Asset {
@@ -47,23 +49,27 @@ func GetAsset(f string) Asset {
 	}
 
 	return Asset{
-		Name: f,
-		Parser: func(f string) ([]byte, error) {
-			return nil, fmt.Errorf("not implemeted")
-		},
+		Name:   f,
+		Parser: Placeholder{},
 	}
 }
 
 func dialogueDataAsset(lang string) Asset {
 	return Asset{
 		Name:   fmt.Sprintf("dialogueData_%s", lang),
-		Parser: ProcessDialogueData,
+		Parser: &animegame.DialogueData{},
 	}
 }
 
 func textMapAsset(lang string) Asset {
 	return Asset{
 		Name:   fmt.Sprintf("textMap_%s", lang),
-		Parser: ProcessTextMap,
+		Parser: &animegame.TextMap{},
 	}
+}
+
+type Placeholder struct{}
+
+func (p Placeholder) JSON() ([]byte, error) {
+	return nil, errors.New("not implemented")
 }

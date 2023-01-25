@@ -1,21 +1,30 @@
 package animegame
 
 import (
-	"dataparse/internal/binreader"
-	"encoding/binary"
+	"encoding/json"
 )
 
-type WorldMap []WorldMapEntry
+type WorldMap struct {
+	Filesize   uint32   `json:"-"`
+	EntryCount uint32   `json:"-" bin:"sizeof=Junk1,Junk2,Data"`
+	Junk1      []uint32 `json:"-"`
+	Junk2      []uint32 `json:"-"`
+	Data       []WorldMapEntry
+}
+
+func (s *WorldMap) JSON() ([]byte, error) {
+	return json.MarshalIndent(s.Data, "", "  ")
+}
 
 type WorldMapEntry struct {
 	ID      int32
 	EntryID int32
 
-	FeatureType       []int32
-	ContentIDList     []int32
-	EntryTitle        Hash
-	EntryImagePath    string
-	EntryTitleImgPath string
+	Addr1 uint32 `json:"-"`
+	Addr2 uint32 `json:"-"`
+	Addr3 uint32 `json:"-"`
+	Addr4 uint32 `json:"-"`
+	Addr5 uint32 `json:"-"`
 
 	EntryCG          int32
 	UnlockLevel      int32
@@ -24,8 +33,8 @@ type WorldMapEntry struct {
 	InfoID           int32
 	ShopType         int32
 
-	EntryDesc            Hash
-	EntryDetailImagePath string
+	Addr6 uint32 `json:"-"`
+	Addr7 uint32 `json:"-"`
 
 	EntryRewardID   int32
 	UnkByte1        byte
@@ -33,65 +42,13 @@ type WorldMapEntry struct {
 	VersionTagMinLv int32
 
 	UnkByte2 byte
-}
 
-func NewWorldMap(f string) WorldMap {
-	reader := binreader.NewUnpacker(binary.LittleEndian, mustOpenFile(f))
+	FeatureType       ArrInt32
+	ContentIDList     ArrInt32
+	EntryTitle        Hash
+	EntryImagePath    StrWithPrefix16
+	EntryTitleImgPath StrWithPrefix16
 
-	reader.Skip(4) // filesize
-	entryCount := reader.Int32()
-
-	reader.Skip(int64(entryCount) * 4) // list of id's
-	reader.Skip(int64(entryCount) * 4) // list of addresses
-
-	result := make([]WorldMapEntry, 0, entryCount)
-
-	for i := 0; i < int(entryCount); i++ {
-		tmp := newWorldMapEntry(reader)
-		// tmp.Name = names[i]
-		result = append(result, tmp)
-	}
-
-	return result
-}
-
-func newWorldMapEntry(reader *binreader.Unpacker) WorldMapEntry {
-	result := WorldMapEntry{}
-
-	result.ID = reader.Int32()
-	result.EntryID = reader.Int32()
-
-	reader.Skip(4)
-	reader.Skip(4)
-	reader.Skip(4)
-	reader.Skip(4)
-	reader.Skip(4)
-
-	result.EntryCG = reader.Int32()
-	result.UnlockLevel = reader.Int32()
-	result.UnlockHintLevel = reader.Int32()
-	result.ForceShowContent = reader.Int32()
-	result.InfoID = reader.Int32()
-	result.ShopType = reader.Int32()
-
-	reader.Skip(4)
-	reader.Skip(4)
-
-	result.EntryRewardID = reader.Int32()
-	result.UnkByte1 = reader.Byte()
-	result.VersionTagMaxLv = reader.Int32()
-	result.VersionTagMinLv = reader.Int32()
-	result.UnkByte2 = reader.Byte()
-
-	// - Data
-	result.FeatureType = reader.ArrayInt32(uint64(reader.Int32()))
-	result.ContentIDList = reader.ArrayInt32(uint64(reader.Int32()))
-
-	result.EntryTitle = readHash(reader)
-	result.EntryImagePath = reader.StringWithUint16Prefix()
-	result.EntryTitleImgPath = reader.StringWithUint16Prefix()
-	result.EntryDesc = readHash(reader)
-	result.EntryDetailImagePath = reader.StringWithUint16Prefix()
-
-	return result
+	EntryDesc            Hash
+	EntryDetailImagePath StrWithPrefix16
 }
