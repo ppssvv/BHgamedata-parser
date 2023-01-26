@@ -74,6 +74,42 @@ func (arr *ArrUint32) UnmarshalBinary(decoder *bin.Decoder) (err error) {
 	return nil
 }
 
+type ArrUint64 []uint64
+
+func (arr *ArrUint64) UnmarshalBinary(decoder *bin.Decoder) (err error) {
+	count, err := decoder.ReadUint32(binary.LittleEndian)
+	if err != nil {
+		return err
+	}
+
+	*arr = make([]uint64, count)
+	for i := uint32(0); i < count; i++ {
+		(*arr)[i], err = decoder.ReadUint64(binary.LittleEndian)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+type ArrInt16 []int16
+
+func (arr *ArrInt16) UnmarshalBinary(decoder *bin.Decoder) (err error) {
+	count, err := decoder.ReadUint32(binary.LittleEndian)
+	if err != nil {
+		return err
+	}
+
+	*arr = make([]int16, count)
+	for i := uint32(0); i < count; i++ {
+		(*arr)[i], err = decoder.ReadInt16(binary.LittleEndian)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 type ArrInt8 []int8
 
 func (arr *ArrInt8) UnmarshalBinary(decoder *bin.Decoder) (err error) {
@@ -85,6 +121,24 @@ func (arr *ArrInt8) UnmarshalBinary(decoder *bin.Decoder) (err error) {
 	*arr = make([]int8, count)
 	for i := uint32(0); i < count; i++ {
 		(*arr)[i], err = decoder.ReadInt8()
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+type ArrFloat32 []float32
+
+func (arr *ArrFloat32) UnmarshalBinary(decoder *bin.Decoder) (err error) {
+	count, err := decoder.ReadUint32(binary.LittleEndian)
+	if err != nil {
+		return err
+	}
+
+	*arr = make([]float32, count)
+	for i := uint32(0); i < count; i++ {
+		(*arr)[i], err = decoder.ReadFloat32(binary.LittleEndian)
 		if err != nil {
 			return err
 		}

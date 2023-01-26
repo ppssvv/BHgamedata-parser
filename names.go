@@ -34,6 +34,11 @@ var AssetName = map[string]Asset{
 	"112154430": {"112154430", &animegame.Data_112154430{}},
 	"137850209": {"137850209", &animegame.Data_137850209{}},
 	"150008597": {"150008597", &animegame.Data_150008597{}},
+	"169620141": {"169620141", &animegame.Data_169620141{}},
+	"175952655": {"175952655", &animegame.Data_175952655{}},
+	"201380970": {"201380970", &animegame.Data_201380970{}},
+	"208715169": {"208715169", &animegame.Data_208715169{}},
+	"213532048": {"213532048", &animegame.Data_213532048{}},
 }
 
 type Asset struct {
@@ -51,7 +56,7 @@ func GetAsset(f string) Asset {
 
 	return Asset{
 		Name:   f,
-		Parser: Placeholder{},
+		Parser: &Placeholder{},
 	}
 }
 
@@ -71,6 +76,6 @@ func textMapAsset(lang string) Asset {
 
 type Placeholder struct{}
 
-func (p Placeholder) JSON() ([]byte, error) {
+func (p *Placeholder) JSON() ([]byte, error) {
 	return nil, errors.New("not implemented")
 }

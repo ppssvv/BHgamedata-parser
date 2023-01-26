@@ -2,7 +2,7 @@ module dataparse
 
 go 1.19
 
-require github.com/streamingfast/binary v0.0.0-20210809212148-fe6580164efb
+require github.com/streamingfast/binary v0.0.0-20230125145418-8ef275399723
 
 require (
 	atomicgo.dev/cursor v0.1.1 // indirect
@@ -35,5 +35,3 @@ require (
 	golang.org/x/exp v0.0.0-20230113213754-f9f960f08ad4
 	golang.org/x/text v0.6.0 // indirect
 )
-
-replace github.com/streamingfast/binary => github.com/camelva/binary v0.0.0-20230124214055-03bf5abe8ed9
