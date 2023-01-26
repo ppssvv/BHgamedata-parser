@@ -8,7 +8,7 @@
 1. Follow instructions
 
 When parsing one file - you can use absolute path or relative to `/templates` folder.
-If you want to parse several files together - put them in respective folder inside `/template`. For example, `/templates/DialogueData/...`
+If you want to parse several files together - put them inside `/template`. For example, `/templates/...`
 
 ## Building manually
 > You need to have installed GO (get from [go.dev](https://go.dev)) version 1.19 or higher
