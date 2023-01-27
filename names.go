@@ -46,6 +46,11 @@ var AssetName = map[string]Asset{
 	"250894170": {"250894170", &animegame.Data_250894170{}},
 	"285372794": {"285372794", &animegame.Data_285372794{}},
 	"295065595": {"295065595", &animegame.Data_295065595{}},
+	"319085691": {"319085691", &animegame.Data_319085691{}},
+	"354247105": {"354247105", &animegame.Data_354247105{}},
+	"364255081": {"364255081", &animegame.Data_364255081{}},
+	"376306182": {"OWEndlessBattleConfig", &animegame.OWEndlessBattleConfig{}},
+	"379497939": {"AvatarFragmentData", &animegame.AvatarFragmentData{}},
 }
 
 type Asset struct {
