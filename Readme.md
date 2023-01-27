@@ -1,6 +1,6 @@
 # Data parser for *not-so-popular* anime game
 
-> WIP. Not all files are implemented yet
+> WIP. Not all files are implemented yet - you can check progress [here](progress.md)
 
 ## Using
 1. Download latest release
