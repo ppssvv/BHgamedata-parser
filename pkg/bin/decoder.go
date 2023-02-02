@@ -212,7 +212,7 @@ func (d *Decoder) decode(rv reflect.Value, opt *option) (err error) {
 		if opt.hasSizeOfSlice() {
 			l = opt.getSizeOfSlice()
 		} else {
-			length, err := d.ReadUvarint64()
+			length, err := d.ReadUint32(d.currentFieldOpt.Order)
 			if err != nil {
 				return err
 			}
