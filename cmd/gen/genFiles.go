@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"go/format"
-	"strconv"
 	"strings"
 )
 
@@ -26,10 +25,9 @@ func buildNames(packagename string, list []string) ([]byte, error) {
 
 	result.WriteString("var AssetName = map[string]Asset{\n")
 
-	for k, v := range list {
-		result.WriteString("\t\"" + strconv.Itoa(k) + "\": {\"" +
-			strings.TrimSuffix(v, "Reader") +
-			"\", &" + v + "{}},\n")
+	for _, v := range list {
+		name := strings.TrimSuffix(v, "Reader")
+		result.WriteString(fmt.Sprintf("\t\"%s\": {\"%s\", &%s{}},\n", name, name, v))
 	}
 
 	result.WriteString("}\n")
@@ -39,25 +37,20 @@ func buildNames(packagename string, list []string) ([]byte, error) {
 
 var funcsHeader = `package %s
 
-import (
-	"encoding/json"
-)
-
+type ReaderWrapper interface {
+	GetData() any
+}
 `
 
-var funcTmpl = `func (s *%s) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+var funcTmpl = `func (s *%s) GetData() any {
+	return s.Data
 }`
 
 var namesHeader = `package %s
 
-type GameStruct interface {
-	JSON() ([]byte, error)
-}
-
 type Asset struct {
 	Name string
-	Parser GameStruct
+	Parser ReaderWrapper
 }
 
 `

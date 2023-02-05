@@ -64,7 +64,7 @@ func prepareFile(f string, packagename string) (string, error) {
 			continue
 		}
 
-		line = strings.Replace(line, `json:" - "`, `json:"-"`, 1)
+		// line = strings.Replace(line, `json:" - "`, `json:"-"`, 1)
 
 		// all field names should be Uppercase
 		if strings.HasPrefix(line, "\t") {
@@ -72,13 +72,12 @@ func prepareFile(f string, packagename string) (string, error) {
 		}
 
 		// add bin tag to EntryCount fields
-		if entryRE.MatchString(line) {
-			line = line + " `bin:\"sizeof=Keys,ItemOffsets,Data\"`"
+		if str := entryRE.FindString(line); str != "" {
+			line = str + " `bin:\"sizeof=Keys,ItemOffsets,Data\"`"
 		}
 
 		lines[i] = line
 	}
-
 	filedata, err := format.Source([]byte(strings.Join(lines, "\n")))
 	if err != nil {
 		return "", err
