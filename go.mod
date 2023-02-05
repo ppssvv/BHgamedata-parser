@@ -28,6 +28,7 @@ require (
 	go.uber.org/zap v1.16.0 // indirect
 	golang.org/x/sys v0.1.0 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
+	gopkg.in/yaml.v2 v2.2.8 // indirect
 )
 
 require (
