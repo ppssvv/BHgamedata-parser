@@ -40,6 +40,9 @@ func converDirEntries(src []os.DirEntry) []string {
 		if e.IsDir() {
 			continue
 		}
+		if strings.HasPrefix(e.Name(), ".") {
+			continue
+		}
 		result = append(result, e.Name())
 	}
 	return result

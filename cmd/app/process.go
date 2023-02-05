@@ -2,7 +2,7 @@ package main
 
 import (
 	"dataparse"
-	"dataparse/internal/animegame"
+	"dataparse/dump"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -44,13 +44,14 @@ func ProcessBatch(entries []string) {
 	pterm.Info.Printf("Done: %d ok, %d failed\n", total-fail, fail)
 }
 
-func ProcessFile(in string, obj animegame.GameStruct) error {
-	result, err := dataparse.ProcessStruct(in, obj)
+func ProcessFile(in string, obj dump.ReaderWrapper) error {
+	result, err := dataparse.ProcessStructNew(in, obj)
 	if err != nil {
 		return err
 	}
 
 	out := filepath.Join("result", fmt.Sprintf("%s.json", dataparse.GetAsset(in).Name))
+	os.Mkdir("result", os.ModePerm)
 
 	return os.WriteFile(out, result, os.ModePerm)
 }
