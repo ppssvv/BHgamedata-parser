@@ -1,4791 +1,4791 @@
 package dump
 
-import (
-	"encoding/json"
-)
+type ReaderWrapper interface {
+	GetData() any
+}
 
-func (s *EditorUniqueMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EditorUniqueMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterProtoTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterProtoTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PropListMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PropListMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AbilitySpecialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AbilitySpecialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AccountBuffEffectReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AccountBuffEffectReader) GetData() any {
+	return s.Data
 }
-func (s *AccumulatorUIConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AccumulatorUIConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AchievementTagMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AchievementTagMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActChallengeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActChallengeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActiveCollectionItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActiveCollectionItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActiveCollectionScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActiveCollectionScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityBbqMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityBbqMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityBingoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityBingoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityBossRushMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityBossRushMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityCardDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityCardDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityChallengeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityChallengeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityChargeLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityChargeLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityDropLimitDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityDropLimitDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityDropLimitScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityDropLimitScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityLoginBonusMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityLoginBonusMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityLoginMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityLoginMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityMosaicMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityMosaicMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityPanelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityPanelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityPanelScoreDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityPanelScoreDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityPanelScoreRewardDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityPanelScoreRewardDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityPictureMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityPictureMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityQuestionnaireMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityQuestionnaireMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityRandomEffectChargeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityRandomEffectChargeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityRandomEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityRandomEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityRewardShowMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityRewardShowMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityScheduleDisplayDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityScheduleDisplayDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivitySchedulePageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivitySchedulePageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityStageRankMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityStageRankMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityTowerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityTowerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActivityTypeManagementMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActivityTypeManagementMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ActRitaRankingMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ActRitaRankingMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AddParamGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AddParamGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureAvatarMissionListMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureAvatarMissionListMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureAvatarSkillLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureAvatarSkillLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureAvatarSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureAvatarSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureAvatarUnlockMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureAvatarUnlockMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureDecorateMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureDecorateMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureElfMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureElfMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureElfUnlockMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureElfUnlockMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureLevelDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureLevelDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureQuestConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureQuestConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureQuestMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureQuestMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureQuestPoolMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureQuestPoolMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AdventureWelfareMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AdventureWelfareMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AffixEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AffixEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AffixRecycleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AffixRecycleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AffixTitleEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AffixTitleEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AffixTitleEffectTemplateMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AffixTitleEffectTemplateMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AffixTitleLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AffixTitleLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AffixTreeNodeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AffixTreeNodeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AffixTypeConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AffixTypeConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberDailyStageDropLimitMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberDailyStageDropLimitMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberDailyStageScoreDropMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberDailyStageScoreDropMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberGalTouchMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberGalTouchMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberHyperionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberHyperionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberMainUIRepairMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberMainUIRepairMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberProgressMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberProgressMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberPuzzleEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberPuzzleEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberQavatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberQavatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberQavatarSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberQavatarSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberStageGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberStageGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AiCyberStoryDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AiCyberStoryDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AnniversaryFifthBoxDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AnniversaryFifthBoxDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AnniversaryFifthDetailItemsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AnniversaryFifthDetailItemsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AnniversaryFifthShowItemsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AnniversaryFifthShowItemsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AnniversaryIconintegrateMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AnniversaryIconintegrateMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AppointmentDownloadScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AppointmentDownloadScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaBossActivityDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaBossActivityDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaBossActivityScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaBossActivityScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaBossDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaBossDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaContactDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaContactDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaExchequerDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaExchequerDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaGridDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaGridDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaHangarDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaHangarDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaLinerRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaLinerRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaMainDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaMainDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaPersonalizedLabelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaPersonalizedLabelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaRecruitTipsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaRecruitTipsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaReunionLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaReunionLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaReunionMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaReunionMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaReunionPointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaReunionPointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaReunionScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaReunionScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaStageBossMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaStageBossMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaStageHardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaStageHardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaWelcomeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaWelcomeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArmadaWorkshopDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArmadaWorkshopDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArtifactSkillNameOverrideMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArtifactSkillNameOverrideMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ArtifactTryEnterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ArtifactTryEnterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AudioPackageDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AudioPackageDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarArtifactLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarArtifactLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarArtifactMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarArtifactMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarAttackPunishMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarAttackPunishMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarAttackSpeedParamMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarAttackSpeedParamMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarBriefMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarBriefMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarCardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarCardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarDefencePunishMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarDefencePunishMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarEffectInfoDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarEffectInfoDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarExMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarExMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarFilterDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarFilterDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarForgeRecommendMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarForgeRecommendMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarForgeWhiteListMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarForgeWhiteListMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarFragmentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarFragmentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarGachaDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarGachaDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarGoodFeelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarGoodFeelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarLevelGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarLevelGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarMemoirMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarMemoirMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarMissionActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarMissionActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarMissionActivityRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarMissionActivityRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarModelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarModelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarNewbieMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarNewbieMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarPracticeMainMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarPracticeMainMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarPracticeStepMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarPracticeStepMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarRelayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarRelayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarRewardGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarRewardGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarRoleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarRoleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarSampleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarSampleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarStarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarStarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarStarTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarStarTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarStarUpSubSkillDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarStarUpSubSkillDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarSubSkillLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarSubSkillLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarSubSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarSubSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarTagUnLockMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarTagUnLockMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarTrialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarTrialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarTryEnterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarTryEnterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarTutorialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarTutorialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarTutorialSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarTutorialSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarTwinsDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarTwinsDataReader) GetData() any {
+	return s.Data
 }
-func (s *AvatarVideoPopupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *AvatarVideoPopupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BattleDisplayDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BattleDisplayDataReader) GetData() any {
+	return s.Data
 }
-func (s *BattlePassBannerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BattlePassBannerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BattlePassChallengeDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BattlePassChallengeDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BattlePassScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BattlePassScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BattlePassSeasonLevelConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BattlePassSeasonLevelConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BattlePassTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BattlePassTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BattleTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BattleTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BbqBonusSetMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BbqBonusSetMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BbqLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BbqLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BeastStageDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BeastStageDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BeastStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BeastStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BeastTreasureMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BeastTreasureMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BossChallengeActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BossChallengeActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BossChallengeRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BossChallengeRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BossChallengeStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BossChallengeStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BossPointScoreRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BossPointScoreRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BossRushBuffConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BossRushBuffConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BossRushBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BossRushBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BossRushBuffPoolMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BossRushBuffPoolMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BossRushStageScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BossRushStageScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BoxGachaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BoxGachaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BridgeLinkMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BridgeLinkMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BubbleBridgeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BubbleBridgeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BuffAssistanceActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BuffAssistanceActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BuffAssistanceBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BuffAssistanceBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BuffAssistanceLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BuffAssistanceLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BuffAssistanceNPCRobotMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BuffAssistanceNPCRobotMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BuffAssistanceScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BuffAssistanceScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BuffAssistanceStageGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BuffAssistanceStageGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BuffAssistanceWordMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BuffAssistanceWordMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BulletinEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BulletinEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BurdenAlleviationMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BurdenAlleviationMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *BurialPointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *BurialPointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CgCategoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CgCategoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CgGroupDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CgGroupDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CgMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CgMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CGPackageDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CGPackageDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChallengeMissionLinkReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChallengeMissionLinkReader) GetData() any {
+	return s.Data
 }
-func (s *ChallengeMissionPanelReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChallengeMissionPanelReader) GetData() any {
+	return s.Data
 }
-func (s *ChallengeMissionStepDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChallengeMissionStepDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChallengeWarAchieveMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChallengeWarAchieveMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChallengeWarAreaInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChallengeWarAreaInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChallengeWarBuffDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChallengeWarBuffDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChallengeWarSeasonMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChallengeWarSeasonMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChallengeWarStageDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChallengeWarStageDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChallengeWarStageFloorMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChallengeWarStageFloorMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChallengeWarTagEffectPoolMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChallengeWarTagEffectPoolMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChanllengeWarAvatarSubStarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChanllengeWarAvatarSubStarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterActivityRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterActivityRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterActivityRpgAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterActivityRpgAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterActivitySectionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterActivitySectionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterActivityStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterActivityStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterActivityZoneBuffDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterActivityZoneBuffDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterActivityZoneDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterActivityZoneDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterBuffDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterBuffDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterChallengeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterChallengeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterCultivateAttrMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterCultivateAttrMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterCultivateBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterCultivateBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterCultivateBuffShopMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterCultivateBuffShopMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterCultivateConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterCultivateConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterCultivateJumpMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterCultivateJumpMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterCultivateLevelDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterCultivateLevelDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterCultivateMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterCultivateMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterCultivateSiteEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterCultivateSiteEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterCultivateSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterCultivateSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterCultivateUseMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterCultivateUseMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterGroupConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterGroupConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterGroupFuncButtonMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterGroupFuncButtonMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterGroupSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterGroupSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOW31DialogueMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOW31DialogueMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWAchievementMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWAchievementMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWActivityPanelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWActivityPanelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWAntiGravityGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWAntiGravityGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWAntiGravityLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWAntiGravityLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWBagMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWBagMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWBuildingLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWBuildingLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWBuildingMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWBuildingMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWBuildingStateMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWBuildingStateMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWChallengeBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWChallengeBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWChallengeDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWChallengeDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWChallengeGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWChallengeGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWChallengeSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWChallengeSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWCollectionTabMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWCollectionTabMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWDailyStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWDailyStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWDigsiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWDigsiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWDigsiteProgramMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWDigsiteProgramMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWEndlessChallengeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWEndlessChallengeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWEntryPlotLineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWEntryPlotLineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWEquipmentBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWEquipmentBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWEquipmentPartMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWEquipmentPartMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWEquipmentSlotMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWEquipmentSlotMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWEventTabConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWEventTabConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWFameMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWFameMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWFortDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWFortDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWFurnaceFormulaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWFurnaceFormulaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWFurnitureMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWFurnitureMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWHeroCardLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWHeroCardLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWHeroCardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWHeroCardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWHeroCardRarityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWHeroCardRarityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWHeroDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWHeroDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWHeroLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWHeroLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWHeroMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWHeroMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWHeroSpMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWHeroSpMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWInteractActionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWInteractActionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWInteractStateMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWInteractStateMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWLandMarkMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWLandMarkMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWLevelSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWLevelSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWMainLineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWMainLineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWMemoryContentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWMemoryContentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWMemoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWMemoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWMemorySiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWMemorySiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWMissionTabMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWMissionTabMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWMoonConditionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWMoonConditionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWMoonTowerFloorMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWMoonTowerFloorMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWMoonTowerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWMoonTowerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWMoonTowerScoreDropMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWMoonTowerScoreDropMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWNPCMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWNPCMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWNPCPositionGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWNPCPositionGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWNPCPositionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWNPCPositionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWPhaseMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWPhaseMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWPlotSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWPlotSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWQTECircleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWQTECircleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWQTECircleRangeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWQTECircleRangeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWQTELastRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWQTELastRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWQTEMapGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWQTEMapGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWQTEMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWQTEMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWQuestDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWQuestDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWQuestLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWQuestLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWRandomStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWRandomStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWRangePlotGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWRangePlotGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWRefiningLevelUPMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWRefiningLevelUPMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWRelicsEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWRelicsEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWRelicsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWRelicsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWRelicsSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWRelicsSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWShopGoodsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWShopGoodsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWShopLinkMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWShopLinkMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWShopMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWShopMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWSpecialStoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWSpecialStoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWTalentBuffLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWTalentBuffLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWTalentDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWTalentDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWTalentLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWTalentLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWTerminalLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWTerminalLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWTerminalTipsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWTerminalTipsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterOWTipsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterOWTipsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterRpgAvatarRewardLineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterRpgAvatarRewardLineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterRpgBuffLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterRpgBuffLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterStageCompensationMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterStageCompensationMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChapterSwitchAnimConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChapterSwitchAnimConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatGroupIconMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatGroupIconMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyActionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyActionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyActivityNoticeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyActivityNoticeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyAnnouncementMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyAnnouncementMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyBeastMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyBeastMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyBoxActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyBoxActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyBoxSeriesMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyBoxSeriesMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyDishLimitedRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyDishLimitedRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyDishMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyDishMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyDishRateMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyDishRateMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyFightExpressionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyFightExpressionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyFishActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyFishActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyFishMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyFishMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyFishShowMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyFishShowMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyKillingStreakMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyKillingStreakMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyLanternDifficultyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyLanternDifficultyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyLayoutMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyLayoutMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyMainPageNoticeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyMainPageNoticeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyNPCMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyNPCMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyNPCSystemFunctionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyNPCSystemFunctionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyObjectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyObjectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyPrayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyPrayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyQuestionActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyQuestionActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyQuestionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyQuestionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyRoomMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyRoomMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbySceneItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbySceneItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbySkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbySkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyStanceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyStanceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyTreasureMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyTreasureMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyUsableItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyUsableItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyVoiceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyVoiceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatLobbyWayPointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatLobbyWayPointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatMessageContentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatMessageContentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatMessageDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatMessageDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ChatReportMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ChatReportMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CityEventPhotoDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CityEventPhotoDataReader) GetData() any {
+	return s.Data
 }
-func (s *ClickDialogBGCloseBlackListMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ClickDialogBGCloseBlackListMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ClientLogDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ClientLogDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollaborationScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollaborationScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollaborationStigmataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollaborationStigmataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollaborationWeaponMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollaborationWeaponMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollectionDialogueMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollectionDialogueMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollectionEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollectionEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollectionFileMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollectionFileMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollectionItemDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollectionItemDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollectionMonsterDetailInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollectionMonsterDetailInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollectionMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollectionMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollectionPictureMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollectionPictureMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollectionTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollectionTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CollectionVisualNovelDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CollectionVisualNovelDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CompensationOfDormitoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CompensationOfDormitoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CompensationOfElfBreakMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CompensationOfElfBreakMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CompensationOfElfSlotUnlockMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CompensationOfElfSlotUnlockMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CompensationOfElfTalentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CompensationOfElfTalentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CompensationOfExtendGradeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CompensationOfExtendGradeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CompensationOfIslandMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CompensationOfIslandMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ConstValueMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ConstValueMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CoupleTowerRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CoupleTowerRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CoupleTowerScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CoupleTowerScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CoupleTowerStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CoupleTowerStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CouponDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CouponDataReader) GetData() any {
+	return s.Data
 }
-func (s *CreditRankMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CreditRankMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CreditRegeditMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CreditRegeditMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CrisisModeActivityConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CrisisModeActivityConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CrisisModeStageConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CrisisModeStageConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CrisisModeStageGroupConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CrisisModeStageGroupConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CurrencyIconMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CurrencyIconMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CurrencyQuickExchangeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CurrencyQuickExchangeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CustomGachaExFragmentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CustomGachaExFragmentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CustomHeadMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CustomHeadMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CustomHeadPageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CustomHeadPageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *CycleMissionManagementMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *CycleMissionManagementMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DailyMissionMaterialIconMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DailyMissionMaterialIconMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DailyMPStageDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DailyMPStageDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DailyRechargeRewardGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DailyRechargeRewardGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DailyRecommendMetaReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DailyRecommendMetaReader) GetData() any {
+	return s.Data
 }
-func (s *DanmakuMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DanmakuMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DanmakuSlotMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DanmakuSlotMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DeviceFPSLimitMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DeviceFPSLimitMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DialogImageDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DialogImageDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DialogMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DialogMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonBubbleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonBubbleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonDailyScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonDailyScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonDailyScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonDailyScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonGachaPoolMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonGachaPoolMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonMonsterBehaviorMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonMonsterBehaviorMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonOrnamentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonOrnamentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonPassiveSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonPassiveSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonRoleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonRoleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonRoomMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonRoomMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonSiteDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonSiteDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonTowerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonTowerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonTutorialDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonTutorialDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DiceyDungeonWeaponMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DiceyDungeonWeaponMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLC2ConditionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLC2ConditionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLC2DailyQuestInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLC2DailyQuestInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLC2EntryPlotLineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLC2EntryPlotLineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLC2PlotUIConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLC2PlotUIConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLC2SupportGiftMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLC2SupportGiftMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCAvatarCardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCAvatarCardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCGachaTabMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCGachaTabMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCLevelDiffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCLevelDiffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCNPCMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCNPCMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCRecommendLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCRecommendLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCReviveCostMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCReviveCostMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCStoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCStoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCStoryPreviewMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCStoryPreviewMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCSupportDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCSupportDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCSupportLevelDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCSupportLevelDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCSupportRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCSupportRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTalentAffixMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTalentAffixMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTalentAffixSetMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTalentAffixSetMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTalentLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTalentLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTalentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTalentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTalentMultiDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTalentMultiDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTalentTagMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTalentTagMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTowerBonusMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTowerBonusMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTowerBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTowerBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTowerFloorMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTowerFloorMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTowerMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTowerMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTowerRankMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTowerRankMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTowerScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTowerScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTowerStyleBonusMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTowerStyleBonusMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTowerWaveMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTowerWaveMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DLCTowerWeatherMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DLCTowerWeatherMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryComfortMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryComfortMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryDecorationEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryDecorationEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryDecorationMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryDecorationMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryDialogMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryDialogMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryEventDialogMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryEventDialogMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryEventSequenceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryEventSequenceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryEventWeightMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryEventWeightMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryFacilityBonusDropMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryFacilityBonusDropMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryFacilityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryFacilityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryFurnitureCollectRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryFurnitureCollectRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryFurnitureMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryFurnitureMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryFurnitureSuitMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryFurnitureSuitMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryHouseMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryHouseMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryInteractEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryInteractEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryRoomMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryRoomMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryTalkEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryTalkEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryVoiceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryVoiceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryVoteActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryVoteActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryVotePrizeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryVotePrizeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DormitoryVoteProductionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DormitoryVoteProductionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DownLoadConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DownLoadConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DownloadInterfaceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DownloadInterfaceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DreamMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DreamMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DreamMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DreamMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DreamRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DreamRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DreamUnlockMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DreamUnlockMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DressMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DressMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DressTagDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DressTagDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DungeonsMirrorRecoveryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DungeonsMirrorRecoveryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DutyDailyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DutyDailyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DutyWeeklyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DutyWeeklyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *DynamicHardLvMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *DynamicHardLvMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElevatorConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElevatorConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfBreakMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfBreakMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfCaptainSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfCaptainSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfCardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfCardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfFragmentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfFragmentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfGalEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfGalEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfRarityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfRarityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfSkillTreeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfSkillTreeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfStarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfStarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfStoryActMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfStoryActMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfStoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfStoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfTalentLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfTalentLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfTalentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfTalentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ElfTrialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ElfTrialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EliteAbilityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EliteAbilityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EliteChapterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EliteChapterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EliteStageCompensationMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EliteStageCompensationMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EliteStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EliteStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EmojiFaceDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EmojiFaceDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EmojiFacePageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EmojiFacePageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EntryPerformMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EntryPerformMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EntryThemeDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EntryThemeDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EntryThemeItemDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EntryThemeItemDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EntryThemeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EntryThemeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EntryThemeSampleDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EntryThemeSampleDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EntryThemeScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EntryThemeScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EntryThemeTagDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EntryThemeTagDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipFilterTagMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipFilterTagMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipForgeExchangeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipForgeExchangeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipForgeGenerationMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipForgeGenerationMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipForgeKeepAffixMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipForgeKeepAffixMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipForgeMetaReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipForgeMetaReader) GetData() any {
+	return s.Data
 }
-func (s *EquipForgeRemindReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipForgeRemindReader) GetData() any {
+	return s.Data
 }
-func (s *EquipForgeShadowMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipForgeShadowMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipFragMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipFragMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipmentActivitySetMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipmentActivitySetMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipmentLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipmentLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipmentSetMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipmentSetMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EquipTypeDetailMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EquipTypeDetailMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EvaluateDialogMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EvaluateDialogMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EvaluateIntroMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EvaluateIntroMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EventCollectionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EventCollectionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *EventDialogDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *EventDialogDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExaminationAnswerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExaminationAnswerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExaminationQuestionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExaminationQuestionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExaminationRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExaminationRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExaminationScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExaminationScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExBossMonsterLevelConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExBossMonsterLevelConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExBossMonsterScoreRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExBossMonsterScoreRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExBossMonsterWeatherMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExBossMonsterWeatherMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExBossTransferInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExBossTransferInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExhibitionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExhibitionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExposureRateDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExposureRateDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExScheduleTextmapListMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExScheduleTextmapListMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExScheduleTextmapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExScheduleTextmapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraShortStoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraShortStoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraStoryAchieveDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraStoryAchieveDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraStoryAchieveGroupyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraStoryAchieveGroupyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraStoryAchieveMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraStoryAchieveMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraStoryActMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraStoryActMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraStoryAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraStoryAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraStoryChallengeModeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraStoryChallengeModeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraStoryChapterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraStoryChapterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraStoryLineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraStoryLineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraStoryThemeDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraStoryThemeDataReader) GetData() any {
+	return s.Data
 }
-func (s *ExtraStoryThemeScheduleReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ExtraStoryThemeScheduleReader) GetData() any {
+	return s.Data
 }
-func (s *FakeAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FakeAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FarmBuffScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FarmBuffScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FarmEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FarmEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FarmLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FarmLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FarmMaterialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FarmMaterialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FarmScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FarmScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FarmSlotMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FarmSlotMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FarmSpeedUpMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FarmSpeedUpMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FarmUISkinMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FarmUISkinMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FastPassLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FastPassLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FastPassMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FastPassMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FeaturedContentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FeaturedContentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FeatureSubPakConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FeatureSubPakConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FixedPlotUIConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FixedPlotUIConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FlopActivityPanelReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FlopActivityPanelReader) GetData() any {
+	return s.Data
 }
-func (s *FoundationRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FoundationRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FoundationTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FoundationTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FOWEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FOWEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FrameDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FrameDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FrontEndlessBattleConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FrontEndlessBattleConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FrontEndlessFloorConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FrontEndlessFloorConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FrontEndlessStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FrontEndlessStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *FurnitureTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *FurnitureTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GachaAdventureDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GachaAdventureDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GachaBoxConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GachaBoxConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GachaEntranceManageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GachaEntranceManageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GachaFirstDiscountDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GachaFirstDiscountDataReader) GetData() any {
+	return s.Data
 }
-func (s *GachaGroupManageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GachaGroupManageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GachaPanelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GachaPanelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GalAvatarStandByMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GalAvatarStandByMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GalEventEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GalEventEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GalEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GalEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GalEventTwinsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GalEventTwinsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GardenCropDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GardenCropDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GardenScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GardenScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GardenWeatherDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GardenWeatherDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GenActivityRewardScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GenActivityRewardScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GenActivityRewardShowItemsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GenActivityRewardShowItemsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityActUIMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityActUIMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityDisplayDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityDisplayDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityLinkDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityLinkDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityOptionalBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityOptionalBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityRankDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityRankDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityScoreDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityScoreDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityStageGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityStageGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityStageHomuMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityStageHomuMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityStageRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityStageRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralActivityTicketMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralActivityTicketMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralRarityDisplayConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralRarityDisplayConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeneralScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeneralScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeniusCommonTowerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeniusCommonTowerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeniusEndlessTowerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeniusEndlessTowerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeniusEndlessTowerRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeniusEndlessTowerRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GeniusTowerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GeniusTowerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GerenalRulesEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GerenalRulesEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GiftPackAdditionalDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GiftPackAdditionalDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GiftPackMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GiftPackMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalArmadaReunionLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalArmadaReunionLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalArmadaReunionScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalArmadaReunionScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreActionDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreActionDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreActionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreActionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreBuffDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreBuffDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreEntityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreEntityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreFlagMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreFlagMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreGridMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreGridMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreKingdomMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreKingdomMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreMapPathMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreMapPathMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreMessageBoardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreMessageBoardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExplorePlotMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExplorePlotMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreQuestMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreQuestMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalExploreStageScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalExploreStageScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalSupportRewardConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalSupportRewardConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarAvatarBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarAvatarBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarAvatarCollectionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarAvatarCollectionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarDamageTextMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarDamageTextMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarExchangeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarExchangeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarIsolatePointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarIsolatePointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarPhotoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarPhotoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarPointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarPointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarSpecialBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarSpecialBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GlobalWarStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GlobalWarStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackFreeSelectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackFreeSelectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackFundMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackFundMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackFundRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackFundRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackGachaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackGachaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackGamePlayConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackGamePlayConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackGrowUpActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackGrowUpActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackLoginImgMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackLoginImgMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackMissionDayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackMissionDayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackMissionScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackMissionScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackScoreRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackScoreRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackTabMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackTabMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GoBackWebMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GoBackWebMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarAvatarLevelDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarAvatarLevelDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarAvatarTaleScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarAvatarTaleScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarAvatarUpScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarAvatarUpScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarBuffPoolMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarBuffPoolMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarBuffSuitMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarBuffSuitMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarChallengeBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarChallengeBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarChallengeLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarChallengeLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarChallengeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarChallengeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarChallengeRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarChallengeRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarChapterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarChapterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarChar2DMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarChar2DMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarClientDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarClientDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarCollectionDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarCollectionDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarCollectionSuitDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarCollectionSuitDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarEventFlagMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarEventFlagMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarEventPanelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarEventPanelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarEventPlotMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarEventPlotMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarEventPropMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarEventPropMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarEventScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarEventScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarEventStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarEventStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarExtraItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarExtraItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarExtraItemTextMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarExtraItemTextMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarHardLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarHardLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarHardLevelScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarHardLevelScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarLobbyAreaTriggerDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarLobbyAreaTriggerDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarLobbyAvatarDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarLobbyAvatarDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarLobbyButtonMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarLobbyButtonMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarLobbyDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarLobbyDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarLobbyInteractActionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarLobbyInteractActionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarLobbyInteractPropMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarLobbyInteractPropMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarMainAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarMainAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarMainMissionNodeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarMainMissionNodeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarMaterialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarMaterialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarMissionDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarMissionDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarNodeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarNodeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarParentTabDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarParentTabDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarPlotStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarPlotStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarPunishBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarPunishBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarPunishRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarPunishRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarPunishScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarPunishScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarPunishStepMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarPunishStepMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarRelationDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarRelationDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarRoleSkillDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarRoleSkillDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarRoleStoryDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarRoleStoryDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarSceneConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarSceneConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarStageHintMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarStageHintMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarStageSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarStageSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarSubTabDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarSubTabDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarSupportAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarSupportAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarSupportLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarSupportLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarTaleClientDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarTaleClientDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarTaleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarTaleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarTalentClientDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarTalentClientDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarTalentDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarTalentDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarTalentLevelDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarTalentLevelDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarTaleScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarTaleScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarTeleportMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarTeleportMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarTicketMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarTicketMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GodWarUseAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GodWarUseAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GrandKeyBuffActiveInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GrandKeyBuffActiveInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GrandKeyBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GrandKeyBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GrandKeyLevelReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GrandKeyLevelReader) GetData() any {
+	return s.Data
 }
-func (s *GrandKeyMainWeaponReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GrandKeyMainWeaponReader) GetData() any {
+	return s.Data
 }
-func (s *GrandKeyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GrandKeyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GrandKeySkillLimitMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GrandKeySkillLimitMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GrandKeyWeaponContrastReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GrandKeyWeaponContrastReader) GetData() any {
+	return s.Data
 }
-func (s *GrandKeyWeaponRaidSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GrandKeyWeaponRaidSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GratuityMessageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GratuityMessageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GratuityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GratuityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GratuityStageClassMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GratuityStageClassMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GratuityStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GratuityStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GreedyEndlessBattleConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GreedyEndlessBattleConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GreedyEndlessBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GreedyEndlessBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GreedyEndlessFloorConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GreedyEndlessFloorConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GreedyEndlessGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GreedyEndlessGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GreedyEndlessMechanismMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GreedyEndlessMechanismMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GreedyEndlessPlayerGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GreedyEndlessPlayerGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GreedyEndlessRankRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GreedyEndlessRankRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GreedyEndlessScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GreedyEndlessScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GreedyEndlessSettleConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GreedyEndlessSettleConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *GreedyEndlessWeatherMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *GreedyEndlessWeatherMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HalfBalanceModeAttrMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HalfBalanceModeAttrMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HalfBalanceModeDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HalfBalanceModeDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownBuildingMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownBuildingMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownChallengeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownChallengeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownLuckLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownLuckLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownPathMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownPathMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownQAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownQAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownQBattleSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownQBattleSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownQbossMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownQbossMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownQMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownQMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownRefreshMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownRefreshMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownSpeedLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownSpeedLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownStrengthLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownStrengthLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownTerrainSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownTerrainSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HoukaiTownTutorialStepMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HoukaiTownTutorialStepMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HybridRelayPhaseMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HybridRelayPhaseMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HybridSiteBossDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HybridSiteBossDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HybridSiteCameraMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HybridSiteCameraMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HybridSiteContentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HybridSiteContentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HybridSiteDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HybridSiteDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *HybridSiteRemindMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *HybridSiteRemindMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ImgPanelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ImgPanelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *InControlActionMapDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InControlActionMapDataReader) GetData() any {
+	return s.Data
 }
-func (s *InControlActionSubTypeInfoDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InControlActionSubTypeInfoDataReader) GetData() any {
+	return s.Data
 }
-func (s *InControlBattleOverrideMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InControlBattleOverrideMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *InControlControlTypeInfoDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InControlControlTypeInfoDataReader) GetData() any {
+	return s.Data
 }
-func (s *InControlKeyInfoDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InControlKeyInfoDataReader) GetData() any {
+	return s.Data
 }
-func (s *InControlUIButtonConfigReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InControlUIButtonConfigReader) GetData() any {
+	return s.Data
 }
-func (s *InLevelBuffUIMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InLevelBuffUIMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *InLevelDialogReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InLevelDialogReader) GetData() any {
+	return s.Data
 }
-func (s *InviteeActivityGobackConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InviteeActivityGobackConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *InviteeActivityNewbieConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InviteeActivityNewbieConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *InviteeActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InviteeActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *InviterActivityRewardConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InviterActivityRewardConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *InviterActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *InviterActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *JigsawGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *JigsawGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *JigsawMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *JigsawMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsBossPointScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsBossPointScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsPhaseMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsPhaseMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsPhaseTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsPhaseTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsPointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsPointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsWarRankRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsWarRankRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsWarScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsWarScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsWarScoreRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsWarScoreRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsWarStageCurrencyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsWarStageCurrencyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsWarStoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsWarStoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsWarVoteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsWarVoteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *KingdomsWarWaveMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *KingdomsWarWaveMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelChallengeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelChallengeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixArmadaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixArmadaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixBlockMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixBlockMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixEventDialogMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixEventDialogMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixFloorMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixFloorMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixFloorRequirementMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixFloorRequirementMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixGoodsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixGoodsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixGridIndexMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixGridIndexMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixLevelLogicMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixLevelLogicMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixMapInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixMapInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixMessageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixMessageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixPresetMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixPresetMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixScoreBonusMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixScoreBonusMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixSuddenEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixSuddenEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixThemeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixThemeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixTreasureBoxMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixTreasureBoxMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMatrixUseItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMatrixUseItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelResetCostMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelResetCostMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelSaveMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelSaveMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelStatisticsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelStatisticsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelTrialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelTrialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LevelTutorialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LevelTutorialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LinearMissionDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LinearMissionDataReader) GetData() any {
+	return s.Data
 }
-func (s *LinkDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LinkDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LoadingTipMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LoadingTipMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LoadingTipStringMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LoadingTipStringMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LoginWishActivityLinkMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LoginWishActivityLinkMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LoginWishActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LoginWishActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LoginWishActivityRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LoginWishActivityRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *LoginWishActivityWishMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *LoginWishActivityWishMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MailDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MailDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MailStyleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MailStyleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MainEventPanelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MainEventPanelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MainlineStepMissionDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MainlineStepMissionDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MainlineStepMissionDisplayDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MainlineStepMissionDisplayDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MainPageActivityEntryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MainPageActivityEntryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MainPageSequenceDialogInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MainPageSequenceDialogInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MainstageEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MainstageEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MallEntranceDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MallEntranceDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MapGrowthMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MapGrowthMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MapLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MapLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MapSiteQualityConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MapSiteQualityConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MapSiteScheduleDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MapSiteScheduleDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MapSiteStageDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MapSiteStageDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MapSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MapSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MapSkillTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MapSkillTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MassiveWarDamageNeedMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MassiveWarDamageNeedMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MassiveWarDamageRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MassiveWarDamageRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MassiveWarMonsterDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MassiveWarMonsterDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MassiveWarPlayerGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MassiveWarPlayerGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MassiveWarRankRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MassiveWarRankRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MassiveWarRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MassiveWarRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MassiveWarScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MassiveWarScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MassiveWarStageInfoReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MassiveWarStageInfoReader) GetData() any {
+	return s.Data
 }
-func (s *MassiveWarStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MassiveWarStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MaterialDeleteDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MaterialDeleteDataReader) GetData() any {
+	return s.Data
 }
-func (s *MaterialProtectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MaterialProtectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MaterialProvideElfExpDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MaterialProvideElfExpDataReader) GetData() any {
+	return s.Data
 }
-func (s *MaterialUseConversionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MaterialUseConversionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MaterialUseMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MaterialUseMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MatrixFloorMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MatrixFloorMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MatrixGridIndexMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MatrixGridIndexMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MatrixMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MatrixMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MatrixPanelLinkMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MatrixPanelLinkMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MatrixSuddenEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MatrixSuddenEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MatrixThemeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MatrixThemeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MechMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MechMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MechPaperMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MechPaperMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MechTDDiffcultyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MechTDDiffcultyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MechTDRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MechTDRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MechTDWeatherMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MechTDWeatherMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MedalMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MedalMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MentorCompanyMissionRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MentorCompanyMissionRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MentorConstReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MentorConstReader) GetData() any {
+	return s.Data
 }
-func (s *MentorDailyMissionRewardReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MentorDailyMissionRewardReader) GetData() any {
+	return s.Data
 }
-func (s *MentorEvaluateReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MentorEvaluateReader) GetData() any {
+	return s.Data
 }
-func (s *MentorExamDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MentorExamDataReader) GetData() any {
+	return s.Data
 }
-func (s *MentorFameLevelDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MentorFameLevelDataReader) GetData() any {
+	return s.Data
 }
-func (s *MentorLobbyTagDisplayReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MentorLobbyTagDisplayReader) GetData() any {
+	return s.Data
 }
-func (s *MentorMainSceneNoticeReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MentorMainSceneNoticeReader) GetData() any {
+	return s.Data
 }
-func (s *MentorRewardAttenuationReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MentorRewardAttenuationReader) GetData() any {
+	return s.Data
 }
-func (s *MiniBossExamExplainInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MiniBossExamExplainInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MiniBossExamHardStageDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MiniBossExamHardStageDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MiniMonopolyActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MiniMonopolyActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MiniMonopolyGridMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MiniMonopolyGridMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MiniMonopolyItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MiniMonopolyItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MiniMonopolyMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MiniMonopolyMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MiniMonopolySectorMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MiniMonopolySectorMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MiniSkyFireInfoDesMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MiniSkyFireInfoDesMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MiniSkyFireInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MiniSkyFireInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MiniSkyFireStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MiniSkyFireStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MinuteChallengeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MinuteChallengeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MissionCategoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MissionCategoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MissionDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MissionDataReader) GetData() any {
+	return s.Data
 }
-func (s *MissionExtraRewardReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MissionExtraRewardReader) GetData() any {
+	return s.Data
 }
-func (s *MissionGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MissionGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MissionPanelConversationMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MissionPanelConversationMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MissionThemeReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MissionThemeReader) GetData() any {
+	return s.Data
 }
-func (s *MonopolyBuffInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonopolyBuffInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonopolyBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonopolyBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonopolyDiceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonopolyDiceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonopolyGuessMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonopolyGuessMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonopolyLevelInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonopolyLevelInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonopolyLotteryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonopolyLotteryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterCardActivityDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterCardActivityDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterCardBuffDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterCardBuffDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterCardLevelLimitMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterCardLevelLimitMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterCardLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterCardLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterCardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterCardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterCardSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterCardSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterCardStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterCardStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterCardStarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterCardStarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterCardTalentBookMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterCardTalentBookMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterCardTowerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterCardTowerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterResistanceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterResistanceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterWikiDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterWikiDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterWikiDescConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterWikiDescConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MonsterWikiPageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MonsterWikiPageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPLevelDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPLevelDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPListMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPListMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPPveActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPPveActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPPveActivityStageGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPPveActivityStageGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPRaidActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPRaidActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPRaidActMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPRaidActMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPRaidRankMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPRaidRankMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPRaidRankRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPRaidRankRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPRaidScoreRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPRaidScoreRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPRaidSeriesMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPRaidSeriesMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPSkillsDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPSkillsDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPStageBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPStageBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPStagePlayerLevelDropDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPStagePlayerLevelDropDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPTagDetectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPTagDetectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPTeamSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPTeamSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MPTrophyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MPTrophyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MultiPlatforms_UserInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MultiPlatforms_UserInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *MuseumMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *MuseumMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NatureCounterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NatureCounterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NetworkErrCodeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NetworkErrCodeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieActivityPanelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieActivityPanelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieActivityStageMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieActivityStageMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieAvatarGuideDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieAvatarGuideDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieBattleBuffReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieBattleBuffReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieCumulativeLotteryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieCumulativeLotteryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieDevelopRewardPanelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieDevelopRewardPanelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieDormQAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieDormQAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieEquipAdvDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieEquipAdvDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieEquipTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieEquipTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieFirstPaymentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieFirstPaymentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieFirstPaymentRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieFirstPaymentRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieGlobalBuffReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieGlobalBuffReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieGroupAdvDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieGroupAdvDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieGrowUpMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieGrowUpMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieGuideDialogueDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieGuideDialogueDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieGuideFaqDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieGuideFaqDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieGuideFaqListDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieGuideFaqListDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieGuideGrowthQuestDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieGuideGrowthQuestDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieGuideTutorialLevelDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieGuideTutorialLevelDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieLevelRushMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieLevelRushMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieLevelRushRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieLevelRushRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieLoginPostMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieLoginPostMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieRecurrenceLoginRewardDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieRecurrenceLoginRewardDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewbieWebsitesMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewbieWebsitesMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NewFeatureGuideDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NewFeatureGuideDataReader) GetData() any {
+	return s.Data
 }
-func (s *NinjaAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NinjaAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NinjaAttrMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NinjaAttrMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NinjaMissionCGMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NinjaMissionCGMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NinjaScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NinjaScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NinjaSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NinjaSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NinjaSlotLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NinjaSlotLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NinjaSlotMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NinjaSlotMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NinjaSpEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NinjaSpEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *NPCLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *NPCLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldAreaReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldAreaReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldBoss030MetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldBoss030MetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldContentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldContentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldCookDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldCookDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldCycleActivityMetaReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldCycleActivityMetaReader) GetData() any {
+	return s.Data
 }
-func (s *OpenworldCycleDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenworldCycleDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldDestinyLevelDiffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldDestinyLevelDiffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldDestinyLineLinkMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldDestinyLineLinkMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldDynamicHardLvMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldDynamicHardLvMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldEventActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldEventActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldEventDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldEventDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldEventExtraDropMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldEventExtraDropMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldExplorePointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldExplorePointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldFunctionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldFunctionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldLocationReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldLocationReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldMapReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldMapReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldOverViewDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldOverViewDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldQuestActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldQuestActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenworldQuestBuffDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenworldQuestBuffDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenworldQuestChallengeDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenworldQuestChallengeDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenworldQuestDataCfgReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenworldQuestDataCfgReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldQuestDeleteRuleReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldQuestDeleteRuleReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldQuestJudgeDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldQuestJudgeDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenworldQuestLevelDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenworldQuestLevelDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldQuestMapLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldQuestMapLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldQuestMonsterPowerReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldQuestMonsterPowerReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldQuestRarityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldQuestRarityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldQuestRarityRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldQuestRarityRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldQuestSlotDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldQuestSlotDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldQuestThemeDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldQuestThemeDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldQuestThemeScheduleDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldQuestThemeScheduleDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldRewardUpListMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldRewardUpListMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldSectionReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldSectionReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldStoryDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldStoryDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldStoryDetailMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldStoryDetailMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldTaskConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldTaskConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OpenWorldTimerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OpenWorldTimerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OptionalBuffListMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OptionalBuffListMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OptionalBuffPoolMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OptionalBuffPoolMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OptionalGachaDetailDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OptionalGachaDetailDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OrderClientMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OrderClientMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OrderItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OrderItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OverlappingCatMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OverlappingCatMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OverlappingMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OverlappingMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OverlappingRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OverlappingRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWActivityBossMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWActivityBossMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWActivityBossRatingMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWActivityBossRatingMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWActivityClueMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWActivityClueMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWActivityLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWActivityLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWActivityPhaseMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWActivityPhaseMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWAvatarActivityDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWAvatarActivityDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWAvatarActivityFilesDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWAvatarActivityFilesDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWAvatarActivityLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWAvatarActivityLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWAvatarActivityQuestMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWAvatarActivityQuestMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWAvatarActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWAvatarActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWAvatarCultivateDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWAvatarCultivateDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWAvatarCultivateLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWAvatarCultivateLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWAvatarUnlockMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWAvatarUnlockMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessAreaDetailMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessAreaDetailMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessAreaScoreConfigReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessAreaScoreConfigReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessBattleAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessBattleAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessBattleConfigReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessBattleConfigReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessBossDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessBossDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessBuffReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessBuffReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessEnvironmentMetaReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessEnvironmentMetaReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessGroupMetaReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessGroupMetaReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessInvadeBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessInvadeBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessInvadeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessInvadeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessItemEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessItemEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessMonsterDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessMonsterDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessMonsterGroupScoreReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessMonsterGroupScoreReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessMonsterInitTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessMonsterInitTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessPlayerBaseRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessPlayerBaseRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessPlayerGroupMetaReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessPlayerGroupMetaReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessRewardConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessRewardConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessSingleFloorDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessSingleFloorDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessSingleModeStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessSingleModeStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEndlessSingleMonsterGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEndlessSingleMonsterGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWEventDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWEventDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityFloorMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityFloorMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityHunterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityHunterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityMachineEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityMachineEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityMachineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityMachineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityMapDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityMapDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityProgressMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityProgressMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityQuestMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityQuestMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivitySHLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivitySHLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityStrongholdsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityStrongholdsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityTalentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityTalentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWHuntActivityTeleportMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWHuntActivityTeleportMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWTalentDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWTalentDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWTalentLevelDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWTalentLevelDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *OWTeleporterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *OWTeleporterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PanelConversationTriggerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PanelConversationTriggerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PayActivityDisplayScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PayActivityDisplayScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PayInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PayInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PerformEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PerformEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PhoneEntranceAcountOverrideMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PhoneEntranceAcountOverrideMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PhoneEntranceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PhoneEntranceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PhoneNoticeDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PhoneNoticeDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PhonePendantMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PhonePendantMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PicBGListMetaReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PicBGListMetaReader) GetData() any {
+	return s.Data
 }
-func (s *PictureStepMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PictureStepMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PicTutorialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PicTutorialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PicTutorialStepDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PicTutorialStepDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PlayerLevelLockMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PlayerLevelLockMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PlayerLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PlayerLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PlayerLevelShopGoodsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PlayerLevelShopGoodsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PlayerPrivilegeScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PlayerPrivilegeScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PlotAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PlotAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PlotLineCgDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PlotLineCgDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PlotlineConditionDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PlotlineConditionDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PlotLineDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PlotLineDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PlotMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PlotMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PowerTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PowerTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PrayGachaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PrayGachaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PredownloadAsbMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PredownloadAsbMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PredownloadAudioMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PredownloadAudioMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PredownloadAudioPackageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PredownloadAudioPackageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PredownloadVideoFileMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PredownloadVideoFileMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PredownloadVideoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PredownloadVideoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ProductRecommendMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ProductRecommendMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ProtectTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ProtectTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PVloginMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PVloginMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PVZActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PVZActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PVZMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PVZMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PVZQavatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PVZQavatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PVZSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PVZSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *PVZTileMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *PVZTileMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QAvatarBattleBroadCastMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QAvatarBattleBroadCastMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QAvatarBattleExpressionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QAvatarBattleExpressionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QAvatarBattleGadgetMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QAvatarBattleGadgetMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QAvatarBattleGadgetRefreshMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QAvatarBattleGadgetRefreshMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QAvatarBattleKillingStreakMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QAvatarBattleKillingStreakMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QAvatarBattleSpawnZoneMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QAvatarBattleSpawnZoneMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QAvatarBattleTextIdMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QAvatarBattleTextIdMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QAvatarMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QAvatarMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QAvatarPVPMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QAvatarPVPMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QAvatarPVPWeaponMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QAvatarPVPWeaponMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QCandyActivityDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QCandyActivityDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QCandyAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QCandyAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QCandyPvpMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QCandyPvpMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QCandyPvpMapPoolMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QCandyPvpMapPoolMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QCandyPvpMapSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QCandyPvpMapSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QCandyRankSectionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QCandyRankSectionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QCandySettleConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QCandySettleConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QTEndlessMonsterDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QTEndlessMonsterDataReader) GetData() any {
+	return s.Data
 }
-func (s *QTEndlessMonsterWaveMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QTEndlessMonsterWaveMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QTEndlessScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QTEndlessScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QuestionBankMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QuestionBankMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QuestionConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QuestionConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QuestionScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QuestionScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QuickEntryScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QuickEntryScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *QuickSellDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *QuickSellDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RaffleClientMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RaffleClientMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RaffleConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RaffleConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RaffleRewardConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RaffleRewardConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RaffleScheduleConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RaffleScheduleConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RaidActivateScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RaidActivateScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RanchAreaConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RanchAreaConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RanchAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RanchAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RanchChallengeSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RanchChallengeSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RanchContentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RanchContentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RanchDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RanchDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RanchMonsterExpMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RanchMonsterExpMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RanchMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RanchMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RanchMonsterSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RanchMonsterSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RanchSiteDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RanchSiteDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RanchSyntheticMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RanchSyntheticMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomDialogActionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomDialogActionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomDialogCGRawMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomDialogCGRawMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomDialogInputMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomDialogInputMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomDialogQuestionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomDialogQuestionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomEffectLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomEffectLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomHideBranchTimeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomHideBranchTimeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomPlotDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomPlotDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomPlotNPCMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomPlotNPCMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomSubSelectContentDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomSubSelectContentDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RandomSubSelectStyleConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RandomSubSelectStyleConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RareaffixMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RareaffixMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReclaimConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReclaimConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReclaimEventListMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReclaimEventListMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReclaimEventStageListMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReclaimEventStageListMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReclaimEventVirtualAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReclaimEventVirtualAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReclaimEventVirtualStigmataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReclaimEventVirtualStigmataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReclaimEventVirtualWeaponMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReclaimEventVirtualWeaponMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReclaimLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReclaimLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReclaimRankingRewardDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReclaimRankingRewardDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReclaimScoreRewardDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReclaimScoreRewardDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReclaimVirtualGachaChestMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReclaimVirtualGachaChestMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RecommendEquipMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RecommendEquipMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RedEnvelopeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RedEnvelopeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RegionInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RegionInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RelationActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RelationActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RelationStageBonusDropMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RelationStageBonusDropMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReplayLobbyFilterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReplayLobbyFilterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReplayLobbyPageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReplayLobbyPageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReplayLobbyScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReplayLobbyScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReplayLobbySubPageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReplayLobbySubPageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReplayLobbyUploadMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReplayLobbyUploadMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReportReasonMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReportReasonMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ResourceRetrieveBoxMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ResourceRetrieveBoxMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ResourceRetrieveModuleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ResourceRetrieveModuleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ResourceRetrieveScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ResourceRetrieveScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RestaurantActionZoneMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RestaurantActionZoneMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RestaurantAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RestaurantAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RestaurantIngredientsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RestaurantIngredientsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RestaurantLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RestaurantLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RestaurantQuestMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RestaurantQuestMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RestaurantRecipeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RestaurantRecipeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RestaurantRoomMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RestaurantRoomMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RestaurantSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RestaurantSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RestaurantWeatherMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RestaurantWeatherMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RestrictExtend_StageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RestrictExtend_StageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReunionCookBookMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReunionCookBookMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReunionCookRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReunionCookRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReunionCookStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReunionCookStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReunionDisplayScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReunionDisplayScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReviveCostTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReviveCostTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReviveEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReviveEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ReviveUseMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ReviveUseMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RewardDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RewardDataReader) GetData() any {
+	return s.Data
 }
-func (s *RewardLineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RewardLineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RewardLineRankMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RewardLineRankMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RewardOverviewPanelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RewardOverviewPanelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichBuildingMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichBuildingMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichChallengeBossMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichChallengeBossMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichDiceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichDiceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichFloorInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichFloorInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichmanMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichmanMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichMapInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichMapInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichMonsterInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichMonsterInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RichShopMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RichShopMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueActiveCardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueActiveCardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueBuffPoolMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueBuffPoolMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueEliteAbilityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueEliteAbilityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueEliteAbilityTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueEliteAbilityTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueGoodsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueGoodsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RoguePriceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RoguePriceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueStageAvatarPosetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueStageAvatarPosetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueStageDebuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueStageDebuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueStageHardLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueStageHardLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueStageLuaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueStageLuaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueStoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueStoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueTowerDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueTowerDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueTowerEndSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueTowerEndSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueTowerStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueTowerStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RogueTriggerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RogueTriggerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RoutineDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RoutineDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RoutineRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RoutineRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RoutineScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RoutineScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgAreaLineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgAreaLineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgAreaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgAreaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgBuffDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgBuffDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgBuffLimitMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgBuffLimitMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgBuffSuitClientInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgBuffSuitClientInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgClientMainDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgClientMainDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgCollectionRewardDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgCollectionRewardDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgDungeonAdventureQuestMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgDungeonAdventureQuestMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgEventDialogMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgEventDialogMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgEventTextMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgEventTextMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgFilesMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgFilesMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgLevelProgressDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgLevelProgressDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgMaterialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgMaterialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgMissionCategoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgMissionCategoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgNavSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgNavSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgOverallMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgOverallMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgQAvatarBattleCollideMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgQAvatarBattleCollideMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgQAvatarBattleDivisionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgQAvatarBattleDivisionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgQAvatarBattleSceneMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgQAvatarBattleSceneMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgQAvatarBattleSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgQAvatarBattleSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgRestaurantMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgRestaurantMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgRoleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgRoleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgShootPlayTriggerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgShootPlayTriggerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSimpleBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSimpleBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSiteLineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSiteLineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSiteLockTipsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSiteLockTipsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSitePackMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSitePackMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSiteProgressConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSiteProgressConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSkillDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSkillDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgStageDropMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgStageDropMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgStageScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgStageScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgStigmataBookMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgStigmataBookMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSuddenEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSuddenEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSurvivalRoleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSurvivalRoleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSurvivalTraitMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSurvivalTraitMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgSurvivalWeaponMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgSurvivalWeaponMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgTaleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgTaleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgTaleRefreshMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgTaleRefreshMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgTaleStageEnterTimesMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgTaleStageEnterTimesMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgTicketMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgTicketMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgTowerV2MetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgTowerV2MetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgUIConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgUIConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgVirtualAvatarLimitMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgVirtualAvatarLimitMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *RpgZoneMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *RpgZoneMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SanctuaryBuildingActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SanctuaryBuildingActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SanctuaryBuildingLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SanctuaryBuildingLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SanctuaryPlayerGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SanctuaryPlayerGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SanctuaryStageConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SanctuaryStageConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCAchievementMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCAchievementMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCAvatarLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCAvatarLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCChallengeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCChallengeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCChallengeRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCChallengeRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCCombineTalentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCCombineTalentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCExplorePointMaterialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCExplorePointMaterialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCFeverAbilityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCFeverAbilityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCFurnitureMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCFurnitureMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCGachaMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCGachaMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCImageReplaceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCImageReplaceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCInteractActionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCInteractActionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCInteractStateMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCInteractStateMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCMapProgressMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCMapProgressMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCMissionRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCMissionRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCMPStageDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCMPStageDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCNPCMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCNPCMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCNPCPositionGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCNPCPositionGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCNPCPositionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCNPCPositionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCOpenFunctionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCOpenFunctionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCShowMapConditionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCShowMapConditionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCSkillChipMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCSkillChipMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCSpecialExplorePointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCSpecialExplorePointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCSpecialItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCSpecialItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCStoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCStoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTalentDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTalentDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTalentLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTalentLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTeachStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTeachStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTowerBonusMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTowerBonusMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTowerBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTowerBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTowerFloorMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTowerFloorMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTowerMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTowerMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTowerScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTowerScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTowerScoreRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTowerScoreRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTowerWaveMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTowerWaveMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScDLCTowerWeatherMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScDLCTowerWeatherMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScratchTicketDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScratchTicketDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScratchTicketItemDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScratchTicketItemDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ScratchTicketPlateDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ScratchTicketPlateDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SecondAnniversaryMemoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SecondAnniversaryMemoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SecondAnniversaryMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SecondAnniversaryMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SeriesMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SeriesMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ServantDialogMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ServantDialogMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ServantTouchMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ServantTouchMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SettingAudioVolumeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SettingAudioVolumeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SettingGraphicsDeviceLimitMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SettingGraphicsDeviceLimitMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SettingGraphicsItemLineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SettingGraphicsItemLineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SettingGraphicsTitleLineMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SettingGraphicsTitleLineMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShareChannelContentMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShareChannelContentMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShareChannelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShareChannelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShareConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShareConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SharePakDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SharePakDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShareShowDetailConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShareShowDetailConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShareSpecialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShareSpecialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShareSwitchMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShareSwitchMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShopAboutToOnlineItemReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopAboutToOnlineItemReader) GetData() any {
+	return s.Data
 }
-func (s *ShopDiscountMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopDiscountMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShopGoodsClassifyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopGoodsClassifyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShopGoodsDisplayDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopGoodsDisplayDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShopGoodsJumpMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopGoodsJumpMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShopGoodsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopGoodsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShopGoodsPriceRateMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopGoodsPriceRateMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShopGoodsRefreshTimeTypeDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopGoodsRefreshTimeTypeDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShopGoodsScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopGoodsScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShopGoodsTagMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopGoodsTagMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ShopTabsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ShopTabsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SignInRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SignInRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SimulateRankRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SimulateRankRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SinDemonExBossLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SinDemonExBossLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SinDemonExConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SinDemonExConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SinDemonExMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SinDemonExMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SinDemonExMonsterScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SinDemonExMonsterScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SinDemonExRankRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SinDemonExRankRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SinDemonExScoreRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SinDemonExScoreRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SinDemonExSeasonBossMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SinDemonExSeasonBossMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SinDemonExSkillTipsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SinDemonExSkillTipsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SingleRaidActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SingleRaidActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SingleRaidStepStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SingleRaidStepStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SingleWantedActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SingleWantedActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SingleWantedEquipShowConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SingleWantedEquipShowConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SingleWantedMaterialTierMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SingleWantedMaterialTierMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SingleWantedProgressMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SingleWantedProgressMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SingleWantedScheduelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SingleWantedScheduelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SingleWantedStageGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SingleWantedStageGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SingleWantedThemeConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SingleWantedThemeConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SkillTutorialStepDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SkillTutorialStepDataReader) GetData() any {
+	return s.Data
 }
-func (s *SkillVideoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SkillVideoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGBattlePointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGBattlePointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGBigBossPointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGBigBossPointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGBroadCastMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGBroadCastMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGBuildingMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGBuildingMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGCountrySetMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGCountrySetMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGRankRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGRankRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGScoreRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGScoreRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGShopBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGShopBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGSingleBattleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGSingleBattleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGSmallBossPointMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGSmallBossPointMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGStoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGStoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGVoteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGVoteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SLGVoteScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SLGVoteScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SlotMachineBoxitemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SlotMachineBoxitemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SlotMachineCombinationMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SlotMachineCombinationMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SlotMachineIconMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SlotMachineIconMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SlotMachineProgressRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SlotMachineProgressRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SlotMachineScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SlotMachineScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SpaceShipConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SpaceShipConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SpareShareConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SpareShareConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SpecialAffixDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SpecialAffixDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SpecialAvatarDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SpecialAvatarDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SpecialConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SpecialConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDamageStatisticsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDamageStatisticsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDetailAbilityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDetailAbilityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDetailAccumuatorGaugeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDetailAccumuatorGaugeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDetailEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDetailEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDetailLayoutMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDetailLayoutMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDetailMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDetailMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDetailMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDetailMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDetailMonsterResistMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDetailMonsterResistMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDetailNatureMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDetailNatureMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDetailSkillTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDetailSkillTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDialogMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDialogMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDifficultySelectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDifficultySelectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageDropItemDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageDropItemDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageEffectCarryOnMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageEffectCarryOnMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageEnhanceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageEnhanceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageLiveRecommendMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageLiveRecommendMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageMaxScoreMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageMaxScoreMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageMessageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageMessageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageMultiTeamMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageMultiTeamMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageNeedMuteChallengePopupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageNeedMuteChallengePopupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StagePhotoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StagePhotoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageQAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageQAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageRandomEffectMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageRandomEffectMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageRankConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageRankConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageRankGroupConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageRankGroupConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageRechallengeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageRechallengeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageResistanceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageResistanceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageRestrictExtendMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageRestrictExtendMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageRestrictMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageRestrictMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageScoreRewardDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageScoreRewardDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageScoreRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageScoreRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageStoryMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageStoryMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageStoryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageStoryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StageTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StageTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StepMissionCompensateMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StepMissionCompensateMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StigmataAffixMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StigmataAffixMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StigmataBriefMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StigmataBriefMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StigmataMemoirMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StigmataMemoirMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StigmataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StigmataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StigmataPositionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StigmataPositionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StigmataRuneAffixMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StigmataRuneAffixMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StigmataTagMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StigmataTagMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StigmataThemeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StigmataThemeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StigmataVirtualSetMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StigmataVirtualSetMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *StorySweepGroupInfoReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StorySweepGroupInfoReader) GetData() any {
+	return s.Data
 }
-func (s *StorySweepMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *StorySweepMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SubMallTypeDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SubMallTypeDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SubPakDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SubPakDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SubPakGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SubPakGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SubsBenefitDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SubsBenefitDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SubsDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SubsDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SubsidiaryEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SubsidiaryEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SubsWareDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SubsWareDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SupportActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SupportActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SupportAvatarInitialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SupportAvatarInitialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SupportAvatarLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SupportAvatarLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SupportAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SupportAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SupportConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SupportConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SupportMissionConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SupportMissionConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *SurvivalWeaponShowMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *SurvivalWeaponShowMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TagListDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TagListDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TeamAssaultBossMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TeamAssaultBossMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TeamAssaultMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TeamAssaultMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TeamBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TeamBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TextIDReplaceMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TextIDReplaceMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TextMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TextMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TextMapMultiLangMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TextMapMultiLangMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeBGMConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeBGMConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeBonusDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeBonusDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeBuffDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeBuffDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeEquipMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeEquipMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeEventImgMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeEventImgMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeSeasonMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeSeasonMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeSpecialConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeSpecialConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeStigmataGroupReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeStigmataGroupReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeUIConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeUIConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeWeatherAtmosphereMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeWeatherAtmosphereMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeWeatherConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeWeatherConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeWeatherGroupConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeWeatherGroupConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThemeWeatherReplacePrefabMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThemeWeatherReplacePrefabMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *ThreadCollectionFileDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *ThreadCollectionFileDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TileEntityDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TileEntityDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TileMapInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TileMapInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TileMapMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TileMapMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TileModelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TileModelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TileTerrainDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TileTerrainDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TileValueKeyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TileValueKeyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TileValueModifierMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TileValueModifierMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TileValueTriggerMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TileValueTriggerMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TimePocketMoneyDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TimePocketMoneyDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TouchBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TouchBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TouchLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TouchLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TouchMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TouchMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TowerBuffConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TowerBuffConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TowerGrowBuffConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TowerGrowBuffConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TowerRaidBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TowerRaidBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TowerRaidConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TowerRaidConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TowerRaidDifficultyMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TowerRaidDifficultyMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TowerRaidScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TowerRaidScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TowerRaidStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TowerRaidStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TowerStageConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TowerStageConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TradingCardActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TradingCardActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TrainingLevelAchieveMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TrainingLevelAchieveMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TrainingLevelDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TrainingLevelDataReader) GetData() any {
+	return s.Data
 }
-func (s *TutorialDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TutorialDataReader) GetData() any {
+	return s.Data
 }
-func (s *TutorialGraphicMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TutorialGraphicMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TutorialRestrictMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TutorialRestrictMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TutorialStepDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TutorialStepDataReader) GetData() any {
+	return s.Data
 }
-func (s *TutorialStepScrollerDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TutorialStepScrollerDataReader) GetData() any {
+	return s.Data
 }
-func (s *TutorialVideoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TutorialVideoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TutorialWeeklyScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TutorialWeeklyScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTAvatarConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTAvatarConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTCardLevelMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTCardLevelMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTCardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTCardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTCardSlotMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTCardSlotMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTConstValuesMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTConstValuesMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTDivisionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTDivisionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTDivisionProtectUseMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTDivisionProtectUseMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTInLevelInteractionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTInLevelInteractionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTMaterialTransformMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTMaterialTransformMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTMessageConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTMessageConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTMessageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTMessageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTRobotDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTRobotDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTSeasonMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTSeasonMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *TVTTutorialMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *TVTTutorialMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UIOverrideItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UIOverrideItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UIOverrideScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UIOverrideScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessBaseRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessBaseRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessBattleConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessBattleConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessFloorMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessFloorMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessSettleCupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessSettleCupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessSiteMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessSiteMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UltraEndlessTopRankShowMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UltraEndlessTopRankShowMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UniqueGachaPoolMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UniqueGachaPoolMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UniqueGachaReplaceItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UniqueGachaReplaceItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UniqueGoodsItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UniqueGoodsItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UniqueMonsterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UniqueMonsterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *UnlockUIDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *UnlockUIDataReader) GetData() any {
+	return s.Data
 }
-func (s *VibrateConfigsMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VibrateConfigsMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualBuffMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualBuffMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualCustomLevelDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualCustomLevelDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualCustomMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualCustomMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualGachaChestMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualGachaChestMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualGachaItemMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualGachaItemMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualGroupConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualGroupConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualResourcesMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualResourcesMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualRoleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualRoleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualStigmataDetailMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualStigmataDetailMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualStigmataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualStigmataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualTrainStageDropMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualTrainStageDropMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *VirtualWeaponMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *VirtualWeaponMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WarehouseRequireDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WarehouseRequireDataReader) GetData() any {
+	return s.Data
 }
-func (s *WaveRushBuffDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WaveRushBuffDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WaveRushBuffLevelGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WaveRushBuffLevelGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WaveRushFuncOpenMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WaveRushFuncOpenMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WaveRushScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WaveRushScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WaveRushStageGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WaveRushStageGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WaveRushStageMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WaveRushStageMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WaveRushStageScoreDropMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WaveRushStageScoreDropMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WaveRushStageWaveMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WaveRushStageWaveMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WaveRushUIConfigMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WaveRushUIConfigMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeaponBaseTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeaponBaseTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeaponCustomDisplayMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeaponCustomDisplayMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeaponLowResOverrideMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeaponLowResOverrideMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeaponMainIDMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeaponMainIDMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeaponMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeaponMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeaponShowOverrideMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeaponShowOverrideMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeaponTagMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeaponTagMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WebLinkAvatarMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WebLinkAvatarMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WebLinkElfMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WebLinkElfMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WebLinkEquipMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WebLinkEquipMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WebLinkExBossMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WebLinkExBossMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeekDayActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeekDayActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeekDayActivityScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeekDayActivityScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeeklyReportMedalMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeeklyReportMedalMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeeklyReportMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeeklyReportMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WeeklyReportSubPageDataMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WeeklyReportSubPageDataMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WelfareMissionMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WelfareMissionMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WikiActivityCatalogMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WikiActivityCatalogMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WikiActivityChapterMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WikiActivityChapterMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WikiActivityEventMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WikiActivityEventMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WikiActivityMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WikiActivityMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WikiCollectionRankMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WikiCollectionRankMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WikiTypeMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WikiTypeMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WorldBossGroupMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WorldBossGroupMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WorldBossRankRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WorldBossRankRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WorldBossScoreRewardMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WorldBossScoreRewardMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WorldBossSkillMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WorldBossSkillMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WorldMapActivityInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WorldMapActivityInfoMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WorldMapEntryMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WorldMapEntryMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WorldMapScheduleMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WorldMapScheduleMetaDataReader) GetData() any {
+	return s.Data
 }
-func (s *WWorldMapCoverInfoMetaDataReader) JSON() ([]byte, error) {
-	return json.MarshalIndent(s.Data, "", "  ")
+func (s *WWorldMapCoverInfoMetaDataReader) GetData() any {
+	return s.Data
 }

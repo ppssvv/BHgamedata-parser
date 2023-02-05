@@ -1,6 +1,7 @@
 package dump
 
 type EditorUniqueMonsterMetaData struct {
+	// Reordered by constructor
 	// Fields
 	UniqueID uint32
 
@@ -298,6 +299,7 @@ type AvatarFragmentMetaData struct {
 }
 
 type AvatarLevelMetaData struct {
+	// Reordered by constructor
 	// Fields
 	Level int32
 
@@ -309,6 +311,7 @@ type AvatarLevelMetaData struct {
 }
 
 type AvatarMetaData struct {
+	// Reordered by constructor
 	// Fields
 	AvatarID int32
 
@@ -506,6 +509,7 @@ type AvatarSkillMetaData_UnlockItem struct {
 }
 
 type AvatarStarMetaData struct {
+	// Reordered by constructor
 	// Fields
 	AvatarID int32
 	Star     int32
@@ -1812,6 +1816,7 @@ type StageRestrictMetaData struct {
 }
 
 type StigmataMetaData struct {
+	// Reordered by constructor
 	// Fields
 	ID int32
 
@@ -1956,6 +1961,7 @@ type ThemeBGMConfigMetaData struct {
 }
 
 type VirtualResourcesMetaData struct {
+	// Reordered by constructor
 	// Fields
 	ID int32
 
@@ -1979,6 +1985,7 @@ type VirtualResourcesMetaData struct {
 }
 
 type WeaponMetaData struct {
+	// Reordered by constructor
 	// Fields
 	ID int32
 
@@ -4884,6 +4891,7 @@ type CgMetaData struct {
 }
 
 type CGPackageDataMetaData struct {
+	// Reordered by constructor
 	// Fields
 	ID int32
 
@@ -6185,6 +6193,7 @@ type ChapterOWHeroCardRarityMetaData struct {
 }
 
 type ChapterOWHeroDisplayMetaData struct {
+	// Reordered by constructor
 	// Fields
 	ID         uint32
 	HeroStatus uint8
@@ -8198,6 +8207,7 @@ type CompensationOfIslandMetaData_CompensationOfIslandRewardMetaData struct {
 }
 
 type ConstValueMetaData struct {
+	// Reordered by constructor
 	// Fields
 	Addr1 uint32 `json:"-"`
 
@@ -9020,6 +9030,7 @@ type DLC2EntryPlotLineMetaData struct {
 }
 
 type DLC2PlotUIConfigMetaData struct {
+	// Reordered by constructor
 	// Fields
 	Addr1 uint32 `json:"-"`
 
@@ -10136,6 +10147,7 @@ type ElfLevelMetaData struct {
 }
 
 type ElfStoryActMetaData struct {
+	// Reordered by constructor
 	// Fields
 	StoryId     int32
 	TriggerTime int32
@@ -10429,6 +10441,7 @@ type EquipForgeExchangeMetaData struct {
 }
 
 type EquipForgeGenerationMetaData struct {
+	// Reordered by constructor
 	// Fields
 	GenerationID int32
 
@@ -10643,55 +10656,53 @@ type EventCollectionMetaData struct {
 }
 
 type EventDialogDataMetaData struct {
+	// Reordered by constructor
 	// Fields
 	DialogId int32
-	Addr1    uint32 `json:"-"`
-	Addr2    uint32 `json:"-"`
-	Addr3    uint32 `json:"-"`
 
 	// Properties
-	Addr4              uint32 `json:"-"`
+	Addr1              uint32 `json:"-"`
 	JumpID             int32
-	Addr5              uint32 `json:"-"`
+	Addr2              uint32 `json:"-"`
 	DialogType         uint8
 	InputID            int32
 	CGRawPos           int32
-	Addr6              uint32 `json:"-"`
+	Addr3              uint32 `json:"-"`
 	AvatarId           int32
 	DressId            int32
 	AvatarViceKey      int32
 	ScreenSide         uint8
 	Face               uint8
-	Addr7              uint32 `json:"-"`
-	Addr8              uint32 `json:"-"`
-	Addr9              uint32 `json:"-"`
+	Addr4              uint32 `json:"-"`
+	Addr5              uint32 `json:"-"`
+	Addr6              uint32 `json:"-"`
 	AnimID             uint8
 	Distortion         uint8
 	Transparency       float32
+	Addr7              uint32 `json:"-"`
+	Addr8              uint32 `json:"-"`
+	Addr9              uint32 `json:"-"`
+	ImageId            int32
 	Addr10             uint32 `json:"-"`
 	Addr11             uint32 `json:"-"`
 	Addr12             uint32 `json:"-"`
-	ImageId            int32
-	Addr13             uint32 `json:"-"`
-	Addr14             uint32 `json:"-"`
-	Addr15             uint32 `json:"-"`
 	Backgroundeffect   uint8
 	EnterEffect        uint8
-	Addr16             uint32 `json:"-"`
+	Addr13             uint32 `json:"-"`
 	LaterForAudio      float32
-	Addr17             uint32 `json:"-"`
+	Addr14             uint32 `json:"-"`
 	FaceVersion        uint8
+	Addr15             uint32 `json:"-"`
+	Addr16             uint32 `json:"-"`
+	Addr17             uint32 `json:"-"`
 	Addr18             uint32 `json:"-"`
+	DialogueDesignType int32
+	ImageChar2DID      uint32
 	Addr19             uint32 `json:"-"`
 	Addr20             uint32 `json:"-"`
 	Addr21             uint32 `json:"-"`
-	DialogueDesignType int32
-	ImageChar2DID      uint32
 
 	// Objects
-	PostDialogIdList     []int32
-	TalkerName           StrWithPrefix16
-	QuestionContent      StrWithPrefix16
 	PreDialogIdList      []int32
 	LeafIDList           []int32
 	AvatarName           StrWithPrefix16
@@ -10710,6 +10721,9 @@ type EventDialogDataMetaData struct {
 	DialogueSubTitle     StrWithPrefix16
 	ImagePathList        []StrWithPrefix16
 	ImageDescList        []StrWithPrefix16
+	PostDialogIdList     []int32
+	TalkerName           StrWithPrefix16
+	QuestionContent      StrWithPrefix16
 }
 
 type EventDialogDataMetaData_PlotChatNode struct {
@@ -11663,6 +11677,7 @@ type GalEventEffectMetaData struct {
 }
 
 type GalEventMetaData struct {
+	// Reordered by constructor
 	// Fields
 	GalEventID int32
 
@@ -13227,6 +13242,7 @@ type GodWarBuffPoolMetaData struct {
 }
 
 type GodWarBuffSuitMetaData struct {
+	// Reordered by constructor
 	// Fields
 	SuitID int32
 
@@ -13308,6 +13324,7 @@ type GodWarChallengeMetaData_FloorBossDataItem struct {
 }
 
 type GodWarChallengeRewardMetaData struct {
+	// Reordered by constructor
 	// Fields
 	TaleID int32
 	Step   int32
@@ -15743,6 +15760,7 @@ type KingdomsWarWaveMetaData struct {
 }
 
 type LevelChallengeMetaData struct {
+	// Reordered by constructor
 	// Fields
 	ChallengeId int32
 
@@ -16074,6 +16092,7 @@ type LevelMatrixUseItemMetaData struct {
 }
 
 type LevelMetaData struct {
+	// Reordered by constructor
 	// Fields
 	LevelId int32
 
@@ -17429,6 +17448,7 @@ type MissionCategoryMetaData struct {
 }
 
 type MissionData struct {
+	// Reordered by constructor
 	// Fields
 	Id int32
 
@@ -19146,6 +19166,7 @@ type OpenWorldEventActivityMetaData struct {
 }
 
 type OpenWorldEventData struct {
+	// Reordered by constructor
 	// Fields
 	EventID int32
 
@@ -21739,6 +21760,7 @@ type QCandySettleConfigMetaData_Setting struct {
 }
 
 type QTEndlessMonsterData struct {
+	// Reordered by constructor
 	// Fields
 	MonsterID uint16
 
@@ -22009,6 +22031,7 @@ type RanchAreaConfigMetaData struct {
 }
 
 type RanchAreaMetaData struct {
+	// Reordered by constructor
 	// Fields
 	AreaID int32
 
@@ -22151,6 +22174,7 @@ type RanchMonsterSkillMetaData struct {
 }
 
 type RanchSiteDataMetaData struct {
+	// Reordered by constructor
 	// Fields
 	RanchSiteID int32
 
@@ -22692,6 +22716,7 @@ type ResourceRetrieveScheduleMetaData struct {
 }
 
 type RestaurantActionZoneMetaData struct {
+	// Reordered by constructor
 	// Fields
 	RoomType uint8
 
@@ -22705,6 +22730,7 @@ type RestaurantActionZoneMetaData struct {
 }
 
 type RestaurantAvatarMetaData struct {
+	// Reordered by constructor
 	// Fields
 	VirtualAvatarID int32
 
@@ -22734,6 +22760,7 @@ type RestaurantAvatarMetaData struct {
 }
 
 type RestaurantIngredientsMetaData struct {
+	// Reordered by constructor
 	// Fields
 	MaterialID int32
 
@@ -22753,6 +22780,7 @@ type RestaurantIngredientsMetaData_LvLimit struct {
 }
 
 type RestaurantLevelMetaData struct {
+	// Reordered by constructor
 	// Fields
 	Level int32
 
@@ -22776,6 +22804,7 @@ type RestaurantLevelMetaData struct {
 }
 
 type RestaurantQuestMetaData struct {
+	// Reordered by constructor
 	// Fields
 	QuestID int32
 
@@ -22797,6 +22826,7 @@ type RestaurantQuestMetaData_MatCost struct {
 }
 
 type RestaurantRecipeMetaData struct {
+	// Reordered by constructor
 	// Fields
 	MaterialID int32
 
@@ -22866,6 +22896,7 @@ type RestaurantSkillMetaData struct {
 }
 
 type RestaurantWeatherMetaData struct {
+	// Reordered by constructor
 	// Fields
 	WeatherID int32
 
@@ -23016,6 +23047,7 @@ type ReviveUseMetaData struct {
 }
 
 type RewardData struct {
+	// Reordered by constructor
 	// Fields
 	RewardID int32
 
@@ -24062,6 +24094,7 @@ type RpgQAvatarBattleSiteMetaData struct {
 }
 
 type RpgRestaurantMetaData struct {
+	// Reordered by constructor
 	// Fields
 	RestaurantID int32
 
@@ -24600,6 +24633,7 @@ type RpgVirtualAvatarLimitMetaData struct {
 }
 
 type RpgZoneMetaData struct {
+	// Reordered by constructor
 	// Fields
 	ZoneID int32
 
@@ -25581,6 +25615,7 @@ type ShopGoodsJumpMetaData struct {
 }
 
 type ShopGoodsMetaData struct {
+	// Reordered by constructor
 	// Fields
 	ID int32
 
@@ -27278,6 +27313,7 @@ type SubMallTypeDataMetaData struct {
 }
 
 type SubPakDataMetaData struct {
+	// Reordered by constructor
 	// Fields
 	SubPakId int32
 
@@ -27287,6 +27323,7 @@ type SubPakDataMetaData struct {
 }
 
 type SubPakGroupMetaData struct {
+	// Reordered by constructor
 	// Fields
 	GroupID int32
 
@@ -27609,6 +27646,7 @@ type TextIDReplaceMetaData struct {
 }
 
 type TextMapMetaData struct {
+	// Reordered by constructor
 	// Fields
 	Addr1 uint32 `json:"-"`
 
@@ -28135,6 +28173,7 @@ type TouchBuffMetaData struct {
 }
 
 type TouchLevelMetaData struct {
+	// Reordered by constructor
 	// Fields
 	Level int32
 
@@ -28147,6 +28186,7 @@ type TouchLevelMetaData struct {
 }
 
 type TouchMetaData struct {
+	// Reordered by constructor
 	// Fields
 	TouchId int32
 
@@ -28369,6 +28409,7 @@ type TutorialData struct {
 }
 
 type TutorialGraphicMetaData struct {
+	// Reordered by constructor
 	// Fields
 	Addr1  uint32 `json:"-"`
 	StepId uint8

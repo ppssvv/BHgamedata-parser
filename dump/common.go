@@ -7,17 +7,10 @@ import (
 	bin "github.com/streamingfast/binary"
 )
 
-// temp fix
-type StringKey struct{}
-type DLCSupportType struct{}
-type QTEndlessMonsterWaveMetaData_Expression struct{}
-
-type QTEndlessMonsterData_Dummy struct{}
-
 type Vector3 struct {
-	x float32
-	y float32
-	z float32
+	X float32
+	Y float32
+	Z float32
 }
 
 type RemoteTimeSpan struct {
