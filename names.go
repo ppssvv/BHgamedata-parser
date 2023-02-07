@@ -57,6 +57,10 @@ var NewAssets = map[string]dump.Asset{
 	"761861209":  dump.AssetName["GodWarRoleSkillDataMetaData"],
 	"783766844":  dump.AssetName["RpgTowerV2MetaData"],
 	"788785795":  dump.AssetName["StageScoreRewardMetaData"],
+	"816421621":  EventDialogMultiLang("cn"),
+	"816421643":  EventDialogMultiLang("de"),
+	"816421683":  EventDialogMultiLang("en"),
+	"816421718":  EventDialogMultiLang("fr"),
 	"834781912":  dump.AssetName["QAvatarMissionMetaData"],
 	"857374862":  dump.AssetName["MatrixSuddenEventMetaData"],
 	"872686180":  dump.AssetName["StageRestrictMetaData"],
@@ -300,12 +304,12 @@ func GetAsset(f string) dump.Asset {
 	}
 }
 
-// func dialogueDataAsset(lang string) Asset {
-// 	return Asset{
-// 		Name:   fmt.Sprintf("dialogueData_%s", lang),
-// 		Parser: &animegame.DialogueData{},
-// 	}
-// }
+func EventDialogMultiLang(lang string) dump.Asset {
+	ass := dump.AssetName["EventDialogDataMetaData"]
+	ass.Name += "_" + lang
+
+	return ass
+}
 
 func TextMapMultiLang(lang string) dump.Asset {
 	ass := dump.AssetName["TextMapMultiLangMetaData"]

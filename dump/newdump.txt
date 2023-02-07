@@ -10726,13 +10726,18 @@ type EventDialogDataMetaData struct {
 	questionContent StrWithPrefix16
 }
 
-type EventDialogDataMetaData_PlotChatNode struct {
+type EventDialogDataMetaData_PlotChatNode_old struct {
 	// Fields
 	chatDuration float32
 	Addr1 uint32 `json:"-"`
 
 	// Objects
 	chatContent StrWithPrefix16
+}
+
+type EventDialogDataMetaData_PlotChatNode struct {
+	chatContent StrWithPrefix16
+	chatDuration float32
 }
 
 type ExaminationAnswerMetaData struct {
