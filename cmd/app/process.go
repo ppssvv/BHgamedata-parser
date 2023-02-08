@@ -24,14 +24,31 @@ func ProcessBatch(entries []string) {
 	total := len(entries)
 	pterm.Info.Printf("found %d entries\n", total)
 
-	var fail int
+	var fail, missing int
 	pbar, err := pterm.DefaultProgressbar.WithTotal(total).Start()
 	uiChechError(err)
+
+	exist := getExisting()
 
 	for _, e := range entries {
 		pbar.UpdateTitle(e)
 
-		if err = ProcessFile(e, dataparse.GetAsset(e).Parser); err != nil {
+		ass := dataparse.GetAsset(e)
+
+		if _, ok := exist[ass.Name]; ok {
+			pterm.Success.Printfln("%s already parsed as %s, skipping", getShortname(e), ass.Name)
+			pbar.Increment()
+			continue
+		}
+
+		if ass.Parser.GetData() == nil {
+			pterm.Error.Printfln("\t%s not supported yet", e)
+			missing++
+			pbar.Increment()
+			continue
+		}
+
+		if err = ProcessFile(e, ass.Parser); err != nil {
 			pterm.Error.Printfln("\t%s - %s", e, err)
 			fail++
 		} else {
@@ -41,7 +58,7 @@ func ProcessBatch(entries []string) {
 		pbar.Increment()
 	}
 
-	pterm.Info.Printf("Done: %d ok, %d failed\n", total-fail, fail)
+	pterm.Info.Printf("Done: %d ok, %d failed, %d missing\n", total-fail-missing, fail, missing)
 }
 
 func ProcessFile(in string, obj dump.ReaderWrapper) error {

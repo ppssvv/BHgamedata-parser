@@ -17,7 +17,7 @@ func main() {
 }
 
 var mainMenuOptions = []string{
-	"Parse already decoded file",
+	"Parse file",
 	"Decode file",
 	"Exit",
 }

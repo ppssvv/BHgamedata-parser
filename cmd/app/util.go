@@ -53,3 +53,30 @@ func uiChechError(err error) {
 		log.Fatal("could not initialize UI: %w", err)
 	}
 }
+
+func getShortname(s string) string {
+	res, _, _ := strings.Cut(s, "_")
+	return res
+}
+
+func getExisting() map[string]interface{} {
+	src, err := os.ReadDir("result")
+	if err != nil {
+		log.Fatal("can't read result folder")
+	}
+
+	result := map[string]interface{}{}
+
+	for _, e := range src {
+		if e.IsDir() {
+			continue
+		}
+		if strings.HasPrefix(e.Name(), ".") {
+			continue
+		}
+
+		result[strings.TrimSuffix(e.Name(), ".json")] = nil
+	}
+
+	return result
+}
