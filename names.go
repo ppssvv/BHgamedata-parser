@@ -2,7 +2,6 @@ package dataparse
 
 import (
 	"dataparse/dump"
-	"dataparse/internal/animegame"
 	"path/filepath"
 	"strings"
 )
@@ -283,11 +282,6 @@ var NewAssets = map[string]dump.Asset{
 	"4291465330": dump.AssetName["DiceyDungeonDataMetaData"],
 	"4291895614": dump.AssetName["DiceyDungeonRoleMetaData"],
 	"4291895715": dump.AssetName["DiceyDungeonRoomMetaData"],
-}
-
-type Asset struct {
-	Name   string
-	Parser animegame.GameStruct
 }
 
 func GetAsset(f string) dump.Asset {
