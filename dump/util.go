@@ -253,9 +253,6 @@ func (s *ArmadaExchequerDataReader) GetData() any {
 func (s *ArmadaGridDataReader) GetData() any {
 	return s.Data
 }
-func (s *ArmadaHangarDataReader) GetData() any {
-	return s.Data
-}
 func (s *ArmadaLinerRewardMetaDataReader) GetData() any {
 	return s.Data
 }
@@ -1072,9 +1069,6 @@ func (s *CoupleTowerRewardMetaDataReader) GetData() any {
 func (s *CoupleTowerScoreMetaDataReader) GetData() any {
 	return s.Data
 }
-func (s *CoupleTowerStageMetaDataReader) GetData() any {
-	return s.Data
-}
 func (s *CouponDataReader) GetData() any {
 	return s.Data
 }
@@ -1192,13 +1186,7 @@ func (s *DiceyDungeonTutorialDataMetaDataReader) GetData() any {
 func (s *DiceyDungeonWeaponMetaDataReader) GetData() any {
 	return s.Data
 }
-func (s *DLC2ConditionMetaDataReader) GetData() any {
-	return s.Data
-}
 func (s *DLC2DailyQuestInfoMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *DLC2EntryPlotLineMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *DLC2PlotUIConfigMetaDataReader) GetData() any {
@@ -1286,9 +1274,6 @@ func (s *DLCTowerStyleBonusMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *DLCTowerWaveMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *DLCTowerWeatherMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *DormitoryAvatarMetaDataReader) GetData() any {
@@ -1382,9 +1367,6 @@ func (s *DungeonsMirrorRecoveryMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *DutyDailyMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *DutyWeeklyMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *DynamicHardLvMetaDataReader) GetData() any {
@@ -2104,9 +2086,6 @@ func (s *GodWarTaleScheduleMetaDataReader) GetData() any {
 func (s *GodWarTeleportMetaDataReader) GetData() any {
 	return s.Data
 }
-func (s *GodWarTicketMetaDataReader) GetData() any {
-	return s.Data
-}
 func (s *GodWarUseAvatarMetaDataReader) GetData() any {
 	return s.Data
 }
@@ -2767,9 +2746,6 @@ func (s *MPTeamSkillMetaDataReader) GetData() any {
 func (s *MPTrophyMetaDataReader) GetData() any {
 	return s.Data
 }
-func (s *MultiPlatforms_UserInfoMetaDataReader) GetData() any {
-	return s.Data
-}
 func (s *MuseumMetaDataReader) GetData() any {
 	return s.Data
 }
@@ -3157,9 +3133,6 @@ func (s *OWHuntActivityProgressMetaDataReader) GetData() any {
 func (s *OWHuntActivityQuestMetaDataReader) GetData() any {
 	return s.Data
 }
-func (s *OWHuntActivityScheduleMetaDataReader) GetData() any {
-	return s.Data
-}
 func (s *OWHuntActivitySHLevelMetaDataReader) GetData() any {
 	return s.Data
 }
@@ -3253,16 +3226,10 @@ func (s *PrayGachaMetaDataReader) GetData() any {
 func (s *PredownloadAsbMetaDataReader) GetData() any {
 	return s.Data
 }
-func (s *PredownloadAudioMetaDataReader) GetData() any {
-	return s.Data
-}
 func (s *PredownloadAudioPackageMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *PredownloadVideoFileMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *PredownloadVideoMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *ProductRecommendMetaDataReader) GetData() any {
@@ -3290,9 +3257,6 @@ func (s *PVZTileMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *QAvatarBattleBroadCastMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *QAvatarBattleExpressionMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *QAvatarBattleGadgetMetaDataReader) GetData() any {
@@ -3344,9 +3308,6 @@ func (s *QTEndlessMonsterDataReader) GetData() any {
 	return s.Data
 }
 func (s *QTEndlessMonsterWaveMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *QTEndlessScheduleMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *QuestionBankMetaDataReader) GetData() any {
@@ -3850,13 +3811,7 @@ func (s *ScDLCFeverAbilityMetaDataReader) GetData() any {
 func (s *ScDLCFurnitureMetaDataReader) GetData() any {
 	return s.Data
 }
-func (s *ScDLCGachaMetaDataReader) GetData() any {
-	return s.Data
-}
 func (s *ScDLCImageReplaceMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *ScDLCInteractActionMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *ScDLCInteractStateMetaDataReader) GetData() any {
@@ -3875,9 +3830,6 @@ func (s *ScDLCMPStageDisplayMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *ScDLCNPCMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *ScDLCNPCPositionGroupMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *ScDLCNPCPositionMetaDataReader) GetData() any {
@@ -3910,28 +3862,10 @@ func (s *ScDLCTalentLevelMetaDataReader) GetData() any {
 func (s *ScDLCTeachStageMetaDataReader) GetData() any {
 	return s.Data
 }
-func (s *ScDLCTowerBonusMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *ScDLCTowerBuffMetaDataReader) GetData() any {
-	return s.Data
-}
 func (s *ScDLCTowerFloorMetaDataReader) GetData() any {
 	return s.Data
 }
-func (s *ScDLCTowerMonsterMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *ScDLCTowerScheduleMetaDataReader) GetData() any {
-	return s.Data
-}
 func (s *ScDLCTowerScoreRewardMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *ScDLCTowerWaveMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *ScDLCTowerWeatherMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *ScratchTicketDataMetaDataReader) GetData() any {
@@ -4204,9 +4138,6 @@ func (s *StageDifficultySelectMetaDataReader) GetData() any {
 func (s *StageDropItemDataMetaDataReader) GetData() any {
 	return s.Data
 }
-func (s *StageEffectCarryOnMetaDataReader) GetData() any {
-	return s.Data
-}
 func (s *StageEnhanceMetaDataReader) GetData() any {
 	return s.Data
 }
@@ -4361,9 +4292,6 @@ func (s *TextIDReplaceMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *TextMapMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *TextMapMultiLangMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *ThemeActivityMetaDataReader) GetData() any {
@@ -4661,9 +4589,6 @@ func (s *VirtualStigmataMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *VirtualTrainStageDropMetaDataReader) GetData() any {
-	return s.Data
-}
-func (s *VirtualWeaponMetaDataReader) GetData() any {
 	return s.Data
 }
 func (s *WarehouseRequireDataReader) GetData() any {

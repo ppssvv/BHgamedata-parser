@@ -222,7 +222,6 @@ type AvatarArtifactMetaData_ReplaceSkillPair struct {
 type AvatarArtifactMetaData_LockedDisplaySkillInfo struct {
 	// Fields
 	SkillID int32
-	Addr1   uint32 `json:"-"`
 
 	// Objects
 	SkillDescriptionTextID Hash
@@ -466,15 +465,15 @@ type AvatarSkillMetaData struct {
 	Addr5           uint32 `json:"-"`
 	Addr6           uint32 `json:"-"`
 	ParamBase_1     float32
-	ParamLogic_1    string
+	ParamLogic_1    uint16
 	ParamSubID_1    int32
 	ParamSubIndex_1 int32
 	ParamBase_2     float32
-	ParamLogic_2    string
+	ParamLogic_2    uint16
 	ParamSubID_2    int32
 	ParamSubIndex_2 int32
 	ParamBase_3     float32
-	ParamLogic_3    string
+	ParamLogic_3    uint16
 	ParamSubID_3    int32
 	ParamSubIndex_3 int32
 	CanTry          int32
@@ -489,23 +488,16 @@ type AvatarSkillMetaData struct {
 	IconPathInLevel StrWithPrefix16
 	ButtonName      StrWithPrefix16
 	TagList         []AvatarSkillMetaData_Tag
-	UnlockItemList  []AvatarSkillMetaData_UnlockItem
+	UnlockItemList  []AvatarArtifactLevelMetaData_UpgradeMaterialItem
 }
 
 type AvatarSkillMetaData_Tag struct {
 	// Fields
 	Strength uint8
 	TagID    int32
-	Addr1    uint32 `json:"-"`
 
 	// Objects
 	TagComment Hash
-}
-
-type AvatarSkillMetaData_UnlockItem struct {
-	// Fields
-	Amount int32
-	ItemID int32
 }
 
 type AvatarStarMetaData struct {
@@ -621,7 +613,7 @@ type AvatarSubSkillMetaData struct {
 	IconPath                StrWithPrefix16
 	UpLevelSubStarNeedList  []AvatarSubSkillMetaData_UpLevelStarNeed
 	UpLevelArtifactNeedList []AvatarSubSkillMetaData_ArtifactSubSkillLevelUpCondition
-	TagList                 []AvatarSubSkillMetaData_Tag
+	TagList                 []AvatarSkillMetaData_Tag
 }
 
 type AvatarSubSkillMetaData_UpLevelStarNeed struct {
@@ -635,16 +627,6 @@ type AvatarSubSkillMetaData_ArtifactSubSkillLevelUpCondition struct {
 	// Fields
 	ArtifactLevel uint8
 	SubSkillLevel uint8
-}
-
-type AvatarSubSkillMetaData_Tag struct {
-	// Fields
-	Strength uint8
-	TagID    int32
-	Addr1    uint32 `json:"-"`
-
-	// Objects
-	TagComment Hash
 }
 
 type AvatarTagUnLockMetaData struct {
@@ -975,8 +957,6 @@ type ElfGalEventMetaData struct {
 type ElfGalEventMetaData_ElfUIEffectPattern struct {
 	// Fields
 	BeginTime float32
-	Addr1     uint32 `json:"-"`
-	Addr2     uint32 `json:"-"`
 
 	// Objects
 	AttachPoint StrWithPrefix16
@@ -1063,7 +1043,6 @@ type ElfMetaData_VectorFloat3 struct {
 type ElfMetaData_Tag struct {
 	// Fields
 	TagID int32
-	Addr1 uint32 `json:"-"`
 
 	// Objects
 	TagComment Hash
@@ -1111,16 +1090,7 @@ type ElfSkillMetaData struct {
 	Info         Hash
 	SkillTypeTag Hash
 	IconPath     StrWithPrefix16
-	TagList      []ElfSkillMetaData_Tag
-}
-
-type ElfSkillMetaData_Tag struct {
-	// Fields
-	TagID int32
-	Addr1 uint32 `json:"-"`
-
-	// Objects
-	TagComment Hash
+	TagList      []ElfMetaData_Tag
 }
 
 type ElfSkillTreeMetaData struct {
@@ -1136,13 +1106,7 @@ type ElfSkillTreeMetaData struct {
 
 	// Objects
 	LevelUpPreSkill     []ElfSkillTreeMetaData_ElfPreSkill
-	LevelUpMaterialList []ElfSkillTreeMetaData_ElfSkillLvUpMaterial
-}
-
-type ElfSkillTreeMetaData_ElfSkillLvUpMaterial struct {
-	// Fields
-	MaterialID int32
-	Number     int32
+	LevelUpMaterialList []ElfBreakMetaData_ElfBreakMaterial
 }
 
 type ElfSkillTreeMetaData_ElfPreSkill struct {
@@ -1292,16 +1256,7 @@ type EquipSkillMetaData struct {
 	SkillName     Hash
 	SkillDisplay  Hash
 	SkillIconPath StrWithPrefix16
-	TagList       []EquipSkillMetaData_Tag
-}
-
-type EquipSkillMetaData_Tag struct {
-	// Fields
-	TagID int32
-	Addr1 uint32 `json:"-"`
-
-	// Objects
-	TagComment Hash
+	TagList       []ElfMetaData_Tag
 }
 
 type FrameDataMetaData struct {
@@ -1905,21 +1860,15 @@ type StigmataMetaData struct {
 	DisplayDescription         Hash
 	IconPath                   StrWithPrefix16
 	ImagePath                  StrWithPrefix16
-	EvoMaterial                []StigmataMetaData_Material
+	EvoMaterial                []MechMetaData_DisjoinOutputItem
 	SmallIcon                  StrWithPrefix16
 	TattooPath                 StrWithPrefix16
-	DisjoinAddMaterial         []StigmataMetaData_Material
+	DisjoinAddMaterial         []MechMetaData_DisjoinOutputItem
 	LinkIDList                 []uint32
 	ShortName                  Hash
 	GachaMainDropDisplayConfig []float32
 	GachaGiftDropDisplayConfig []float32
 	StigmataFilterList         []int32
-}
-
-type StigmataMetaData_Material struct {
-	// Fields
-	ID  int32
-	Num int32
 }
 
 type TagListDataMetaData struct {
@@ -2068,20 +2017,14 @@ type WeaponMetaData struct {
 	DisplayDescription         Hash
 	IconPath                   StrWithPrefix16
 	ImagePath                  StrWithPrefix16
-	EvoMaterial                []WeaponMetaData_Material
-	ExDisjoinAddMaterial       []WeaponMetaData_Material
-	DisjoinAddMaterial         []WeaponMetaData_Material
+	EvoMaterial                []MechMetaData_DisjoinOutputItem
+	ExDisjoinAddMaterial       []MechMetaData_DisjoinOutputItem
+	DisjoinAddMaterial         []MechMetaData_DisjoinOutputItem
 	LinkIDList                 []uint32
 	GachaMainDropDisplayConfig []float32
 	GachaGiftDropDisplayConfig []float32
 	PreloadEffectFolderPath    StrWithPrefix16
 	WeaponFilterList           []int32
-}
-
-type WeaponMetaData_Material struct {
-	// Fields
-	ID  int32
-	Num int32
 }
 
 type AbilitySpecialMetaData struct {
@@ -2099,7 +2042,6 @@ type AbilitySpecialMetaData struct {
 type AbilitySpecialMetaData_ParamEntry struct {
 	// Fields
 	ParamValue float32
-	Addr1      uint32 `json:"-"`
 
 	// Objects
 	Paramkey StrWithPrefix16
@@ -3042,16 +2984,10 @@ type AffixTitleLevelMetaData struct {
 	Addr4           uint32 `json:"-"`
 
 	// Objects
-	BreakMaterialNeed    []AffixTitleLevelMetaData_IntIntPair
-	DisjointGetMaterials []AffixTitleLevelMetaData_IntIntPair
-	InheritItemNeed      []AffixTitleLevelMetaData_IntIntPair
-	ResetItemNeed        []AffixTitleLevelMetaData_IntIntPair
-}
-
-type AffixTitleLevelMetaData_IntIntPair struct {
-	// Fields
-	Item1 int32
-	Item2 int32
+	BreakMaterialNeed    []AffixRecycleMetaData_IntIntPair
+	DisjointGetMaterials []AffixRecycleMetaData_IntIntPair
+	InheritItemNeed      []AffixRecycleMetaData_IntIntPair
+	ResetItemNeed        []AffixRecycleMetaData_IntIntPair
 }
 
 type AffixTreeNodeMetaData struct {
@@ -3156,13 +3092,7 @@ type AiCyberDailyStageDropLimitMetaData struct {
 
 	// Objects
 	UnlockConditionList   StrWithPrefix16
-	MaterialDropLimitList []AiCyberDailyStageDropLimitMetaData_MaterialDropLimit
-}
-
-type AiCyberDailyStageDropLimitMetaData_MaterialDropLimit struct {
-	// Fields
-	MaterialID int32
-	Number     int32
+	MaterialDropLimitList []ElfBreakMetaData_ElfBreakMaterial
 }
 
 type AiCyberDailyStageScoreDropMetaData struct {
@@ -3174,13 +3104,7 @@ type AiCyberDailyStageScoreDropMetaData struct {
 	Addr1 uint32 `json:"-"`
 
 	// Objects
-	DropMaterialList []AiCyberDailyStageScoreDropMetaData_DropMaterial
-}
-
-type AiCyberDailyStageScoreDropMetaData_DropMaterial struct {
-	// Fields
-	MaterialID int32
-	Number     int32
+	DropMaterialList []ElfBreakMetaData_ElfBreakMaterial
 }
 
 type AiCyberGalTouchMetaData struct {
@@ -3215,14 +3139,11 @@ type AiCyberHyperionMetaData struct {
 
 type AiCyberMainUIRepairMetaData struct {
 	// Fields
-	Addr1 uint32 `json:"-"`
+	UIPrefabPath int32
 
 	// Properties
 	ID            int32
 	ProgressLimit int32
-
-	// Objects
-	UIPrefabPath int32
 }
 
 type AiCyberProgressMetaData struct {
@@ -3288,8 +3209,6 @@ type AiCyberQavatarMetaData struct {
 
 type AiCyberQavatarMetaData_Reaction struct {
 	// Fields
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
 
 	// Objects
 	Bubble  Hash
@@ -3540,21 +3459,6 @@ type ArmadaGridData struct {
 	Y int32
 }
 
-type ArmadaHangarData struct {
-	// Fields
-	Level int32
-
-	// Properties
-	ArmadaLevel int32
-	Addr1       uint32 `json:"-"`
-	CostFund    int32
-	CostTime    int32
-	ApCap       int32
-
-	// Objects
-	Prefab StrWithPrefix16
-}
-
 type ArmadaLinerRewardMetaData struct {
 	// Fields
 	ID int32
@@ -3628,18 +3532,12 @@ type ArmadaReunionLevelMetaData struct {
 	Addr6          uint32 `json:"-"`
 
 	// Objects
-	Demand               []ArmadaReunionLevelMetaData_LevelMaterialDemand
+	Demand               []ElfBreakMetaData_ElfBreakMaterial
 	RewardList           []int32
 	PicPath              StrWithPrefix16
 	TextMap_Level        StrWithPrefix16
 	OriginalPaintingPath StrWithPrefix16
 	ActivePaintingPath   StrWithPrefix16
-}
-
-type ArmadaReunionLevelMetaData_LevelMaterialDemand struct {
-	// Fields
-	MaterialID int32
-	Number     int32
 }
 
 type ArmadaReunionMissionMetaData struct {
@@ -3876,8 +3774,6 @@ type AvatarExMetaData struct {
 
 type AvatarExMetaData_CommonSkill struct {
 	// Fields
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
 
 	// Objects
 	Skill1 StrWithPrefix16
@@ -3959,8 +3855,7 @@ type AvatarGachaDisplayMetaData struct {
 
 type AvatarGachaDisplayMetaData_AudioPatternEvent struct {
 	// Fields
-	Time  float32
-	Addr1 uint32 `json:"-"`
+	Time float32
 
 	// Objects
 	AudioPattern StrWithPrefix16
@@ -3968,8 +3863,7 @@ type AvatarGachaDisplayMetaData_AudioPatternEvent struct {
 
 type AvatarGachaDisplayMetaData_FaceAnimationEvent struct {
 	// Fields
-	Time  float32
-	Addr1 uint32 `json:"-"`
+	Time float32
 
 	// Objects
 	FaceAnimation StrWithPrefix16
@@ -4171,14 +4065,8 @@ type AvatarTrialMetaData struct {
 	AvatarDress      int32
 
 	// Objects
-	AvatarSubSkills  []AvatarTrialMetaData_SkillInfoItem
+	AvatarSubSkills  []AvatarModelMetaData_SkillInfoItem
 	DLCAvatarTalents []AvatarTrialMetaData_TalentInfoItem
-}
-
-type AvatarTrialMetaData_SkillInfoItem struct {
-	// Fields
-	SkillID int32
-	SkillLV int32
 }
 
 type AvatarTrialMetaData_TalentInfoItem struct {
@@ -4394,9 +4282,7 @@ type BattlePassScheduleMetaData struct {
 
 type BattlePassScheduleMetaData_Format struct {
 	// Fields
-	Type  uint8
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
+	Type uint8
 
 	// Objects
 	Text  Hash
@@ -5683,7 +5569,6 @@ type ChapterOWBuildingLevelMetaData_CostMaterialData struct {
 type ChapterOWBuildingLevelMetaData_RemindTipData struct {
 	// Fields
 	ConditionID int32
-	Addr1       uint32 `json:"-"`
 
 	// Objects
 	ConditionTextID Hash
@@ -6119,17 +6004,11 @@ type ChapterOWFurnitureMetaData struct {
 
 	// Objects
 	PrefabPath                StrWithPrefix16
-	ConditionList             []ChapterOWFurnitureMetaData_ConditionStatePair
-	NPCHeadMark               []ChapterOWFurnitureMetaData_ConditionStatePair
+	ConditionList             []ChapterOWBuildingMetaData_ConditionStatePair
+	NPCHeadMark               []ChapterOWBuildingMetaData_ConditionStatePair
 	NPCHeadMarkOffsetPosition []float32
 	MainStoryIDList           []int32
 	BranchStoryIDList         []int32
-}
-
-type ChapterOWFurnitureMetaData_ConditionStatePair struct {
-	// Fields
-	ConditionID int32
-	StateID     int32
 }
 
 type ChapterOWHeroCardLevelMetaData struct {
@@ -6584,17 +6463,11 @@ type ChapterOWNPCMetaData struct {
 
 	// Objects
 	PrefabPath                StrWithPrefix16
-	ConditionList             []ChapterOWNPCMetaData_ConditionStatePair
-	NPCHeadMark               []ChapterOWNPCMetaData_ConditionStatePair
+	ConditionList             []ChapterOWBuildingMetaData_ConditionStatePair
+	NPCHeadMark               []ChapterOWBuildingMetaData_ConditionStatePair
 	NPCHeadMarkOffsetPosition []float32
 	MainStoryIDList           []int32
 	BranchStoryIDList         []int32
-}
-
-type ChapterOWNPCMetaData_ConditionStatePair struct {
-	// Fields
-	ConditionID int32
-	StateID     int32
 }
 
 type ChapterOWNPCPositionGroupMetaData struct {
@@ -6625,7 +6498,6 @@ type ChapterOWNPCPositionMetaData_Positions struct {
 	// Fields
 	AnimID int32
 	NpcID  int32
-	Addr1  uint32 `json:"-"`
 
 	// Objects
 	PostionName StrWithPrefix16
@@ -7559,24 +7431,17 @@ type ChatLobbyNPCMetaData struct {
 }
 
 type ChatLobbyNPCMetaData_Idle struct {
-	// Fields
+	// ManualReorder
+	Path   StrWithPrefix16
 	Weight float32
-	Addr1  uint32 `json:"-"`
-
-	// Objects
-	Path StrWithPrefix16
 }
 
 type ChatLobbyNPCMetaData_Dialog struct {
-	// Fields
+	// ManualReorder
+	Text     Hash
 	Duration float32
 	Weight   float32
-	Addr1    uint32 `json:"-"`
-	Addr2    uint32 `json:"-"`
-
-	// Objects
-	Text  Hash
-	Voice StrWithPrefix16
+	Voice    StrWithPrefix16
 }
 
 type ChatLobbyNPCSystemFunctionMetaData struct {
@@ -7659,8 +7524,7 @@ type ChatLobbyQuestionMetaData struct {
 
 type ChatLobbyQuestionMetaData_AnswerItem struct {
 	// Fields
-	ID    int32
-	Addr1 uint32 `json:"-"`
+	ID int32
 
 	// Objects
 	Text StrWithPrefix16
@@ -7757,14 +7621,8 @@ type ChatLobbyTreasureMetaData struct {
 	// Objects
 	TreasureNameText    Hash
 	TreasureModel       StrWithPrefix16
-	CostMaterialList    []ChatLobbyTreasureMetaData_Cost
+	CostMaterialList    []BeastStageDisplayMetaData_LevelDropDisplay
 	DropDisplayItemList []ChatLobbyTreasureMetaData_DisplayItem
-}
-
-type ChatLobbyTreasureMetaData_Cost struct {
-	// Fields
-	Count      int32
-	MaterialID int32
 }
 
 type ChatLobbyTreasureMetaData_DisplayItem struct {
@@ -8123,13 +7981,7 @@ type CompensationOfElfBreakMetaData struct {
 	Addr1    uint32 `json:"-"`
 
 	// Objects
-	ItemList []CompensationOfElfBreakMetaData_Item
-}
-
-type CompensationOfElfBreakMetaData_Item struct {
-	// Fields
-	ID     int32
-	Number int32
+	ItemList []ElfMetaData_MatCost
 }
 
 type CompensationOfElfSlotUnlockMetaData struct {
@@ -8141,13 +7993,7 @@ type CompensationOfElfSlotUnlockMetaData struct {
 	Addr1 uint32 `json:"-"`
 
 	// Objects
-	ItemList []CompensationOfElfSlotUnlockMetaData_Item
-}
-
-type CompensationOfElfSlotUnlockMetaData_Item struct {
-	// Fields
-	ID     int32
-	Number int32
+	ItemList []ElfMetaData_MatCost
 }
 
 type CompensationOfElfTalentMetaData struct {
@@ -8159,13 +8005,7 @@ type CompensationOfElfTalentMetaData struct {
 	Addr1 uint32 `json:"-"`
 
 	// Objects
-	ItemList []CompensationOfElfTalentMetaData_Item
-}
-
-type CompensationOfElfTalentMetaData_Item struct {
-	// Fields
-	ID     int32
-	Number int32
+	ItemList []ElfMetaData_MatCost
 }
 
 type CompensationOfExtendGradeMetaData struct {
@@ -8177,13 +8017,7 @@ type CompensationOfExtendGradeMetaData struct {
 	Addr1 uint32 `json:"-"`
 
 	// Objects
-	ItemList []CompensationOfExtendGradeMetaData_CompensationOfExtendGradeRewardMetaData
-}
-
-type CompensationOfExtendGradeMetaData_CompensationOfExtendGradeRewardMetaData struct {
-	// Fields
-	Num      int32
-	RewardID int32
+	ItemList []CompensationOfDormitoryMetaData_CompensationOfDormitoryRewardMetaData
 }
 
 type CompensationOfIslandMetaData struct {
@@ -8197,13 +8031,7 @@ type CompensationOfIslandMetaData struct {
 
 	// Objects
 	CabinName Hash
-	ItemList  []CompensationOfIslandMetaData_CompensationOfIslandRewardMetaData
-}
-
-type CompensationOfIslandMetaData_CompensationOfIslandRewardMetaData struct {
-	// Fields
-	Num      int32
-	RewardID int32
+	ItemList  []CompensationOfDormitoryMetaData_CompensationOfDormitoryRewardMetaData
 }
 
 type ConstValueMetaData struct {
@@ -8239,17 +8067,6 @@ type CoupleTowerScoreMetaData struct {
 	// Properties
 	ScoreType int32
 	Score     int32
-}
-
-type CoupleTowerStageMetaData struct {
-	// Fields
-	ActivityID int32
-
-	// Properties
-	Addr1 uint32 `json:"-"`
-
-	// Objects
-	StageIDList []int32
 }
 
 type CouponMetaData struct {
@@ -8555,11 +8372,12 @@ type DialogImageDataMetaData struct {
 }
 
 type DialogMetaData struct {
+	// Manually edited
 	// Fields
 	DialogID int32
-	Addr1    uint32 `json:"-"`
 
 	// Properties
+	Addr1      uint32 `json:"-"`
 	Addr2      uint32 `json:"-"`
 	DialogType uint8
 	AvatarID   uint16
@@ -8581,12 +8399,14 @@ type DialogMetaData struct {
 }
 
 type DialogMetaData_PlotChatNode struct {
+	// Reordered by constructor
 	// Fields
-	ChatDuration float32
-	Addr1        uint32 `json:"-"`
+
+	// Properties
 
 	// Objects
-	ChatContent Hash
+	ChatContent  Hash
+	ChatDuration float32
 }
 
 type DiceyDungeonActivityMetaData struct {
@@ -8599,13 +8419,7 @@ type DiceyDungeonActivityMetaData struct {
 	DailyDungeonUnlockSite int32
 
 	// Objects
-	WeaponGachaMaterial DiceyDungeonActivityMetaData_MaterialInfo
-}
-
-type DiceyDungeonActivityMetaData_MaterialInfo struct {
-	// Fields
-	ID  int32
-	Num int32
+	WeaponGachaMaterial MechMetaData_DisjoinOutputItem
 }
 
 type DiceyDungeonBubbleMetaData struct {
@@ -8677,13 +8491,7 @@ type DiceyDungeonDailyScoreMetaData struct {
 	Addr1                uint32 `json:"-"`
 
 	// Objects
-	DailyDungeonMaterial []DiceyDungeonDailyScoreMetaData_RewardInfo
-}
-
-type DiceyDungeonDailyScoreMetaData_RewardInfo struct {
-	// Fields
-	ID  int32
-	Num int32
+	DailyDungeonMaterial []MechMetaData_DisjoinOutputItem
 }
 
 type DiceyDungeonDataMetaData struct {
@@ -8718,17 +8526,11 @@ type DiceyDungeonDataMetaData struct {
 	OrnamentDisplayList []int32
 	TipDisplayList      []Hash
 	UnlockRoleList      []DiceyDungeonDataMetaData_RoleInfo
-	UnlockWeaponList    []DiceyDungeonDataMetaData_WeaponInfo
+	UnlockWeaponList    []DiceyDungeonDataMetaData_RoleInfo
 	BgPath              StrWithPrefix16
 }
 
 type DiceyDungeonDataMetaData_RoleInfo struct {
-	// Fields
-	ID    int32
-	Level int32
-}
-
-type DiceyDungeonDataMetaData_WeaponInfo struct {
 	// Fields
 	ID    int32
 	Level int32
@@ -8875,7 +8677,7 @@ type DiceyDungeonRoleMetaData struct {
 	RoleChibiIcon         StrWithPrefix16
 	RoleFigurePath        StrWithPrefix16
 	RolePrefabPath        StrWithPrefix16
-	LevelUpCostMaterial   DiceyDungeonRoleMetaData_CostInfo
+	LevelUpCostMaterial   MechMetaData_DisjoinOutputItem
 	DungeonSkillID        []int32
 	SupportAbilityName    StrWithPrefix16
 	SupportParamList      []float32
@@ -8884,14 +8686,8 @@ type DiceyDungeonRoleMetaData struct {
 	SkillDisplayType1     StrWithPrefix16
 	SkillDisplayType2     StrWithPrefix16
 	SkillDisplayType3     StrWithPrefix16
-	BattleDicePool        []DiceyDungeonRoleMetaData_CostInfo
+	BattleDicePool        []MechMetaData_DisjoinOutputItem
 	DailyRecommendList    []int32
-}
-
-type DiceyDungeonRoleMetaData_CostInfo struct {
-	// Fields
-	ID  int32
-	Num int32
 }
 
 type DiceyDungeonRoomMetaData struct {
@@ -8988,20 +8784,6 @@ type DiceyDungeonWeaponMetaData struct {
 	DungeonSkillID []int32
 }
 
-type DLC2ConditionMetaData struct {
-	// Fields
-	ID int32
-
-	// Properties
-	ConditionType uint8
-	Addr1         uint32 `json:"-"`
-	Addr2         uint32 `json:"-"`
-
-	// Objects
-	Parameter       []int32
-	StringParameter []StrWithPrefix16
-}
-
 type DLC2DailyQuestInfoMetaData struct {
 	// Fields
 	ID int32
@@ -9017,31 +8799,16 @@ type DLC2DailyQuestInfoMetaData struct {
 	QuestInfo      Hash
 }
 
-type DLC2EntryPlotLineMetaData struct {
-	// Fields
-	ID int32
-
-	// Properties
-	ConditionID int32
-	Addr1       uint32 `json:"-"`
-
-	// Objects
-	PlotLinePath StrWithPrefix16
-}
-
 type DLC2PlotUIConfigMetaData struct {
 	// Reordered by constructor
 	// Fields
-	Addr1 uint32 `json:"-"`
+	PlotName int32
 
 	// Properties
 	ShowHistoryBtn bool
 	ShowHideBtn    bool
 	ShowAutoBtn    bool
 	ShowSkipBtn    bool
-
-	// Objects
-	PlotName int32
 }
 
 type DLC2SupportGiftMetaData struct {
@@ -9194,11 +8961,8 @@ type DLCSupportDataMetaData struct {
 	SupportParam int32
 
 	// Properties
-	NPCID        uint8
-	SupportPoint uint16
-	Addr1        uint32 `json:"-"`
-
-	// Objects
+	NPCID           uint8
+	SupportPoint    uint16
 	SupportTypeEnum int32
 }
 
@@ -9292,24 +9056,12 @@ type DLCTalentLevelMetaData struct {
 	Addr6              uint32 `json:"-"`
 
 	// Objects
-	LevelUpPreTalent    []DLCTalentLevelMetaData_PreTalentCondition
-	LevelUpMaterialList []DLCTalentLevelMetaData_MatCost
-	RefreshMaterialList []DLCTalentLevelMetaData_MatCost
+	LevelUpPreTalent    []DiceyDungeonDataMetaData_RoleInfo
+	LevelUpMaterialList []ElfMetaData_MatCost
+	RefreshMaterialList []ElfMetaData_MatCost
 	RelateAvatarList    []DLCTalentLevelMetaData_RelateAvatar
 	TalentInfo          Hash
 	TalentInfo2         Hash
-}
-
-type DLCTalentLevelMetaData_MatCost struct {
-	// Fields
-	ID     int32
-	Number int32
-}
-
-type DLCTalentLevelMetaData_PreTalentCondition struct {
-	// Fields
-	ID    int32
-	Level int32
 }
 
 type DLCTalentLevelMetaData_RelateAvatar struct {
@@ -9499,23 +9251,6 @@ type DLCTowerWaveMetaData struct {
 	MonsterConfig []int32
 }
 
-type DLCTowerWeatherMetaData struct {
-	// Fields
-	ID int32
-
-	// Properties
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
-	Addr3 uint32 `json:"-"`
-	Addr4 uint32 `json:"-"`
-
-	// Objects
-	BuffList []int32
-	Name     StrWithPrefix16
-	Desc     StrWithPrefix16
-	IconPath StrWithPrefix16
-}
-
 type DormitoryAvatarMetaData struct {
 	// Fields
 	AvatarID int32
@@ -9633,13 +9368,7 @@ type DormitoryDecorationMetaData struct {
 
 	// Objects
 	DecorationEffectList []int32
-	MaterialList         []DormitoryDecorationMetaData_DecorationMaterialNode
-}
-
-type DormitoryDecorationMetaData_DecorationMaterialNode struct {
-	// Fields
-	MaterialID int32
-	Number     int32
+	MaterialList         []ElfBreakMetaData_ElfBreakMaterial
 }
 
 type DormitoryDialogMetaData struct {
@@ -9986,22 +9715,8 @@ type DownloadInterfaceMetaData struct {
 	// Objects
 	BackGroundInfo   StrWithPrefix16
 	ProgressBarColor StrWithPrefix16
-	ActionsRect      DownloadInterfaceMetaData_RectTransformData
-	ProgressBarRect  DownloadInterfaceMetaData_RectTransformData
-}
-
-type DownloadInterfaceMetaData_RectTransformData struct {
-	// Fields
-	AnchoredPositionX float32
-	AnchoredPositionY float32
-	AnchorMaxX        float32
-	AnchorMaxY        float32
-	AnchorMinX        float32
-	AnchorMinY        float32
-	PivotX            float32
-	PivotY            float32
-	SizeDeltaX        float32
-	SizeDeltaY        float32
+	ActionsRect      DownLoadConfigMetaData_RectTransformData
+	ProgressBarRect  DownLoadConfigMetaData_RectTransformData
 }
 
 type DreamMetaData struct {
@@ -10109,16 +9824,6 @@ type DutyDailyMetaData struct {
 	RewardId int32
 }
 
-type DutyWeeklyMetaData struct {
-	// Fields
-	DutyId int32
-
-	// Properties
-	NeedDuty int32
-	UnlockLv int32
-	RewardId int32
-}
-
 type DynamicHardLvMetaData struct {
 	// Fields
 	TeamLv int32
@@ -10160,19 +9865,8 @@ type ElfStoryActMetaData struct {
 
 	// Objects
 	TriggerName       StrWithPrefix16
-	TriggerEffectList []ElfStoryActMetaData_ElfUIEffectPattern
+	TriggerEffectList []ElfGalEventMetaData_ElfUIEffectPattern
 	FaceAnimationKey  StrWithPrefix16
-}
-
-type ElfStoryActMetaData_ElfUIEffectPattern struct {
-	// Fields
-	BeginTime float32
-	Addr1     uint32 `json:"-"`
-	Addr2     uint32 `json:"-"`
-
-	// Objects
-	AttachPoint StrWithPrefix16
-	EffectPath  StrWithPrefix16
 }
 
 type ElfTalentLevelMetaData struct {
@@ -10467,13 +10161,7 @@ type EquipForgeKeepAffixMetaData struct {
 	Addr1 uint32 `json:"-"`
 
 	// Objects
-	ConsumeNumList []EquipForgeKeepAffixMetaData_EFInheritCost
-}
-
-type EquipForgeKeepAffixMetaData_EFInheritCost struct {
-	// Fields
-	ItemMetaID int32
-	ItemNum    int32
+	ConsumeNumList []AvatarSubSkillLevelMetaData_SkillUpLevelNeedItem
 }
 
 type EquipForgeMeta struct {
@@ -10726,16 +10414,13 @@ type EventDialogDataMetaData struct {
 	QuestionContent      StrWithPrefix16
 }
 
-type EventDialogDataMetaData_PlotChatNode_old struct {
+type EventDialogDataMetaData_PlotChatNode struct {
+	// Reordered by constructor
 	// Fields
-	ChatDuration float32
-	Addr1        uint32 `json:"-"`
+
+	// Properties
 
 	// Objects
-	ChatContent StrWithPrefix16
-}
-
-type EventDialogDataMetaData_PlotChatNode struct {
 	ChatContent  StrWithPrefix16
 	ChatDuration float32
 }
@@ -10819,12 +10504,6 @@ type ExBossMonsterScoreRewardMetaData struct {
 
 	// Objects
 	RewardDesc Hash
-}
-
-type ExBossMonsterScoreRewardMetaData_RewardShowList struct {
-	// Fields
-	MaterialID int32
-	Num        int32
 }
 
 type ExBossMonsterWeatherMetaData struct {
@@ -11741,35 +11420,21 @@ type GalEventMetaData_RawData struct {
 	// Fields
 	GalEventID        int32
 	GalEventType      uint8
-	Addr1             uint32 `json:"-"`
 	RoleID            uint16
-	Addr2             uint32 `json:"-"`
-	Addr3             uint32 `json:"-"`
-	Addr4             uint32 `json:"-"`
 	StartMotionSpeed  float32
-	Addr5             uint32 `json:"-"`
 	LoopMotionSpeed   float32
 	LoopTimes         uint8
-	Addr6             uint32 `json:"-"`
 	EndMotionSpeed    float32
 	AudioType         uint8
-	Addr7             uint32 `json:"-"`
 	AudioDelayTime    float32
-	Addr8             uint32 `json:"-"`
 	EffectDelayTime   float32
-	Addr9             uint32 `json:"-"`
 	FaceDelayTime     float32
 	Priority          uint16
 	BubbleSwitch      uint8
-	Addr10            uint32 `json:"-"`
-	Addr11            uint32 `json:"-"`
 	TouchExp          uint8
 	Condition1        uint8
-	Addr12            uint32 `json:"-"`
 	Condition2        uint8
-	Addr13            uint32 `json:"-"`
 	Condition3        uint8
-	Addr14            uint32 `json:"-"`
 	SubsidiaryEventID int32
 	PortraitActive    bool
 
@@ -11874,13 +11539,7 @@ type GenActivityRewardScheduleMetaData struct {
 	Addr1 uint32 `json:"-"`
 
 	// Objects
-	ShowItemList []GenActivityRewardScheduleMetaData_Item
-}
-
-type GenActivityRewardScheduleMetaData_Item struct {
-	// Fields
-	ID     int32
-	Number int32
+	ShowItemList []ElfMetaData_MatCost
 }
 
 type GenActivityRewardShowItemsMetaData struct {
@@ -12744,13 +12403,7 @@ type GlobalWarExchangeMetaData struct {
 	CostStamina    int32
 
 	// Objects
-	CostMaterialList []GlobalWarExchangeMetaData_CostMaterial
-}
-
-type GlobalWarExchangeMetaData_CostMaterial struct {
-	// Fields
-	ID  int32
-	Num int32
+	CostMaterialList []MechMetaData_DisjoinOutputItem
 }
 
 type GlobalWarIsolatePointMetaData struct {
@@ -12871,9 +12524,6 @@ type GlobalWarScheduleMetaData struct {
 
 type GlobalWarScheduleMetaData_ConfigTutorial struct {
 	// Fields
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
-	Addr3 uint32 `json:"-"`
 
 	// Objects
 	Content StrWithPrefix16
@@ -13611,7 +13261,6 @@ type GodWarExtraItemTextMetaData struct {
 type GodWarExtraItemTextMetaData_OverallTextMap struct {
 	// Fields
 	OverallValue uint32
-	Addr1        uint32 `json:"-"`
 
 	// Objects
 	Desc Hash
@@ -14355,15 +14004,6 @@ type GodWarTeleportMetaData struct {
 	InteractDesc    Hash
 }
 
-type GodWarTicketMetaData struct {
-	// Fields
-	TicketID uint32
-
-	// Properties
-	MaterialID int32
-	MaxNum     int32
-}
-
 type GodWarUseAvatarMetaData struct {
 	// Fields
 	ChapterID int32
@@ -14404,13 +14044,7 @@ type GrandKeyLevel struct {
 	Addr1             uint32 `json:"-"`
 
 	// Objects
-	UpgradeMaterial []GrandKeyLevel_Item
-}
-
-type GrandKeyLevel_Item struct {
-	// Fields
-	ID  int32
-	Num int32
+	UpgradeMaterial []MechMetaData_DisjoinOutputItem
 }
 
 type GrandKeyMainWeapon struct {
@@ -15091,8 +14725,7 @@ type HoukaiTownTutorialStepMetaData struct {
 
 type HoukaiTownTutorialStepMetaData_Pointer struct {
 	// Fields
-	ID    int32
-	Addr1 uint32 `json:"-"`
+	ID int32
 
 	// Objects
 	Path StrWithPrefix16
@@ -15293,7 +14926,6 @@ type InControlControlTypeInfoMetaData struct {
 type InControlControlTypeInfoMetaData_PrefixControl struct {
 	// Fields
 	IsSettingKey bool
-	Addr1        uint32 `json:"-"`
 
 	// Objects
 	PrefixControlString StrWithPrefix16
@@ -15315,12 +14947,9 @@ type InControlKeyInfoMetaData struct {
 }
 
 type InControlKeyInfoMetaData_PrefixKey struct {
-	// Fields
-	IsSettingKey bool
-	Addr1        uint32 `json:"-"`
-
-	// Objects
+	// ManualReorder
 	PrefixKeyString StrWithPrefix16
+	IsSettingKey    bool
 }
 
 type InControlUIButtonConfigMetaData struct {
@@ -15626,13 +15255,7 @@ type KingdomsPointMetaData struct {
 	NearPointList            []int32
 	PointTitle               Hash
 	PointDesc                Hash
-	ExchangeCostMaterialList []KingdomsPointMetaData_Material
-}
-
-type KingdomsPointMetaData_Material struct {
-	// Fields
-	ID  int32
-	Num int32
+	ExchangeCostMaterialList []MechMetaData_DisjoinOutputItem
 }
 
 type KingdomsStageMetaData struct {
@@ -15787,10 +15410,7 @@ type LevelChallengeMetaData_RawData struct {
 	// Fields
 	ChallengeId int32
 	ConditionId int32
-	Addr1       uint32 `json:"-"`
 	HintPeriod  int32
-	Addr2       uint32 `json:"-"`
-	Addr3       uint32 `json:"-"`
 	Difficulty  int32
 
 	// Objects
@@ -16258,7 +15878,6 @@ type LevelStatisticsMetaData struct {
 type LevelStatisticsMetaData_IntIntPair struct {
 	// Fields
 	Item2 float32
-	Addr1 uint32 `json:"-"`
 
 	// Objects
 	Item1 StrWithPrefix16
@@ -16839,13 +16458,7 @@ type MassiveWarRankRewardMetaData struct {
 	Addr1        uint32 `json:"-"`
 
 	// Objects
-	ScoreRankList []MassiveWarRankRewardMetaData_RewardScore
-}
-
-type MassiveWarRankRewardMetaData_RewardScore struct {
-	// Fields
-	PlayerGroupID uint8
-	Score         int32
+	ScoreRankList []MassiveWarDamageRewardMetaData_RewardScore
 }
 
 type MassiveWarRewardMetaData struct {
@@ -16911,18 +16524,11 @@ type MassiveWarStageMetaData struct {
 	Addr5           uint32 `json:"-"`
 
 	// Objects
-	MonsterWaveList           []MassiveWarStageMetaData_MessageIDWaveData
+	MonsterWaveList           []GratuityStageMetaData_MessageIDWaveData
 	BossIdList                []uint8
 	StageImagePath            StrWithPrefix16
 	StageImagePathRankingPage StrWithPrefix16
 	StageInfoIdList           []int32
-}
-
-type MassiveWarStageMetaData_MessageIDWaveData struct {
-	// Fields
-	Wave            uint16
-	MessageID       int32
-	UniqueMonsterID int32
 }
 
 type MaterialProtectMetaData struct {
@@ -17096,13 +16702,7 @@ type MechPaperMetaData struct {
 	// Objects
 	InfoTextMap  Hash
 	PaperIcon    StrWithPrefix16
-	NeedMaterial []MechPaperMetaData_BuildNeedMaterial
-}
-
-type MechPaperMetaData_BuildNeedMaterial struct {
-	// Fields
-	ID  int32
-	Num int32
+	NeedMaterial []MechMetaData_DisjoinOutputItem
 }
 
 type MechTDDiffcultyMetaData struct {
@@ -17292,9 +16892,6 @@ type MiniBossExamHardStageDataMetaData struct {
 type MiniBossExamHardStageDataMetaData_Tag struct {
 	// Fields
 	TagID int32
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
-	Addr3 uint32 `json:"-"`
 
 	// Objects
 	TagDesc Hash
@@ -17563,14 +17160,8 @@ type MissionThemeMetaData struct {
 	LinkParams              []int32
 	LinkParamStr            StrWithPrefix16
 	MissionIDList           []int32
-	UpgradeCostMaterialList []MissionThemeMetaData_CostMaterial
+	UpgradeCostMaterialList []BeastStageDisplayMetaData_LevelDropDisplay
 	UpgradeCostProductName  StrWithPrefix16
-}
-
-type MissionThemeMetaData_CostMaterial struct {
-	// Fields
-	Count      int32
-	MaterialID int32
 }
 
 type MonopolyBuffInfoMetaData struct {
@@ -17789,7 +17380,6 @@ type MonsterCardSkillMetaData struct {
 type MonsterCardSkillMetaData_SkillParam struct {
 	// Fields
 	Param float32
-	Addr1 uint32 `json:"-"`
 
 	// Objects
 	Name StrWithPrefix16
@@ -18269,18 +17859,6 @@ type MPTrophyMetaData struct {
 	TrophyScore []int32
 }
 
-type MultiPlatforms_UserInfoMetaData struct {
-	// Fields
-	UserType    uint8
-	AccountType uint8
-
-	// Properties
-	Addr1 uint32 `json:"-"`
-
-	// Objects
-	UserLabel Hash
-}
-
 type MuseumMetaData struct {
 	// Fields
 	MuseumID uint8
@@ -18474,9 +18052,6 @@ type NewbieDevelopRewardPanelMetaData_SpecialReward struct {
 	// Fields
 	ShowType uint8
 	RankID   uint16
-	Addr1    uint32 `json:"-"`
-	Addr2    uint32 `json:"-"`
-	Addr3    uint32 `json:"-"`
 
 	// Objects
 	Tag       Hash
@@ -19058,16 +18633,10 @@ type OpenWorldCookData struct {
 	EffectParam       []int32
 	DisplayCookDesc   Hash
 	DisplayEffectDesc Hash
-	CostMaterialsList []OpenWorldCookData_IntIntPair
+	CostMaterialsList []AffixRecycleMetaData_IntIntPair
 	IconPath          StrWithPrefix16
 	CookBuffIcon      StrWithPrefix16
 	CookBuffEfx       StrWithPrefix16
-}
-
-type OpenWorldCookData_IntIntPair struct {
-	// Fields
-	Item1 int32
-	Item2 int32
 }
 
 type OpenWorldCycleActivityMetaData struct {
@@ -19515,13 +19084,7 @@ type OpenWorldQuestRarityMetaData struct {
 	Addr1 uint32 `json:"-"`
 
 	// Objects
-	WeightGroup []OpenWorldQuestRarityMetaData_IntIntPair
-}
-
-type OpenWorldQuestRarityMetaData_IntIntPair struct {
-	// Fields
-	Item1 int32
-	Item2 int32
+	WeightGroup []AffixRecycleMetaData_IntIntPair
 }
 
 type OpenWorldQuestRarityRewardMetaData struct {
@@ -19964,7 +19527,7 @@ type OWAvatarActivityDataMetaData struct {
 	ShopLink            []int32
 	WebLink             StrWithPrefix16
 	GachaLink           StrWithPrefix16
-	ImageInfo           []OWAvatarActivityDataMetaData_Tutorial
+	ImageInfo           []GlobalWarScheduleMetaData_ConfigTutorial
 	JsonCfg             StrWithPrefix16
 	MissionList         []int32
 }
@@ -19973,18 +19536,6 @@ type OWAvatarActivityDataMetaData_CurrencyLimitItem struct {
 	// Fields
 	CurrencyID int32
 	Max        int32
-}
-
-type OWAvatarActivityDataMetaData_Tutorial struct {
-	// Fields
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
-	Addr3 uint32 `json:"-"`
-
-	// Objects
-	Content StrWithPrefix16
-	Sprite  StrWithPrefix16
-	Title   StrWithPrefix16
 }
 
 type OWAvatarActivityFilesData struct {
@@ -20082,19 +19633,13 @@ type OWAvatarCultivateLevelMetaData struct {
 
 	// Objects
 	ConditionList     StrWithPrefix16
-	CostContent       []OWAvatarCultivateLevelMetaData_CostContentItem
+	CostContent       []ChapterOWTalentLevelMetaData_CostMaterial
 	AvatarImage       StrWithPrefix16
 	StigmataImage     StrWithPrefix16
 	WeaponImage       StrWithPrefix16
 	AvatarDetailImage StrWithPrefix16
 	WeaponDetailImage StrWithPrefix16
 	VAStigmataIDList  []int32
-}
-
-type OWAvatarCultivateLevelMetaData_CostContentItem struct {
-	// Fields
-	MaterialID int32
-	Num        int32
 }
 
 type OWAvatarUnlockMetaData struct {
@@ -20238,17 +19783,8 @@ type OWEndlessEnvironmentMeta struct {
 	EnvironmentNameText Hash
 	EnvironmentDescText Hash
 	EnvironmentIconPath StrWithPrefix16
-	UpTagList           []OWEndlessEnvironmentMeta_Tag
-	DownTagList         []OWEndlessEnvironmentMeta_Tag
-}
-
-type OWEndlessEnvironmentMeta_Tag struct {
-	// Fields
-	TagID int32
-	Addr1 uint32 `json:"-"`
-
-	// Objects
-	TagComment Hash
+	UpTagList           []ElfMetaData_Tag
+	DownTagList         []ElfMetaData_Tag
 }
 
 type OWEndlessGroupMeta struct {
@@ -20507,13 +20043,7 @@ type OWEndlessSingleFloorDataMetaData struct {
 	Addr1            uint32 `json:"-"`
 
 	// Objects
-	ResetCostMaterialList []OWEndlessSingleFloorDataMetaData_IntIntPair
-}
-
-type OWEndlessSingleFloorDataMetaData_IntIntPair struct {
-	// Fields
-	Item1 int32
-	Item2 int32
+	ResetCostMaterialList []AffixRecycleMetaData_IntIntPair
 }
 
 type OWEndlessSingleModeStageMetaData struct {
@@ -20691,13 +20221,7 @@ type OWHuntActivityMapDataMetaData struct {
 	ForceAreaPicPath   StrWithPrefix16
 	ForceAreaFuncParam []StrWithPrefix16
 	MachineShowIDList  []int32
-	InitialTalentList  []OWHuntActivityMapDataMetaData_InitialTalentData
-}
-
-type OWHuntActivityMapDataMetaData_InitialTalentData struct {
-	// Fields
-	TalentLevel uint8
-	TalentID    int32
+	InitialTalentList  []ChapterOWTalentLevelMetaData_PreTalentRequirement
 }
 
 type OWHuntActivityMonsterMetaData struct {
@@ -20735,20 +20259,6 @@ type OWHuntActivityQuestMetaData struct {
 
 	// Objects
 	FuncParam []StrWithPrefix16
-}
-
-type OWHuntActivityScheduleMetaData struct {
-	// Fields
-	ScheduleID int32
-
-	// Properties
-	ActivityID int32
-	Addr1      uint32 `json:"-"`
-	Addr2      uint32 `json:"-"`
-
-	// Objects
-	BeginTime RemoteTime
-	EndTime   RemoteTime
 }
 
 type OWHuntActivitySHLevelMetaData struct {
@@ -20801,19 +20311,13 @@ type OWHuntActivityTalentMetaData struct {
 
 	// Objects
 	TalentIconPath    StrWithPrefix16
-	PreTalent         []OWHuntActivityTalentMetaData_PreTalentData
+	PreTalent         []ChapterOWTalentLevelMetaData_PreTalentRequirement
 	TalentUpgradeCost []OWHuntActivityTalentMetaData_TalentUpgradeCostData
 	TalentName        Hash
 	TalentDes         Hash
 	NextLevelDes      Hash
 	AbilityName       StrWithPrefix16
 	AbilityParams     []StrWithPrefix16
-}
-
-type OWHuntActivityTalentMetaData_PreTalentData struct {
-	// Fields
-	TalentLevel uint8
-	TalentID    int32
 }
 
 type OWHuntActivityTalentMetaData_TalentUpgradeCostData struct {
@@ -21234,18 +20738,6 @@ type PredownloadAsbMetaData struct {
 	EnableTime RemoteTime
 }
 
-type PredownloadAudioMetaData struct {
-	// Fields
-	Addr1 uint32 `json:"-"`
-
-	// Properties
-	Addr2 uint32 `json:"-"`
-
-	// Objects
-	Version    StrWithPrefix16
-	EnableTime RemoteTime
-}
-
 type PredownloadAudioPackageMetaData struct {
 	// Fields
 	Addr1 uint32 `json:"-"`
@@ -21271,18 +20763,6 @@ type PredownloadVideoFileMetaData struct {
 	// Objects
 	VideoName StrWithPrefix16
 	Version   StrWithPrefix16
-}
-
-type PredownloadVideoMetaData struct {
-	// Fields
-	Addr1 uint32 `json:"-"`
-
-	// Properties
-	Addr2 uint32 `json:"-"`
-
-	// Objects
-	Version    StrWithPrefix16
-	EnableTime RemoteTime
 }
 
 type ProductRecommendMetaData struct {
@@ -21449,15 +20929,9 @@ type PVZSiteMetaData struct {
 	MaxWaves   int32
 
 	// Objects
-	TicketCost        []PVZSiteMetaData_MatPair
-	DropMaterialLimit []PVZSiteMetaData_MatPair
+	TicketCost        []MechMetaData_DisjoinOutputItem
+	DropMaterialLimit []MechMetaData_DisjoinOutputItem
 	SiteTitle         Hash
-}
-
-type PVZSiteMetaData_MatPair struct {
-	// Fields
-	ID  int32
-	Num int32
 }
 
 type PVZTileMetaData struct {
@@ -21479,13 +20953,7 @@ type PVZTileMetaData struct {
 	MonsterShowList      []int32
 	RecommendQavatarList []uint32
 	StageDesc            Hash
-	DropMaterial         []PVZTileMetaData_MatPair
-}
-
-type PVZTileMetaData_MatPair struct {
-	// Fields
-	ID  int32
-	Num int32
+	DropMaterial         []MechMetaData_DisjoinOutputItem
 }
 
 type QAvatarBattleBroadCastMetaData struct {
@@ -21497,11 +20965,6 @@ type QAvatarBattleBroadCastMetaData struct {
 
 	// Objects
 	BroadCastDescription Hash
-}
-
-type QAvatarBattleExpressionMetaData struct {
-	// Fields
-	EmojiFaceID int32
 }
 
 type QAvatarBattleGadgetMetaData struct {
@@ -21812,17 +21275,6 @@ type QTEndlessMonsterWaveMetaData struct {
 	RankDist    []int32
 }
 
-type QTEndlessScheduleMetaData struct {
-	// Fields
-	Addr1 uint32 `json:"-"`
-
-	// Properties
-	RewardConfig uint32
-
-	// Objects
-	StartTime RemoteTime
-}
-
 type QuestionBankMetaData struct {
 	// Fields
 	QuestionBankID uint32
@@ -21842,7 +21294,6 @@ type QuestionBankMetaData struct {
 type QuestionBankMetaData_Answer struct {
 	// Fields
 	AnswerID uint32
-	Addr1    uint32 `json:"-"`
 
 	// Objects
 	AnswerTextID Hash
@@ -21974,14 +21425,8 @@ type RaffleConfigMetaData struct {
 	// Objects
 	FirstRewardNumberList  []uint32
 	SecondRewardNumberList []uint32
-	CostMaterialList       []RaffleConfigMetaData_CostMaterial
+	CostMaterialList       []BeastStageDisplayMetaData_LevelDropDisplay
 	TextmapRule            Hash
-}
-
-type RaffleConfigMetaData_CostMaterial struct {
-	// Fields
-	Count      int32
-	MaterialID int32
 }
 
 type RaffleRewardConfigMetaData struct {
@@ -22356,7 +21801,6 @@ type RandomSubSelectContentDataMetaData struct {
 type RandomSubSelectContentDataMetaData_SubSelectContentData struct {
 	// Fields
 	Status uint32
-	Addr1  uint32 `json:"-"`
 
 	// Objects
 	Content StrWithPrefix16
@@ -22820,14 +22264,8 @@ type RestaurantQuestMetaData struct {
 	Addr2     uint32 `json:"-"`
 
 	// Objects
-	RequireMaterialList []RestaurantQuestMetaData_MatCost
+	RequireMaterialList []ElfBreakMetaData_ElfBreakMaterial
 	AvatarIconPath      StrWithPrefix16
-}
-
-type RestaurantQuestMetaData_MatCost struct {
-	// Fields
-	MaterialID int32
-	Number     int32
 }
 
 type RestaurantRecipeMetaData struct {
@@ -22845,22 +22283,10 @@ type RestaurantRecipeMetaData struct {
 	Bundle    int32
 
 	// Objects
-	Ingredient []RestaurantRecipeMetaData_Source
-	StockLimit []RestaurantRecipeMetaData_LvLimit
+	Ingredient []ElfBreakMetaData_ElfBreakMaterial
+	StockLimit []RestaurantIngredientsMetaData_LvLimit
 	CookSpeed  []RestaurantRecipeMetaData_LvSpeed
 	SellSpeed  []RestaurantRecipeMetaData_LvSpeed
-}
-
-type RestaurantRecipeMetaData_LvLimit struct {
-	// Fields
-	Level uint8
-	Limit int32
-}
-
-type RestaurantRecipeMetaData_Source struct {
-	// Fields
-	MaterialID int32
-	Number     int32
 }
 
 type RestaurantRecipeMetaData_LvSpeed struct {
@@ -23335,13 +22761,7 @@ type RichMonsterInfoMetaData struct {
 	// Objects
 	MonsterName   StrWithPrefix16
 	MonsterDesc   StrWithPrefix16
-	RecommendBuff []RichMonsterInfoMetaData_MonopolyBuff
-}
-
-type RichMonsterInfoMetaData_MonopolyBuff struct {
-	// Fields
-	BuffID int32
-	BuffLV int32
+	RecommendBuff []RichChallengeBossMetaData_MonopolyBuff
 }
 
 type RichShopMetaData struct {
@@ -23773,13 +23193,7 @@ type RpgBuffLimitMetaData struct {
 
 	// Objects
 	UnlockFlagList StrWithPrefix16
-	CostContent    []RpgBuffLimitMetaData_RpgBuffCostMaterial
-}
-
-type RpgBuffLimitMetaData_RpgBuffCostMaterial struct {
-	// Fields
-	Count      int32
-	MaterialID int32
+	CostContent    []BeastStageDisplayMetaData_LevelDropDisplay
 }
 
 type RpgBuffSuitClientInfoMetaData struct {
@@ -23827,7 +23241,7 @@ type RpgClientMainDataMetaData struct {
 	BuffMaterialList     []int32
 	GachaLink            StrWithPrefix16
 	TaleWebLink          StrWithPrefix16
-	TaleTutorial         []RpgClientMainDataMetaData_Tutorial
+	TaleTutorial         []GlobalWarScheduleMetaData_ConfigTutorial
 	TaleInfo             []StrWithPrefix16
 	FuncParam            []int32
 	GenCfgPath           StrWithPrefix16
@@ -23836,18 +23250,6 @@ type RpgClientMainDataMetaData struct {
 	ShowUnlockSiteList   []int32
 	BookPageShowPageList []int32
 	MenuShowList         []StrWithPrefix16
-}
-
-type RpgClientMainDataMetaData_Tutorial struct {
-	// Fields
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
-	Addr3 uint32 `json:"-"`
-
-	// Objects
-	Content StrWithPrefix16
-	Sprite  StrWithPrefix16
-	Title   StrWithPrefix16
 }
 
 type RpgCollectionRewardMetaData struct {
@@ -23893,13 +23295,7 @@ type RpgDungeonAdventureQuestMetaData struct {
 	QuestDetail     StrWithPrefix16
 	QuestDetailPic  StrWithPrefix16
 	RequiredTagList []int32
-	RewardDisplay   []RpgDungeonAdventureQuestMetaData_RewardMaterial
-}
-
-type RpgDungeonAdventureQuestMetaData_RewardMaterial struct {
-	// Fields
-	MaterialID  int32
-	MaterialNum int32
+	RewardDisplay   []AffixTreeNodeMetaData_MaterialNeed
 }
 
 type RpgEventDialogMetaData struct {
@@ -24528,13 +23924,7 @@ type RpgTaleRefreshMetaData struct {
 	RefreshTimes int32
 
 	// Objects
-	CostMaterial []RpgTaleRefreshMetaData_MaterialCost
-}
-
-type RpgTaleRefreshMetaData_MaterialCost struct {
-	// Fields
-	ID  int32
-	Num int32
+	CostMaterial []MechMetaData_DisjoinOutputItem
 }
 
 type RpgTaleStageEnterTimesMetaData struct {
@@ -24749,13 +24139,7 @@ type ScDLCAvatarLevelMetaData struct {
 	FeverLevelLimit int32
 
 	// Objects
-	LevelUpCost []ScDLCAvatarLevelMetaData_LevelUpRequire
-}
-
-type ScDLCAvatarLevelMetaData_LevelUpRequire struct {
-	// Fields
-	MatID int32
-	Num   int32
+	LevelUpCost []ScDLCTalentLevelMetaData_LevelUpMatRequire
 }
 
 type ScDLCChallengeMetaData struct {
@@ -24830,47 +24214,20 @@ type ScDLCFurnitureMetaData struct {
 
 	// Objects
 	PrefabPath    StrWithPrefix16
-	ConditionList []ScDLCFurnitureMetaData_ConditionStatePair
-	NPCHeadMark   []ScDLCFurnitureMetaData_ConditionStatePair
-}
-
-type ScDLCFurnitureMetaData_ConditionStatePair struct {
-	// Fields
-	ConditionID int32
-	StateID     int32
-}
-
-type ScDLCGachaMetaData struct {
-	// Fields
-	ID int32
-
-	// Properties
-	ActivityID int32
+	ConditionList []ChapterOWBuildingMetaData_ConditionStatePair
+	NPCHeadMark   []ChapterOWBuildingMetaData_ConditionStatePair
 }
 
 type ScDLCImageReplaceMetaData struct {
 	// Fields
-	Addr1 uint32 `json:"-"`
+	SourceImg int32
 
 	// Properties
-	Addr2     uint32 `json:"-"`
+	Addr1     uint32 `json:"-"`
 	Condition int32
 
 	// Objects
-	SourceImg int32
 	TargetImg StrWithPrefix16
-}
-
-type ScDLCInteractActionMetaData struct {
-	// Fields
-	ID int32
-
-	// Properties
-	Type  uint8
-	Addr1 uint32 `json:"-"`
-
-	// Objects
-	Param []StrWithPrefix16
 }
 
 type ScDLCInteractStateMetaData struct {
@@ -24911,13 +24268,7 @@ type ScDLCLevelMetaData struct {
 	// Objects
 	NextLevelDesc              Hash
 	OwHardlv                   StrWithPrefix16
-	MaterialDropLimitAddedList []ScDLCLevelMetaData_ItemLimit
-}
-
-type ScDLCLevelMetaData_ItemLimit struct {
-	// Fields
-	ItemID int32
-	Limit  int32
+	MaterialDropLimitAddedList []DLCLevelMetaData_ItemLimit
 }
 
 type ScDLCMapProgressMetaData struct {
@@ -24970,26 +24321,8 @@ type ScDLCNPCMetaData struct {
 
 	// Objects
 	PrefabPath    StrWithPrefix16
-	ConditionList []ScDLCNPCMetaData_ConditionStatePair
-	NPCHeadMark   []ScDLCNPCMetaData_ConditionStatePair
-}
-
-type ScDLCNPCMetaData_ConditionStatePair struct {
-	// Fields
-	ConditionID int32
-	StateID     int32
-}
-
-type ScDLCNPCPositionGroupMetaData struct {
-	// Fields
-	Priority int32
-
-	// Properties
-	ConditionID int32
-	Addr1       uint32 `json:"-"`
-
-	// Objects
-	PositionIDList []int32
+	ConditionList []ChapterOWBuildingMetaData_ConditionStatePair
+	NPCHeadMark   []ChapterOWBuildingMetaData_ConditionStatePair
 }
 
 type ScDLCNPCPositionMetaData struct {
@@ -25001,17 +24334,7 @@ type ScDLCNPCPositionMetaData struct {
 	ConditionID int32
 
 	// Objects
-	NPCPosList []ScDLCNPCPositionMetaData_Positions
-}
-
-type ScDLCNPCPositionMetaData_Positions struct {
-	// Fields
-	AnimID int32
-	NpcID  int32
-	Addr1  uint32 `json:"-"`
-
-	// Objects
-	PostionName StrWithPrefix16
+	NPCPosList []ChapterOWNPCPositionMetaData_Positions
 }
 
 type ScDLCOpenFunctionMetaData struct {
@@ -25119,37 +24442,6 @@ type ScDLCTeachStageMetaData struct {
 	AvatarListType []int32
 }
 
-type ScDLCTowerBonusMetaData struct {
-	// Fields
-	ID int32
-
-	// Properties
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
-	Addr3 uint32 `json:"-"`
-	Addr4 uint32 `json:"-"`
-
-	// Objects
-	BuffList []int32
-	Name     StrWithPrefix16
-	Desc     StrWithPrefix16
-	IconPath StrWithPrefix16
-}
-
-type ScDLCTowerBuffMetaData struct {
-	// Fields
-	ID int32
-
-	// Properties
-	Addr1    uint32 `json:"-"`
-	Addr2    uint32 `json:"-"`
-	BuffType int32
-
-	// Objects
-	BuffName    StrWithPrefix16
-	OverrideMap []StrWithPrefix16
-}
-
 type ScDLCTowerFloorMetaData struct {
 	// Fields
 	Floor      int32
@@ -25180,71 +24472,12 @@ type ScDLCTowerFloorMetaData struct {
 	StageSection  StrWithPrefix16
 }
 
-type ScDLCTowerMonsterMetaData struct {
-	// Fields
-	UniqueID int32
-
-	// Properties
-	AddTime int32
-	AddCoin int32
-}
-
-type ScDLCTowerScheduleMetaData struct {
-	// Fields
-	ID int32
-
-	// Properties
-	NextID     int32
-	Addr1      uint32 `json:"-"`
-	Addr2      uint32 `json:"-"`
-	Addr3      uint32 `json:"-"`
-	ConfigType int32
-	LevelID    int32
-	MaxFloor   int32
-	Weather    int32
-	Addr4      uint32 `json:"-"`
-
-	// Objects
-	StartTime  StrWithPrefix16
-	EndTime    StrWithPrefix16
-	SettleTime StrWithPrefix16
-	Bonus      []int32
-}
-
 type ScDLCTowerScoreRewardMetaData struct {
 	// Fields
 	Score int32
 
 	// Properties
 	Reward int32
-}
-
-type ScDLCTowerWaveMetaData struct {
-	// Fields
-	ID int32
-
-	// Properties
-	Addr1 uint32 `json:"-"`
-
-	// Objects
-	MonsterConfig []int32
-}
-
-type ScDLCTowerWeatherMetaData struct {
-	// Fields
-	ID int32
-
-	// Properties
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
-	Addr3 uint32 `json:"-"`
-	Addr4 uint32 `json:"-"`
-
-	// Objects
-	BuffList []int32
-	Name     StrWithPrefix16
-	Desc     StrWithPrefix16
-	IconPath StrWithPrefix16
 }
 
 type ScratchTicketDataMetaData struct {
@@ -25510,14 +24743,13 @@ type SharePakDataMetaData struct {
 
 type ShareShowDetailConfigMetaData struct {
 	// Fields
-	Addr1 uint32 `json:"-"`
+	ContextName int32
 
 	// Properties
-	Addr2 uint32 `json:"-"`
+	Addr1 uint32 `json:"-"`
 
 	// Objects
-	ContextName int32
-	Paths       []StrWithPrefix16
+	Paths []StrWithPrefix16
 }
 
 type ShareSpecialMetaData struct {
@@ -25826,17 +25058,8 @@ type SinDemonExMonsterMetaData struct {
 	RestrictList      []uint8
 	EventMark         Hash
 	CornerMarkPath    StrWithPrefix16
-	UpTagList         []SinDemonExMonsterMetaData_Tag
-	DownTagList       []SinDemonExMonsterMetaData_Tag
-}
-
-type SinDemonExMonsterMetaData_Tag struct {
-	// Fields
-	TagID int32
-	Addr1 uint32 `json:"-"`
-
-	// Objects
-	TagComment Hash
+	UpTagList         []ElfMetaData_Tag
+	DownTagList       []ElfMetaData_Tag
 }
 
 type SinDemonExMonsterScheduleMetaData struct {
@@ -26051,18 +25274,12 @@ type SingleWantedProgressMetaData struct {
 
 	// Objects
 	MPSubTabName         Hash
-	ExtraRewardList      []SingleWantedProgressMetaData_MaterialItem
-	ExtraDropCostList    []SingleWantedProgressMetaData_MaterialItem
-	MpAssistMaterialList []SingleWantedProgressMetaData_MaterialItem
-	FirstDropDisplayList []SingleWantedProgressMetaData_MaterialItem
-	DropDisplayList      []SingleWantedProgressMetaData_MaterialItem
+	ExtraRewardList      []ChapterOWTalentLevelMetaData_CostMaterial
+	ExtraDropCostList    []ChapterOWTalentLevelMetaData_CostMaterial
+	MpAssistMaterialList []ChapterOWTalentLevelMetaData_CostMaterial
+	FirstDropDisplayList []ChapterOWTalentLevelMetaData_CostMaterial
+	DropDisplayList      []ChapterOWTalentLevelMetaData_CostMaterial
 	WebLink              StrWithPrefix16
-}
-
-type SingleWantedProgressMetaData_MaterialItem struct {
-	// Fields
-	MaterialID int32
-	Num        int32
 }
 
 type SingleWantedScheduelMetaData struct {
@@ -26170,22 +25387,10 @@ type SLGBattlePointMetaData struct {
 	Name                 StrWithPrefix16
 	Desc                 StrWithPrefix16
 	NearPointList        []int32
-	QuickPassCostList    []SLGBattlePointMetaData_QuickPassMaterial
-	BattleCostList       []SLGBattlePointMetaData_BattleMaterial
+	QuickPassCostList    []ChapterOWBuildingLevelMetaData_CostMaterialData
+	BattleCostList       []ChapterOWBuildingLevelMetaData_CostMaterialData
 	BuildingOverrideName StrWithPrefix16
 	BuildingOverrideDesc StrWithPrefix16
-}
-
-type SLGBattlePointMetaData_QuickPassMaterial struct {
-	// Fields
-	CostNum    int32
-	MaterialID int32
-}
-
-type SLGBattlePointMetaData_BattleMaterial struct {
-	// Fields
-	CostNum    int32
-	MaterialID int32
 }
 
 type SLGBigBossPointMetaData struct {
@@ -26327,19 +25532,7 @@ type SLGScheduleMetaData struct {
 	StoryList        []int32
 	JsonConfig       StrWithPrefix16
 	PhotoOpenTime    RemoteTime
-	TaleTutorial     []SLGScheduleMetaData_Tutorial
-}
-
-type SLGScheduleMetaData_Tutorial struct {
-	// Fields
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
-	Addr3 uint32 `json:"-"`
-
-	// Objects
-	Content StrWithPrefix16
-	Sprite  StrWithPrefix16
-	Title   StrWithPrefix16
+	TaleTutorial     []GlobalWarScheduleMetaData_ConfigTutorial
 }
 
 type SLGScoreRewardMetaData struct {
@@ -26595,15 +25788,9 @@ type SpecialAffixDataMetaData struct {
 	Addr3           uint32 `json:"-"`
 
 	// Objects
-	RefineCost       []SpecialAffixDataMetaData_MaterialNeed
+	RefineCost       []AffixTreeNodeMetaData_MaterialNeed
 	PreviewDesc      Hash
 	RefineButtonDesc Hash
-}
-
-type SpecialAffixDataMetaData_MaterialNeed struct {
-	// Fields
-	MaterialID  int32
-	MaterialNum int32
 }
 
 type SpecialConfigMetaData struct {
@@ -26709,17 +25896,8 @@ type StageDetailMetaData struct {
 	DisplayGuide           Hash
 	RecommendAvatar        []int32
 	SummerRanchRecommended []int32
-	UpTagList              []StageDetailMetaData_Tag
-	DownTagList            []StageDetailMetaData_Tag
-}
-
-type StageDetailMetaData_Tag struct {
-	// Fields
-	TagID int32
-	Addr1 uint32 `json:"-"`
-
-	// Objects
-	TagComment Hash
+	UpTagList              []ElfMetaData_Tag
+	DownTagList            []ElfMetaData_Tag
 }
 
 type StageDetailMonsterMetaData struct {
@@ -26835,11 +26013,6 @@ type StageDropItemDataMetaData struct {
 	// Properties
 	ItemID  int32
 	ItemNum int32
-}
-
-type StageEffectCarryOnMetaData struct {
-	// Fields
-	StageID int32
 }
 
 type StageEnhanceMetaData struct {
@@ -27015,13 +26188,7 @@ type StageScoreRewardMetaData struct {
 	RemainedTimeReward  uint16
 
 	// Objects
-	RewardMaterialList StageScoreRewardMetaData_RewardMaterialData
-}
-
-type StageScoreRewardMetaData_RewardMaterialData struct {
-	// Fields
-	MaterialID  int32
-	MaterialNum int32
+	RewardMaterialList AffixTreeNodeMetaData_MaterialNeed
 }
 
 type StageStoryMapMetaData struct {
@@ -27256,14 +26423,8 @@ type StigmataVirtualSetMetaData struct {
 
 	// Objects
 	StigmataMainID   []int32
-	SetModify        []StigmataVirtualSetMetaData_RatioItem
-	SetModifySupport []StigmataVirtualSetMetaData_RatioItem
-}
-
-type StigmataVirtualSetMetaData_RatioItem struct {
-	// Fields
-	Pred  int32
-	Ratio float32
+	SetModify        []StigmataTagMetaData_RatioItem
+	SetModifySupport []StigmataTagMetaData_RatioItem
 }
 
 type StorySweepGroupInfo struct {
@@ -27384,24 +26545,15 @@ type SubsidiaryEventMetaData struct {
 	Addr5         uint32 `json:"-"`
 
 	// Objects
-	AvatarOffset           SubsidiaryEventMetaData_Vector3Float
+	AvatarOffset           ElfMetaData_VectorFloat3
 	Path                   []SubsidiaryEventMetaData_DressPath
 	SubsidiaryMotion       SubsidiaryEventMetaData_OverrideClip
 	Face                   StrWithPrefix16
 	AnimatorControllerPath StrWithPrefix16
 }
 
-type SubsidiaryEventMetaData_Vector3Float struct {
-	// Fields
-	X float32
-	Y float32
-	Z float32
-}
-
 type SubsidiaryEventMetaData_OverrideClip struct {
 	// Fields
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
 
 	// Objects
 	ClipPath StrWithPrefix16
@@ -27411,7 +26563,6 @@ type SubsidiaryEventMetaData_OverrideClip struct {
 type SubsidiaryEventMetaData_DressPath struct {
 	// Fields
 	DressID int32
-	Addr1   uint32 `json:"-"`
 
 	// Objects
 	Path StrWithPrefix16
@@ -27725,17 +26876,11 @@ type ThemeBonusDataMetaData struct {
 	Addr5               uint32 `json:"-"`
 
 	// Objects
-	DisplayDroplist []ThemeBonusDataMetaData_DropItem
+	DisplayDroplist []SingleWantedActivityMetaData_DropItem
 	BonusList       []ThemeBonusDataMetaData_BonusItem
 	BonusDescTitle  Hash
 	BonusDescText   Hash
 	BonusTips       []Hash
-}
-
-type ThemeBonusDataMetaData_DropItem struct {
-	// Fields
-	ItemID int32
-	Num    int32
 }
 
 type ThemeBonusDataMetaData_BonusItem struct {
@@ -28356,13 +27501,7 @@ type TradingCardActivityScheduleMetaData struct {
 	// Objects
 	OpenTime           RemoteTime
 	CloseTime          RemoteTime
-	NeedMaterialIDList []TradingCardActivityScheduleMetaData_MaterialNeeded
-}
-
-type TradingCardActivityScheduleMetaData_MaterialNeeded struct {
-	// Fields
-	MaterialID int32
-	Num        int32
+	NeedMaterialIDList []ChapterOWTalentLevelMetaData_CostMaterial
 }
 
 type TrainingLevelAchieveMetaData struct {
@@ -28599,20 +27738,23 @@ type TVTCardMetaData struct {
 }
 
 type TVTCardSlotMetaData struct {
+	// Reordered by constructor
 	// Fields
-	ID         uint16
-	IsUnlocked bool
-	Addr1      uint32 `json:"-"`
-	Addr2      uint32 `json:"-"`
+	ID uint16
 
 	// Properties
-	Addr3            uint32 `json:"-"`
-	UnlockDivisionLv uint16
+	Addr1 uint32 `json:"-"`
+	Addr2 uint32 `json:"-"`
+	Addr3 uint32 `json:"-"`
+	Addr4 uint32 `json:"-"`
+	Addr5 uint32 `json:"-"`
 
 	// Objects
+	IsUnlocked          bool
 	UnlockConditionHint StrWithPrefix16
 	UnlockCondition     StrWithPrefix16
 	UnlockTime          StrWithPrefix16
+	UnlockDivisionLv    uint16
 }
 
 type TVTConstValuesMetaData struct {
@@ -29111,21 +28253,9 @@ type VirtualAvatarMetaData struct {
 	Addr3         uint32 `json:"-"`
 
 	// Objects
-	EvoMaterialList        []VirtualAvatarMetaData_EvoMaterialItem
-	UnlockMaterialList     []VirtualAvatarMetaData_Condition
+	EvoMaterialList        []AvatarArtifactLevelMetaData_UpgradeMaterialItem
+	UnlockMaterialList     []BeastStageDisplayMetaData_LevelDropDisplay
 	UnlockStigmataSlotList StrWithPrefix16
-}
-
-type VirtualAvatarMetaData_EvoMaterialItem struct {
-	// Fields
-	Amount int32
-	ItemID int32
-}
-
-type VirtualAvatarMetaData_Condition struct {
-	// Fields
-	Count      int32
-	MaterialID int32
 }
 
 type VirtualBuffMetaData struct {
@@ -29301,17 +28431,6 @@ type VirtualTrainStageDropMetaData struct {
 
 	// Properties
 	DropTimes int32
-}
-
-type VirtualWeaponMetaData struct {
-	// Fields
-	Id int32
-
-	// Properties
-	WeaponId   int32
-	BaseRarity int32
-	BaseLevel  int32
-	PreId      int32
 }
 
 type WarehouseRequireData struct {
@@ -29536,28 +28655,15 @@ type WaveRushUIConfigMetaData struct {
 	UIManager   StrWithPrefix16
 	AreaMapList []WaveRushUIConfigMetaData_AreaTuple
 	WebLink     StrWithPrefix16
-	Tutorial    []WaveRushUIConfigMetaData_TutorialTuple
+	Tutorial    []GlobalWarScheduleMetaData_ConfigTutorial
 }
 
 type WaveRushUIConfigMetaData_AreaTuple struct {
 	// Fields
-	ID    int32
-	Addr1 uint32 `json:"-"`
+	ID int32
 
 	// Objects
 	PrefabPath StrWithPrefix16
-}
-
-type WaveRushUIConfigMetaData_TutorialTuple struct {
-	// Fields
-	Addr1 uint32 `json:"-"`
-	Addr2 uint32 `json:"-"`
-	Addr3 uint32 `json:"-"`
-
-	// Objects
-	Content StrWithPrefix16
-	Sprite  StrWithPrefix16
-	Title   StrWithPrefix16
 }
 
 type WeaponBaseTypeMetaData struct {
@@ -29636,14 +28742,8 @@ type WeaponTagMetaData struct {
 	Addr2 uint32 `json:"-"`
 
 	// Objects
-	SpecificAvatarBonus        []WeaponTagMetaData_RatioItem
-	SpecificAvatarBonusSupport []WeaponTagMetaData_RatioItem
-}
-
-type WeaponTagMetaData_RatioItem struct {
-	// Fields
-	Pred  int32
-	Ratio float32
+	SpecificAvatarBonus        []StigmataTagMetaData_RatioItem
+	SpecificAvatarBonusSupport []StigmataTagMetaData_RatioItem
 }
 
 type WebLinkAvatarMetaData struct {
@@ -30210,9 +29310,10 @@ type ActivityChargeLevelMetaDataReader struct {
 }
 
 type ActivityChargeLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ChargeID    uint8
 	AcitivityID int32
+	ChargeID    uint8
 }
 
 type ActivityDropLimitDataReader struct {
@@ -30243,9 +29344,10 @@ type ActivityLoginBonusMetaDataReader struct {
 }
 
 type ActivityLoginBonusMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Days int32
 	ID   int32
+	Days int32
 }
 
 type ActivityLoginMetaDataReader struct {
@@ -30285,9 +29387,10 @@ type ActivityPanelScoreDataReader struct {
 }
 
 type ActivityPanelScoreDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MissionID int32
 	PanelID   int32
+	MissionID int32
 }
 
 type ActivityPanelScoreRewardDataReader struct {
@@ -30429,9 +29532,10 @@ type AddParamGroupMetaDataReader struct {
 }
 
 type AddParamGroupMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	GroupID uint8
 	SkillID int32
+	GroupID uint8
 }
 
 type AdventureAvatarMetaDataReader struct {
@@ -30642,9 +29746,10 @@ type AiCyberDailyStageDropLimitMetaDataReader struct {
 }
 
 type AiCyberDailyStageDropLimitMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Priority           uint8
 	ActivityScheduleID uint32
+	Priority           uint8
 }
 
 type AiCyberDailyStageScoreDropMetaDataReader struct {
@@ -30657,9 +29762,10 @@ type AiCyberDailyStageScoreDropMetaDataReader struct {
 }
 
 type AiCyberDailyStageScoreDropMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MinScore     int32
 	StageGroupID uint32
+	MinScore     int32
 }
 
 type AiCyberGalTouchMetaDataReader struct {
@@ -30753,9 +29859,10 @@ type AiCyberStoryDataMetaDataReader struct {
 }
 
 type AiCyberStoryDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Index        uint8
 	StageGroupID int32
+	Index        uint8
 }
 
 type AnniversaryFifthBoxDataMetaDataReader struct {
@@ -30822,10 +29929,11 @@ type ArmadaBossActivityScoreMetaDataReader struct {
 }
 
 type ArmadaBossActivityScoreMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
 	ActivityID    int32
-	ActivityScore int32
 	ScoreType     int32
+	ActivityScore int32
 }
 
 type ArmadaBossDataReader struct {
@@ -30862,15 +29970,6 @@ type ArmadaGridDataReader struct {
 	ItemOffsets []int32
 
 	Data []ArmadaGridData
-}
-
-type ArmadaHangarDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []ArmadaHangarData
 }
 
 type ArmadaLinerRewardMetaDataReader struct {
@@ -30925,9 +30024,10 @@ type ArmadaReunionLevelMetaDataReader struct {
 }
 
 type ArmadaReunionLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level      int32
 	ScheduleID int32
+	Level      int32
 }
 
 type ArmadaReunionMissionMetaDataReader struct {
@@ -30940,9 +30040,10 @@ type ArmadaReunionMissionMetaDataReader struct {
 }
 
 type ArmadaReunionMissionMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ArmadaReunionMissionID int32
 	ScheduleID             int32
+	ArmadaReunionMissionID int32
 }
 
 type ArmadaReunionPointMetaDataReader struct {
@@ -31228,9 +30329,10 @@ type AvatarMissionActivityRewardMetaDataReader struct {
 }
 
 type AvatarMissionActivityRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	AccumulatedDays int32
 	ID              int32
+	AccumulatedDays int32
 }
 
 type AvatarModelMetaDataReader struct {
@@ -31340,11 +30442,12 @@ type AvatarStarTypeMetaDataReader struct {
 }
 
 type AvatarStarTypeMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	AvatarStarUpType uint8
-	AvatarType       uint8
 	Star             uint8
 	SubStar          uint8
+	AvatarType       uint8
+	AvatarStarUpType uint8
 }
 
 type AvatarStarUpSubSkillDataReader struct {
@@ -31357,10 +30460,11 @@ type AvatarStarUpSubSkillDataReader struct {
 }
 
 type AvatarStarUpSubSkillDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
+	SkillID int32
 	Star    uint8
 	SubStar uint8
-	SkillID int32
 }
 
 type AvatarSubSkillLevelMetaDataReader struct {
@@ -31496,9 +30600,10 @@ type BattlePassSeasonLevelConfigMetaDataReader struct {
 }
 
 type BattlePassSeasonLevelConfigMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	SeasonLevel         uint8
 	SeasonLevelComfigID uint8
+	SeasonLevel         uint8
 }
 
 type BattlePassTypeMetaDataReader struct {
@@ -31589,9 +30694,10 @@ type BossChallengeRewardMetaDataReader struct {
 }
 
 type BossChallengeRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Index          uint16
 	RewardConfigID int32
+	Index          uint16
 }
 
 type BossChallengeStageMetaDataReader struct {
@@ -31883,9 +30989,10 @@ type ChallengeWarStageFloorMetaDataReader struct {
 }
 
 type ChallengeWarStageFloorMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Floor   int16
 	StageID int32
+	Floor   int16
 }
 
 type ChallengeWarTagEffectPoolMetaDataReader struct {
@@ -31986,9 +31093,10 @@ type ChapterChallengeMetaDataReader struct {
 }
 
 type ChapterChallengeMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ChallengeNum int32
 	ChapterID    int32
+	ChallengeNum int32
 }
 
 type ChapterCultivateAttrMetaDataReader struct {
@@ -32049,9 +31157,10 @@ type ChapterCultivateJumpMetaDataReader struct {
 }
 
 type ChapterCultivateJumpMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ChapterID      int32
 	CultivateLevel uint32
+	ChapterID      int32
 }
 
 type ChapterCultivateLevelDataMetaDataReader struct {
@@ -32096,16 +31205,10 @@ type ChapterCultivateSiteEffectMetaDataReader struct {
 type ChapterCultivateSkillMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []ChapterCultivateSkillMetaDataReader_StructKey
+	Keys        []ChapterCultivateAttrMetaDataReader_StructKey
 	ItemOffsets []int32
 
 	Data []ChapterCultivateSkillMetaData
-}
-
-type ChapterCultivateSkillMetaDataReader_StructKey struct {
-	// Fields
-	CultivateID    uint32
-	CultivateLevel uint32
 }
 
 type ChapterCultivateUseMetaDataReader struct {
@@ -32217,9 +31320,10 @@ type ChapterOWBuildingLevelMetaDataReader struct {
 }
 
 type ChapterOWBuildingLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level  uint32
 	MainID uint32
+	Level  uint32
 }
 
 type ChapterOWBuildingMetaDataReader struct {
@@ -32241,9 +31345,10 @@ type ChapterOWBuildingStateMetaDataReader struct {
 }
 
 type ChapterOWBuildingStateMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	StateType uint8
 	MainID    int32
+	StateType uint8
 }
 
 type ChapterOWChallengeBuffMetaDataReader struct {
@@ -32265,9 +31370,10 @@ type ChapterOWChallengeDataMetaDataReader struct {
 }
 
 type ChapterOWChallengeDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ChallengeIndex uint32
 	ConfigID       uint32
+	ChallengeIndex uint32
 }
 
 type ChapterOWChallengeGroupMetaDataReader struct {
@@ -32354,16 +31460,10 @@ type ChapterOWEntryPlotLineMetaDataReader struct {
 type ChapterOWEquipmentBuffMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []ChapterOWEquipmentBuffMetaDataReader_StructKey
+	Keys        []DiceyDungeonDataMetaData_RoleInfo
 	ItemOffsets []int32
 
 	Data []ChapterOWEquipmentBuffMetaData
-}
-
-type ChapterOWEquipmentBuffMetaDataReader_StructKey struct {
-	// Fields
-	ID    int32
-	Level int32
 }
 
 type ChapterOWEquipmentPartMetaDataReader struct {
@@ -32445,9 +31545,10 @@ type ChapterOWHeroCardLevelMetaDataReader struct {
 }
 
 type ChapterOWHeroCardLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level  uint8
 	CardID int32
+	Level  uint8
 }
 
 type ChapterOWHeroCardMetaDataReader struct {
@@ -32478,9 +31579,10 @@ type ChapterOWHeroDisplayMetaDataReader struct {
 }
 
 type ChapterOWHeroDisplayMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	HeroStatus uint8
 	ID         uint32
+	HeroStatus uint8
 }
 
 type ChapterOWHeroLevelMetaDataReader struct {
@@ -32493,9 +31595,10 @@ type ChapterOWHeroLevelMetaDataReader struct {
 }
 
 type ChapterOWHeroLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level  uint8
 	HeroID int32
+	Level  uint8
 }
 
 type ChapterOWHeroMetaDataReader struct {
@@ -32826,9 +31929,10 @@ type ChapterOWRewardMetaDataReader struct {
 }
 
 type ChapterOWRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	CountNumber int32
 	MapID       int32
+	CountNumber int32
 }
 
 type ChapterOWShopGoodsMetaDataReader struct {
@@ -32895,9 +31999,10 @@ type ChapterOWTalentLevelMetaDataReader struct {
 }
 
 type ChapterOWTalentLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	TalentLevel uint8
 	TalentID    int32
+	TalentLevel uint8
 }
 
 type ChapterOWTerminalLevelMetaDataReader struct {
@@ -32910,9 +32015,10 @@ type ChapterOWTerminalLevelMetaDataReader struct {
 }
 
 type ChapterOWTerminalLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level uint8
 	MapID int32
+	Level uint8
 }
 
 type ChapterOWTerminalTipsMetaDataReader struct {
@@ -33186,10 +32292,11 @@ type ChatLobbyNPCSystemFunctionMetaDataReader struct {
 }
 
 type ChatLobbyNPCSystemFunctionMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
 	NPCID       int32
-	Type        int32
 	UIPostionID int32
+	Type        int32
 }
 
 type ChatLobbyObjectMetaDataReader struct {
@@ -33454,9 +32561,10 @@ type CollectionTypeMetaDataReader struct {
 }
 
 type CollectionTypeMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	CollectionType uint8
 	SysType        uint8
+	CollectionType uint8
 }
 
 type CollectionVisualNovelDataMetaDataReader struct {
@@ -33493,9 +32601,10 @@ type CompensationOfElfBreakMetaDataReader struct {
 }
 
 type CompensationOfElfBreakMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	BreakStep int32
 	ElfID     int32
+	BreakStep int32
 }
 
 type CompensationOfElfSlotUnlockMetaDataReader struct {
@@ -33516,16 +32625,10 @@ type CompensationOfElfSlotUnlockMetaDataReader_StructKey struct {
 type CompensationOfElfTalentMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []CompensationOfElfTalentMetaDataReader_StructKey
+	Keys        []OWAvatarActivityLevelMetaData_TalentKey
 	ItemOffsets []int32
 
 	Data []CompensationOfElfTalentMetaData
-}
-
-type CompensationOfElfTalentMetaDataReader_StructKey struct {
-	// Fields
-	TalentID    int32
-	TalentLevel int32
 }
 
 type CompensationOfExtendGradeMetaDataReader struct {
@@ -33592,18 +32695,10 @@ type CoupleTowerScoreMetaDataReader struct {
 }
 
 type CoupleTowerScoreMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Floor   int32
 	StageID int32
-}
-
-type CoupleTowerStageMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []CoupleTowerStageMetaData
+	Floor   int32
 }
 
 type CouponDataReader struct {
@@ -33724,9 +32819,10 @@ type DailyMissionMaterialIconMetaDataReader struct {
 }
 
 type DailyMissionMaterialIconMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MaterialType int16
 	MaterialID   int32
+	MaterialType int16
 }
 
 type DailyMPStageDataMetaDataReader struct {
@@ -33826,9 +32922,10 @@ type DiceyDungeonBubbleMetaDataReader struct {
 }
 
 type DiceyDungeonBubbleMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	BubbleID uint8
 	RoleID   int32
+	BubbleID uint8
 }
 
 type DiceyDungeonBuffMetaDataReader struct {
@@ -33904,9 +33001,10 @@ type DiceyDungeonOrnamentMetaDataReader struct {
 }
 
 type DiceyDungeonOrnamentMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level      int32
 	OrnamentID int32
+	Level      int32
 }
 
 type DiceyDungeonPassiveSkillMetaDataReader struct {
@@ -33928,9 +33026,10 @@ type DiceyDungeonRoleMetaDataReader struct {
 }
 
 type DiceyDungeonRoleMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level  int32
 	RoleID int32
+	Level  int32
 }
 
 type DiceyDungeonRoomMetaDataReader struct {
@@ -33979,9 +33078,10 @@ type DiceyDungeonTutorialDataMetaDataReader struct {
 }
 
 type DiceyDungeonTutorialDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	TriggerType   uint8
 	DungeonRoomID int32
+	TriggerType   uint8
 }
 
 type DiceyDungeonWeaponMetaDataReader struct {
@@ -33994,18 +33094,10 @@ type DiceyDungeonWeaponMetaDataReader struct {
 }
 
 type DiceyDungeonWeaponMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level    int32
 	WeaponID int32
-}
-
-type DLC2ConditionMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []DLC2ConditionMetaData
+	Level    int32
 }
 
 type DLC2DailyQuestInfoMetaDataReader struct {
@@ -34015,15 +33107,6 @@ type DLC2DailyQuestInfoMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []DLC2DailyQuestInfoMetaData
-}
-
-type DLC2EntryPlotLineMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []DLC2EntryPlotLineMetaData
 }
 
 type DLC2PlotUIConfigMetaDataReader struct {
@@ -34267,9 +33350,10 @@ type DLCTowerFloorMetaDataReader struct {
 }
 
 type DLCTowerFloorMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ConfigType int32
 	Floor      int32
+	ConfigType int32
 }
 
 type DLCTowerMonsterMetaDataReader struct {
@@ -34315,15 +33399,6 @@ type DLCTowerWaveMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []DLCTowerWaveMetaData
-}
-
-type DLCTowerWeatherMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []DLCTowerWeatherMetaData
 }
 
 type DormitoryAvatarMetaDataReader struct {
@@ -34611,15 +33686,6 @@ type DutyDailyMetaDataReader struct {
 	Data []DutyDailyMetaData
 }
 
-type DutyWeeklyMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []DutyWeeklyMetaData
-}
-
 type DynamicHardLvMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
@@ -34641,16 +33707,10 @@ type ElevatorConfigMetaDataReader struct {
 type ElfBreakMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []ElfBreakMetaDataReader_StructKey
+	Keys        []CompensationOfElfBreakMetaDataReader_StructKey
 	ItemOffsets []int32
 
 	Data []ElfBreakMetaData
-}
-
-type ElfBreakMetaDataReader_StructKey struct {
-	// Fields
-	BreakStep int32
-	ElfID     int32
 }
 
 type ElfCaptainSkillMetaDataReader struct {
@@ -34782,16 +33842,10 @@ type ElfStoryMetaDataReader struct {
 type ElfTalentLevelMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []ElfTalentLevelMetaDataReader_StructKey
+	Keys        []OWAvatarActivityLevelMetaData_TalentKey
 	ItemOffsets []int32
 
 	Data []ElfTalentLevelMetaData
-}
-
-type ElfTalentLevelMetaDataReader_StructKey struct {
-	// Fields
-	TalentID    int32
-	TalentLevel int32
 }
 
 type ElfTalentMetaDataReader struct {
@@ -35140,9 +34194,10 @@ type ExBossMonsterLevelConfigMetaDataReader struct {
 }
 
 type ExBossMonsterLevelConfigMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MonsterLevel uint8
 	ID           int32
+	MonsterLevel uint8
 }
 
 type ExBossMonsterScoreRewardMetaDataReader struct {
@@ -35438,6 +34493,8 @@ type FeatureSubPakConfigMetaDataReader struct {
 
 type FeatureSubPakConfigMetaDataReader_StructKey struct {
 	// Fields
+
+	// Objects
 	ContextName StrWithPrefix16
 	Tag         StrWithPrefix16
 }
@@ -35470,8 +34527,11 @@ type FoundationRewardMetaDataReader struct {
 }
 
 type FoundationRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level        int32
+	Level int32
+
+	// Objects
 	Product_name StrWithPrefix16
 }
 
@@ -35668,9 +34728,10 @@ type GardenWeatherDataMetaDataReader struct {
 }
 
 type GardenWeatherDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	GardenID  int32
 	WeatherID int32
+	GardenID  int32
 }
 
 type GenActivityRewardScheduleMetaDataReader struct {
@@ -35746,9 +34807,10 @@ type GeneralActivityRankDataMetaDataReader struct {
 }
 
 type GeneralActivityRankDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Rank     int32
 	RankData int32
+	Rank     int32
 }
 
 type GeneralActivityScoreDataMetaDataReader struct {
@@ -35895,16 +34957,10 @@ type GiftPackMetaDataReader struct {
 type GlobalArmadaReunionLevelMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []GlobalArmadaReunionLevelMetaDataReader_StructKey
+	Keys        []ArmadaReunionLevelMetaDataReader_StructKey
 	ItemOffsets []int32
 
 	Data []GlobalArmadaReunionLevelMetaData
-}
-
-type GlobalArmadaReunionLevelMetaDataReader_StructKey struct {
-	// Fields
-	Level      int32
-	ScheduleID int32
 }
 
 type GlobalArmadaReunionScheduleMetaDataReader struct {
@@ -36199,9 +35255,10 @@ type GlobalWarSpecialBuffMetaDataReader struct {
 }
 
 type GlobalWarSpecialBuffMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	SpecialBuffLevel uint16
 	SpecialBuffType  uint16
+	SpecialBuffLevel uint16
 }
 
 type GlobalWarStageMetaDataReader struct {
@@ -36460,9 +35517,10 @@ type GodWarChallengeRewardMetaDataReader struct {
 }
 
 type GodWarChallengeRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Step   int32
 	TaleID int32
+	Step   int32
 }
 
 type GodWarChapterMetaDataReader struct {
@@ -36790,9 +35848,10 @@ type GodWarPunishStepMetaDataReader struct {
 }
 
 type GodWarPunishStepMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	PunishStep         uint8
 	PunishStepConfigID uint32
+	PunishStep         uint8
 }
 
 type GodWarRelationDataMetaDataReader struct {
@@ -36805,10 +35864,11 @@ type GodWarRelationDataMetaDataReader struct {
 }
 
 type GodWarRelationDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
 	GodWarID uint16
-	Level    uint16
 	RoleID   uint32
+	Level    uint16
 }
 
 type GodWarRoleSkillDataMetaDataReader struct {
@@ -36950,9 +36010,10 @@ type GodWarTalentDataMetaDataReader struct {
 }
 
 type GodWarTalentDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	GodWarID uint16
 	TalentID uint32
+	GodWarID uint16
 }
 
 type GodWarTalentLevelDataMetaDataReader struct {
@@ -36965,9 +36026,10 @@ type GodWarTalentLevelDataMetaDataReader struct {
 }
 
 type GodWarTalentLevelDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	TalentLevel uint16
 	TalentID    uint32
+	TalentLevel uint16
 }
 
 type GodWarTaleScheduleMetaDataReader struct {
@@ -36986,15 +36048,6 @@ type GodWarTeleportMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []GodWarTeleportMetaData
-}
-
-type GodWarTicketMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []uint32
-	ItemOffsets []int32
-
-	Data []GodWarTicketMetaData
 }
 
 type GodWarUseAvatarMetaDataReader struct {
@@ -37022,9 +36075,10 @@ type GrandKeyBuffActiveInfoMetaDataReader struct {
 }
 
 type GrandKeyBuffActiveInfoMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Order               int32
 	UnlockGrandKeyLevel int32
+	Order               int32
 }
 
 type GrandKeyBuffMetaDataReader struct {
@@ -37124,9 +36178,10 @@ type GratuityStageClassMetaDataReader struct {
 }
 
 type GratuityStageClassMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	GratuityScheduleID int32
 	StageClassID       int32
+	GratuityScheduleID int32
 }
 
 type GratuityStageMetaDataReader struct {
@@ -37148,10 +36203,11 @@ type GreedyEndlessBattleConfigMetaDataReader struct {
 }
 
 type GreedyEndlessBattleConfigMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
 	BattleConfig int32
-	Floor        int32
 	GroupLevel   int32
+	Floor        int32
 }
 
 type GreedyEndlessBuffMetaDataReader struct {
@@ -37173,10 +36229,11 @@ type GreedyEndlessFloorConfigMetaDataReader struct {
 }
 
 type GreedyEndlessFloorConfigMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Floor         int32
 	FloorConfigID int32
 	GroupLevel    int32
+	Floor         int32
 }
 
 type GreedyEndlessGroupMetaDataReader struct {
@@ -37240,9 +36297,10 @@ type GreedyEndlessSettleConfigMetaDataReader struct {
 }
 
 type GreedyEndlessSettleConfigMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	GroupLevel           int32
 	SettleRewardConfigID int32
+	GroupLevel           int32
 }
 
 type GreedyEndlessWeatherMetaDataReader struct {
@@ -37345,9 +36403,10 @@ type HoukaiTownPathMetaDataReader struct {
 }
 
 type HoukaiTownPathMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	PrePosition int32
 	TowerID     int32
+	PrePosition int32
 }
 
 type HoukaiTownQAvatarMetaDataReader struct {
@@ -37465,9 +36524,10 @@ type HybridSiteCameraMetaDataReader struct {
 }
 
 type HybridSiteCameraMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ChapterID    uint32
 	HybridSiteID uint32
+	ChapterID    uint32
 }
 
 type HybridSiteContentMetaDataReader struct {
@@ -37562,6 +36622,8 @@ type InControlUIButtonConfigReader struct {
 
 type InControlUIButtonConfigReader_StructKey struct {
 	// Fields
+
+	// Objects
 	ContextName      StrWithPrefix16
 	PlayerActionName StrWithPrefix16
 }
@@ -37654,9 +36716,10 @@ type JigsawGroupMetaDataReader struct {
 }
 
 type JigsawGroupMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	GroupID  int32
 	JigsawID int32
+	GroupID  int32
 }
 
 type JigsawMetaDataReader struct {
@@ -38098,9 +37161,10 @@ type LoginWishActivityRewardMetaDataReader struct {
 }
 
 type LoginWishActivityRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	LoginDay   uint8
 	ActivityId uint16
+	LoginDay   uint8
 }
 
 type LoginWishActivityWishMetaDataReader struct {
@@ -38281,9 +37345,10 @@ type MassiveWarDamageRewardMetaDataReader struct {
 }
 
 type MassiveWarDamageRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	DamageRank uint8
 	ScheduleID uint8
+	DamageRank uint8
 }
 
 type MassiveWarMonsterDataMetaDataReader struct {
@@ -38314,9 +37379,10 @@ type MassiveWarRankRewardMetaDataReader struct {
 }
 
 type MassiveWarRankRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	RankId     uint8
 	ScheduleID uint8
+	RankId     uint8
 }
 
 type MassiveWarRewardMetaDataReader struct {
@@ -38632,9 +37698,10 @@ type MiniMonopolyGridMetaDataReader struct {
 }
 
 type MiniMonopolyGridMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	GridId uint8
 	MapId  uint16
+	GridId uint8
 }
 
 type MiniMonopolyItemMetaDataReader struct {
@@ -38746,9 +37813,10 @@ type MissionPanelConversationMetaDataReader struct {
 }
 
 type MissionPanelConversationMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ConversationID uint16
 	ActivityID     int32
+	ConversationID uint16
 }
 
 type MissionThemeReader struct {
@@ -38848,9 +37916,10 @@ type MonsterCardLevelLimitMetaDataReader struct {
 }
 
 type MonsterCardLevelLimitMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level      uint8
 	ActivityID uint32
+	Level      uint8
 }
 
 type MonsterCardLevelMetaDataReader struct {
@@ -38863,9 +37932,10 @@ type MonsterCardLevelMetaDataReader struct {
 }
 
 type MonsterCardLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level    uint8
 	UniqueID uint32
+	Level    uint8
 }
 
 type MonsterCardMetaDataReader struct {
@@ -38905,9 +37975,10 @@ type MonsterCardStarMetaDataReader struct {
 }
 
 type MonsterCardStarMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Star     uint8
 	UniqueID uint32
+	Star     uint8
 }
 
 type MonsterCardTalentBookMetaDataReader struct {
@@ -38939,6 +38010,8 @@ type MonsterConfigMetaDataReader struct {
 
 type MonsterConfigMetaDataReader_StructKey struct {
 	// Fields
+
+	// Objects
 	MonsterName StrWithPrefix16
 	TypeName    StrWithPrefix16
 }
@@ -38955,8 +38028,10 @@ type MonsterResistanceMetaDataReader struct {
 type MonsterResistanceMetaDataReader_StructKey struct {
 	// Fields
 	UniqueMonsterID uint32
-	MonsterName     StrWithPrefix16
-	TypeName        StrWithPrefix16
+
+	// Objects
+	MonsterName StrWithPrefix16
+	TypeName    StrWithPrefix16
 }
 
 type MonsterWikiDataMetaDataReader struct {
@@ -39122,9 +38197,10 @@ type MPStagePlayerLevelDropDataReader struct {
 }
 
 type MPStagePlayerLevelDropDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MinPlayerLevel int32
 	StageID        int32
+	MinPlayerLevel int32
 }
 
 type MPTagDetectMetaDataReader struct {
@@ -39160,21 +38236,6 @@ type MPTrophyMetaDataReader struct {
 	Data []MPTrophyMetaData
 }
 
-type MultiPlatforms_UserInfoMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []MultiPlatforms_UserInfoMetaDataReader_StructKey
-	ItemOffsets []int32
-
-	Data []MultiPlatforms_UserInfoMetaData
-}
-
-type MultiPlatforms_UserInfoMetaDataReader_StructKey struct {
-	// Fields
-	AccountType uint8
-	UserType    uint8
-}
-
 type MuseumMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
@@ -39194,9 +38255,10 @@ type NatureCounterMetaDataReader struct {
 }
 
 type NatureCounterMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MonsterNature    int32
 	PlayerNatureType int32
+	MonsterNature    int32
 }
 
 type NetworkErrCodeMetaDataReader struct {
@@ -39210,6 +38272,8 @@ type NetworkErrCodeMetaDataReader struct {
 
 type NetworkErrCodeMetaDataReader_StructKey struct {
 	// Fields
+
+	// Objects
 	ErrType StrWithPrefix16
 	RetCode StrWithPrefix16
 }
@@ -39224,9 +38288,10 @@ type NewbieActivityPanelMetaDataReader struct {
 }
 
 type NewbieActivityPanelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ActivityID int32
 	ScheduleID int32
+	ActivityID int32
 }
 
 type NewbieActivityScheduleMetaDataReader struct {
@@ -39263,9 +38328,10 @@ type NewbieAvatarGuideDataReader struct {
 }
 
 type NewbieAvatarGuideDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	IsAvatarArtifact bool
 	AvatarID         int32
+	IsAvatarArtifact bool
 }
 
 type NewbieBattleBuffReader struct {
@@ -39278,9 +38344,10 @@ type NewbieBattleBuffReader struct {
 }
 
 type NewbieBattleBuffReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MaxLevel int32
 	MinLevel int32
+	MaxLevel int32
 }
 
 type NewbieCumulativeLotteryMetaDataReader struct {
@@ -39374,9 +38441,10 @@ type NewbieGrowUpMetaDataReader struct {
 }
 
 type NewbieGrowUpMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Rank       uint8
 	ScheduleID uint32
+	Rank       uint8
 }
 
 type NewbieGuideDialogueDataReader struct {
@@ -39443,9 +38511,10 @@ type NewbieLevelRushRewardMetaDataReader struct {
 }
 
 type NewbieLevelRushRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	UnlockLevel    uint8
 	RewardConfigID int32
+	UnlockLevel    uint8
 }
 
 type NewbieLoginPostMetaDataReader struct {
@@ -39572,9 +38641,10 @@ type NPCLevelMetaDataReader struct {
 }
 
 type NPCLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	HardLevel      int32
 	HardLevelGroup int32
+	HardLevel      int32
 }
 
 type OpenWorldAreaReader struct {
@@ -39803,10 +38873,11 @@ type OpenWorldQuestJudgeDataReader struct {
 }
 
 type OpenWorldQuestJudgeDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
 	JudgeLv int32
-	MapId   int32
 	QuestLv int32
+	MapId   int32
 }
 
 type OpenworldQuestLevelDataMetaDataReader struct {
@@ -39828,9 +38899,10 @@ type OpenWorldQuestMapLevelMetaDataReader struct {
 }
 
 type OpenWorldQuestMapLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MapId      int32
 	QuestLevel int32
+	MapId      int32
 }
 
 type OpenWorldQuestMonsterPowerReader struct {
@@ -39852,9 +38924,10 @@ type OpenWorldQuestRarityMetaDataReader struct {
 }
 
 type OpenWorldQuestRarityMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MapId      int32
 	QuestLevel int32
+	MapId      int32
 }
 
 type OpenWorldQuestRarityRewardMetaDataReader struct {
@@ -39894,9 +38967,10 @@ type OpenWorldQuestThemeScheduleDataReader struct {
 }
 
 type OpenWorldQuestThemeScheduleDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	AreaID int32
 	Step   int32
+	AreaID int32
 }
 
 type OpenWorldRewardUpListMetaDataReader struct {
@@ -40092,9 +39166,10 @@ type OWActivityScheduleMetaDataReader struct {
 }
 
 type OWActivityScheduleMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MapID        int32
 	OWActivityID int32
+	MapID        int32
 }
 
 type OWAvatarActivityDataMetaDataReader struct {
@@ -40167,9 +39242,10 @@ type OWAvatarCultivateLevelMetaDataReader struct {
 }
 
 type OWAvatarCultivateLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level       uint8
 	CultivateID int32
+	Level       uint8
 }
 
 type OWAvatarUnlockMetaDataReader struct {
@@ -40182,9 +39258,10 @@ type OWAvatarUnlockMetaDataReader struct {
 }
 
 type OWAvatarUnlockMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ActivityID uint16
 	AvatarID   uint16
+	ActivityID uint16
 }
 
 type OWEndlessAreaDetailMetaDataReader struct {
@@ -40224,9 +39301,10 @@ type OWEndlessBattleConfigReader struct {
 }
 
 type OWEndlessBattleConfigReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	EndlessConfigType uint8
 	BattleConfigID    int32
+	EndlessConfigType uint8
 }
 
 type OWEndlessBossDataReader struct {
@@ -40266,9 +39344,10 @@ type OWEndlessGroupMetaReader struct {
 }
 
 type OWEndlessGroupMetaReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Type       uint8
 	GroupLevel int32
+	Type       uint8
 }
 
 type OWEndlessInvadeBuffMetaDataReader struct {
@@ -40344,9 +39423,10 @@ type OWEndlessPlayerBaseRewardMetaDataReader struct {
 }
 
 type OWEndlessPlayerBaseRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Type       uint8
 	GroupLevel int32
+	Type       uint8
 	MinScore   int32
 }
 
@@ -40360,9 +39440,10 @@ type OWEndlessPlayerGroupMetaReader struct {
 }
 
 type OWEndlessPlayerGroupMetaReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Type        uint8
 	PlayerGroup int32
+	Type        uint8
 }
 
 type OWEndlessRewardConfigMetaDataReader struct {
@@ -40399,10 +39480,11 @@ type OWEndlessSingleFloorDataMetaDataReader struct {
 }
 
 type OWEndlessSingleFloorDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Floor      uint8
 	ActivityID int32
 	StageID    int32
+	Floor      uint8
 }
 
 type OWEndlessSingleModeStageMetaDataReader struct {
@@ -40466,9 +39548,10 @@ type OWHuntActivityHunterMetaDataReader struct {
 }
 
 type OWHuntActivityHunterMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Hardlevel uint8
 	HunterID  int32
+	Hardlevel uint8
 }
 
 type OWHuntActivityMachineEventMetaDataReader struct {
@@ -40508,9 +39591,10 @@ type OWHuntActivityMonsterMetaDataReader struct {
 }
 
 type OWHuntActivityMonsterMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Hardlevel     uint8
 	MonsterShowID int32
+	Hardlevel     uint8
 }
 
 type OWHuntActivityProgressMetaDataReader struct {
@@ -40529,15 +39613,6 @@ type OWHuntActivityQuestMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []OWHuntActivityQuestMetaData
-}
-
-type OWHuntActivityScheduleMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []OWHuntActivityScheduleMetaData
 }
 
 type OWHuntActivitySHLevelMetaDataReader struct {
@@ -40567,16 +39642,10 @@ type OWHuntActivityStrongholdsMetaDataReader struct {
 type OWHuntActivityTalentMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []OWHuntActivityTalentMetaDataReader_StructKey
+	Keys        []ChapterOWTalentLevelMetaDataReader_StructKey
 	ItemOffsets []int32
 
 	Data []OWHuntActivityTalentMetaData
-}
-
-type OWHuntActivityTalentMetaDataReader_StructKey struct {
-	// Fields
-	TalentLevel uint8
-	TalentID    int32
 }
 
 type OWHuntActivityTeleportMetaDataReader struct {
@@ -40607,9 +39676,10 @@ type OWTalentLevelDataMetaDataReader struct {
 }
 
 type OWTalentLevelDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level    uint8
 	TalentID int32
+	Level    uint8
 }
 
 type OWTeleporterMetaDataReader struct {
@@ -40649,9 +39719,10 @@ type PayInfoMetaDataReader struct {
 }
 
 type PayInfoMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	DevType  uint8
 	UserType uint8
+	DevType  uint8
 }
 
 type PerformEventMetaDataReader struct {
@@ -40673,9 +39744,10 @@ type PhoneEntranceAcountOverrideMetaDataReader struct {
 }
 
 type PhoneEntranceAcountOverrideMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	AccountType int32
 	EntranceId  int32
+	AccountType int32
 }
 
 type PhoneEntranceMetaDataReader struct {
@@ -40724,9 +39796,10 @@ type PictureStepMetaDataReader struct {
 }
 
 type PictureStepMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ChoiceID int32
 	StepID   int32
+	ChoiceID int32
 }
 
 type PicTutorialMetaDataReader struct {
@@ -40861,15 +39934,6 @@ type PredownloadAsbMetaDataReader struct {
 	Data []PredownloadAsbMetaData
 }
 
-type PredownloadAudioMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []StrWithPrefix16
-	ItemOffsets []int32
-
-	Data []PredownloadAudioMetaData
-}
-
 type PredownloadAudioPackageMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
@@ -40886,15 +39950,6 @@ type PredownloadVideoFileMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []PredownloadVideoFileMetaData
-}
-
-type PredownloadVideoMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []StrWithPrefix16
-	ItemOffsets []int32
-
-	Data []PredownloadVideoMetaData
 }
 
 type ProductRecommendMetaDataReader struct {
@@ -40952,9 +40007,10 @@ type PVZQavatarMetaDataReader struct {
 }
 
 type PVZQavatarMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level     uint32
 	QavatarID uint32
+	Level     uint32
 }
 
 type PVZSiteMetaDataReader struct {
@@ -40976,9 +40032,10 @@ type PVZTileMetaDataReader struct {
 }
 
 type PVZTileMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	FloorID int32
 	TowerID int32
+	FloorID int32
 }
 
 type QAvatarBattleBroadCastMetaDataReader struct {
@@ -40988,15 +40045,6 @@ type QAvatarBattleBroadCastMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []QAvatarBattleBroadCastMetaData
-}
-
-type QAvatarBattleExpressionMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []QAvatarBattleExpressionMetaData
 }
 
 type QAvatarBattleGadgetMetaDataReader struct {
@@ -41060,9 +40108,10 @@ type QAvatarMissionMetaDataReader struct {
 }
 
 type QAvatarMissionMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	AvatarID  int32
 	MissionID int32
+	AvatarID  int32
 }
 
 type QAvatarPVPMetaDataReader struct {
@@ -41162,15 +40211,6 @@ type QTEndlessMonsterWaveMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []QTEndlessMonsterWaveMetaData
-}
-
-type QTEndlessScheduleMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []RemoteTime
-	ItemOffsets []int32
-
-	Data []QTEndlessScheduleMetaData
 }
 
 type QuestionBankMetaDataReader struct {
@@ -41363,9 +40403,10 @@ type RandomDialogActionMetaDataReader struct {
 }
 
 type RandomDialogActionMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	DialogId int32
 	PlotId   int32
+	DialogId int32
 }
 
 type RandomDialogCGRawMetaDataReader struct {
@@ -41573,9 +40614,10 @@ type RecommendEquipMetaDataReader struct {
 }
 
 type RecommendEquipMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	EquipID int32
 	ID      int32
+	EquipID int32
 }
 
 type RedEnvelopeMetaDataReader struct {
@@ -41651,9 +40693,10 @@ type ReplayLobbySubPageMetaDataReader struct {
 }
 
 type ReplayLobbySubPageMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	FatherID int32
 	ID       int32
+	FatherID int32
 }
 
 type ReplayLobbyUploadMetaDataReader struct {
@@ -41816,9 +40859,10 @@ type ReunionCookRewardMetaDataReader struct {
 }
 
 type ReunionCookRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ID               uint8
 	ScoreRewardGroup int32
+	ID               uint8
 }
 
 type ReunionCookStageMetaDataReader struct {
@@ -41914,16 +40958,10 @@ type RichAreaMetaDataReader struct {
 type RichBuffMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []RichBuffMetaDataReader_StructKey
+	Keys        []ChapterCultivateSiteEffectMetaData_LevelEffect
 	ItemOffsets []int32
 
 	Data []RichBuffMetaData
-}
-
-type RichBuffMetaDataReader_StructKey struct {
-	// Fields
-	BuffID int32
-	Level  int32
 }
 
 type RichBuildingMetaDataReader struct {
@@ -41936,9 +40974,10 @@ type RichBuildingMetaDataReader struct {
 }
 
 type RichBuildingMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	BuildingLevel int32
 	BuildingType  int32
+	BuildingLevel int32
 }
 
 type RichChallengeBossMetaDataReader struct {
@@ -42119,9 +41158,10 @@ type RogueStageMetaDataReader struct {
 }
 
 type RogueStageMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level     uint8
 	RogueHard uint8
+	Level     uint8
 }
 
 type RogueStoreMetaDataReader struct {
@@ -42206,9 +41246,10 @@ type RpgAreaLineMetaDataReader struct {
 }
 
 type RpgAreaLineMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	AreaID    int32
 	PreAreaID int32
+	AreaID    int32
 }
 
 type RpgAreaMetaDataReader struct {
@@ -42223,31 +41264,19 @@ type RpgAreaMetaDataReader struct {
 type RpgBuffDataMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []RpgBuffDataMetaDataReader_StructKey
+	Keys        []DiceyDungeonDataMetaData_RoleInfo
 	ItemOffsets []int32
 
 	Data []RpgBuffDataMetaData
 }
 
-type RpgBuffDataMetaDataReader_StructKey struct {
-	// Fields
-	ID    int32
-	Level int32
-}
-
 type RpgBuffLimitMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []RpgBuffLimitMetaDataReader_StructKey
+	Keys        []DiceyDungeonDataMetaData_RoleInfo
 	ItemOffsets []int32
 
 	Data []RpgBuffLimitMetaData
-}
-
-type RpgBuffLimitMetaDataReader_StructKey struct {
-	// Fields
-	ID    int32
-	Level int32
 }
 
 type RpgBuffSuitClientInfoMetaDataReader struct {
@@ -42284,9 +41313,10 @@ type RpgCollectionRewardDataReader struct {
 }
 
 type RpgCollectionRewardDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	PositionID int32
 	TaleID     int32
+	PositionID int32
 }
 
 type RpgDungeonAdventureQuestMetaDataReader struct {
@@ -42536,9 +41566,10 @@ type RpgStageDropMetaDataReader struct {
 }
 
 type RpgStageDropMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	DropMaterialID int32
 	StageID        int32
+	DropMaterialID int32
 }
 
 type RpgStageScoreMetaDataReader struct {
@@ -42641,9 +41672,10 @@ type RpgTowerV2MetaDataReader struct {
 }
 
 type RpgTowerV2MetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Floor int16
 	Stage int32
+	Floor int16
 }
 
 type RpgUIConfigMetaDataReader struct {
@@ -42692,9 +41724,10 @@ type SanctuaryBuildingLevelMetaDataReader struct {
 }
 
 type SanctuaryBuildingLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	SanctuaryActivityID int32
 	SanctuaryLevel      int32
+	SanctuaryActivityID int32
 }
 
 type SanctuaryPlayerGroupMetaDataReader struct {
@@ -42707,9 +41740,10 @@ type SanctuaryPlayerGroupMetaDataReader struct {
 }
 
 type SanctuaryPlayerGroupMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ActivityID    int32
 	PlayerGroupID int32
+	ActivityID    int32
 }
 
 type SanctuaryStageConfigMetaDataReader struct {
@@ -42800,9 +41834,10 @@ type ScDLCFeverAbilityMetaDataReader struct {
 }
 
 type ScDLCFeverAbilityMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	AbilityLevel int32
 	ID           int32
+	AbilityLevel int32
 }
 
 type ScDLCFurnitureMetaDataReader struct {
@@ -42814,15 +41849,6 @@ type ScDLCFurnitureMetaDataReader struct {
 	Data []ScDLCFurnitureMetaData
 }
 
-type ScDLCGachaMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []ScDLCGachaMetaData
-}
-
 type ScDLCImageReplaceMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
@@ -42830,15 +41856,6 @@ type ScDLCImageReplaceMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []ScDLCImageReplaceMetaData
-}
-
-type ScDLCInteractActionMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []ScDLCInteractActionMetaData
 }
 
 type ScDLCInteractStateMetaDataReader struct {
@@ -42893,15 +41910,6 @@ type ScDLCNPCMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []ScDLCNPCMetaData
-}
-
-type ScDLCNPCPositionGroupMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []ScDLCNPCPositionGroupMetaData
 }
 
 type ScDLCNPCPositionMetaDataReader struct {
@@ -42968,9 +41976,10 @@ type ScDLCStoryMetaDataReader struct {
 }
 
 type ScDLCStoryMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	State uint8
 	ID    uint32
+	State uint8
 }
 
 type ScDLCTalentDataMetaDataReader struct {
@@ -42985,16 +41994,10 @@ type ScDLCTalentDataMetaDataReader struct {
 type ScDLCTalentLevelMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []ScDLCTalentLevelMetaDataReader_StructKey
+	Keys        []OWAvatarActivityLevelMetaData_TalentKey
 	ItemOffsets []int32
 
 	Data []ScDLCTalentLevelMetaData
-}
-
-type ScDLCTalentLevelMetaDataReader_StructKey struct {
-	// Fields
-	TalentID    int32
-	TalentLevel int32
 }
 
 type ScDLCTeachStageMetaDataReader struct {
@@ -43006,55 +42009,13 @@ type ScDLCTeachStageMetaDataReader struct {
 	Data []ScDLCTeachStageMetaData
 }
 
-type ScDLCTowerBonusMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []ScDLCTowerBonusMetaData
-}
-
-type ScDLCTowerBuffMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []ScDLCTowerBuffMetaData
-}
-
 type ScDLCTowerFloorMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []ScDLCTowerFloorMetaDataReader_StructKey
+	Keys        []DLCTowerFloorMetaDataReader_StructKey
 	ItemOffsets []int32
 
 	Data []ScDLCTowerFloorMetaData
-}
-
-type ScDLCTowerFloorMetaDataReader_StructKey struct {
-	// Fields
-	ConfigType int32
-	Floor      int32
-}
-
-type ScDLCTowerMonsterMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []ScDLCTowerMonsterMetaData
-}
-
-type ScDLCTowerScheduleMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []ScDLCTowerScheduleMetaData
 }
 
 type ScDLCTowerScoreRewardMetaDataReader struct {
@@ -43064,24 +42025,6 @@ type ScDLCTowerScoreRewardMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []ScDLCTowerScoreRewardMetaData
-}
-
-type ScDLCTowerWaveMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []ScDLCTowerWaveMetaData
-}
-
-type ScDLCTowerWeatherMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []ScDLCTowerWeatherMetaData
 }
 
 type ScratchTicketDataMetaDataReader struct {
@@ -43103,9 +42046,10 @@ type ScratchTicketItemDataMetaDataReader struct {
 }
 
 type ScratchTicketItemDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	PlateDetailID int32
 	PlateID       int32
+	PlateDetailID int32
 }
 
 type ScratchTicketPlateDataMetaDataReader struct {
@@ -43184,9 +42128,12 @@ type SettingAudioVolumeMetaDataReader struct {
 }
 
 type SettingAudioVolumeMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	AudioSettingType   uint8
-	ParamIndex         uint8
+	AudioSettingType uint8
+	ParamIndex       uint8
+
+	// Objects
 	AudioSettingOption StrWithPrefix16
 }
 
@@ -43201,6 +42148,8 @@ type SettingGraphicsDeviceLimitMetaDataReader struct {
 
 type SettingGraphicsDeviceLimitMetaDataReader_StructKey struct {
 	// Fields
+
+	// Objects
 	Device                  StrWithPrefix16
 	GraphicsSettingItemName StrWithPrefix16
 }
@@ -43215,9 +42164,10 @@ type SettingGraphicsItemLineMetaDataReader struct {
 }
 
 type SettingGraphicsItemLineMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Hierarchy uint8
 	ID        int32
+	Hierarchy uint8
 }
 
 type SettingGraphicsTitleLineMetaDataReader struct {
@@ -43293,9 +42243,10 @@ type ShareSwitchMetaDataReader struct {
 }
 
 type ShareSwitchMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	DeviceType int16
 	ChannelId  int32
+	DeviceType int16
 }
 
 type ShopAboutToOnlineItemReader struct {
@@ -43308,9 +42259,10 @@ type ShopAboutToOnlineItemReader struct {
 }
 
 type ShopAboutToOnlineItemReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ItemID int32
 	ShopID int32
+	ItemID int32
 }
 
 type ShopDiscountMetaDataReader struct {
@@ -43413,9 +42365,10 @@ type SignInRewardMetaDataReader struct {
 }
 
 type SignInRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Day   int32
 	Month int32
+	Day   int32
 }
 
 type SimulateRankRewardMetaDataReader struct {
@@ -43470,9 +42423,10 @@ type SinDemonExMonsterScheduleMetaDataReader struct {
 }
 
 type SinDemonExMonsterScheduleMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ConfigId int32
 	ID       int32
+	ConfigId int32
 }
 
 type SinDemonExRankRewardMetaDataReader struct {
@@ -43566,9 +42520,10 @@ type SingleWantedProgressMetaDataReader struct {
 }
 
 type SingleWantedProgressMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Progress uint32
 	ThemeID  uint32
+	Progress uint32
 }
 
 type SingleWantedScheduelMetaDataReader struct {
@@ -43626,9 +42581,10 @@ type SLGBattlePointMetaDataReader struct {
 }
 
 type SLGBattlePointMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MapID   int32
 	PointID int32
+	MapID   int32
 }
 
 type SLGBigBossPointMetaDataReader struct {
@@ -43641,9 +42597,10 @@ type SLGBigBossPointMetaDataReader struct {
 }
 
 type SLGBigBossPointMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	BossID         int32
 	BossScheduleID int32
+	BossID         int32
 }
 
 type SLGBroadCastMetaDataReader struct {
@@ -43692,9 +42649,10 @@ type SLGRankRewardMetaDataReader struct {
 }
 
 type SLGRankRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Rank       int32
 	ScheduleID int32
+	Rank       int32
 }
 
 type SLGScheduleMetaDataReader struct {
@@ -43876,7 +42834,9 @@ type SpecialConfigMetaDataReader struct {
 
 type SpecialConfigMetaDataReader_StructKey struct {
 	// Fields
-	ThemeID        int32
+	ThemeID int32
+
+	// Objects
 	DefaultResPath StrWithPrefix16
 }
 
@@ -43995,15 +42955,6 @@ type StageDropItemDataMetaDataReader struct {
 	ItemOffsets []int32
 
 	Data []StageDropItemDataMetaData
-}
-
-type StageEffectCarryOnMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []StageEffectCarryOnMetaData
 }
 
 type StageEnhanceMetaDataReader struct {
@@ -44160,9 +43111,10 @@ type StageScoreRewardMetaDataReader struct {
 }
 
 type StageScoreRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	MinScore uint32
 	StageID  uint32
+	MinScore uint32
 }
 
 type StageStoryMapMetaDataReader struct {
@@ -44430,9 +43382,10 @@ type SupportMissionConfigMetaDataReader struct {
 }
 
 type SupportMissionConfigMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Index                  int32
 	SupportMissionConfigID int32
+	Index                  int32
 }
 
 type SurvivalWeaponShowMetaDataReader struct {
@@ -44490,15 +43443,6 @@ type TextIDReplaceMetaDataReader struct {
 }
 
 type TextMapMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []Hash
-	ItemOffsets []int32
-
-	Data []TextMapMetaData
-}
-
-type TextMapMultiLangMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
 	Keys        []Hash
@@ -44742,9 +43686,10 @@ type TileValueKeyMetaDataReader struct {
 }
 
 type TileValueKeyMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Key   int32
 	MapID int32
+	Key   int32
 }
 
 type TileValueModifierMetaDataReader struct {
@@ -44820,9 +43765,10 @@ type TowerGrowBuffConfigMetaDataReader struct {
 }
 
 type TowerGrowBuffConfigMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	ActivityID  int32
 	BuffLevelID int32
+	ActivityID  int32
 }
 
 type TowerRaidBuffMetaDataReader struct {
@@ -44925,8 +43871,11 @@ type TutorialGraphicMetaDataReader struct {
 }
 
 type TutorialGraphicMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	StepId      uint8
+	StepId uint8
+
+	// Objects
 	TutorialKey StrWithPrefix16
 }
 
@@ -44978,16 +43927,10 @@ type TutorialWeeklyScheduleMetaDataReader struct {
 type TVTAvatarConfigMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []TVTAvatarConfigMetaDataReader_StructKey
+	Keys        []GalAvatarStandByMetaDataReader_StructKey
 	ItemOffsets []int32
 
 	Data []TVTAvatarConfigMetaData
-}
-
-type TVTAvatarConfigMetaDataReader_StructKey struct {
-	// Fields
-	AvatarID int32
-	DressID  int32
 }
 
 type TVTCardLevelMetaDataReader struct {
@@ -45000,9 +43943,10 @@ type TVTCardLevelMetaDataReader struct {
 }
 
 type TVTCardLevelMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	Level uint8
 	ID    int32
+	Level uint8
 }
 
 type TVTCardMetaDataReader struct {
@@ -45075,9 +44019,10 @@ type TVTMaterialTransformMetaDataReader struct {
 }
 
 type TVTMaterialTransformMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	TransformCardID uint16
 	MaterialID      int32
+	TransformCardID uint16
 }
 
 type TVTMessageConfigMetaDataReader struct {
@@ -45090,10 +44035,11 @@ type TVTMessageConfigMetaDataReader struct {
 }
 
 type TVTMessageConfigMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	HardLevel      uint32
-	HardLevelGroup uint32
 	MessageID      uint32
+	HardLevelGroup uint32
+	HardLevel      uint32
 }
 
 type TVTMessageMetaDataReader struct {
@@ -45247,9 +44193,10 @@ type UltraEndlessRewardMetaDataReader struct {
 }
 
 type UltraEndlessRewardMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	GroupLevel      uint8
 	BeginScheduleId uint32
+	GroupLevel      uint8
 }
 
 type UltraEndlessScheduleMetaDataReader struct {
@@ -45478,18 +44425,10 @@ type VirtualTrainStageDropMetaDataReader struct {
 }
 
 type VirtualTrainStageDropMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	EndFloor int16
 	StageId  int32
-}
-
-type VirtualWeaponMetaDataReader struct {
-	Filesize    uint32
-	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []int32
-	ItemOffsets []int32
-
-	Data []VirtualWeaponMetaData
+	EndFloor int16
 }
 
 type WarehouseRequireDataReader struct {
@@ -45578,9 +44517,10 @@ type WaveRushStageScoreDropMetaDataReader struct {
 }
 
 type WaveRushStageScoreDropMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	NeedMinScore int32
 	StageID      int32
+	NeedMinScore int32
 }
 
 type WaveRushStageWaveMetaDataReader struct {
@@ -45673,16 +44613,10 @@ type WeaponTagMetaDataReader struct {
 type WebLinkAvatarMetaDataReader struct {
 	Filesize    uint32
 	EntryCount  uint32 `bin:"sizeof=Keys,ItemOffsets,Data"`
-	Keys        []WebLinkAvatarMetaDataReader_StructKey
+	Keys        []NewbieAvatarGuideDataReader_StructKey
 	ItemOffsets []int32
 
 	Data []WebLinkAvatarMetaData
-}
-
-type WebLinkAvatarMetaDataReader_StructKey struct {
-	// Fields
-	IsAvatarArtifact bool
-	AvatarID         int32
 }
 
 type WebLinkElfMetaDataReader struct {
@@ -45758,9 +44692,10 @@ type WeeklyReportSubPageDataMetaDataReader struct {
 }
 
 type WeeklyReportSubPageDataMetaDataReader_StructKey struct {
+	// Reordered by constructor
 	// Fields
-	FatherID int32
 	ID       int32
+	FatherID int32
 }
 
 type WelfareMissionMetaDataReader struct {
