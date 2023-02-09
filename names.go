@@ -2,52 +2,50 @@ package dataparse
 
 import (
 	"dataparse/dump"
-	"path/filepath"
-	"strings"
 )
 
 var NewAssets = map[string]dump.Asset{
-	"6029408":    dump.AssetName["ScDLCAvatarLevelMetaData"],
-	"11165326":   dump.AssetName["OWActivityBossMetaData"],
-	"11507150":   dump.AssetName["RandomPlotDataMetaData"],
-	"22366012":   dump.AssetName["MonsterCardStarMetaData"],
-	"36243594":   dump.AssetName["WorldMapEntryMetaData"],
-	"44405226":   dump.AssetName["SLGBattlePointMetaData"],
-	"50428269":   dump.AssetName["HybridSiteDataMetaData"],
-	"53370678":   dump.AssetName["BossRushBuffMetaData"],
-	"112154430":  dump.AssetName["JigsawGroupMetaData"],
-	"121386631":  dump.AssetName["AvatarTrialMetaData"],
-	"125371850":  dump.AssetName["ShopGoodsMetaData"],
-	"137850209":  dump.AssetName["ScDLCTalentDataMetaData"],
-	"150008597":  dump.AssetName["GeneralActivityDisplayDataMetaData"],
-	"175654298":  dump.AssetName["GodWarEventFlagMetaData"],
-	"201380970":  dump.AssetName["StageDetailMonsterMetaData"],
-	"208715169":  dump.AssetName["SinDemonExScoreRewardMetaData"],
-	"213532048":  dump.AssetName["RpgSurvivalTraitMetaData"],
-	"220083180":  dump.AssetName["WarehouseRequireData"],
-	"226923750":  dump.AssetName["TowerRaidBuffMetaData"],
-	"237914729":  dump.AssetName["SinDemonExSkillTipsMetaData"],
-	"244665338":  dump.AssetName["ScratchTicketPlateDataMetaData"],
-	"250894170":  dump.AssetName["BattlePassSeasonLevelConfigMetaData"],
-	"285372794":  dump.AssetName["GreedyEndlessFloorConfigMetaData"],
-	"295065595":  dump.AssetName["CustomHeadMetaData"],
-	"337996114":  dump.AssetName["GlobalExploreQuestMetaData"],
-	"339809134":  dump.AssetName["GlobalExploreStageMetaData"],
-	"376306182":  dump.AssetName["OWEndlessBattleConfig"],
-	"379497939":  dump.AssetName["AvatarFragmentMetaData"],
-	"394220128":  dump.AssetName["BattlePassScheduleMetaData"],
-	"402624629":  dump.AssetName["ChapterOWHeroLevelMetaData"],
-	"404941629":  dump.AssetName["OpenWorldLocation"],
-	"408619454":  dump.AssetName["EquipmentSetMetaData"],
-	"411717359":  dump.AssetName["RogueTowerStageMetaData"],
-	"420652155":  dump.AssetName["ChapterOWBuildingLevelMetaData"],
-	"438979584":  dump.AssetName["DormitoryAvatarMetaData"],
-	"462670926":  dump.AssetName["GreedyEndlessBattleConfigMetaData"],
-	"482711261":  dump.AssetName["ChapterOWMemoryContentMetaData"],
-	"483009743":  dump.AssetName["StageDetailMetaData"],
-	"500858231":  dump.AssetName["ChapterMetaData"],
-	"500991781":  dump.AssetName["GeneralActivityScoreDataMetaData"],
-	"550303508":  dump.AssetName["RpgUIConfigMetaData"],
+	"6029408":   dump.AssetName["ScDLCAvatarLevelMetaData"],
+	"11165326":  dump.AssetName["OWActivityBossMetaData"],
+	"11507150":  dump.AssetName["RandomPlotDataMetaData"],
+	"22366012":  dump.AssetName["MonsterCardStarMetaData"],
+	"36243594":  dump.AssetName["WorldMapEntryMetaData"],
+	"44405226":  dump.AssetName["SLGBattlePointMetaData"],
+	"50428269":  dump.AssetName["HybridSiteDataMetaData"],
+	"53370678":  dump.AssetName["BossRushBuffMetaData"],
+	"112154430": dump.AssetName["JigsawGroupMetaData"],
+	"121386631": dump.AssetName["AvatarTrialMetaData"],
+	"125371850": dump.AssetName["ShopGoodsMetaData"],
+	"137850209": dump.AssetName["ScDLCTalentDataMetaData"],
+	"150008597": dump.AssetName["GeneralActivityDisplayDataMetaData"],
+	"175654298": dump.AssetName["GodWarEventFlagMetaData"],
+	"201380970": dump.AssetName["StageDetailMonsterMetaData"],
+	"208715169": dump.AssetName["SinDemonExScoreRewardMetaData"],
+	"213532048": dump.AssetName["RpgSurvivalTraitMetaData"],
+	"220083180": dump.AssetName["WarehouseRequireData"],
+	"226923750": dump.AssetName["TowerRaidBuffMetaData"],
+	"237914729": dump.AssetName["SinDemonExSkillTipsMetaData"],
+	"244665338": dump.AssetName["ScratchTicketPlateDataMetaData"],
+	"250894170": dump.AssetName["BattlePassSeasonLevelConfigMetaData"],
+	"285372794": dump.AssetName["GreedyEndlessFloorConfigMetaData"],
+	"295065595": dump.AssetName["CustomHeadMetaData"],
+	"337996114": dump.AssetName["GlobalExploreQuestMetaData"],
+	"339809134": dump.AssetName["GlobalExploreStageMetaData"],
+	"376306182": dump.AssetName["OWEndlessBattleConfig"],
+	"379497939": dump.AssetName["AvatarFragmentMetaData"],
+	"394220128": dump.AssetName["BattlePassScheduleMetaData"],
+	"402624629": dump.AssetName["ChapterOWHeroLevelMetaData"],
+	"404941629": dump.AssetName["OpenWorldLocation"],
+	"408619454": dump.AssetName["EquipmentSetMetaData"],
+	"411717359": dump.AssetName["RogueTowerStageMetaData"],
+	"420652155": dump.AssetName["ChapterOWBuildingLevelMetaData"],
+	"438979584": dump.AssetName["DormitoryAvatarMetaData"],
+	"462670926": dump.AssetName["GreedyEndlessBattleConfigMetaData"],
+	// "482711261":  dump.AssetName["ChapterOWMemoryContentMetaData"],
+	"483009743": dump.AssetName["StageDetailMetaData"],
+	"500858231": dump.AssetName["ChapterMetaData"],
+	"500991781": dump.AssetName["GeneralActivityScoreDataMetaData"],
+	// "550303508":  dump.AssetName["RpgUIConfigMetaData"],
 	"604807223":  dump.AssetName["ChapterOWQuestDataMetaData"],
 	"606639383":  dump.AssetName["DormitoryFurnitureMetaData"],
 	"609434632":  dump.AssetName["TutorialData"],
@@ -196,7 +194,7 @@ var NewAssets = map[string]dump.Asset{
 	"2873405398": dump.AssetName["HybridSiteContentMetaData"],
 	"2877142287": dump.AssetName["TextMapMetaData"],
 	"2907879079": dump.AssetName["LevelMatrixGridIndexMetaData"],
-	"2910390514": dump.AssetName["OpenWorldArea"],
+	// "2910390514": dump.AssetName["OpenWorldArea"],
 	"2911346328": dump.AssetName["OWEndlessMonsterInitTypeMetaData"],
 	"2917070182": dump.AssetName["RpgSuddenEventMetaData"],
 	"2920424082": dump.AssetName["GodWarRelationDataMetaData"],
@@ -253,7 +251,7 @@ var NewAssets = map[string]dump.Asset{
 	"3519580761": dump.AssetName["AvatarForgeWhiteListMetaData"],
 	"3525001332": dump.AssetName["ChatLobbyVoiceMetaData"],
 	"3535691949": dump.AssetName["ProductRecommendMetaData"],
-	"3566516475": dump.AssetName["ExScheduleTextmapMetaData"],
+	// "3566516475": dump.AssetName["ExScheduleTextmapMetaData"],
 	"3579822406": dump.AssetName["MonsterConfigMetaData"],
 	"3600254561": dump.AssetName["DressMetaData"],
 	"3605151818": dump.AssetName["CollectionPictureMetaData"],
@@ -280,7 +278,7 @@ var NewAssets = map[string]dump.Asset{
 	"3944639586": dump.AssetName["RpgBuffDataMetaData"],
 	"3954218449": dump.AssetName["SinDemonExMonsterScheduleMetaData"],
 	"3963850408": dump.AssetName["MatrixThemeMetaData"],
-	"3996597855": dump.AssetName["UltraEndlessScheduleMetaData"],
+	// "3996597855": dump.AssetName["UltraEndlessScheduleMetaData"],
 	"4011635046": dump.AssetName["GoBackScheduleMetaData"],
 	"4077943566": dump.AssetName["RogueStageMetaData"],
 	"4087158562": dump.AssetName["ChapterOWMainLineMetaData"],
@@ -303,38 +301,4 @@ var NewAssets = map[string]dump.Asset{
 	"4291465330": dump.AssetName["DiceyDungeonDataMetaData"],
 	"4291895614": dump.AssetName["DiceyDungeonRoleMetaData"],
 	"4291895715": dump.AssetName["DiceyDungeonRoomMetaData"],
-}
-
-func GetAsset(f string) dump.Asset {
-	f = filepath.Base(f)
-	id, _, _ := strings.Cut(f, "_")
-	a, ok := NewAssets[id]
-	if ok {
-		return a
-	}
-
-	return dump.Asset{
-		Name:   f,
-		Parser: &Placeholder{},
-	}
-}
-
-func EventDialogMultiLang(lang string) dump.Asset {
-	ass := dump.AssetName["EventDialogDataMetaData"]
-	ass.Name += "_" + lang
-
-	return ass
-}
-
-func TextMapMultiLang(lang string) dump.Asset {
-	ass := dump.AssetName["TextMapMultiLangMetaData"]
-	ass.Name += "_" + lang
-
-	return ass
-}
-
-type Placeholder struct{}
-
-func (p *Placeholder) GetData() any {
-	return nil
 }

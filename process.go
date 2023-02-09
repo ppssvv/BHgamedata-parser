@@ -1,12 +1,11 @@
 package dataparse
 
 import (
-	"dataparse/dump"
 	"dataparse/internal/decode"
 	"encoding/binary"
 	"encoding/json"
+	"errors"
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 
@@ -49,7 +48,7 @@ func GetTestData(f string) *bin.Decoder {
 
 	// before reading all file, check first 4 bytes
 	if checkEncrypted(f) {
-		log.Println("file is encrypted, dec")
+		fmt.Println("\nfile is encrypted, dec")
 		decodedData, err := decode.Parse(f)
 		if err != nil {
 			panic(err)
@@ -60,16 +59,16 @@ func GetTestData(f string) *bin.Decoder {
 	return readFile(f)
 }
 
-func ProcessStructNew(f string, obj dump.ReaderWrapper) ([]byte, error) {
+var ErrNotSupported = errors.New("this file is not supported yet")
+
+func ProcessStructNew(f string, obj any) ([]byte, error) {
+	if obj == nil {
+		return nil, ErrNotSupported
+	}
 
 	if err := GetTestData(f).Decode(obj); err != nil {
 		return nil, err
 	}
 
-	if obj.GetData() == nil {
-		return nil, fmt.Errorf("no data")
-	}
-
-	return json.MarshalIndent(obj.GetData(), "", "  ")
-	// return jettison.MarshalOpts(obj.GetData(), jettison.NilSliceEmpty(), jettison.NoCompact())
+	return json.MarshalIndent(obj, "", "  ")
 }

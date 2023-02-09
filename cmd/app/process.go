@@ -2,7 +2,6 @@ package main
 
 import (
 	"dataparse"
-	"dataparse/dump"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -41,16 +40,14 @@ func ProcessBatch(entries []string) {
 			continue
 		}
 
-		if ass.Parser.GetData() == nil {
-			pterm.Error.Printfln("\t%s not supported yet", e)
-			missing++
-			pbar.Increment()
-			continue
-		}
-
 		if err = ProcessFile(e, ass.Parser); err != nil {
-			pterm.Error.Printfln("\t%s - %s", e, err)
-			fail++
+			if err == dataparse.ErrNotSupported {
+				pterm.Error.Printfln("\t%s not supported yet", e)
+				missing++
+			} else {
+				pterm.Error.Printfln("\t%s - %s", e, err)
+				fail++
+			}
 		} else {
 			pterm.Success.Println(e)
 		}
@@ -61,10 +58,14 @@ func ProcessBatch(entries []string) {
 	pterm.Info.Printf("Done: %d ok, %d failed, %d missing\n", total-fail-missing, fail, missing)
 }
 
-func ProcessFile(in string, obj dump.ReaderWrapper) error {
+func ProcessFile(in string, obj any) error {
 	result, err := dataparse.ProcessStructNew(in, obj)
 	if err != nil {
 		return err
+	}
+
+	if err := os.MkdirAll("result", os.ModePerm); err != nil {
+		pterm.Fatal.Printfln("can't create result folder: %s", err)
 	}
 
 	out := filepath.Join("result", fmt.Sprintf("%s.json", dataparse.GetAsset(in).Name))

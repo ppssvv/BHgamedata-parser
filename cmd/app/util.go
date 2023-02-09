@@ -60,12 +60,12 @@ func getShortname(s string) string {
 }
 
 func getExisting() map[string]interface{} {
+	result := map[string]interface{}{}
+
 	src, err := os.ReadDir("result")
 	if err != nil {
-		log.Fatal("can't read result folder")
+		return result
 	}
-
-	result := map[string]interface{}{}
 
 	for _, e := range src {
 		if e.IsDir() {
