@@ -64,7 +64,7 @@ type MonsterProtoTypeMetaData struct {
 
 type PropListMetaData struct {
 	// Fields
-	Addr1 uint32
+	PropName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	Info     AddrTo[StrWithPrefix16]
@@ -127,6 +127,9 @@ type AvatarArtifactMetaData_ReplaceSkillPair struct {
 type AvatarArtifactMetaData_LockedDisplaySkillInfo struct {
 	// Fields
 	SkillID int32
+
+	// Objects
+	SkillDescriptionTextID Hash
 }
 
 type AvatarCardMetaData struct {
@@ -337,6 +340,9 @@ type AvatarSkillMetaData_Tag struct {
 	// Fields
 	Strength uint8
 	TagID    int32
+
+	// Objects
+	TagComment Hash
 }
 
 type AvatarStarMetaData struct {
@@ -673,6 +679,10 @@ type ElfGalEventMetaData struct {
 type ElfGalEventMetaData_ElfUIEffectPattern struct {
 	// Fields
 	BeginTime float32
+
+	// Objects
+	AttachPoint StrWithPrefix16
+	EffectPath  StrWithPrefix16
 }
 
 type ElfMetaData struct {
@@ -732,6 +742,9 @@ type ElfMetaData_VectorFloat3 struct {
 type ElfMetaData_Tag struct {
 	// Fields
 	TagID int32
+
+	// Objects
+	TagComment Hash
 }
 
 type ElfRarityMetaData struct {
@@ -1493,7 +1506,7 @@ type WeaponMetaData struct {
 
 type AbilitySpecialMetaData struct {
 	// Fields
-	Addr1 uint32
+	AbilityName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	ParamList AddrTo[[]AbilitySpecialMetaData_ParamEntry]
@@ -1502,6 +1515,9 @@ type AbilitySpecialMetaData struct {
 type AbilitySpecialMetaData_ParamEntry struct {
 	// Fields
 	ParamValue float32
+
+	// Objects
+	Paramkey StrWithPrefix16
 }
 
 type AccountBuffEffect struct {
@@ -2354,6 +2370,9 @@ type AiCyberQavatarMetaData struct {
 }
 
 type AiCyberQavatarMetaData_Reaction struct {
+	// Objects
+	Bubble  Hash
+	AnimKey StrWithPrefix16
 }
 
 type AiCyberQavatarSkillMetaData struct {
@@ -2780,6 +2799,9 @@ type AvatarExMetaData struct {
 }
 
 type AvatarExMetaData_CommonSkill struct {
+	// Objects
+	Skill1 StrWithPrefix16
+	Skill2 StrWithPrefix16
 }
 
 type AvatarFilterMetaData struct {
@@ -2836,11 +2858,17 @@ type AvatarGachaDisplayMetaData struct {
 type AvatarGachaDisplayMetaData_AudioPatternEvent struct {
 	// Fields
 	Time float32
+
+	// Objects
+	AudioPattern StrWithPrefix16
 }
 
 type AvatarGachaDisplayMetaData_FaceAnimationEvent struct {
 	// Fields
 	Time float32
+
+	// Objects
+	FaceAnimation StrWithPrefix16
 }
 
 type AvatarGoodFeelMetaData struct {
@@ -3155,6 +3183,10 @@ type BattlePassScheduleMetaData struct {
 type BattlePassScheduleMetaData_Format struct {
 	// Fields
 	Type uint8
+
+	// Objects
+	Text  Hash
+	Param StrWithPrefix16
 }
 
 type BattlePassSeasonLevelConfigMetaData struct {
@@ -4108,6 +4140,9 @@ type ChapterOWBuildingLevelMetaData_CostMaterialData struct {
 type ChapterOWBuildingLevelMetaData_RemindTipData struct {
 	// Fields
 	ConditionID int32
+
+	// Objects
+	ConditionTextID Hash
 }
 
 type ChapterOWBuildingMetaData struct {
@@ -4770,6 +4805,9 @@ type ChapterOWNPCPositionMetaData_Positions struct {
 	// Fields
 	AnimID int32
 	NpcID  int32
+
+	// Objects
+	PostionName StrWithPrefix16
 }
 
 type ChapterOWPhaseMetaData struct {
@@ -5546,6 +5584,9 @@ type ChatLobbyQuestionMetaData struct {
 type ChatLobbyQuestionMetaData_AnswerItem struct {
 	// Fields
 	ID int32
+
+	// Objects
+	Text StrWithPrefix16
 }
 
 type ChatLobbyRoomMetaData struct {
@@ -5706,7 +5747,7 @@ type CityEventPhotoMetaData struct {
 
 type ClickDialogBGCloseBlackListMetaData struct {
 	// Fields
-	Addr1 uint32
+	ContextName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	Hierachies AddrTo[[]StrWithPrefix16]
@@ -5916,7 +5957,7 @@ type CompensationOfIslandMetaData struct {
 
 type ConstValueMetaData struct {
 	// Fields
-	Addr1 uint32
+	Name AddrTo[Hash]
 
 	// Properties with objects
 	Type  AddrTo[StrWithPrefix16]
@@ -6181,6 +6222,9 @@ type DialogMetaData struct {
 }
 
 type DialogMetaData_PlotChatNode struct {
+	// Objects
+	ChatContent  Hash
+	ChatDuration float32
 }
 
 type DiceyDungeonActivityMetaData struct {
@@ -6209,7 +6253,7 @@ type DiceyDungeonBubbleMetaData struct {
 
 type DiceyDungeonBuffMetaData struct {
 	// Fields
-	Addr1 uint32
+	BuffKey AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	IsHide   bool
@@ -7367,7 +7411,7 @@ type ElfTrialMetaData_SkillData struct {
 
 type EliteAbilityMetaData struct {
 	// Fields
-	Addr1 uint32
+	AbilityName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	EliteAbilityDesc AddrTo[Hash]
@@ -7725,6 +7769,9 @@ type EventDialogDataMetaData struct {
 }
 
 type EventDialogDataMetaData_PlotChatNode struct {
+	// Objects
+	ChatContent  StrWithPrefix16
+	ChatDuration float32
 }
 
 type ExaminationAnswerMetaData struct {
@@ -7835,7 +7882,7 @@ type ExposureRateDataMetaData struct {
 
 type ExScheduleTextmapListMetaData struct {
 	// Fields
-	Addr1 uint32
+	Id AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	TextmapList AddrTo[[]int32]
@@ -8176,8 +8223,8 @@ type FeaturedContentMetaData struct {
 
 type FeatureSubPakConfigMetaData struct {
 	// Fields
-	Addr1 uint32
-	Addr2 uint32
+	ContextName AddrTo[StrWithPrefix16]
+	Tag         AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	SubPakList AddrTo[[]int32]
@@ -8185,7 +8232,7 @@ type FeatureSubPakConfigMetaData struct {
 
 type FixedPlotUIConfigMetaData struct {
 	// Fields
-	Addr1 uint32
+	PlotName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	ShowHistoryBtn bool
@@ -8211,8 +8258,8 @@ type FlopActivityPanel struct {
 
 type FoundationRewardMetaData struct {
 	// Fields
-	Addr1 uint32
-	Level int32
+	Product_name AddrTo[StrWithPrefix16]
+	Level        int32
 
 	// Properties with objects
 	Reward  int32
@@ -8221,7 +8268,7 @@ type FoundationRewardMetaData struct {
 
 type FoundationTypeMetaData struct {
 	// Fields
-	Addr1 uint32
+	Product_name AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	BGpic     AddrTo[StrWithPrefix16]
@@ -8235,7 +8282,7 @@ type FoundationTypeMetaData struct {
 
 type FOWEffectMetaData struct {
 	// Fields
-	Addr1 uint32
+	StageName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	HeightRange       float32
@@ -8470,6 +8517,22 @@ type GalEventMetaData_RawData struct {
 	Condition3        uint8
 	SubsidiaryEventID int32
 	PortraitActive    bool
+
+	// Objects
+	Dialogue         Hash
+	AvatarID         []int32
+	DressID          []int32
+	StartMotion      StrWithPrefix16
+	LoopMotion       StrWithPrefix16
+	EndMotion        StrWithPrefix16
+	Audio            StrWithPrefix16
+	Effect           StrWithPrefix16
+	Face             StrWithPrefix16
+	Bubble           StrWithPrefix16
+	BubbleCoordinate StrWithPrefix16
+	Parameter1       StrWithPrefix16
+	Parameter2       StrWithPrefix16
+	Parameter3       StrWithPrefix16
 }
 
 type GalEventTwinsMetaData struct {
@@ -9258,6 +9321,10 @@ type GlobalWarScheduleMetaData struct {
 }
 
 type GlobalWarScheduleMetaData_ConfigTutorial struct {
+	// Objects
+	Content StrWithPrefix16
+	Sprite  StrWithPrefix16
+	Title   StrWithPrefix16
 }
 
 type GlobalWarScoreMetaData struct {
@@ -9797,6 +9864,9 @@ type GodWarExtraItemTextMetaData struct {
 type GodWarExtraItemTextMetaData_OverallTextMap struct {
 	// Fields
 	OverallValue uint32
+
+	// Objects
+	Desc Hash
 }
 
 type GodWarHardLevelMetaData struct {
@@ -10594,7 +10664,7 @@ type GreedyEndlessRankRewardMetaData struct {
 
 type GreedyEndlessScheduleMetaData struct {
 	// Fields
-	Addr1 uint32
+	StartTime AddrTo[RemoteTime]
 
 	// Properties with objects
 	SettleRewardConfig int32
@@ -10897,6 +10967,9 @@ type HoukaiTownTutorialStepMetaData struct {
 type HoukaiTownTutorialStepMetaData_Pointer struct {
 	// Fields
 	ID int32
+
+	// Objects
+	Path StrWithPrefix16
 }
 
 type HybridRelayPhaseMetaData struct {
@@ -11000,7 +11073,7 @@ type ImgPanelMetaData struct {
 
 type InControlActionMapMetaData struct {
 	// Fields
-	Addr1 uint32
+	ActionName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	ActionGroup           int32
@@ -11024,7 +11097,7 @@ type InControlActionSubTypeInfoMetaData struct {
 
 type InControlBattleOverrideMetaData struct {
 	// Fields
-	Addr1 uint32
+	ActionName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	OverrideActionName AddrTo[StrWithPrefix16]
@@ -11032,7 +11105,7 @@ type InControlBattleOverrideMetaData struct {
 
 type InControlControlTypeInfoMetaData struct {
 	// Fields
-	Addr1 uint32
+	ControlType AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	IsSettingControlType bool
@@ -11045,11 +11118,14 @@ type InControlControlTypeInfoMetaData struct {
 type InControlControlTypeInfoMetaData_PrefixControl struct {
 	// Fields
 	IsSettingKey bool
+
+	// Objects
+	PrefixControlString StrWithPrefix16
 }
 
 type InControlKeyInfoMetaData struct {
 	// Fields
-	Addr1 uint32
+	Key AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	IsSettingKey  bool
@@ -11062,8 +11138,8 @@ type InControlKeyInfoMetaData_PrefixKey struct {
 
 type InControlUIButtonConfigMetaData struct {
 	// Fields
-	Addr1 uint32
-	Addr2 uint32
+	ContextName      AddrTo[StrWithPrefix16]
+	PlayerActionName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	ButtonPath          AddrTo[StrWithPrefix16]
@@ -11426,6 +11502,11 @@ type LevelChallengeMetaData_RawData struct {
 	ConditionId int32
 	HintPeriod  int32
 	Difficulty  int32
+
+	// Objects
+	ParamList     []int32
+	DiaplayTarget Hash
+	Explanation   Hash
 }
 
 type LevelMatrixArmadaMetaData struct {
@@ -11777,6 +11858,9 @@ type LevelStatisticsMetaData struct {
 type LevelStatisticsMetaData_IntIntPair struct {
 	// Fields
 	Item2 float32
+
+	// Objects
+	Item1 StrWithPrefix16
 }
 
 type LevelTrialMetaData struct {
@@ -11995,7 +12079,7 @@ type MainPageActivityEntryMetaData struct {
 
 type MainPageSequenceDialogInfoMetaData struct {
 	// Fields
-	Addr1 uint32
+	Name AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	Priority    int32
@@ -12424,7 +12508,7 @@ type MentorCompanyMissionRewardMetaData struct {
 
 type MentorConst struct {
 	// Fields
-	Addr1 uint32
+	Name AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	Type  AddrTo[StrWithPrefix16]
@@ -12524,6 +12608,11 @@ type MiniBossExamHardStageDataMetaData struct {
 type MiniBossExamHardStageDataMetaData_Tag struct {
 	// Fields
 	TagID int32
+
+	// Objects
+	TagDesc Hash
+	TagName Hash
+	TagIcon StrWithPrefix16
 }
 
 type MiniMonopolyActivityMetaData struct {
@@ -12809,7 +12898,7 @@ type MonsterCardActivityDataMetaData struct {
 
 type MonsterCardBuffDisplayMetaData struct {
 	// Fields
-	Addr1 uint32
+	Buffname AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	BuffIconPath AddrTo[StrWithPrefix16]
@@ -12887,6 +12976,9 @@ type MonsterCardSkillMetaData struct {
 type MonsterCardSkillMetaData_SkillParam struct {
 	// Fields
 	Param float32
+
+	// Objects
+	Name StrWithPrefix16
 }
 
 type MonsterCardStageMetaData struct {
@@ -12954,8 +13046,8 @@ type MonsterCardTowerMetaData struct {
 
 type MonsterConfigMetaData struct {
 	// Fields
-	Addr1 uint32
-	Addr2 uint32
+	MonsterName AddrTo[StrWithPrefix16]
+	TypeName    AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	CategoryName AddrTo[StrWithPrefix16]
@@ -12974,8 +13066,8 @@ type MonsterConfigMetaData struct {
 type MonsterResistanceMetaData struct {
 	// Fields
 	UniqueMonsterID uint32
-	Addr1           uint32
-	Addr2           uint32
+	MonsterName     AddrTo[StrWithPrefix16]
+	TypeName        AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	DamageResist            float32
@@ -13285,8 +13377,8 @@ type NatureCounterMetaData struct {
 
 type NetworkErrCodeMetaData struct {
 	// Fields
-	Addr1 uint32
-	Addr2 uint32
+	ErrType AddrTo[StrWithPrefix16]
+	RetCode AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	TextMapID AddrTo[Hash]
@@ -13401,6 +13493,11 @@ type NewbieDevelopRewardPanelMetaData_SpecialReward struct {
 	// Fields
 	ShowType uint8
 	RankID   uint16
+
+	// Objects
+	Tag       Hash
+	ImagePath StrWithPrefix16
+	ParamStr  StrWithPrefix16
 }
 
 type NewbieDormQAvatarMetaData struct {
@@ -14854,7 +14951,7 @@ type OWEndlessRewardConfigMetaData struct {
 
 type OWEndlessScheduleMetaData struct {
 	// Fields
-	Addr1 uint32
+	StartTime AddrTo[RemoteTime]
 
 	// Properties with objects
 	RewardConfig uint32
@@ -14937,7 +15034,7 @@ type OWHuntActivityDataMetaData struct {
 
 type OWHuntActivityFloorMetaData struct {
 	// Fields
-	Addr1 uint32
+	SpawnPointName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	MapID         int32
@@ -15385,7 +15482,7 @@ type PrayGachaMetaData struct {
 
 type PredownloadAsbMetaData struct {
 	// Fields
-	Addr1 uint32
+	Version AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	EnableTime AddrTo[RemoteTime]
@@ -15393,7 +15490,7 @@ type PredownloadAsbMetaData struct {
 
 type PredownloadAudioPackageMetaData struct {
 	// Fields
-	Addr1 uint32
+	PackageName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	Version AddrTo[StrWithPrefix16]
@@ -15402,7 +15499,7 @@ type PredownloadAudioPackageMetaData struct {
 
 type PredownloadVideoFileMetaData struct {
 	// Fields
-	Addr1 uint32
+	VideoName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	Version  AddrTo[StrWithPrefix16]
@@ -15763,7 +15860,7 @@ type QTEndlessMonsterData struct {
 	Weight           uint8
 	GroupLevelRange  AddrTo[[]int32]
 	MonsterDisplayID int32
-	Tags             AddrTo[StrWithPrefix16]
+	// Tags AddrTo[StrWithPrefix16]
 }
 
 type QTEndlessMonsterWaveMetaData struct {
@@ -15795,6 +15892,9 @@ type QuestionBankMetaData struct {
 type QuestionBankMetaData_Answer struct {
 	// Fields
 	AnswerID uint32
+
+	// Objects
+	AnswerTextID Hash
 }
 
 type QuestionConfigMetaData struct {
@@ -16173,6 +16273,9 @@ type RandomSubSelectContentDataMetaData struct {
 type RandomSubSelectContentDataMetaData_SubSelectContentData struct {
 	// Fields
 	Status uint32
+
+	// Objects
+	Content StrWithPrefix16
 }
 
 type RandomSubSelectStyleConfigMetaData struct {
@@ -16342,7 +16445,7 @@ type RedEnvelopeMetaData struct {
 
 type RegionInfoMetaData struct {
 	// Fields
-	Addr1 uint32
+	Region AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	Name AddrTo[StrWithPrefix16]
@@ -18271,9 +18374,9 @@ type ServantTouchMetaData struct {
 
 type SettingAudioVolumeMetaData struct {
 	// Fields
-	Addr1            uint32
-	AudioSettingType uint8
-	ParamIndex       uint8
+	AudioSettingOption AddrTo[StrWithPrefix16]
+	AudioSettingType   uint8
+	ParamIndex         uint8
 
 	// Properties with objects
 	Volume float32
@@ -18281,8 +18384,8 @@ type SettingAudioVolumeMetaData struct {
 
 type SettingGraphicsDeviceLimitMetaData struct {
 	// Fields
-	Addr1 uint32
-	Addr2 uint32
+	Device                  AddrTo[StrWithPrefix16]
+	GraphicsSettingItemName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	ParamBlackList AddrTo[[]uint8]
@@ -18327,7 +18430,7 @@ type ShareChannelContentMetaData struct {
 
 type ShareChannelMetaData struct {
 	// Fields
-	Addr1 uint32
+	AppName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	Battle          int32
@@ -19175,8 +19278,8 @@ type SpecialAffixDataMetaData struct {
 
 type SpecialConfigMetaData struct {
 	// Fields
-	ThemeID int32
-	Addr1   uint32
+	ThemeID        int32
+	DefaultResPath AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	ReplaceType  int32
@@ -19369,7 +19472,7 @@ type StageMaxScoreMetaData struct {
 
 type StageMessageMetaData struct {
 	// Fields
-	Addr1 uint32
+	KeyName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	Value int32
@@ -19575,7 +19678,7 @@ type StigmataMemoirMetaData struct {
 
 type StigmataPositionMetaData struct {
 	// Fields
-	Addr1 uint32
+	Name AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	RootWidth      float32
@@ -19746,16 +19849,22 @@ type SubsidiaryEventMetaData struct {
 }
 
 type SubsidiaryEventMetaData_OverrideClip struct {
+	// Objects
+	ClipPath StrWithPrefix16
+	Name     StrWithPrefix16
 }
 
 type SubsidiaryEventMetaData_DressPath struct {
 	// Fields
 	DressID int32
+
+	// Objects
+	Path StrWithPrefix16
 }
 
 type SubsWareDataMetaData struct {
 	// Fields
-	Addr1 uint32
+	ProductName AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	SubsID  int32
@@ -19916,7 +20025,7 @@ type TeamBuffMetaData struct {
 
 type TextIDReplaceMetaData struct {
 	// Fields
-	Addr1 uint32
+	OriginalTextID AddrTo[Hash]
 
 	// Properties with objects
 	ReplaceTextID  AddrTo[Hash]
@@ -19925,7 +20034,7 @@ type TextIDReplaceMetaData struct {
 
 type TextMapMetaData struct {
 	// Fields
-	Addr1 uint32
+	ID AddrTo[Hash]
 
 	// Properties with objects
 	Text AddrTo[StrWithPrefix16]
@@ -20475,8 +20584,8 @@ type TutorialData struct {
 
 type TutorialGraphicMetaData struct {
 	// Fields
-	Addr1  uint32
-	StepId uint8
+	TutorialKey AddrTo[StrWithPrefix16]
+	StepId      uint8
 
 	// Properties with objects
 	ImagePath    AddrTo[StrWithPrefix16]
@@ -20976,7 +21085,7 @@ type UnlockUIData struct {
 
 type VibrateConfigsMetaData struct {
 	// Fields
-	Addr1 uint32
+	AvatarRegistryKey AddrTo[StrWithPrefix16]
 
 	// Properties with objects
 	ConfigPath AddrTo[StrWithPrefix16]
@@ -21307,6 +21416,9 @@ type WaveRushUIConfigMetaData struct {
 type WaveRushUIConfigMetaData_AreaTuple struct {
 	// Fields
 	ID int32
+
+	// Objects
+	PrefabPath StrWithPrefix16
 }
 
 type WeaponBaseTypeMetaData struct {
@@ -22135,11 +22247,17 @@ type ExtraStoryChallengeModeMetaDataReader_StructKey struct {
 }
 
 type FeatureSubPakConfigMetaDataReader_StructKey struct {
+	// Objects
+	ContextName StrWithPrefix16
+	Tag         StrWithPrefix16
 }
 
 type FoundationRewardMetaDataReader_StructKey struct {
 	// Fields
 	Level int32
+
+	// Objects
+	Product_name StrWithPrefix16
 }
 
 type GalAvatarStandByMetaDataReader_StructKey struct {
@@ -22350,6 +22468,9 @@ type HybridSiteCameraMetaDataReader_StructKey struct {
 }
 
 type InControlUIButtonConfigReader_StructKey struct {
+	// Objects
+	ContextName      StrWithPrefix16
+	PlayerActionName StrWithPrefix16
 }
 
 type InviterActivityRewardConfigMetaDataReader_StructKey struct {
@@ -22437,11 +22558,18 @@ type MonsterCardStarMetaDataReader_StructKey struct {
 }
 
 type MonsterConfigMetaDataReader_StructKey struct {
+	// Objects
+	MonsterName StrWithPrefix16
+	TypeName    StrWithPrefix16
 }
 
 type MonsterResistanceMetaDataReader_StructKey struct {
 	// Fields
 	UniqueMonsterID uint32
+
+	// Objects
+	MonsterName StrWithPrefix16
+	TypeName    StrWithPrefix16
 }
 
 type MPStagePlayerLevelDropDataReader_StructKey struct {
@@ -22463,6 +22591,9 @@ type NatureCounterMetaDataReader_StructKey struct {
 }
 
 type NetworkErrCodeMetaDataReader_StructKey struct {
+	// Objects
+	ErrType StrWithPrefix16
+	RetCode StrWithPrefix16
 }
 
 type NewbieActivityPanelMetaDataReader_StructKey struct {
@@ -22856,9 +22987,15 @@ type SettingAudioVolumeMetaDataReader_StructKey struct {
 	// Fields
 	AudioSettingType uint8
 	ParamIndex       uint8
+
+	// Objects
+	AudioSettingOption StrWithPrefix16
 }
 
 type SettingGraphicsDeviceLimitMetaDataReader_StructKey struct {
+	// Objects
+	Device                  StrWithPrefix16
+	GraphicsSettingItemName StrWithPrefix16
 }
 
 type SettingGraphicsItemLineMetaDataReader_StructKey struct {
@@ -22930,6 +23067,9 @@ type SlotMachineProgressRewardMetaDataReader_StructKey struct {
 type SpecialConfigMetaDataReader_StructKey struct {
 	// Fields
 	ThemeID int32
+
+	// Objects
+	DefaultResPath StrWithPrefix16
 }
 
 type StageScoreRewardMetaDataReader_StructKey struct {
@@ -22971,6 +23111,9 @@ type TowerGrowBuffConfigMetaDataReader_StructKey struct {
 type TutorialGraphicMetaDataReader_StructKey struct {
 	// Fields
 	StepId uint8
+
+	// Objects
+	TutorialKey StrWithPrefix16
 }
 
 type TVTCardLevelMetaDataReader_StructKey struct {
