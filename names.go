@@ -244,6 +244,7 @@ var NewAssets = map[string]dump.Asset{
 	"3358461928": dump.AssetName["ArmadaBossActivityDataMetaData"],
 	"3364732199": dump.AssetName["MechMetaData"],
 	"3371129601": dump.AssetName["StageDetailEffectMetaData"],
+	"3373320453": dump.AssetName["LoadingTipStringMetaData"],
 	"3378048260": dump.AssetName["OpenworldQuestDataCfg"],
 	"3392770755": dump.AssetName["ClientLogDataMetaData"],
 	"3407709807": dump.AssetName["ActivityLoginMetaData"],
