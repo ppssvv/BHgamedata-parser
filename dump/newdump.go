@@ -4361,8 +4361,8 @@ type ChapterOWEquipmentBuffMetaData struct {
 	Level int32
 
 	// Properties with objects
-	MapID       int32
 	Type        uint16
+	MapID       int32
 	Cost        int32
 	BuffWeight  int32
 	IconPath    AddrTo[StrWithPrefix16]
@@ -10149,11 +10149,11 @@ type GodWarRelationDataMetaData struct {
 	// Fields
 	GodWarID uint16
 	RoleID   uint32
-	Level    uint16
 
 	// Properties with objects
 	AvatarID             uint32
 	AvatarLevelID        uint32
+	Level                uint16
 	MaxLevel             uint16
 	DisplayLevelCap      uint16
 	Exp                  uint32
@@ -10570,10 +10570,10 @@ type GreedyEndlessBattleConfigMetaData struct {
 	// Fields
 	BattleConfig int32
 	GroupLevel   int32
-	Floor        int32
 
 	// Properties with objects
 	StageID             int32
+	Floor               int32
 	WeatherID           int32
 	MechanismID         int32
 	MonsterTable        AddrTo[[]int32]
@@ -15860,7 +15860,6 @@ type QTEndlessMonsterData struct {
 	Weight           uint8
 	GroupLevelRange  AddrTo[[]int32]
 	MonsterDisplayID int32
-	// Tags AddrTo[StrWithPrefix16]
 }
 
 type QTEndlessMonsterWaveMetaData struct {
