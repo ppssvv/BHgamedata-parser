@@ -1,17 +1,32 @@
 # Data parser for *not-so-popular* anime game
 
-> WIP. Not all files are implemented yet - you can check progress [here](progress.md)
+## Status
+Out of total 378 files:
+- 328 files have 1 correct parser
+- 9 files have multiple identical parsers (have fun guessing which is correct)
+- 54 files have no match
+
+Was tested with Global version v6.3
 
 ## Using
-1. Download latest release
-1. Run app.exe
-1. Follow instructions
+Tool has 2 main features: 
+- decoding binary files (if you want to explore them yourself), and
+- parsing binary files into structured json.
+> Note that you don't *need* to decode files - it will be done automatically during parsing process.
 
-When parsing one file - you can use absolute path or relative to `/templates` folder.
-If you want to parse several files together - put them inside `/template`. For example, `/templates/...`
+To simplify usage, 2 folders are used:
+- `testdata` as input
+- `result` as output
+
+Put your files into `testdata` folder, run app and pick "Parse all". Then just check `result` folder for output.
+
+You can also pass absolute path to file if you really need to.
+
+## How to obtain
+Check last release or github actions for precompiled executable file
 
 ## Building manually
-> You need to have installed GO (get from [go.dev](https://go.dev)) version 1.19 or higher
+You need to have installed GO (install from [go.dev](https://go.dev)) version 1.19 or higher
 
 Clone repo:
 ```sh
