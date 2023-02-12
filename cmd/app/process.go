@@ -2,11 +2,13 @@ package main
 
 import (
 	"dataparse"
+	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
 
 	"github.com/pterm/pterm"
+	"go.uber.org/multierr"
 )
 
 func ProcessAllInFolder(folder string) {
@@ -27,29 +29,33 @@ func ProcessBatch(entries []string) {
 	pbar, err := pterm.DefaultProgressbar.WithTotal(total).Start()
 	uiChechError(err)
 
-	exist := getExisting()
+	exist := getExisting("result")
 
 	for _, e := range entries {
 		pbar.UpdateTitle(e)
 
-		ass := dataparse.GetAsset(e)
+		short := getShortname(e)
 
-		if _, ok := exist[ass.Name]; ok {
-			pterm.Success.Printfln("%s already parsed as %s, skipping", getShortname(e), ass.Name)
+		errr := multierr.Errors(ProcessFile(e, exist))
+		if errr == nil {
+			pterm.Success.Println(e)
 			pbar.Increment()
 			continue
 		}
 
-		if err = ProcessFile(e, ass.Parser); err != nil {
-			if err == dataparse.ErrNotSupported {
-				pterm.Error.Printfln("\t%s not supported yet", e)
+		for _, procerr := range errr {
+			switch er := procerr.(type) {
+			case nil:
+				pterm.Success.Println(short)
+			case ErrAlreadyParsed:
+				pterm.Success.Println(short, er.Error())
+			case dataparse.ErrNotSupported:
+				pterm.Error.Println(short, er.Error())
 				missing++
-			} else {
-				pterm.Error.Printfln("\t%s - %s", e, err)
+			default:
+				pterm.Error.Println(er.Error())
 				fail++
 			}
-		} else {
-			pterm.Success.Println(e)
 		}
 
 		pbar.Increment()
@@ -58,18 +64,68 @@ func ProcessBatch(entries []string) {
 	pterm.Info.Printf("Done: %d ok, %d failed, %d missing\n", total-fail-missing, fail, missing)
 }
 
-func ProcessFile(in string, obj any) error {
-	result, err := dataparse.ProcessStructNew(in, obj)
-	if err != nil {
-		return err
+type ErrAlreadyParsed string
+
+func (e ErrAlreadyParsed) Error() string {
+	return fmt.Sprintf("already parsed as %s", string(e))
+}
+
+func ProcessFile(entry string, exist map[string]interface{}) error {
+	assets, ok := dataparse.GetAsset(entry)
+	if !ok {
+		return dataparse.ErrNotSupported("")
 	}
 
-	if err := os.MkdirAll("result", os.ModePerm); err != nil {
+	subfolder := ""
+
+	if len(assets) > 1 {
+		// make additional folder for multiparser
+		subfolder = getShortname(entry)
+	} else {
+		// check early if no need to parse
+		if _, ok := exist[assets[0].Name]; ok {
+			return ErrAlreadyParsed(assets[0].Name)
+		}
+	}
+
+	output := filepath.Join("result", subfolder)
+	if err := os.MkdirAll(output, os.ModePerm); err != nil {
 		pterm.Fatal.Printfln("can't create result folder: %s", err)
 	}
 
-	out := filepath.Join("result", fmt.Sprintf("%s.json", dataparse.GetAsset(in).Name))
-	os.Mkdir("result", os.ModePerm)
+	var errr error
 
-	return os.WriteFile(out, result, os.ModePerm)
+	dec := dataparse.GetTestData(entry)
+
+	for _, ass := range assets {
+		dec.SetPosition(0)
+		name := ass.Name
+		if subfolder != "" {
+			name = subfolder + "\\" + ass.Name
+		}
+		if _, ok := exist[name]; ok {
+			multierr.AppendInto(&errr, ErrAlreadyParsed(ass.Name))
+			continue
+		}
+
+		if ass.Parser == nil {
+			multierr.AppendInto(&errr, dataparse.ErrNotSupported(""))
+			continue
+		}
+
+		if multierr.AppendInto(&errr, dec.Decode(ass.Parser)) {
+			continue
+		}
+
+		data, jsonErr := json.MarshalIndent(ass.Parser, "", "  ")
+		if multierr.AppendInto(&errr, jsonErr) {
+			continue
+		}
+
+		outPath := filepath.Join(output, fmt.Sprintf("%s.json", ass.Name))
+		multierr.AppendInto(&errr, os.WriteFile(outPath, data, os.ModePerm))
+
+	}
+
+	return errr
 }

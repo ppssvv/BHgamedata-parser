@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"io/fs"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"golang.org/x/exp/slices"
@@ -59,24 +61,21 @@ func getShortname(s string) string {
 	return res
 }
 
-func getExisting() map[string]interface{} {
+func getExisting(folder string) map[string]interface{} {
 	result := map[string]interface{}{}
 
-	src, err := os.ReadDir("result")
-	if err != nil {
-		return result
-	}
-
-	for _, e := range src {
-		if e.IsDir() {
-			continue
-		}
-		if strings.HasPrefix(e.Name(), ".") {
-			continue
+	filepath.WalkDir(folder, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
 		}
 
-		result[strings.TrimSuffix(e.Name(), ".json")] = nil
-	}
+		if d.IsDir() {
+			return nil
+		}
+
+		result[strings.TrimPrefix(strings.TrimSuffix(path, ".json"), folder+"\\")] = nil
+		return nil
+	})
 
 	return result
 }

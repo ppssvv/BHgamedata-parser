@@ -1,7 +1,6 @@
 package main
 
 import (
-	"dataparse"
 	"dataparse/internal/decode"
 	"os"
 	"path/filepath"
@@ -106,7 +105,7 @@ func uiManualMode() {
 	file, err := pterm.DefaultInteractiveTextInput.Show(`enter path to the file`)
 	uiChechError(err)
 
-	err = ProcessFile(file, dataparse.GetAsset(file).Parser)
+	err = ProcessFile(file, getExisting("result"))
 
 	if err != nil {
 		pterm.Error.Printfln("error parsing %s: %s", file, err)
@@ -116,42 +115,80 @@ func uiManualMode() {
 }
 
 func uiDecode() {
-	file, err := pterm.DefaultInteractiveTextInput.Show("enter path to the file - " +
-		"relative to 'testdata' folder or absolute path")
+	options := []string{
+		"Everything in 'testdata' folder",
+		"Enter file manually",
+	}
+
+	choice, err := pterm.DefaultInteractiveSelect.WithOptions(options).Show("Choose what to decode")
 	uiChechError(err)
 
-	if file == "" {
-		pterm.Error.Printfln("can't find file: %s", file)
-		return
+	files := []string{}
+	if choice == options[1] {
+		file, err := pterm.DefaultInteractiveTextInput.Show("enter path to the file - " +
+			"relative to 'testdata' folder or absolute path")
+		uiChechError(err)
+
+		if file == "" {
+			pterm.Error.Printfln("can't find file: %s", file)
+			return
+		}
+
+		if !filepath.IsAbs(file) {
+			file = filepath.Join("testdata", file)
+		}
+
+		files = append(files, file)
+	} else {
+		entries, err := os.ReadDir("testdata")
+		if err != nil {
+			pterm.Fatal.Println("can't read testdata folder: ", err)
+		}
+		files = converDirEntries(entries)
 	}
 
-	if !filepath.IsAbs(file) {
-		file = filepath.Join("testdata", file)
-	}
+	decodeMulti(files)
+}
 
-	result, err := decode.Parse(file)
-	if err != nil {
-		pterm.Error.Printfln("error while decoding file [%s]: %s", file, err)
-		return
-	}
+func decodeMulti(files []string) {
+	total := len(files)
+	fail := 0
 
 	outFolder := filepath.Join("result", "decoded")
 	if err := os.MkdirAll(outFolder, os.ModePerm); err != nil {
-		pterm.Error.Printfln("can't create output folder: %s", err)
-		return
-	}
-	outFile := filepath.Join(outFolder, filepath.Base(file))
-
-	f, err := os.Create(outFile)
-	if err != nil {
-		pterm.Error.Printfln("can't create output file: %s", err)
+		pterm.Error.Println("can't create output folder: ", err)
 		return
 	}
 
-	if _, err := f.Write(result); err != nil {
-		pterm.Error.Printfln("can't write result to file: %s", err)
-		return
+	pbar, err := pterm.DefaultProgressbar.WithTotal(total).WithRemoveWhenDone(true).Start()
+	uiChechError(err)
+
+	for _, file := range files {
+		pbar.UpdateTitle(file)
+
+		if !filepath.IsAbs(file) {
+			file = filepath.Join("testdata", file)
+		}
+
+		result, err := decode.Parse(file)
+		if err != nil {
+			pterm.Error.Printfln("[%s]: %s", file, err)
+			fail++
+			pbar.Increment()
+			continue
+		}
+
+		outFile := filepath.Join(outFolder, filepath.Base(file))
+		if os.WriteFile(outFile, result, os.ModePerm); err != nil {
+			pterm.Error.Printfln("can't write result to file: %s", err)
+			fail++
+			pbar.Increment()
+			continue
+		}
+
+		pbar.Increment()
+		pterm.Success.Printfln("%s - ok!", outFile)
 	}
 
-	pterm.Success.Printfln("%s - ok!", outFile)
+	pterm.Info.Printf("Done: %d ok, %d failed\n", total-fail, fail)
 }

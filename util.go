@@ -6,30 +6,23 @@ import (
 	"strings"
 )
 
-func GetAsset(f string) dump.Asset {
+func GetAsset(f string) ([]dump.Asset, bool) {
 	f = filepath.Base(f)
 	id, _, _ := strings.Cut(f, "_")
 	a, ok := NewAssets[id]
-	if ok {
-		return a
-	}
-
-	return dump.Asset{
-		Name:   f,
-		Parser: nil,
-	}
+	return a, ok
 }
 
-func EventDialogMultiLang(lang string) dump.Asset {
+func EventDialogMultiLang(lang string) []dump.Asset {
 	ass := dump.AssetName["EventDialogDataMetaData"]
 	ass.Name += "_" + lang
 
-	return ass
+	return []dump.Asset{ass}
 }
 
-func TextMapMultiLang(lang string) dump.Asset {
+func TextMapMultiLang(lang string) []dump.Asset {
 	ass := dump.AssetName["TextMapMultiLangMetaData"]
 	ass.Name += "_" + lang
 
-	return ass
+	return []dump.Asset{ass}
 }

@@ -2,7 +2,10 @@ module dataparse
 
 go 1.19
 
-require github.com/streamingfast/binary v0.0.0-fixed
+require (
+	github.com/streamingfast/binary v0.0.0-fixed
+	go.uber.org/multierr v1.5.0
+)
 
 require (
 	atomicgo.dev/cursor v0.1.1 // indirect
@@ -24,7 +27,6 @@ require (
 	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
 	go.opencensus.io v0.22.1 // indirect
 	go.uber.org/atomic v1.6.0 // indirect
-	go.uber.org/multierr v1.5.0 // indirect
 	go.uber.org/zap v1.16.0 // indirect
 	golang.org/x/sys v0.1.0 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect

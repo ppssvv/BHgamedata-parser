@@ -4,7 +4,6 @@ import (
 	"dataparse/internal/decode"
 	"encoding/binary"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -59,11 +58,17 @@ func GetTestData(f string) *bin.Decoder {
 	return readFile(f)
 }
 
-var ErrNotSupported = errors.New("this file is not supported yet")
+type ErrNotSupported string
+
+func (e ErrNotSupported) Error() string {
+	return fmt.Sprintf("is not supported yet")
+}
+
+// var ErrNotSupported = errors.New("this file is not supported yet")
 
 func ProcessStructNew(f string, obj any) ([]byte, error) {
 	if obj == nil {
-		return nil, ErrNotSupported
+		return nil, ErrNotSupported("")
 	}
 
 	if err := GetTestData(f).Decode(obj); err != nil {
