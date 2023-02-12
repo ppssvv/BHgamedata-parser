@@ -6210,15 +6210,15 @@ type DialogMetaData struct {
 
 	// Properties with objects
 	PostDialogIdList AddrTo[[]int32]
-	PreDialogIDList  AddrTo[[]int32]
-	DialogType       uint8
-	AvatarID         uint16
-	ScreenSide       uint8
-	Source           AddrTo[StrWithPrefix16]
-	Content          AddrTo[[]DialogMetaData_PlotChatNode]
-	AudioID          AddrTo[StrWithPrefix16]
-	Emotion          AddrTo[StrWithPrefix16]
-	LipMotion        AddrTo[StrWithPrefix16]
+	// PreDialogIDList AddrTo[[]int32]
+	DialogType uint8
+	AvatarID   uint16
+	ScreenSide uint8
+	Source     AddrTo[StrWithPrefix16]
+	Content    AddrTo[[]DialogMetaData_PlotChatNode]
+	AudioID    AddrTo[StrWithPrefix16]
+	Emotion    AddrTo[StrWithPrefix16]
+	LipMotion  AddrTo[StrWithPrefix16]
 }
 
 type DialogMetaData_PlotChatNode struct {
@@ -15873,8 +15873,8 @@ type QTEndlessMonsterWaveMetaData struct {
 	TagDistRule      AddrTo[StrWithPrefix16]
 	TagFilter        AddrTo[StrWithPrefix16]
 	HPRatio          float32
-	DistRule         AddrTo[[]StrWithPrefix16]
-	RankDist         AddrTo[[]int32]
+	// DistRule AddrTo[[]StrWithPrefix16]
+	// RankDist AddrTo[[]int32]
 }
 
 type QuestionBankMetaData struct {
