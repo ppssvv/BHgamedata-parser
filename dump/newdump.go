@@ -6400,13 +6400,13 @@ type DiceyDungeonPassiveSkillMetaData struct {
 type DiceyDungeonRoleMetaData struct {
 	// Fields
 	RoleID int32
-	Level  int32
 
 	// Properties with objects
 	RoleName                 AddrTo[Hash]
 	RoleChibiIcon            AddrTo[StrWithPrefix16]
 	RoleFigurePath           AddrTo[StrWithPrefix16]
 	RolePrefabPath           AddrTo[StrWithPrefix16]
+	Level                    int32
 	MaxLevel                 int32
 	LevelUpCostMaterial      AddrTo[MechMetaData_DisjoinOutputItem]
 	Health                   int32
