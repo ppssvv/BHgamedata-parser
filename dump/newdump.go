@@ -4111,11 +4111,11 @@ type ChapterOWBagMetaData struct {
 type ChapterOWBuildingLevelMetaData struct {
 	// Fields
 	MainID uint32
-	Level  uint32
 
 	// Properties with objects
 	BuildingType         uint8
 	Tips                 AddrTo[Hash]
+	Level                uint32
 	CostTime             uint32
 	NeedTerminalLevel    uint32
 	CostMaterialList     AddrTo[[]ChapterOWBuildingLevelMetaData_CostMaterialData]
@@ -5904,8 +5904,8 @@ type CompensationOfDormitoryMetaData struct {
 
 type CompensationOfDormitoryMetaData_CompensationOfDormitoryRewardMetaData struct {
 	// Fields
-	Num      int32
 	RewardID int32
+	Num      int32
 }
 
 type CompensationOfElfBreakMetaData struct {
@@ -5948,10 +5948,10 @@ type CompensationOfExtendGradeMetaData struct {
 type CompensationOfIslandMetaData struct {
 	// Fields
 	CabinType int32
-	Level     int32
 
 	// Properties with objects
 	CabinName AddrTo[Hash]
+	Level     int32
 	ItemList  AddrTo[[]CompensationOfDormitoryMetaData_CompensationOfDormitoryRewardMetaData]
 }
 
@@ -6209,16 +6209,15 @@ type DialogMetaData struct {
 	DialogID int32
 
 	// Properties with objects
-	PostDialogIdList AddrTo[[]int32]
-	// PreDialogIDList AddrTo[[]int32]
-	DialogType uint8
-	AvatarID   uint16
-	ScreenSide uint8
-	Source     AddrTo[StrWithPrefix16]
-	Content    AddrTo[[]DialogMetaData_PlotChatNode]
-	AudioID    AddrTo[StrWithPrefix16]
-	Emotion    AddrTo[StrWithPrefix16]
-	LipMotion  AddrTo[StrWithPrefix16]
+	PreDialogIDList AddrTo[[]int32]
+	DialogType      uint8
+	AvatarID        uint16
+	ScreenSide      uint8
+	Source          AddrTo[StrWithPrefix16]
+	Content         AddrTo[[]DialogMetaData_PlotChatNode]
+	AudioID         AddrTo[StrWithPrefix16]
+	Emotion         AddrTo[StrWithPrefix16]
+	LipMotion       AddrTo[StrWithPrefix16]
 }
 
 type DialogMetaData_PlotChatNode struct {
@@ -6652,9 +6651,8 @@ type DLCSupportDataMetaData struct {
 	SupportParam int32
 
 	// Properties with objects
-	NPCID           uint8
-	SupportPoint    uint16
-	SupportTypeEnum int32
+	NPCID        uint8
+	SupportPoint uint16
 }
 
 type DLCSupportLevelDataMetaData struct {
@@ -11856,11 +11854,9 @@ type LevelStatisticsMetaData struct {
 }
 
 type LevelStatisticsMetaData_IntIntPair struct {
-	// Fields
-	Item2 float32
-
 	// Objects
 	Item1 StrWithPrefix16
+	Item2 float32
 }
 
 type LevelTrialMetaData struct {
@@ -12974,11 +12970,9 @@ type MonsterCardSkillMetaData struct {
 }
 
 type MonsterCardSkillMetaData_SkillParam struct {
-	// Fields
-	Param float32
-
 	// Objects
-	Name StrWithPrefix16
+	Name  StrWithPrefix16
+	Param float32
 }
 
 type MonsterCardStageMetaData struct {
@@ -14888,12 +14882,11 @@ type OWEndlessMonsterGroupScore struct {
 	MonsterGroupID int32
 
 	// Properties with objects
-	Score                   uint16
-	MonsterInitType         int32
-	ExtraInitTypes          AddrTo[[]StrWithPrefix16]
-	RandomType              uint8
-	DifficultyDescription   AddrTo[Hash]
-	ExtraInitTypesProcessed AddrTo[[]OWEndlessMonsterGroupScore_InitEntry]
+	Score                 uint16
+	MonsterInitType       int32
+	ExtraInitTypes        AddrTo[[]StrWithPrefix16]
+	RandomType            uint8
+	DifficultyDescription AddrTo[Hash]
 }
 
 type OWEndlessMonsterGroupScore_InitEntry struct {
@@ -15872,8 +15865,6 @@ type QTEndlessMonsterWaveMetaData struct {
 	TagDistRule      AddrTo[StrWithPrefix16]
 	TagFilter        AddrTo[StrWithPrefix16]
 	HPRatio          float32
-	// DistRule AddrTo[[]StrWithPrefix16]
-	// RankDist AddrTo[[]int32]
 }
 
 type QuestionBankMetaData struct {
@@ -20960,11 +20951,9 @@ type UltraEndlessRewardMetaData struct {
 }
 
 type UltraEndlessScheduleMetaData struct {
-	// Fields
-	ScheduleID uint16
-
 	// Properties with objects
 	StartTime        AddrTo[RemoteTime]
+	ScheduleID       uint16
 	BattleConfigList AddrTo[[]UltraEndlessScheduleMetaData_GroupLevelBattleConfig]
 }
 
@@ -23205,4 +23194,17 @@ type WeeklyReportSubPageDataMetaDataReader_StructKey struct {
 	// Fields
 	ID       int32
 	FatherID int32
+}
+
+type UnknownAsset1MetaData struct {
+	// Objects
+	Field1 bool
+	ID     int32
+	Field2 []RandomDialogCGRawMetaData_CGRawPos
+}
+
+type UnknownAsset2MetaDataReader_StructKey struct {
+	// Properties with objects
+	Key1 int32
+	Key2 int32
 }

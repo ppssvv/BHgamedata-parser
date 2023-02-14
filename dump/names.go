@@ -1544,6 +1544,8 @@ var AssetName = map[string]Asset{
 	"UniqueGachaReplaceItemMetaData":          {"UniqueGachaReplaceItemMetaData", &StructReader[uint16, UniqueGachaReplaceItemMetaData]{}},
 	"UniqueGoodsItemMetaData":                 {"UniqueGoodsItemMetaData", &StructReader[int32, UniqueGoodsItemMetaData]{}},
 	"UniqueMonsterMetaData":                   {"UniqueMonsterMetaData", &StructReader[uint32, UniqueMonsterMetaData]{}},
+	"UnknownAsset1MetaData":                   {"UnknownAsset1MetaData", &StructReader[int32, UnknownAsset1MetaData]{}},
+	"UnknownAsset2MetaData":                   {"UnknownAsset2MetaData", &StructReader[UnknownAsset2MetaDataReader_StructKey, StrWithPrefix16]{}},
 	"UnlockUIData":                            {"UnlockUIData", &StructReader[int32, UnlockUIData]{}},
 	"VibrateConfigsMetaData":                  {"VibrateConfigsMetaData", &StructReader[StrWithPrefix16, VibrateConfigsMetaData]{}},
 	"VirtualAvatarMetaData":                   {"VirtualAvatarMetaData", &StructReader[int32, VirtualAvatarMetaData]{}},

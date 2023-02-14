@@ -1,10 +1,10 @@
 # Data parser for *not-so-popular* anime game
 
 ## Status
-Out of total 385 files:
-- 328 files have 1 correct parser
-- 9 files have multiple identical parsers (have fun guessing which is correct)
-- 40 files have no match
+Out of total 394 files:
+- 344 files have 1 correct parser
+- 3 files have multiple parsers (have fun guessing which is correct)
+- 39 files have no match
 - 8 unity containers
 
 Was tested with Global version v6.3

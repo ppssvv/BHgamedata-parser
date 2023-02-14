@@ -3,7 +3,6 @@ package dump
 import (
 	"encoding/binary"
 	"encoding/json"
-	"errors"
 	"strings"
 
 	bin "github.com/streamingfast/binary"
@@ -19,16 +18,17 @@ type StructReader[K any, D any] struct {
 }
 
 func (s *StructReader[K, D]) UnmarshalBinary(decoder *bin.Decoder) (err error) {
-	totalSize := decoder.Remaining()
+	// totalSize := decoder.Remaining()
 
 	s.Filesize, err = decoder.ReadUint32(binary.LittleEndian)
 	if err != nil {
 		return
 	}
 
-	if s.Filesize != uint32(totalSize) {
-		return errors.New("size mismatch")
-	}
+	// disable check because of 2889932192
+	// if s.Filesize != uint32(totalSize) {
+	// 	return errors.New("size mismatch")
+	// }
 
 	s.EntryCount, err = decoder.ReadUint32(binary.LittleEndian)
 	if err != nil {
