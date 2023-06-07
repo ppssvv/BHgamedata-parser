@@ -1,44 +1,48 @@
 # Data parser for *not-so-popular* anime game
 
 ## Status
-Out of total 394 files:
-- 344 files have 1 correct parser
-- 3 files have multiple parsers (have fun guessing which is correct)
-- 39 files have no match
-- 8 unity containers
+For the list of unsupported files check [Missing.md](Missing.md).
+Files with non-number name (e.g. "settings_*.unity3d") are not excel files, use Studio for them.
 
-Was tested with Global version v6.3
+## Versioning
+Starting from v6.6.0 version will correspond to the game version. 
+Keep in mind that format of files changes often, so newer version of tool might not work with files from older version. 
 
 ## Using
-Tool has 2 main features: 
-- decoding binary files (if you want to explore them yourself), and
-- parsing binary files into structured json.
-> Note that you don't *need* to decode files - it will be done automatically during parsing process.
+Just lauch `app.exe` and it will ask you to provide files.
 
-To simplify usage, 2 folders are used:
-- `testdata` as input
-- `result` as output
+Alternatively, you can use CLI mode
+```
+app.exe <input_path> <output_path> [decode-only]
 
-Put your files into `testdata` folder, run app and pick "Parse all". Then just check `result` folder for output.
+Required parameters:
+    <input_path>
+        file or folder with files to parse
+    <output_path>
+        output folder where to store results
 
-You can also pass absolute path to file if you really need to.
+Optional parameters:
+    [decode-only]
+        instead of parsing will just decode files (if you want to investigate)
+        **Make sure to set different _output_ folder to avoid overriding your data as it will use same filenames!**
+
+    
+```
 
 ## How to obtain
-Check last release or github actions for precompiled executable file
+Check [releases](https://github.com/funplay133/gamedata-parser/releases/latest) 
+or get latest build from [github actions](https://github.com/funplay133/gamedata-parser/actions/workflows/build.yml)
+
+By the way, your antivirus might treat tool as a virus, but its a [common issue](https://go.dev/doc/faq#virus) with Go binaries 
 
 ## Building manually
 You need to have installed GO (install from [go.dev](https://go.dev)) version 1.19 or higher
 
-Clone repo:
+In your terminal run:
 ```sh
-git clone <url>
-```
-and open it in terminal:
-```sh
-cd <path-to-cloned-repo>
-```
-While inside folder, run 
-```sh
+git clone https://github.com/funplay133/gamedata-parser.git
+cd gamedata-parser
 go build ./cmd/app
 ```
-Lauch created `app.exe`
+
+Now you can just launch created `app.exe` or use it from command line

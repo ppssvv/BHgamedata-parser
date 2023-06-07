@@ -1,194 +1,99 @@
 package main
 
 import (
-	"dataparse/internal/decode"
+	"dataparse"
+	"fmt"
 	"os"
-	"path/filepath"
 	"strings"
 
-	"github.com/pterm/pterm"
+	"github.com/harry1453/go-common-file-dialog/cfd"
+	"github.com/harry1453/go-common-file-dialog/cfdutil"
 )
 
+// app.exe input output [decode-only]
 func main() {
-	for {
-		showUI()
-	}
-}
+	args := os.Args[1:]
 
-var mainMenuOptions = []string{
-	"Parse file",
-	"Decode file",
-	"Exit",
-}
-
-func showUI() {
-	options := map[string]func(){
-		mainMenuOptions[0]: uiParse,
-		mainMenuOptions[1]: uiDecode,
-		mainMenuOptions[2]: func() { os.Exit(0) },
+	if len(args) < 2 {
+		interactiveMode()
+		os.Exit(0)
 	}
 
-	choice, err := pterm.DefaultInteractiveSelect.WithOptions(mainMenuOptions).Show("Make a choice")
-	uiChechError(err)
-
-	options[choice]()
-
-	pterm.Println()
-}
-
-func uiParse() {
-	options := []string{
-		"Everything in 'testdata' folder",
-		"Enter file manually",
-		"TextMaps",
-		"DialogueData",
+	if len(args) >= 3 {
+		dec := args[2]
+		if dec == "decode-only" {
+			if err := decodeInput(args[0], args[1]); err != nil {
+				fmt.Println(err)
+			}
+			fmt.Println("Done!")
+			os.Exit(0)
+		}
 	}
 
-	choice, err := pterm.DefaultInteractiveSelect.WithOptions(options).Show("Choose what to parse")
-	uiChechError(err)
-
-	routes := map[string]func(){
-		options[0]: func() { ProcessAllInFolder("testdata") },
-		options[1]: uiManualMode,
-		options[2]: uiTextMap,
-		options[3]: uiDialogueData,
-	}
-
-	routes[choice]()
-
-	pterm.Println()
-}
-
-func uiTextMap() {
-	options := []string{
-		"2578607515 - cn",
-		"2578607537 - de",
-		"2578607577 - en",
-		"2578607612 - fr",
-	}
-
-	uiProcessMulti(options)
-}
-
-func uiDialogueData() {
-	options := []string{
-		"816421621 - cn",
-		"816421643 - de",
-		"816421683 - en",
-		"816421718 - fr",
-	}
-
-	uiProcessMulti(options)
-}
-
-func uiProcessMulti(options []string) {
-	files, err := pterm.DefaultInteractiveMultiselect.WithOptions(options).
-		Show("choose what files to parse")
-	uiChechError(err)
-
-	for i := 0; i < len(files); i++ {
-		files[i], _, _ = strings.Cut(files[i], " - ")
-	}
-
-	files, err = getFullName("testdata", files)
+	err := dataparse.Parse(args[0], args[1])
 	if err != nil {
-		pterm.Error.Printfln("can't find files in testdata folder: %s", err)
-		return
+		exitWithWait(err.Error())
 	}
 
-	ProcessBatch(files)
-
-	pterm.Success.Println("Everything done!")
+	// in cli mode not need to wait for input
+	fmt.Println("Done!")
 }
 
-func uiManualMode() {
-	file, err := pterm.DefaultInteractiveTextInput.Show(`enter path to the file`)
-	uiChechError(err)
+func interactiveMode() {
+	results, err := cfdutil.ShowOpenMultipleFilesDialog(cfd.DialogConfig{
+		Title: "Choose files to parse",
+		Role:  "GameDataParserFiles",
+		FileFilters: []cfd.FileFilter{
+			{
+				DisplayName: "Unity files",
+				Pattern:     "*.unity3d",
+			},
+			{
+				DisplayName: "All files",
+				Pattern:     "*.*",
+			},
+		},
+	})
 
-	err = ProcessFile(file, getExisting("result"))
+	// if err == cfd.ErrorCancelled {
+	if err != nil { // on any error
+		results = simpleMode()
+	}
 
+	if results == nil || len(results) < 1 {
+		exitWithWait("bad input")
+	}
+
+	for _, f := range results {
+		dataparse.ParseFile(f, "out")
+	}
+
+	exitWithWait("Done!")
+}
+
+func simpleMode() []string {
+	fmt.Print("Enter input manually (file or folder): ")
+	var in string
+	if _, err := fmt.Scanln(&in); err != nil {
+		fmt.Println("try again")
+		simpleMode()
+	}
+
+	in = strings.Trim(in, `"`)
+
+	info, err := os.Stat(in)
 	if err != nil {
-		pterm.Error.Printfln("error parsing %s: %s", file, err)
-	} else {
-		pterm.Success.Println("Everything done!")
-	}
-}
-
-func uiDecode() {
-	options := []string{
-		"Everything in 'testdata' folder",
-		"Enter file manually",
+		return nil
 	}
 
-	choice, err := pterm.DefaultInteractiveSelect.WithOptions(options).Show("Choose what to decode")
-	uiChechError(err)
-
-	files := []string{}
-	if choice == options[1] {
-		file, err := pterm.DefaultInteractiveTextInput.Show("enter path to the file - " +
-			"relative to 'testdata' folder or absolute path")
-		uiChechError(err)
-
-		if file == "" {
-			pterm.Error.Printfln("can't find file: %s", file)
-			return
-		}
-
-		if !filepath.IsAbs(file) {
-			file = filepath.Join("testdata", file)
-		}
-
-		files = append(files, file)
-	} else {
-		entries, err := os.ReadDir("testdata")
+	if info.IsDir() {
+		tmp, err := dataparse.GetAllFiles(in)
 		if err != nil {
-			pterm.Fatal.Println("can't read testdata folder: ", err)
+			return nil
 		}
-		files = converDirEntries(entries)
+
+		return tmp
 	}
 
-	decodeMulti(files)
-}
-
-func decodeMulti(files []string) {
-	total := len(files)
-	fail := 0
-
-	outFolder := filepath.Join("result", "decoded")
-	if err := os.MkdirAll(outFolder, os.ModePerm); err != nil {
-		pterm.Error.Println("can't create output folder: ", err)
-		return
-	}
-
-	pbar, err := pterm.DefaultProgressbar.WithTotal(total).WithRemoveWhenDone(true).Start()
-	uiChechError(err)
-
-	for _, file := range files {
-		pbar.UpdateTitle(file)
-
-		if !filepath.IsAbs(file) {
-			file = filepath.Join("testdata", file)
-		}
-
-		result, err := decode.Parse(file)
-		if err != nil {
-			pterm.Error.Printfln("[%s]: %s", file, err)
-			fail++
-			pbar.Increment()
-			continue
-		}
-
-		outFile := filepath.Join(outFolder, filepath.Base(file))
-		if os.WriteFile(outFile, result, os.ModePerm); err != nil {
-			pterm.Error.Printfln("can't write result to file: %s", err)
-			fail++
-			pbar.Increment()
-			continue
-		}
-
-		pbar.Increment()
-		pterm.Success.Printfln("%s - ok!", outFile)
-	}
-
-	pterm.Info.Printf("Done: %d ok, %d failed\n", total-fail, fail)
+	return []string{in}
 }

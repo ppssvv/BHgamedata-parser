@@ -698,6 +698,10 @@ func (d *Decoder) HasRemaining() bool {
 	return d.Remaining() > 0
 }
 
+func (d *Decoder) GetData() []byte {
+	return d.data
+}
+
 // indirect walks down v allocating pointers as needed,
 // until it gets to a non-pointer.
 // if it encounters an Unmarshaler, indirect stops and returns that.

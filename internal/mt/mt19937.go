@@ -1,4 +1,4 @@
-package decode
+package mt
 
 const (
 	n = 624

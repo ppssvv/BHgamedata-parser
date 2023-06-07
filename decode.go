@@ -1,18 +1,26 @@
-package decode
+package dataparse
 
 import (
 	"bytes"
 	"encoding/binary"
 	"io"
 	"os"
+
+	"dataparse/internal/mt"
 )
 
-func Parse(filename string) ([]byte, error) {
+// DecodeFile is a small wrapper around Decode to work with files
+func DecodeFile(filename string) ([]byte, error) {
 	f, err := os.Open(filename)
 	if err != nil {
 		return nil, err
 	}
+	defer f.Close()
 
+	return Decode(f)
+}
+
+func Decode(f io.ReadSeeker) ([]byte, error) {
 	var seed int32
 	if err := binary.Read(f, binary.LittleEndian, &seed); err != nil {
 		return nil, err
@@ -25,7 +33,7 @@ func Parse(filename string) ([]byte, error) {
 
 	xorpad := [0x200]byte{}
 
-	mt := New(seed)
+	mt := mt.New(seed)
 
 	// 512 (0x200) bytes or 128 (0x80) ints
 	for i := 0; i < 512; i += 4 {
@@ -46,12 +54,12 @@ func Parse(filename string) ([]byte, error) {
 	xorpadIndex := mt.Int31()
 	pos := int(xorpadIndex) - 0x84
 
-	info, err := f.Stat()
+	size, err := f.Seek(0, io.SeekEnd)
 	if err != nil {
 		return nil, err
 	}
 
-	result := make([]byte, info.Size())
+	result := make([]byte, size)
 	f.Seek(0, io.SeekStart)
 	if err := binary.Read(f, binary.LittleEndian, &result); err != nil {
 		return nil, err
