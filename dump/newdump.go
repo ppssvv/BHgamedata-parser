@@ -1,65 +1,5 @@
 package dump
 
-type EditorUniqueMonsterMetaData struct {
-	// Properties
-	Info           AddrTo[StrWithPrefix16]
-	Group          uint32
-	Category       AddrTo[StrWithPrefix16]
-	Name           AddrTo[Hash]
-	MonsterName    AddrTo[StrWithPrefix16]
-	TypeName       AddrTo[StrWithPrefix16]
-	HPRatio        float32
-	AttackRatio    float32
-	DefenseRatio   float32
-	MoveSpeedRatio float32
-	ATKRatios      AddrTo[[]float32]
-	ConfigType     AddrTo[StrWithPrefix16]
-	AIName         AddrTo[StrWithPrefix16]
-	AttackCDNames  AddrTo[[]StrWithPrefix16]
-	AttackCDs      AddrTo[[]float32]
-	Abilities      AddrTo[StrWithPrefix16]
-	HPSegmentNum   int32
-	Scale          AddrTo[[]float32]
-	BossRank       int32
-	HandBookId     int32
-}
-
-type MonsterActivityMetaData struct {
-	// Properties
-	ActivityName AddrTo[StrWithPrefix16]
-}
-
-type MonsterProtoTypeMetaData struct {
-	// Properties
-	Info           AddrTo[StrWithPrefix16]
-	Details        AddrTo[StrWithPrefix16]
-	Category       AddrTo[StrWithPrefix16]
-	Name           AddrTo[Hash]
-	MonsterName    AddrTo[StrWithPrefix16]
-	TypeName       AddrTo[StrWithPrefix16]
-	HPRatio        float32
-	AttackRatio    float32
-	DefenseRatio   float32
-	MoveSpeedRatio float32
-	ATKRatios      AddrTo[[]float32]
-	ConfigType     AddrTo[StrWithPrefix16]
-	AIName         AddrTo[StrWithPrefix16]
-	AttackCDNames  AddrTo[[]StrWithPrefix16]
-	AttackCDs      AddrTo[[]float32]
-	Abilities      AddrTo[StrWithPrefix16]
-	HPSegmentNum   int32
-	Scale          AddrTo[[]float32]
-	BossRank       int32
-	HandBookId     int32
-}
-
-type PropListMetaData struct {
-	// Properties
-	Info     AddrTo[StrWithPrefix16]
-	Details  AddrTo[StrWithPrefix16]
-	Category AddrTo[StrWithPrefix16]
-}
-
 type ArtifactSkillNameOverrideMetaData struct {
 	// Properties
 	OverrideName AddrTo[Hash]
@@ -883,7 +823,6 @@ type ItemMetaData struct {
 	SortID                     uint8
 	AffixTrainType             uint8
 	AffixRandomValueIncress    uint8
-	AffixTitleExp              uint16
 	QuickBuyType               uint8
 	ShopType                   uint8
 	IdShopGoods                int32
@@ -1221,6 +1160,7 @@ type ThemeBGMConfigMetaData struct {
 	StateName       AddrTo[StrWithPrefix16]
 	SwitchName      AddrTo[StrWithPrefix16]
 	SwitchGroupName AddrTo[StrWithPrefix16]
+	SourceDesc      AddrTo[Hash]
 	ShowName        AddrTo[Hash]
 }
 
@@ -1308,6 +1248,7 @@ type WeaponMetaData struct {
 	GachaGiftDropDisplayConfig AddrTo[[]float32]
 	PreloadEffectFolderPath    AddrTo[StrWithPrefix16]
 	WeaponFilterList           AddrTo[[]int32]
+	SoundBanks                 AddrTo[[]StrWithPrefix16]
 	CollaborationWeaponID      int32
 	AvatarCustomDisplayID      int32
 }
@@ -1830,8 +1771,7 @@ type AdventureWelfareMetaData struct {
 
 type AffixEffectMetaData struct {
 	// Properties
-	Attributetype                       int32
-	RelatedAffixTitleEffectTemplateList AddrTo[[]int32]
+	Attributetype int32
 }
 
 type AffixRecycleMetaData struct {
@@ -1843,29 +1783,6 @@ type AffixRecycleMetaData_IntIntPair struct {
 	// Fields
 	Item1 int32
 	Item2 int32
-}
-
-type AffixTitleEffectMetaData struct {
-	// Properties
-	AffixTitleEffectTemplateID int32
-	EffectInitValue            float32
-	EffectValuePerSubLevel     float32
-}
-
-type AffixTitleEffectTemplateMetaData struct {
-	// Properties
-	EffectContentTextMap AddrTo[Hash]
-}
-
-type AffixTitleLevelMetaData struct {
-	// Properties
-	BreakExpNeed         int32
-	BreakMaterialNeed    AddrTo[[]AffixRecycleMetaData_IntIntPair]
-	DisjointGetMaterials AddrTo[[]AffixRecycleMetaData_IntIntPair]
-	InheritNeedCoin      int32
-	InheritItemNeed      AddrTo[[]AffixRecycleMetaData_IntIntPair]
-	ResetNeedCoin        int32
-	ResetItemNeed        AddrTo[[]AffixRecycleMetaData_IntIntPair]
 }
 
 type AffixTreeNodeMetaData struct {
@@ -2933,6 +2850,18 @@ type ChapterActivityPlotActionMetaData struct {
 	Param AddrTo[[]StrWithPrefix16]
 }
 
+type ChapterActivityRewardLineMetaData struct {
+	// Properties
+	LimitRewardID    int32
+	ResidentRewardID int32
+	RewardBeginTime  AddrTo[RemoteTime]
+	IsPhasesReward   bool
+	IsKeyReward      bool
+	KeyRewardName    AddrTo[StrWithPrefix16]
+	IsAvatarReward   bool
+	KeyRewardImage   AddrTo[StrWithPrefix16]
+}
+
 type ChapterActivityRewardMetaData struct {
 	// Properties
 	ChapterID    int32
@@ -3033,14 +2962,16 @@ type ChapterBWFogConfigMetaData struct {
 
 type ChapterBWSiteConfigMetaData struct {
 	// Properties
-	FilterChapterID     int32
-	WorldType           uint8
-	CameraFocusLocalPos AddrTo[Vector3]
-	IsNeedCameraRecover bool
-	PivotID             int32
-	PrefabID            int32
-	PopupIcon           AddrTo[StrWithPrefix16]
-	ThreadCollectionID  uint32
+	FilterChapterID        int32
+	WorldType              uint8
+	PivotID                int32
+	PrefabID               int32
+	TargetFocusSiteID      int32
+	CameraFocusLocalPos    AddrTo[Vector3]
+	IsNeedCameraRecover    bool
+	ShowSitePreMissionList AddrTo[[]int32]
+	PopupIcon              AddrTo[StrWithPrefix16]
+	ThreadCollectionID     uint32
 }
 
 type ChapterBWSitePivotMetaData struct {
@@ -3060,6 +2991,21 @@ type ChapterBWSystemUnlockTipMetaData struct {
 	Title   AddrTo[StrWithPrefix16]
 	Desc    AddrTo[StrWithPrefix16]
 	ImgPath AddrTo[StrWithPrefix16]
+}
+
+type ChapterBWWorldBuffDataMetaData struct {
+	// Properties
+	Name        AddrTo[Hash]
+	Desc        AddrTo[Hash]
+	Icon        AddrTo[StrWithPrefix16]
+	BuffIcon    AddrTo[StrWithPrefix16]
+	AbilityName AddrTo[StrWithPrefix16]
+	ParamList   AddrTo[[]StrWithPrefix16]
+}
+
+type ChapterBWWorldBuffSetMetaData struct {
+	// Properties
+	BuffIDList AddrTo[[]int32]
 }
 
 type ChapterBWWorldConfigMetaData struct {
@@ -3090,18 +3036,6 @@ type ChapterBWWorldConfigMetaData_ExpMaterial struct {
 	// Fields
 	MaterialExp int32
 	MaterialID  int32
-}
-
-type ChapterBWWorldRewardLineMetaData struct {
-	// Properties
-	LimitRewardID    int32
-	ResidentRewardID int32
-	RewardBeginTime  AddrTo[RemoteTime]
-	IsPhasesReward   bool
-	IsKeyReward      bool
-	KeyRewardName    AddrTo[StrWithPrefix16]
-	IsAvatarReward   bool
-	KeyRewardImage   AddrTo[StrWithPrefix16]
 }
 
 type ChapterBWWorldRuneAffixMetaData struct {
@@ -3158,6 +3092,16 @@ type ChapterBWWorldRuneTrialMetaData struct {
 	AffixList AddrTo[[]int32]
 }
 
+type ChapterBWWorldSageTowerCfgMetaData struct {
+	// Properties
+	SiteIDList AddrTo[[]int32]
+	BGImage    AddrTo[StrWithPrefix16]
+	Title      AddrTo[StrWithPrefix16]
+	VideoTitle AddrTo[StrWithPrefix16]
+	VideoDesc  AddrTo[StrWithPrefix16]
+	VideoCgID  int32
+}
+
 type ChapterBWWorldStageMetaData struct {
 	// Properties
 	ChapterID               int32
@@ -3166,6 +3110,7 @@ type ChapterBWWorldStageMetaData struct {
 	IsNeedRank              uint8
 	NoteChallengeBGColor    int32
 	RestrictRuneTypeList    AddrTo[[]int32]
+	RestrictRuneLevelList   AddrTo[[]int32]
 	TrialRuneList           AddrTo[[]int32]
 	FirstDropExpMaterialMap AddrTo[[]ChapterBWWorldStageMetaData_DropExpMaterial]
 	DropExpMaterialMap      AddrTo[[]ChapterBWWorldStageMetaData_DropExpMaterial]
@@ -3186,6 +3131,14 @@ type ChapterBWWorldStageWaveMetaData struct {
 	// Properties
 	UIDList     AddrTo[[]int32]
 	WaveBossUID AddrTo[[]int32]
+}
+
+type ChapterBWWorldTowerStageMetaData struct {
+	// Properties
+	IsSaveFloor      bool
+	PassBaseScore    int32
+	DisplayRewardNum int32
+	RecommendLevel   int32
 }
 
 type ChapterChallengeMetaData struct {
@@ -4290,6 +4243,20 @@ type ChapterOWTipsMetaData struct {
 	TutorialID          int32
 	MaterialID          int32
 	Params              AddrTo[[]int32]
+}
+
+type ChapterRewardLineCfgMetaData struct {
+	// Properties
+	RewardLineConfigID       int32
+	RewardLineMatID          int32
+	LimitedRewardEndTime     AddrTo[RemoteTime]
+	MissionIDs               AddrTo[[]int32]
+	AllRewardReleasedTime    AddrTo[RemoteTime]
+	AllMissionReleasedTime   AddrTo[RemoteTime]
+	DefaultKeyImgPath        AddrTo[StrWithPrefix16]
+	IsDefaultKeyImgAvatar    bool
+	MissionRewardPrefabPath  AddrTo[StrWithPrefix16]
+	HideGotNumMaterialIDList AddrTo[[]int32]
 }
 
 type ChapterRpgAvatarRewardLineMetaData struct {
@@ -5854,35 +5821,6 @@ type DormitoryVoiceMetaData struct {
 	Weight       uint8
 }
 
-type DormitoryVoteActivityMetaData struct {
-	// Properties
-	ActivityName         AddrTo[Hash]
-	ActivityDes          AddrTo[Hash]
-	ProductionList       AddrTo[[]int32]
-	ActivityEnterBtnIcon AddrTo[StrWithPrefix16]
-	ActivityShareBtnIcon AddrTo[StrWithPrefix16]
-}
-
-type DormitoryVotePrizeMetaData struct {
-	// Properties
-	PrizeName AddrTo[Hash]
-	PrizeIcon AddrTo[StrWithPrefix16]
-}
-
-type DormitoryVoteProductionMetaData struct {
-	// Properties
-	PrizeType      int32
-	Rank           int32
-	Author         AddrTo[StrWithPrefix16]
-	ProductionName AddrTo[StrWithPrefix16]
-	VotingNum      int32
-	Story          AddrTo[Hash]
-	Thumbnail01    AddrTo[StrWithPrefix16]
-	Thumbnail02    AddrTo[StrWithPrefix16]
-	Thumbnail03    AddrTo[StrWithPrefix16]
-	RoomConfig     int32
-}
-
 type DownLoadConfigMetaData struct {
 	// Properties
 	AccountType   AddrTo[[]uint8]
@@ -6105,21 +6043,22 @@ type EntryPerformMetaData struct {
 
 type EntryThemeDataMetaData struct {
 	// Properties
-	Display            bool
-	SpecialTag         bool
-	ThemeUIConfig      int32
-	ThemeBGMConfigList AddrTo[[]int32]
-	RandomThemeBGM     int32
-	SpecialConfigList  AddrTo[[]int32]
-	WeatherGroupConfig uint8
-	ThemeName          AddrTo[Hash]
-	ThemeDesc          AddrTo[Hash]
-	ThemeGetDesc       AddrTo[Hash]
-	ThemeBGSmall       AddrTo[StrWithPrefix16]
-	ThemeBGLarge       AddrTo[StrWithPrefix16]
-	ThemeTagList       AddrTo[[]uint16]
-	GiftDesc           AddrTo[Hash]
-	GiftBGPath         AddrTo[StrWithPrefix16]
+	Display                   bool
+	SpecialTag                bool
+	ThemeUIConfig             int32
+	RandomThemeBGM            int32
+	SpecialConfigList         AddrTo[[]int32]
+	InitialThemeBGMConfigList AddrTo[[]int32]
+	FullThemeBGMConfigList    AddrTo[[]int32]
+	WeatherGroupConfig        uint8
+	ThemeName                 AddrTo[Hash]
+	ThemeDesc                 AddrTo[Hash]
+	ThemeGetDesc              AddrTo[Hash]
+	ThemeBGSmall              AddrTo[StrWithPrefix16]
+	ThemeBGLarge              AddrTo[StrWithPrefix16]
+	ThemeTagList              AddrTo[[]uint16]
+	GiftDesc                  AddrTo[Hash]
+	GiftBGPath                AddrTo[StrWithPrefix16]
 }
 
 type EntryThemeMetaData struct {
@@ -11039,11 +10978,6 @@ type MPTrophyMetaData struct {
 	TrophyScore AddrTo[[]int32]
 }
 
-type MultiLangSubPakDataMetaData struct {
-	// Properties
-	LangType uint8
-}
-
 type MuseumMetaData struct {
 	// Properties
 	ActivityID      uint8
@@ -12780,21 +12714,25 @@ type PlotMetaData struct {
 	EndDialogID   int32
 }
 
+type PonMachineCollectionMetaData struct {
+	// Properties
+	Icon AddrTo[StrWithPrefix16]
+	Name AddrTo[Hash]
+	Des  AddrTo[Hash]
+}
+
+type PonMachineScheduleMetaData struct {
+	// Properties
+	PonMachineMaterialID          int32
+	PonMachineMaterialCostNumList AddrTo[[]int32]
+	PonMachineInfoKey             AddrTo[Hash]
+	RewardlineID                  uint32
+	PonMachineCollectionIDList    AddrTo[[]uint32]
+}
+
 type PowerTypeMetaData struct {
 	// Properties
 	PowerConf float32
-}
-
-type PrayGachaMetaData struct {
-	// Properties
-	AvatarID        int32
-	LuckAddDesc     AddrTo[Hash]
-	CurrentLuckDesc AddrTo[Hash]
-	RecommendDesc   AddrTo[Hash]
-	SmallTipsDesc   AddrTo[Hash]
-	HelpDesc        AddrTo[Hash]
-	OneGachaImg     AddrTo[StrWithPrefix16]
-	TenGachaImg     AddrTo[StrWithPrefix16]
 }
 
 type PredownloadAsbMetaData struct {
@@ -13115,39 +13053,6 @@ type QTEndlessMonsterWaveMetaData struct {
 	// DistRule AddrTo[[]StrWithPrefix16]
 	// RankDist AddrTo[[]int32]
 
-}
-
-type QuestionBankMetaData struct {
-	// Properties
-	Type           int32
-	QuestionText   AddrTo[Hash]
-	AnswerTextList AddrTo[[]QuestionBankMetaData_Answer]
-	RightReward    int32
-	WrongReward    int32
-}
-
-type QuestionBankMetaData_Answer struct {
-	// Fields
-	AnswerID uint32
-
-	// Objects
-	AnswerTextID Hash
-}
-
-type QuestionConfigMetaData struct {
-	// Properties
-	AskAvatarID         int32
-	StartText           AddrTo[Hash]
-	FinishText          AddrTo[Hash]
-	RightAnswerTextList AddrTo[[]Hash]
-	WrongAnserTextList  AddrTo[[]Hash]
-}
-
-type QuestionScheduleMetaData struct {
-	// Properties
-	QuestionID uint32
-	OpenTime   AddrTo[StrWithPrefix16]
-	CloseTime  AddrTo[StrWithPrefix16]
 }
 
 type QuickEntryScheduleMetaData struct {
@@ -13994,23 +13899,6 @@ type RichShopMetaData struct {
 	CostNum       int32
 }
 
-type RogueActiveCardMetaData struct {
-	// Properties
-	EntityClass int32
-	Name        AddrTo[Hash]
-	Desc        AddrTo[Hash]
-	Model       AddrTo[StrWithPrefix16]
-	IconPath    AddrTo[StrWithPrefix16]
-	ChargeCount int32
-	Cd          float32
-	Param1      float32
-	Param1Add   float32
-	Param2      float32
-	Param2Add   float32
-	Param3      float32
-	Param3Add   float32
-}
-
 type RogueBuffPoolMetaData struct {
 	// Properties
 	IsExtra    bool
@@ -14021,38 +13909,6 @@ type RogueBuffPoolMetaData_Pool struct {
 	// Fields
 	ID     int32
 	Weight int32
-}
-
-type RogueGoodsMetaData struct {
-	// Properties
-	Type      int32
-	SubID     int32
-	Price     int32
-	StoreType AddrTo[[]int32]
-	Rare      int32
-	Category  int32
-}
-
-type RoguePriceMetaData struct {
-	// Properties
-	Dec       AddrTo[Hash]
-	Price     int32
-	StoreType AddrTo[[]int32]
-	Ability   AddrTo[StrWithPrefix16]
-	Param1    float32
-}
-
-type RogueStoreMetaData struct {
-	// Properties
-	StoreType     int32
-	ShopName      AddrTo[Hash]
-	BaseProp      AddrTo[StrWithPrefix16]
-	TrueProp      AddrTo[StrWithPrefix16]
-	BeginPlotIDs  AddrTo[[]int32]
-	StoreDialog   int32
-	SuccessDialog int32
-	FailDialog    int32
-	CoinPos       float32
 }
 
 type RogueTowerDataMetaData struct {
@@ -14104,15 +13960,6 @@ type RogueTowerStageMetaData_ScorePercent struct {
 	// Fields
 	MinScore int32
 	Percent  int32
-}
-
-type RogueTriggerMetaData struct {
-	// Properties
-	TriggerType    int32
-	Text           AddrTo[Hash]
-	TriggerAbility AddrTo[StrWithPrefix16]
-	DropType       AddrTo[StrWithPrefix16]
-	Param          float32
 }
 
 type RoutineDataMetaData struct {
@@ -15040,14 +14887,6 @@ type ShareChannelMetaData struct {
 	AllowWebLink    bool
 }
 
-type ShareConfigMetaData struct {
-	// Properties
-	ShareType    int32
-	ShareImgPath AddrTo[StrWithPrefix16]
-	WebviewPath  AddrTo[StrWithPrefix16]
-	ShareTips    AddrTo[Hash]
-}
-
 type SharePakDataMetaData struct {
 	// Properties
 	SubPakId int32
@@ -15056,11 +14895,6 @@ type SharePakDataMetaData struct {
 type ShareShowDetailConfigMetaData struct {
 	// Properties
 	Paths AddrTo[[]StrWithPrefix16]
-}
-
-type ShareSpecialMetaData struct {
-	// Properties
-	PrefabPath AddrTo[StrWithPrefix16]
 }
 
 type ShareSwitchMetaData struct {
@@ -15077,6 +14911,65 @@ type ShareSwitchMetaData struct {
 	BilibiliShare     bool
 	WechatMomentShare bool
 	TikTok            bool
+}
+
+type ShigureKiraActivityMetaData struct {
+	// Properties
+	DropLimitScheduleID      int32
+	ProgressAdditionOneClick int32
+	TotalProgress            int32
+	ShopMaterialID           int32
+	ProgressMaterialID       int32
+	QuestAreaIDList          AddrTo[[]int32]
+	ProgressIDList           AddrTo[[]int32]
+	StrengthenIDRange        AddrTo[ShigureKiraActivityMetaData_AbilityIDRange]
+}
+
+type ShigureKiraActivityMetaData_AbilityIDRange struct {
+	// Fields
+	Max int32
+	Min int32
+}
+
+type ShigureKiraFanchantMemMetaData struct {
+	// Properties
+	ProgressID           int32
+	QavatarID            int32
+	QavatarName          AddrTo[Hash]
+	FanchantSkillName    AddrTo[Hash]
+	FanchantSkillDetail  AddrTo[Hash]
+	RecruitConditionTips AddrTo[Hash]
+	RewardID             int32
+	UnlockConditionTips  AddrTo[Hash]
+	QAvatarIconPath      AddrTo[StrWithPrefix16]
+	QAvatarTips          AddrTo[Hash]
+	BuffList             AddrTo[[]int32]
+	AreaID               int32
+}
+
+type ShigureKiraProgressPointMetaData struct {
+	// Properties
+	SiteID          int32
+	SlotType        uint8
+	Progress        int32
+	CostMaterialNum int32
+	FanchantID      int32
+	UnlockTips      AddrTo[Hash]
+}
+
+type ShigureKiraSiteMetaData struct {
+	// Properties
+	MinDropNum    int32
+	MaxDropNum    int32
+	QuestSiteType uint8
+}
+
+type ShigureKiraStrengthenMetaData struct {
+	// Properties
+	ProgressAddition      int32
+	NextStrengthenID      int32
+	StrengthenATK         int32
+	StrengthenAddedDamage int32
 }
 
 type ShopAboutToOnlineItem struct {
@@ -16522,6 +16415,104 @@ type ThemeStigmataGroup struct {
 	StigmataIDList        AddrTo[[]int32]
 }
 
+type ThemeTowerScheduleMetaData struct {
+	// Properties
+	MinPlayerLevel      uint8
+	BeginTime           AddrTo[RemoteTime]
+	EndTime             AddrTo[RemoteTime]
+	Title               AddrTo[Hash]
+	SectionIDList       AddrTo[[]int32]
+	MissionIDList       AddrTo[[]int32]
+	ShowMaterialIDList  AddrTo[[]int32]
+	PictuorialID        int32
+	RewardLineID        int32
+	IntroductionWebLink AddrTo[StrWithPrefix16]
+}
+
+type ThemeTowerScoreDropMetaData struct {
+	// Properties
+	DropMaterialID  int32
+	DropMaterialNum int32
+}
+
+type ThemeTowerSectionLevelMetaData struct {
+	// Properties
+	CostMaterialNum int32
+}
+
+type ThemeTowerSectionMetaData struct {
+	// Properties
+	TowerSectionTitle        AddrTo[Hash]
+	OpenTime                 AddrTo[RemoteTime]
+	TowerSectionPicPath      AddrTo[StrWithPrefix16]
+	SectionLevelConfigID     uint8
+	TowerStageIDList         AddrTo[[]int32]
+	ShowMaterialIDList       AddrTo[[]int32]
+	SectionLevelUpMaterialID int32
+	StageResource            AddrTo[StrWithPrefix16]
+	MaxDropMaterialNum       int32
+}
+
+type ThemeTowerSignMetaData struct {
+	// Properties
+	SectionSignID      int32
+	SectionStageSignID int32
+}
+
+type ThemeTowerStageBuffMetaData struct {
+	// Properties
+	Type        uint8
+	Rarity      uint8
+	IconPath    AddrTo[StrWithPrefix16]
+	Name        AddrTo[Hash]
+	Desc        AddrTo[Hash]
+	LevelUPDesc AddrTo[[]Hash]
+	AbilityName AddrTo[StrWithPrefix16]
+	ParamList   AddrTo[[]StrWithPrefix16]
+}
+
+type ThemeTowerStageFloorMetaData struct {
+}
+
+type ThemeTowerStageMetaData struct {
+	// Properties
+	StepConfigID            int32
+	FloorConfigID           int32
+	FirstWinRewardID        int32
+	TowerStageIconPath      AddrTo[StrWithPrefix16]
+	TowerStageBossID        int32
+	BossModelPosition       AddrTo[[]float32]
+	BossModelRotation       AddrTo[[]float32]
+	BossModelScale          float32
+	WeatherBuffID           int32
+	SignID                  int32
+	SpecialBuffIDList       AddrTo[[]int32]
+	CommonBuffIDList        AddrTo[[]int32]
+	StageBuffRandom         AddrTo[[]ThemeTowerStageMetaData_RandomWeight]
+	UniqueStageBuffMinTimes int32
+	ActiveSkillBuffID       int32
+	MonsterIDList           AddrTo[[]int32]
+	PictuorialID            int32
+	IntroductionWebLink     AddrTo[StrWithPrefix16]
+}
+
+type ThemeTowerStageMetaData_RandomWeight struct {
+	// Fields
+	BuffID int32
+	Weight int32
+}
+
+type ThemeTowerStageStepMetaData struct {
+	// Properties
+	ScoreDropConfigID      int32
+	ScoreRatio             float32
+	HardLevel              int32
+	SelectTitle            AddrTo[Hash]
+	RecommendrSectionLevel uint8
+	PredictRewardRange     AddrTo[ShigureKiraActivityMetaData_AbilityIDRange]
+	PredictScoreRange      AddrTo[ShigureKiraActivityMetaData_AbilityIDRange]
+}
+
 type ThemeUIConfigMetaData struct {
 	// Properties
 	MainPage          AddrTo[StrWithPrefix16]
@@ -16892,11 +16883,11 @@ type TVTCardMetaData struct {
 
 type TVTCardSlotMetaData struct {
 	// Properties
-	IsUnlocked          bool
-	UnlockConditionHint AddrTo[StrWithPrefix16]
-	UnlockCondition     AddrTo[StrWithPrefix16]
-	UnlockTime          AddrTo[StrWithPrefix16]
-	UnlockDivisionLv    uint16
+	// IsUnlocked bool
+	// UnlockConditionHint AddrTo[StrWithPrefix16]
+	UnlockCondition AddrTo[StrWithPrefix16]
+	// UnlockTime AddrTo[StrWithPrefix16]
+	UnlockDivisionLv uint16
 }
 
 type TVTConstValuesMetaData struct {
@@ -17828,22 +17819,40 @@ type ChapterActivityPhaseMetaDataReader_StructKey struct {
 	PhaseNum  int32
 }
 
+type ChapterActivityRewardLineMetaDataReader_StructKey struct {
+	// Fields
+	ConfigID    int32
+	CountNumber int32
+}
+
 type ChapterBWFogConfigMetaDataReader_StructKey struct {
 	// Fields
 	FogNodeID uint8
 	WorldType uint8
 }
 
-type ChapterBWWorldRewardLineMetaDataReader_StructKey struct {
+type ChapterBWWorldBuffSetMetaDataReader_StructKey struct {
 	// Fields
-	ConfigID    int32
-	CountNumber int32
+	StageID int32
+	WaveID  int32
 }
 
 type ChapterBWWorldRuneLevelMetaDataReader_StructKey struct {
 	// Fields
 	LevelConfigID int32
 	Level         int32
+}
+
+type ChapterBWWorldSageTowerCfgMetaDataReader_StructKey struct {
+	// Fields
+	SiteType int32
+	Param    int32
+}
+
+type ChapterBWWorldTowerStageMetaDataReader_StructKey struct {
+	// Fields
+	StageID int32
+	Floor   int32
 }
 
 type ChapterChallengeMetaDataReader_StructKey struct {
@@ -18001,12 +18010,6 @@ type CoupleTowerRewardMetaDataReader_StructKey struct {
 	// Fields
 	ActivityID int32
 	MinFloor   int32
-}
-
-type CoupleTowerScoreMetaDataReader_StructKey struct {
-	// Fields
-	StageID int32
-	Floor   int32
 }
 
 type DailyMissionMaterialIconMetaDataReader_StructKey struct {
@@ -19029,6 +19032,36 @@ type SupportMissionConfigMetaDataReader_StructKey struct {
 	Index                  int32
 }
 
+type ThemeTowerScoreDropMetaDataReader_StructKey struct {
+	// Fields
+	ScoreDropConfigID int32
+	Score             int32
+}
+
+type ThemeTowerSectionLevelMetaDataReader_StructKey struct {
+	// Fields
+	SectionLevelConfigID int32
+	Level                uint8
+}
+
+type ThemeTowerStageBuffMetaDataReader_StructKey struct {
+	// Fields
+	BuffID int32
+	Level  uint8
+}
+
+type ThemeTowerStageFloorMetaDataReader_StructKey struct {
+	// Fields
+	FloorConfigID int32
+	FloorOrder    uint8
+}
+
+type ThemeTowerStageStepMetaDataReader_StructKey struct {
+	// Fields
+	StepConfigID int32
+	StepLevel    uint8
+}
+
 type TileValueKeyMetaDataReader_StructKey struct {
 	// Fields
 	MapID int32
@@ -19145,13 +19178,79 @@ type WeeklyReportSubPageDataMetaDataReader_StructKey struct {
 	FatherID int32
 }
 
+type EditorUniqueMonsterMetaData struct {
+	// Properties
+	Info           AddrTo[StrWithPrefix16]
+	Group          uint32
+	Category       AddrTo[StrWithPrefix16]
+	Name           AddrTo[Hash]
+	MonsterName    AddrTo[StrWithPrefix16]
+	TypeName       AddrTo[StrWithPrefix16]
+	HPRatio        float32
+	AttackRatio    float32
+	DefenseRatio   float32
+	MoveSpeedRatio float32
+	ATKRatios      AddrTo[[]float32]
+	ConfigType     AddrTo[StrWithPrefix16]
+	AIName         AddrTo[StrWithPrefix16]
+	AttackCDNames  AddrTo[[]StrWithPrefix16]
+	AttackCDs      AddrTo[[]float32]
+	Abilities      AddrTo[StrWithPrefix16]
+	HPSegmentNum   int32
+	Scale          AddrTo[[]float32]
+	BossRank       int32
+	HandBookId     int32
+}
+
+type MonsterActivityMetaData struct {
+	// Properties
+	ActivityName AddrTo[StrWithPrefix16]
+}
+
+type MonsterProtoTypeMetaData struct {
+	// Properties
+	Info           AddrTo[StrWithPrefix16]
+	Details        AddrTo[StrWithPrefix16]
+	Category       AddrTo[StrWithPrefix16]
+	Name           AddrTo[Hash]
+	MonsterName    AddrTo[StrWithPrefix16]
+	TypeName       AddrTo[StrWithPrefix16]
+	HPRatio        float32
+	AttackRatio    float32
+	DefenseRatio   float32
+	MoveSpeedRatio float32
+	ATKRatios      AddrTo[[]float32]
+	ConfigType     AddrTo[StrWithPrefix16]
+	AIName         AddrTo[StrWithPrefix16]
+	AttackCDNames  AddrTo[[]StrWithPrefix16]
+	AttackCDs      AddrTo[[]float32]
+	Abilities      AddrTo[StrWithPrefix16]
+	HPSegmentNum   int32
+	Scale          AddrTo[[]float32]
+	BossRank       int32
+	HandBookId     int32
+}
+
+type PropListMetaData struct {
+	// Properties
+	Info     AddrTo[StrWithPrefix16]
+	Details  AddrTo[StrWithPrefix16]
+	Category AddrTo[StrWithPrefix16]
+}
+
+type MultiPlatforms_UserInfoMetaData struct {
+	UserType    byte
+	AccountType byte
+	UserLabel   StrWithPrefix16
+}
+
+type MultiPlatforms_UserInfoMetaDataReader_StructKey struct {
+	AccountType byte
+	UserType    byte
+}
+
 type UnknownAsset1MetaData struct {
 	Field1 bool
 	ID     int32
 	Field2 []RandomDialogCGRawMetaData_CGRawPos
-}
-
-type UnknownAsset2MetaDataReader_StructKey struct {
-	Key1 int32
-	Key2 int32
 }
